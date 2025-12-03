@@ -1,4 +1,4 @@
-# LeetCode 3625 — Count Number of Trapezoids II
+# 3625 — Count Number of Trapezoids II
 
 This problem asks for the number of unique trapezoids that can be formed from a set of distinct points on the 2D plane.  
 A trapezoid is defined as a **convex quadrilateral with at least one pair of parallel sides**.
