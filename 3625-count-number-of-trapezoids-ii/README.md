@@ -1,144 +1,55 @@
-# 3625. Count Number of Trapezoids II
+# LeetCode 3625 — Count Number of Trapezoids II
 
-**Difficulty:** Hard  
-**Topics:** Geometry, Combinatorics, Hash Map  
-**Link:** https://leetcode.com/problems/count-number-of-trapezoids-ii/
+This problem asks for the number of unique trapezoids that can be formed from a set of distinct points on the 2D plane.  
+A trapezoid is defined as a **convex quadrilateral with at least one pair of parallel sides**.
 
----
+Direct combinatorial enumeration of all 4-point subsets is impossible (up to 2.6 billion combinations), so the solution requires a mathematical and geometric approach.
 
-##  Problem Description
+## Key Idea
 
-You are given a list of 2D points.  
-A **trapezoid** is a convex quadrilateral having **at least one pair of parallel sides**.
-
-Two line segments are parallel if and only if they have the **same slope**:
+A quadrilateral is a trapezoid if and only if it has **at least one pair of parallel sides**.  
+Thus, we count:
 
 ```
 
-slope = (y2 - y1) / (x2 - x1)
+(All quadrilaterals with ≥1 pair of parallel sides)
+− (All parallelograms)
 
 ```
 
-Return the number of **unique** trapezoids that can be formed using **any four distinct points**.
+Parallelograms must be removed because they contain **two** pairs of parallel sides.
 
----
+### Main Components
 
-##  Examples
+1. **Parallel lines detection**
+   - For each pair of points, compute the reduced slope `(sx, sy)` and line constant `sx*y − sy*x`.
+   - Parallel lines share the same slope but have different constants.
+   - If two different parallel lines have `c1` and `c2` segments, they can form `c1*c2` quadrilaterals with a pair of parallel sides.
 
-### Example 1
-```
+2. **Parallelogram detection**
+   - A parallelogram’s diagonals have the same midpoint.
+   - Count all pairs of segments with the same midpoint (using doubled coordinates).
+   - Each parallelogram is counted twice → divide by 2.
 
-Input: points = [[-3,2],[3,0],[2,3],[3,2],[2,-3]]
-Output: 2
-
-```
-
-### Example 2
-```
-
-Input: points = [[0,0],[1,0],[0,1],[2,1]]
-Output: 1
+### Final formula
 
 ```
 
----
-
-#  Key Insight
-
-A valid trapezoid requires:
-
-- Two line segments that are **parallel**
-- Those two segments must **not share endpoints**
-- Any two non-overlapping parallel segments automatically form a convex quadrilateral, guaranteed by the problem constraints
-
-Therefore, the problem reduces to:
-
-#  Count all pairs of **parallel** segments  
-#  Exclude pairs that share endpoints  
-#  Each remaining pair corresponds to one trapezoid
-
----
-
-##  Mathematical Breakdown
-
-### Step 1 — Enumerate all point pairs  
-For each pair `(i, j)`:
-
-1. Compute reduced slope `(dy/g, dx/g)`
-2. Normalize sign so slopes are comparable
-3. Group segments by slope
-
-Example:
+Answer = parallel_line_pairs − (parallelogram_pairs / 2)
 
 ```
 
-slope_groups[(dy, dx)] = list of segments with this slope
-
-```
-
----
-
-### Step 2 — For each slope group:
-
-Suppose this slope has `k` segments.
-
-### Total segment pairs:
-
-```
-
-total_pairs = C(k, 2)
-
-```
-
-### Invalid pairs (segments sharing endpoints):
-
-For each point p:
-
-```
-
-deg[p] = number of segments connected to p
-invalid_pairs += C(deg[p], 2)
-
-```
-
-### Valid trapezoids contributed by this slope =
-
-```
-
-valid = total_pairs - invalid_pairs
-
-```
-
----
-
-#  Complexity Analysis
-
-- Maximum n = 500  
-- Total point pairs = ~125k  
-- Hashing and counting are efficient  
-
-Overall complexity:
+## Time Complexity
 
 ```
 
 O(n^2)
 
-````
+```
 
-Fully acceptable.
+Works for up to n = 500.
 
----
+## Files
 
-#  Summary
-
-To count trapezoids:
-
-1. Compute slope for every point pair
-2. Group segments by slope
-3. For each slope group:
-
-   * Compute all possible segment pairs
-   * Subtract pairs that share endpoints
-4. Sum across all slopes
-
-This transforms a geometry problem into a clean combinatorics one.
+- `solution.py` — Final efficient implementation
+- `Notes.md` — Full mathematical explanation and reasoning
