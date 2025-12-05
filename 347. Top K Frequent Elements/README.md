@@ -1,101 +1,96 @@
-# 347. Top K Frequent Elements
+# **LeetCode 347 – Top K Frequent Elements**
 
 **Difficulty:** Medium  
-**Topics:** Array, Hash Map, Heap, Bucket Sort  
-**Link:** https://leetcode.com/problems/top-k-frequent-elements/
+**Tags:** Array, Hash Table, Heap, Sorting  
+**Link:** [https://leetcode.com/problems/top-k-frequent-elements/](https://leetcode.com/problems/top-k-frequent-elements/)
 
 ---
 
-##  Problem Description
+## **Problem Summary**
 
-Given an integer array `nums` and an integer `k`, return the **k most frequent elements**.  
-The answer may be returned **in any order**.
+Given an integer array `nums`, return a list containing the `k` most frequent elements.
+
+The order of the returned elements does not matter, but the result must contain exactly the `k` elements that appear most often in the array.
 
 ---
 
-##  Examples
+## **Key Insight**
 
-### Example 1
+The key observation is that this problem is about **frequency ranking**, not sorting by value.
+
+A mapping from elements to their occurrence counts is required.
+Once frequencies are known, the task reduces to selecting the `k` highest-frequency keys.
+
+Common approaches include:
+
+* Sorting elements by frequency
+* Using a max heap
+* Using a bucket structure keyed by frequency
+
+Since the value range is arbitrary, a frequency map is essential.
+
+---
+
+## **Approach**
+
+1. Iterate through the array and build a frequency map:
+
+   ```
+   element → count
+   ```
+2. Extract all unique elements.
+3. Sort them based on frequency in descending order.
+4. Take the first `k` items from the sorted list.
+5. Return these as the result.
+
+This method ensures correctness and is simple to implement.
+
+---
+
+## **Example**
+
+**Input**
+
+```
+nums = [1, 1, 1, 2, 2, 3]
+k = 2
 ```
 
-Input: nums = [1,1,1,2,2,3], k = 2
-Output: [1,2]
+**Explanation**
+The elements `1` (frequency 3) and `2` (frequency 2) are the top two most frequent elements.
+
+**Output**
 
 ```
-
-### Example 2
-```
-
-Input: nums = [1], k = 1
-Output: [1]
-
-```
-
-### Example 3
-```
-
-Input: nums = [1,2,1,2,1,2,3,1,3,2], k = 2
-Output: [1,2]
-
+[1, 2]
 ```
 
 ---
 
-##  Constraints
-- \( 1 \le \text{nums.length} \le 10^5 \)
-- \( -10^4 \le \text{nums}[i] \le 10^4 \)
-- \( 1 \le k \le \) number of unique elements
-- The answer is guaranteed to be unique.
+## **Why This Works**
+
+The frequency map captures exactly how often each element appears.
+Sorting the keys by their associated counts guarantees that the top `k` entries correspond to the required result.
+
+This problem emphasizes the separation between:
+
+* Value ordering (not relevant)
+* Frequency ordering (required)
+
+Using a hash map plus sorting provides clarity and efficiency.
 
 ---
 
-##  Follow-Up
+## **Complexity**
 
-Your algorithm must be **better than** `O(n log n)`, where `n` is the length of `nums`.
-
----
-
-##  Key Insight
-
-We need the `k` elements with the highest frequency.
-
-Three valid approaches:
+* **Time:** `O(n log n)` due to sorting
+  Can be optimized to `O(n)` with bucket sort or `O(n log k)` with a heap.
+* **Space:** `O(n)` for the frequency map
 
 ---
 
-##  **Solution 1 — HashMap + Counter (Most Pythonic)**
-Uses `collections.Counter`.
+## **What I Learned**
 
-**Complexity:**  
-- Time: `O(n log k)`  
-- Space: `O(n)`
-
----
-
-##  **Solution 2 — HashMap + Sorting**
-Sort keys by frequency.
-
-**Complexity:**  
-- Time: `O(n log n)`  
-- Space: `O(n)`
-
----
-
-##  **Solution 3 — Bucket Sort (Best, O(n))**
-Because frequency ranges from `1` to `n`, we can place numbers into buckets indexed by frequency.
-
-**Complexity:**  
-- Time: `O(n)`  
-- Space: `O(n)`
-
-This is the optimal solution required by the follow-up.
-
----
-
-##  Summary
-
-| Method | Time | Space | Notes |
-|--------|--------|--------|----------------|
-| Counter | O(n log k) | O(n) | Clean + fast |
-| Sorting | O(n log n) | O(n) | Simple, accepted |
-| Bucket Sort | O(n) | O(n) | Best solution |
+* How separating value and frequency simplifies ranking problems.
+* Why hash maps are essential for counting occurrences efficiently.
+* How different data structures (heap, bucket, sort) impact performance trade-offs.
