@@ -1,148 +1,106 @@
-# 2141. Maximum Running Time of N Computers
+# **LeetCode 2141 – Maximum Running Time of N Computers**
 
-**Difficulty:** Hard  
-**Topics:** Binary Search, Greedy, Math  
-**Link:** https://leetcode.com/problems/maximum-running-time-of-n-computers/
-
----
-
-##  Problem Description
-
-You have `n` computers and an array `batteries` where each battery has a certain running time (in minutes).  
-You want to run **all n computers simultaneously** for the **maximum number of minutes**, under these rules:
-
-- Initially, you may insert **at most one battery per computer**.
-- You can **swap batteries at any time**, and swapping takes no time.
-- Batteries **cannot be recharged**.
-- A battery can be reused on any computer after removal.
-
-Return the **maximum number of minutes** that all `n` computers can run simultaneously.
+**Difficulty:** Hard
+**Tags:** Binary Search, Greedy, Math
+**Link:** [https://leetcode.com/problems/maximum-running-time-of-n-computers/](https://leetcode.com/problems/maximum-running-time-of-n-computers/)
 
 ---
 
-##  Examples
+## **Problem Summary**
 
-### Example 1
-```
+We are given `n` computers and a list of batteries.
+Each battery can power exactly one computer at a time, and batteries can be swapped freely without any cost.
 
-Input: n = 2, batteries = [3, 3, 3]
-Output: 4
-
-```
-
-Explanation:  
-You can swap batteries optimally to run both computers for 4 minutes total.
+The goal is to determine the maximum number of minutes all `n` computers can run simultaneously.
 
 ---
 
-### Example 2
-```
+## **Key Insight**
 
-Input: n = 2, batteries = [1,1,1,1]
-Output: 2
+If each computer needs to run for `T` minutes, then the total required energy is:
 
 ```
+n * T
+```
+
+Each battery can contribute at most:
+
+```
+min(battery[i], T)
+```
+
+Thus, the feasibility of a candidate time `T` depends on:
+
+```
+sum(min(battery[i], T)) ≥ n * T
+```
+
+This condition is monotonic, meaning if a time `T` is feasible, all smaller values are also feasible. This justifies using binary search.
 
 ---
 
-##  Key Insight
+## **Approach**
 
-Since batteries can be freely swapped, the order does not matter.
+1. Compute the total battery capacity.
+2. The maximum possible running time cannot exceed `total_capacity // n`.
+3. Use binary search over `[0, total_capacity // n]`.
+4. For each candidate time `T`, compute:
 
-To run **n computers for t minutes**, we need:
-
-```
-
-Total usable power ≥ n * t
-
-```
-
-Each battery contributes at most:
-
-```
-
-min(battery[i], t)
-
-```
-
-Thus total contribution is:
-
-```
-
-sum( min(bi, t) )
-
-```
-
-If:
-
-```
-
-sum(min(bi, t)) ≥ n * t
-
-```
-
- We **can** run the computers for `t` minutes.  
- Otherwise, we **cannot**.
-
-This gives a clear **feasibility function** → perfect for **binary search**.
+   ```
+   total_usable = sum(min(battery[i], T))
+   ```
+5. If `total_usable ≥ n * T`, then `T` is feasible; otherwise, it is not.
+6. Return the maximum feasible value of `T`.
 
 ---
 
-##  Why Binary Search?
+## **Example**
 
-`t` is monotonic:
-
-- If we can run for `t` minutes → we can run for any `t' < t`
-- If we cannot run for `t` minutes → we cannot run for any `t' > t`
-
-Therefore:
-
-We binary search `t` between:
+**Input**
 
 ```
+n = 2
+batteries = [3, 3, 3]
+```
 
-left = 0
-right = sum(batteries) // n
+**Explanation**
 
+* Total energy = 9
+* Maximum possible equal time = 9 // 2 = 4
+* It is possible to combine battery energy to sustain both computers for 4 minutes.
+
+**Output**
+
+```
+4
 ```
 
 ---
 
-##  Algorithm
+## **Why This Works**
 
-1. Binary search on the answer `t`
-2. For each candidate `t`, compute:
-```
+Because batteries can be swapped arbitrarily, the physical distribution of energy does not matter. What matters is the **total usable energy**, capped at `T` for each battery.
 
-total = sum(min(bi, t))
+The feasibility condition:
 
 ```
-3. If `total >= n * t`, t is feasible
-4. Adjust search boundaries
-5. Return the maximum feasible t
+sum(min(b[i], T)) ≥ n * T
+```
+
+is monotonic with respect to `T`, which allows the solution to perform an efficient binary search.
 
 ---
 
-##  Complexity
+## **Complexity**
 
-```
-
-Time:  O(n log(sum(batteries)/n))
-Space: O(1)
-
-````
-
-Efficient for n up to 100,000.
+* **Time:** `O(m log(total/n))`, where `m` is the number of batteries
+* **Space:** `O(1)`
 
 ---
 
-##  Summary
+## **What I Learned**
 
-* This is a **binary search on time** problem.
-* We check feasibility using:
-
-  ```
-  sum(min(bi, t)) >= n * t
-  ```
-* Swapping batteries is allowed, so only total usable minutes matter.
-* Final answer is the maximum `t` satisfying the feasibility condition.
+* How binary search is applied in “maximize feasible value” problems.
+* How monotonic feasibility conditions simplify optimization.
+* Why freely swappable batteries reduce the problem to analyzing total usable energy.
+我就依序开始重写所有题目。
