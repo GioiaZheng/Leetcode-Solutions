@@ -1,116 +1,94 @@
-# 28. Find the Index of the First Occurrence in a String
+# **LeetCode 28 – Find the Index of the First Occurrence in a String**
 
 **Difficulty:** Easy  
-**Topics:** String, Two Pointers, Pattern Matching  
-**Link:** https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
+**Tags:** String, Two Pointers, Pattern Matching  
+**Link:** [https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/)
 
 ---
 
-##  Problem Description
+## **Problem Summary**
 
-Given two strings `haystack` and `needle`, return the **index of the first occurrence** of `needle` in `haystack`.  
-If `needle` is **not found**, return `-1`.
+Given two strings `haystack` and `needle`, determine the index of the first occurrence of `needle` in `haystack`.
 
-You must search for `needle` as a **continuous substring**.
+If `needle` does not occur in `haystack`, return `-1`.
 
----
-
-##  Examples
-
-### Example 1
-```
-
-Input: haystack = "sadbutsad", needle = "sad"
-Output: 0
-Explanation:
-"sad" appears at indexes 0 and 6.
-The first occurrence is at index 0.
-
-```
-
-### Example 2
-```
-
-Input: haystack = "leetcode", needle = "leeto"
-Output: -1
-Explanation:
-"leeto" does not appear in "leetcode".
-
-```
+This task is equivalent to substring searching, a fundamental string-processing operation.
 
 ---
 
-##  Key Idea
+## **Key Insight**
 
-We want to find the first index `i` such that:
+A match begins at position `i` in `haystack` if:
 
 ```
-
 haystack[i : i + len(needle)] == needle
+```
 
-````
+The simplest solution checks every possible starting index up to:
 
-There are multiple possible approaches:
+```
+len(haystack) - len(needle)
+```
 
-1. **Use Python's built-in `.find()`**  
-2. **Manual substring matching using a sliding window**  
-3. (Optional for advanced) **KMP algorithm**
-
-For this problem, solutions 1 and 2 are fully acceptable.
+While advanced algorithms such as KMP improve worst-case performance, a direct scan is typically sufficient.
 
 ---
 
-##  Approach 1 — Using `.find()` (Python Built-in)
+## **Approach**
 
-### Concept
-- Python provides a highly optimized method: `string.find(substring)`
-- Returns the index of the first match, or -1 if not found
+1. Let `m = len(haystack)` and `n = len(needle)`.
+2. If `n > m`, return `-1` immediately.
+3. Iterate through all valid starting positions `i` from `0` to `m - n`:
 
-### Time complexity
-- Worst case: O(m * n), but CPython has optimizations
+   * Compare the substring of length `n` starting at `i` with `needle`.
+   * If they match, return `i`.
+4. If no match is found, return `-1`.
 
----
-
-##  Approach 2 — Sliding Window / Two Pointers
-
-### Concept
-
-For every possible start position `i`, compare substring of length `len(needle)`.
-
-Check:
-
-```
-haystack[i : i + n] == needle
-```
-
-If equal → return i.
-
-### Time Complexity
-
-* O((m - n + 1) * n)
-* Works well since constraints are small.
+This approach ensures correctness in linear-time substring scanning.
 
 ---
 
-## ✔ Summary
+## **Example**
 
-| Method         | Description                  | Time             | Space |
-| -------------- | ---------------------------- | ---------------- | ----- |
-| `.find()`      | Fastest & simplest           | O(m·n) optimized | O(1)  |
-| Sliding Window | Manual, easy to understand   | O((m-n+1)·n)     | O(1)  |
-| KMP (optional) | Best theoretical performance | O(m+n)           | O(n)  |
+**Input**
 
-For LeetCode 28, **both provided solutions are fully sufficient and accepted**.
+```
+haystack = "sadbutsad"
+needle = "sad"
+```
+
+**Explanation**
+
+* A match occurs at index `0`.
+* The next match at index `6` is later, but we return the first occurrence.
+
+**Output**
+
+```
+0
+```
 
 ---
 
-##  Repository Files
+## **Why This Works**
 
-```
-28-find-the-index-of-the-first-occurrence-in-a-string/
-│── README.md
-│── solution1.py   # Built-in .find()
-└── solution2.py   # Sliding window manual match
-```
+A substring of length `n` can only begin at positions where there are enough characters remaining.
+By checking each such position exactly once, we avoid unnecessary work.
 
+Pattern matching reduces to comparing fixed-length slices, making the algorithm straightforward and efficient for typical inputs.
 
+---
+
+## **Complexity**
+
+* **Time:** `O(m * n)` in the worst case
+  (can be improved to `O(m + n)` with KMP, though not required)
+* **Space:** `O(1)`
+
+---
+
+## **What I Learned**
+
+* How basic substring searching works through sequential comparison.
+* Why boundary checks (`m - n`) are essential for avoiding invalid indexing.
+* How more advanced algorithms improve theoretical performance, even if not needed for this problem.
