@@ -114,5 +114,3 @@ By tracking remainder states, we avoid recomputing sums and ensure each partial 
 * How to extend classical path DP with modular arithmetic.
 * Why modulo-based DP states are powerful when sum divisibility is required.
 * How dimensional DP grows with problem constraints and how to manage complexity.
-
-**0026 – Remove Duplicates from Sorted Array**
