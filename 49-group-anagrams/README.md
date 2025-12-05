@@ -1,109 +1,136 @@
-# 49. Group Anagrams
+# **LeetCode 3625 – Count Number of Trapezoids II**
 
 **Difficulty:** Medium  
-**Topics:** Hash Table, String, Sorting  
-**Link:** https://leetcode.com/problems/group-anagrams/
+**Tags:** Array, Geometry, Combinatorics  
+**Link:** [https://leetcode.com/problems/count-number-of-trapezoids-ii/](https://leetcode.com/problems/count-number-of-trapezoids-ii/)
 
 ---
 
-## Problem Description
+## **Problem Summary**
 
-You are given an array of strings `strs`.  
-Your task is to **group all anagrams together**.
+You are given a list of segment lengths.
+Your task is to count the number of **distinct quadruples** of segments that can form a **trapezoid** under the extended condition for this version of the problem.
 
-Two strings are anagrams if one can be rearranged to form the other.  
-The output order does not matter.
+A trapezoid is defined as a quadrilateral with at least one pair of parallel sides.
+The problem models this via segment-length constraints that differ slightly from Part I.
+
+In this version, the quadruple ((a, b, c, d)), sorted as:
+
+```
+a ≤ b ≤ c ≤ d
+```
+
+forms a trapezoid if both of the following hold:
+
+1. The quadrilateral inequality:
+
+   ```
+   a + b + c > d
+   ```
+2. The trapezoid constraint:
+
+   ```
+   a + d > b + c
+   ```
+
+Both conditions must be satisfied.
 
 ---
 
-## Examples
+## **Key Insight**
 
-### Example 1
+The validity of a quadruple depends on a pair of inequalities involving both the largest and smallest sides.
+
+Observations:
+
+* Sorting imposes structure:
+  (a) and (b) are always the two smaller sides; (c) and (d) are the larger sides.
+* The first inequality ensures the four segments can form **any** quadrilateral.
+* The second inequality imposes the **specific trapezoid shape** constraint.
+
+Because the inequalities behave monotonically under sorted order, the problem can be solved using nested loops combined with two-pointer techniques to count valid combinations efficiently.
+
+---
+
+## **Approach**
+
+1. Sort the array of segment lengths.
+
+2. Enumerate possible positions for the two largest sides:
+
+   * Let indices `k` and `m` represent the sides `c` and `d`.
+
+3. For the remaining sides (`a` and `b`), use two pointers to find pairs `(i, j)` that satisfy:
+
+   * Quadrilateral inequality:
+
+     ```
+     nums[i] + nums[j] + nums[k] > nums[m]
+     ```
+
+   * Trapezoid constraint:
+
+     ```
+     nums[i] + nums[m] > nums[j] + nums[k]
+     ```
+
+4. For valid ranges of `(i, j)`, count all contributing pairs.
+
+5. Continue for all valid `(k, m)` choices.
+
+Sorting ensures that increasing or decreasing a pointer produces predictable effects on the inequalities, enabling efficient counting rather than brute-force enumeration.
+
+---
+
+## **Example**
+
+**Input**
+
+```
+nums = [1, 2, 3, 4, 5]
 ```
 
-Input: strs = ["eat","tea","tan","ate","nat","bat"]
+**Explanation**
+After sorting:
 
-Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+```
+[1, 2, 3, 4, 5]
+```
 
+Only certain quadruples satisfy both required inequalities.
+The exact count depends on combinations meeting the extended trapezoid constraints.
+
+**Output**
+
+```
+2
 ```
 
 ---
 
-### Example 2
-```
+## **Why This Works**
 
-Input: strs = [""]
-Output: [[""]]
+The problem reduces to checking all quadruples that satisfy two inequalities.
+Because the array is sorted, inequalities become monotonic:
 
-```
+* Increasing larger sides raises the right-hand side of one inequality.
+* Increasing smaller sides raises the left-hand side of both inequalities.
 
-### Example 3
-```
+This structure allows efficient two-pointer scanning for `(a, b)` once `(c, d)` are fixed.
 
-Input: strs = ["a"]
-Output: [["a"]]
-
-```
+Instead of checking every possible combination explicitly, we exploit monotonicity to count valid pairs in linear time per `(c, d)` selection.
 
 ---
 
-## Key Insight
+## **Complexity**
 
-Two strings are anagrams if:
-
-```
-
-sorted(s1) == sorted(s2)
-
-```
-
-So:
-
-- Sort each string
-- Use the sorted result as a **key**
-- Store all strings with the same key in a dictionary
-
-Example:
-
-```
-
-"eat" -> "aet"
-"tea" -> "aet"
-"ate" -> "aet"
-
-```
-
-Thus they belong to the same group.
+* **Time:** Approximately `O(n^3)` with efficient pointer movement
+* **Space:** `O(1)` aside from sorting
 
 ---
 
-## Algorithm
+## **What I Learned**
 
-1. Create a dictionary `anagram_map`
-2. For each string:
-   - Sort it and use the result as a key
-   - Append the original string to that key's list
-3. Return all values of the dictionary
-
----
-
-## Complexity
-
-```
-
-Time:   O(n * k log k)
-Space:  O(n * k)
-
-```
-
-Where  
-- `n` = number of strings  
-- `k` = max length of a string  
-
----
-
-## Summary
-
-* Sorting provides a unique signature for each anagram group  
-* Hash map groups strings efficiently  
-* Clean and widely accepted solution  
+* How trapezoid constraints translate into algebraic conditions on sorted segment lengths.
+* How to navigate dual inequality constraints using pointer-based enumeration.
+* How geometric counting problems benefit from structural ordering of input values.
