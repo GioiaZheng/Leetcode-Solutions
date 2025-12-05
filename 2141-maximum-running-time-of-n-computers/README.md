@@ -1,7 +1,7 @@
 # **LeetCode 2141 – Maximum Running Time of N Computers**
 
-**Difficulty:** Hard
-**Tags:** Binary Search, Greedy, Math
+**Difficulty:** Hard  
+**Tags:** Binary Search, Greedy, Math  
 **Link:** [https://leetcode.com/problems/maximum-running-time-of-n-computers/](https://leetcode.com/problems/maximum-running-time-of-n-computers/)
 
 ---
