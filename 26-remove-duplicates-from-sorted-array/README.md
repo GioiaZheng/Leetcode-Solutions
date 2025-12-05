@@ -91,5 +91,3 @@ The two-pointer technique ensures linear time complexity with constant extra mem
 * How sorted structure simplifies duplicate detection.
 * How the two-pointer technique enables in-place modification.
 * Why in-place array rewriting is commonly paired with pointer-based iteration.
-
-**0027 – Remove Element**
