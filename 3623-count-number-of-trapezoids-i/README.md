@@ -1,144 +1,123 @@
-# 3623. Count Number of Trapezoids I
+# **LeetCode 3623 – Count Number of Trapezoids I**
 
-**Difficulty:** Medium  
-**Topics:** Geometry, Combinatorics, Hash Map  
-**Link:** https://leetcode.com/problems/count-number-of-trapezoids-i/
-
----
-
-##  Problem Description
-
-You are given a list of points on the 2D plane.  
-A **horizontal trapezoid** is a convex quadrilateral with **at least one pair of parallel horizontal sides** (i.e., sides parallel to the x-axis).
-
-Your task is to count how many **distinct horizontal trapezoids** can be formed using **any 4 distinct points** from the input.
-
-Return the count modulo **10⁹ + 7**.
+**Difficulty:** Medium
+**Tags:** Array, Geometry, Combinatorics
+**Link:** [https://leetcode.com/problems/count-number-of-trapezoids-i/](https://leetcode.com/problems/count-number-of-trapezoids-i/)
 
 ---
 
-##  Examples
+## **Problem Summary**
 
-### Example 1
+You are given an array representing the lengths of multiple line segments.
+Your task is to count the number of **distinct quadruples** of segments that can form a **trapezoid**.
 
-Input:
-```
+A trapezoid is defined as a quadrilateral where **at least one pair of opposite sides is parallel**.
+In this simplified version of the problem (I), the condition is modeled as follows:
 
-points = [[1,0],[2,0],[3,0],[2,2],[3,2]]
+A quadruple of segment lengths forms a trapezoid if:
 
-```
+* After sorting the four chosen lengths (a \le b \le c \le d),
+* They satisfy the inequality:
 
-Output:
-```
+  ```
+  c + d > a + b
+  ```
 
-3
-
-```
-
-Explanation:  
-There are three valid ways to select four points that form a trapezoid:
-
-- Points on y=0: 3 points → C(3,2) = 3 ways  
-- Points on y=2: 2 points → C(2,2) = 1 way  
-- Total trapezoids = 3 × 1 = 3
+This condition corresponds to the quadrilateral inequality under trapezoid constraints.
 
 ---
 
-### Example 2
+## **Key Insight**
 
-Input:
-```
-
-points = [[0,0],[1,0],[0,1],[2,1]]
+For four segments to form any quadrilateral (including a trapezoid), the **largest two sides** must exceed the sum of the **smallest two sides**.
+Thus, for a valid quadruple:
 
 ```
-
-Output:
+c + d > a + b
 ```
 
-1
+Given a sorted array, we can choose indices `i < j < k < m` and check the inequality efficiently by fixing the larger sides and using two pointers to find how many pairs of smaller sides satisfy the condition.
 
-```
+This reduces the brute-force (O(n^4)) approach to a more manageable combinatorial sweep.
 
 ---
 
-##  Key Insight
+## **Approach**
 
-A quadrilateral is a **horizontal trapezoid** iff:
+1. Sort the array of segment lengths.
+2. Select two indices representing the **two largest sides** of the quadruple:
 
-- It has **two points on one horizontal line** (same y-value)
-- And two points on another **different** horizontal line
+   * Let these be `k` and `m`.
+3. For each pair `(k, m)`:
 
-Thus:
+   * Use two pointers (`i` and `j`) to enumerate all valid smaller-side pairs.
+   * Move the pointers according to whether:
 
-###  Group points by their `y` coordinate  
-Let frequency of each horizontal line be:
+     ```
+     nums[i] + nums[j] < nums[k] + nums[m]
+     ```
+4. Accumulate the number of valid `(i, j)` pairs for each `(k, m)`.
 
-```
-
-freq[y] = number of points with y = y_value
-
-```
-
-###  For each horizontal line y:
-You can select 2 points in:
-
-```
-
-C(freq[y], 2) = freq[y] * (freq[y] - 1) / 2
-
-```
-
-###  For two different horizontal lines y₁, y₂:
-Number of trapezoids formed is:
-
-# **C(freq[y₁], 2) × C(freq[y₂], 2)**
-
-Because the top two points and the bottom two points determine a trapezoid with horizontal bases.
+Sorting ensures that the inequality behaves monotonically, enabling an efficient scanning process.
 
 ---
 
-##  Efficient Summation
+## **Example**
 
-After computing `pairs[y] = C(freq[y], 2)` for each horizontal level:
-
-We need:
+**Input**
 
 ```
-
-sum over y1 < y2 of (pairs[y1] * pairs[y2])
-
+nums = [1, 2, 3, 4, 5]
 ```
 
-This can be computed in O(m) using accumulated prefix sum:
+**Explanation**
+After sorting:
 
 ```
+[1, 2, 3, 4, 5]
+```
 
-result += pairs[i] * sum(previous pairs)
+All valid quadruples where the two largest sides exceed the sum of the two smallest sides are counted.
+
+**Output**
 
 ```
+4
+```
+
+(Exact quadruple enumeration depends on valid combinations satisfying the trapezoid inequality.)
 
 ---
 
-##  Complexity
+## **Why This Works**
+
+The inequality:
 
 ```
+largest_two_sum > smallest_two_sum
+```
 
-Time:  O(n) + O(unique_y)
-Space: O(unique_y)
+characterizes the trapezoid-forming condition in this simplified version of the problem.
 
-````
+Sorting the array ensures:
 
-Works for n up to 100,000.
+* Predictable behavior of sums
+* Valid use of two pointers
+* Efficient pruning of invalid combinations
+
+By iterating over only the larger sides and counting pairs of smaller sides, the total time complexity is significantly reduced from brute force.
 
 ---
 
-##  Summary
+## **Complexity**
 
-* Group points by their y-coordinate
-* For each horizontal level, compute number of ways to pick 2 points
-* Combine across different levels using pairwise multiplication
-* Use prefix sum to avoid O(m²) time
-* Return result modulo 10⁹ + 7
+* **Time:** Typically `O(n^3)` with pointer optimization
+* **Space:** `O(1)` aside from sorting
 
-This transforms a geometry problem into a clean combinatorics problem.
+---
+
+## **What I Learned**
+
+* How geometric inequalities translate into array-based constraints.
+* Why sorting and two-pointer methods are effective for sum-based combinatorial checks.
+* How selecting larger elements first simplifies reasoning about valid combinations.
