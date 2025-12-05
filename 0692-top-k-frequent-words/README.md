@@ -1,112 +1,111 @@
-# 692. Top K Frequent Words
+# **LeetCode 692 – Top K Frequent Words**
 
-**Difficulty:** Medium  
-**Topics:** Hash Table, String, Sorting, Heap  
-**Link:** https://leetcode.com/problems/top-k-frequent-words/
+**Difficulty:** Medium
+**Tags:** String, Hash Table, Heap, Sorting
+**Link:** [https://leetcode.com/problems/top-k-frequent-words/](https://leetcode.com/problems/top-k-frequent-words/)
 
 ---
 
-## Problem Description
+## **Problem Summary**
 
-You are given an array of strings `words` and an integer `k`.  
+You are given an array of strings `words` and an integer `k`.
 Your task is to return the **k most frequent words**.
 
-The result must be sorted:
+The ordering rules are:
 
-1. **By frequency** (higher → lower)  
-2. If two words have the same frequency, sort them in **lexicographical order** (alphabetically ascending)
+1. Words with **higher frequency** appear earlier.
+2. If two words have the **same frequency**, the word with **lower lexicographical order** appears earlier.
 
----
-
-## Examples
-
-### Example 1
-```
-
-Input:
-words = ["i","love","leetcode","i","love","coding"], k = 2
-
-Output:
-["i","love"]
-
-Explanation:
-Both "i" and "love" appear twice.
-Between them, "i" comes first alphabetically.
-
-```
-
-### Example 2
-```
-
-Input:
-words = ["the","day","is","sunny","the","the","the","sunny","is","is"], k = 4
-
-Output:
-["the","is","sunny","day"]
-
-Explanation:
-Frequencies:
-the   → 4
-is    → 3
-sunny → 2
-day   → 1
-
-```
+The result should contain exactly `k` words.
 
 ---
 
-## Key Insight
+## **Key Insight**
 
-We need a **custom sorting rule**:
+This is a frequency-ranking problem with a **tie-breaker**:
 
-- Higher frequency → earlier  
-- If same frequency → lexicographically smaller word first  
+* Primary key: frequency (descending)
+* Secondary key: lexicographical order (ascending)
 
-Python’s `sorted()` allows a tuple as key:
+A frequency map allows counting occurrences.
+Sorting with a custom comparator ensures the correct ordering of results.
 
-```
-
-key = lambda w: (-frequency[w], w)
-
-```
-
-Here:
-- `-frequency[w]` sorts by highest frequency first  
-- `w` sorts alphabetically for ties  
-
-This gives exactly the required ordering.
+The presence of lexicographical comparison means numeric sorting tricks (such as negative frequencies alone) are insufficient; the ordering must consider both dimensions.
 
 ---
 
-## Algorithm
+## **Approach**
 
-1. Count frequencies using `Counter`
-2. Sort the unique words using the custom key:
-```
+1. Build a frequency map:
 
-(-freq[word], word)
+   ```
+   word → count
+   ```
+2. Extract all unique words.
+3. Sort them using the following ordering:
 
-```
-3. Return the first `k` words from the sorted list
+   * By descending frequency
+   * If frequencies match, by lexicographical order (ascending)
+4. Return the first `k` words of this sorted list.
 
----
-
-## Complexity
-
-```
-
-Time:  O(n log n)
-Space: O(n)
-
-```
-
-`n` is the number of words.
+This ensures all ordering constraints are satisfied.
 
 ---
 
-## Summary
+## **Example**
 
-- Use `Counter` to count word frequency  
-- Use a **compound sort key** to apply both rules  
-- Slice the first `k` elements  
-- Clean and reliable solution  
+**Input**
+
+```
+words = ["i", "love", "leetcode", "i", "love", "coding"]
+k = 2
+```
+
+**Explanation**
+
+* Frequencies:
+
+  * `"i"` → 2
+  * `"love"` → 2
+  * `"leetcode"` → 1
+  * `"coding"` → 1
+* `"i"` and `"love"` both have the highest frequency.
+* `"i"` appears before `"love"` lexicographically.
+
+**Output**
+
+```
+["i", "love"]
+```
+
+---
+
+## **Why This Works**
+
+Word frequency ranking is enabled by hashing.
+The lexicographical tiebreaker ensures deterministic ordering for words with equal counts.
+
+Sorting by a composite key:
+
+```
+(-frequency, word)
+```
+
+captures both constraints cleanly.
+
+This transforms the problem into a straightforward sorting task once the frequency data is computed.
+
+---
+
+## **Complexity**
+
+* **Time:** `O(n log n)` due to sorting
+* **Space:** `O(n)` for storing distinct words and their frequencies
+
+---
+
+## **What I Learned**
+
+* How lexical ordering interacts with frequency-based ranking.
+* How to construct composite sort keys to enforce multiple ordering constraints.
+* Why hash maps paired with sorting provide a flexible toolkit for frequency-analysis problems.
