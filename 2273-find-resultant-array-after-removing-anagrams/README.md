@@ -1,105 +1,102 @@
-# 2273. Find Resultant Array After Removing Anagrams
+# **LeetCode 2273 – Find Resultant Array After Removing Anagrams**
 
-**Difficulty:** Easy  
-**Topics:** Array, Hashing, String  
-**Link:** https://leetcode.com/problems/find-resultant-array-after-removing-anagrams/
-
----
-
-##  Problem Description
-
-You are given a 0-indexed string array `words`, where each `words[i]` consists of lowercase English letters.
-
-In one operation, select any index `i` such that:
-
-- `0 < i < words.length`
-- `words[i]` and `words[i - 1]` are anagrams
-
-Then delete `words[i]`.
-
-Keep performing this operation until no more indices satisfy the condition.
-
-It can be shown that choosing indices in any order yields the same final array.
-
-Return the resulting array.
-
-An **anagram** is a word or phrase formed by rearranging the letters of another word.
+**Difficulty:** Easy
+**Tags:** Array, String, Hashing
+**Link:** [https://leetcode.com/problems/find-resultant-array-after-removing-anagrams/](https://leetcode.com/problems/find-resultant-array-after-removing-anagrams/)
 
 ---
 
-##  Examples
+## **Problem Summary**
 
-### Example 1
+You are given an array of words.
+You must build a new array by iterating through the list from left to right and removing any word that is an **anagram** of the most recently kept word.
+
+Two words are anagrams if they contain the same characters in any order.
+
+The output should preserve the order of appearance and only keep the first word from each sequence of anagrams.
+
+---
+
+## **Key Insight**
+
+The critical idea is that **only the previous kept word matters**.
+
+* When processing word `i`, compare it only to the most recent word stored in the result.
+* If `word[i]` is an anagram of that previous valid word:
+
+  * It should be removed.
+* Otherwise:
+
+  * It should be added to the result.
+
+Anagrams can be detected by comparing character frequency signatures or sorted character sequences.
+
+---
+
+## **Approach**
+
+1. Initialize an empty result list.
+2. Add the first word to the result.
+3. For each subsequent word:
+
+   * Compute its anagram signature (such as sorted characters).
+   * Compare it with the signature of the last kept word.
+   * If they differ, append the word to the result.
+   * Otherwise, skip it.
+4. Return the list of kept words.
+
+This ensures that from any consecutive group of anagrams, only the **first** one appears in the final result.
+
+---
+
+## **Example**
+
+**Input**
 
 ```
-
-Input: words = ["abba","baba","bbaa","cd","cd"]
-Output: ["abba","cd"]
-
+["abba", "baba", "bbaa", "cd", "cd"]
 ```
 
-Explanation:
+**Explanation**
 
-- "baba" and "bbaa" are anagrams of "abba", so they are removed.
-- The second "cd" is an anagram of the previous "cd", so it is removed.
+* "abba", "baba", "bbaa" are all anagrams → keep only "abba".
+* "cd" and "cd" are anagrams → keep only the first "cd".
+
+**Output**
+
+```
+["abba", "cd"]
+```
 
 ---
 
-### Example 2
+## **Why This Works**
+
+Two words are anagrams if and only if:
 
 ```
-
-Input: words = ["a","b","c","d","e"]
-Output: ["a","b","c","d","e"]
-
+sorted(word1) == sorted(word2)
 ```
 
-No adjacent words are anagrams → nothing is removed.
+or equivalently, if their character frequency maps match.
+
+Comparing each word only with the last accepted word ensures correctness because earlier words cannot affect future decisions once removed.
+
+This reduces the problem to a simple linear scan.
 
 ---
 
-##  Key Insight
+## **Complexity**
 
-We only care about **adjacent** anagrams.
-
-If `words[i]` is an anagram of the last kept word → remove it.
-
-Therefore, we can simply build the answer using one pass:
-
-- Always keep the first word.
-- For each word:
-  - If it's NOT an anagram of the previous kept word → append it.
-  - Otherwise → skip it.
-
-Sorting each word is enough since each word length ≤ 10.
+* **Time:** `O(n * k log k)` if using sorting,
+  where `k` is the maximum word length.
+  Can be improved to `O(n * k)` with frequency counts.
+* **Space:** `O(k)` for storing signatures.
 
 ---
 
-##  Algorithm
+## **What I Learned**
 
-1. Initialize result array with the first word.
-2. Loop from index 1 to end:
-   - Compare sorted form with sorted last kept word.
-3. Append only if not anagrams.
-4. Return result.
-
----
-
-##  Complexity
-
-```
-
-Time:  O(n * k log k)   (n = number of words, k = max length of word ≤ 10)
-Space: O(n)
-
-```
-
-Efficient for all constraints.
-
----
-
-##  Summary
-
-- Removing adjacent anagrams is equivalent to keeping words where  
-  `sorted(words[i]) != sorted(last_kept_word)`
-- A single pass yields the final answer.
+* How anagram detection can be standardized using sorted sequences or frequency mappings.
+* How a problem that seems to involve pairwise comparisons can be simplified by checking only the most recent retained element.
+* Techniques for filtering sequences based on matching structural properties.
