@@ -1,7 +1,7 @@
 # **LeetCode 2273 – Find Resultant Array After Removing Anagrams**
 
-**Difficulty:** Easy
-**Tags:** Array, String, Hashing
+**Difficulty:** Easy  
+**Tags:** Array, String, Hashing  
 **Link:** [https://leetcode.com/problems/find-resultant-array-after-removing-anagrams/](https://leetcode.com/problems/find-resultant-array-after-removing-anagrams/)
 
 ---
