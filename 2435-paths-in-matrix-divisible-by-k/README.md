@@ -1,145 +1,118 @@
-# 2435. Paths in Matrix Whose Sum Is Divisible by K
+# **LeetCode 2435 – Paths in Matrix Whose Sum Is Divisible by K**
 
 **Difficulty:** Hard  
-**Topics:** Dynamic Programming  
-**LeetCode Link:** https://leetcode.com/problems/paths-in-matrix-whose-sum-is-divisible-by-k/
+**Tags:** Dynamic Programming, Matrix, Prefix Sum  
+**Link:** [https://leetcode.com/problems/paths-in-matrix-whose-sum-is-divisible-by-k/](https://leetcode.com/problems/paths-in-matrix-whose-sum-is-divisible-by-k/)
 
 ---
 
-##  Problem Description
+## **Problem Summary**
 
-You are given an `m x n` integer matrix `grid` and an integer `k`.  
-You start at position `(0, 0)` and want to reach `(m-1, n-1)` by moving **only down or right**.
+You are given a 2D grid of integers and an integer `k`.
+A path starts at the top-left cell and ends at the bottom-right cell.
+At each step, you may only move **right** or **down**.
 
-Each path has a total sum of all visited cells.
-
-### **Goal**
-Return the **number of paths whose sum is divisible by k**.
-
-Because the answer can be very large, return it modulo **10⁹ + 7**.
+The task is to count how many such paths have a total sum divisible by `k`.
+The answer must be returned modulo (10^9 + 7).
 
 ---
 
-##  Examples
+## **Key Insight**
 
-### Example 1
+The classic path-counting DP only tracks the number of ways to reach each cell.
+In this problem, the sum along the path affects the validity of the result, so each DP state must also track the **sum modulo `k`**.
+
+If two partial paths arrive at the same cell with the same remainder modulo `k`, they are fundamentally equivalent for extension.
+
+Thus, the DP state becomes:
+
+```
+dp[r][c][rem] = number of ways to reach (r, c) with sum % k = rem
 ```
 
-Input:
-grid = [[5,2,4],[3,0,5],[0,7,2]],
+This additional dimension allows us to distinguish paths based on their modular sum up to that point.
+
+---
+
+## **Approach**
+
+1. Initialize a 3D DP array where:
+
+   * `r` and `c` index the cell,
+   * `rem` is the sum modulo `k`.
+
+2. At the start cell `(0, 0)`:
+
+   * Let `initial = grid[0][0] % k`
+   * Set `dp[0][0][initial] = 1`
+
+3. For each cell `(r, c)`:
+
+   * Paths may come from above `(r-1, c)` or from the left `(r, c-1)`.
+
+4. When transitioning:
+
+   * Suppose a previous remainder is `prev_rem`.
+   * After adding `grid[r][c]`, the new remainder is:
+
+     ```
+     new_rem = (prev_rem + grid[r][c]) % k
+     ```
+   * Add all ways leading to `prev_rem` into `dp[r][c][new_rem]`.
+
+5. At the final cell `(m-1, n-1)`:
+
+   * The answer is `dp[m-1][n-1][0]`,
+     since we want paths where sum % k = 0.
+
+---
+
+## **Example**
+
+**Input**
+
+```
+grid = [[5, 2, 4],
+        [3, 0, 5],
+        [0, 7, 2]]
 k = 3
-
-Output: 2
-
 ```
 
-Two valid paths:
-- `5 + 2 + 4 + 5 + 2 = 18` → 18 % 3 = 0  
-- `5 + 3 + 0 + 5 + 2 = 15` → 15 % 3 = 0  
+**Explanation**
+Every path's sum is computed, and the number of valid paths where the total is divisible by `3` is counted.
 
----
-
-### Example 2
-```
-
-Input: grid = [[0,0]], k = 5
-Output: 1
+**Output**
 
 ```
-
-Only one path with sum `0`, and `0 % 5 = 0`.
-
----
-
-### Example 3
-```
-
-Input: grid = [[7,3,4,9],[2,3,6,2],[2,3,7,0]], k = 1
-Output: 10
-
-```
-
-Since every number is divisible by 1, **all paths are valid**.
-
----
-
-##  Key Insight
-
-The path sum can be very large, but we only care about:
-
-```
-
-sum % k (the remainder)
-
-```
-
-So instead of storing the full sum, we store only the remainder.
-
-This gives us a **Dynamic Programming (DP)** approach with state:
-
-```
-
-dp[i][j][r] = number of paths to (i,j)
-whose path-sum % k = r
-
+2
 ```
 
 ---
 
-##  DP Transition
+## **Why This Works**
 
-From each cell `(i, j)` you can come from:
-- Top: `(i-1, j)`
-- Left: `(i, j-1)`
+The key observation is that modulo arithmetic preserves path validity:
 
-Let:
+* Whether a path’s sum is divisible by `k` depends only on its final sum modulo `k`.
+* The modulo space is limited to `0 ... k-1`, so dynamic programming over these states is efficient.
+* Movement is restricted (right or down), which ensures an acyclic grid and allows DP traversal.
 
-```
-
-val = grid[i][j] % k
-new_r = (r + val) % k
-
-```
-
-Then:
-
-```
-
-dp[i][j][new_r] += dp[i-1][j][r]
-dp[i][j][new_r] += dp[i][j-1][r]
-
-```
-
-Take modulo 1e9+7.
+By tracking remainder states, we avoid recomputing sums and ensure each partial path is represented uniquely.
 
 ---
 
-##  Final Answer
+## **Complexity**
 
-```
-
-dp[m-1][n-1][0]
-
-```
-
-Paths whose sum is divisible by k.
+* **Time:** `O(m * n * k)`
+* **Space:** `O(m * n * k)`
+  Can be optimized to `O(n * k)` with rolling arrays.
 
 ---
 
-##  Complexity
+## **What I Learned**
 
-```
+* How to extend classical path DP with modular arithmetic.
+* Why modulo-based DP states are powerful when sum divisibility is required.
+* How dimensional DP grows with problem constraints and how to manage complexity.
 
-Time:  O(m · n · k)
-Space: O(m · n · k)
-
-````
----
-##  Summary
-
-* Use DP with remainder states.
-* State dimension: `(i, j, remainder)`
-* Only need to track sum % k.
-* Final answer is remainder 0 at bottom-right.
-
-你想继续吗？
+**0026 – Remove Duplicates from Sorted Array**
