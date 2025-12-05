@@ -1,84 +1,58 @@
-# **LeetCode 3625 – Count Number of Trapezoids II**
+# **LeetCode 49 – Group Anagrams**
 
 **Difficulty:** Medium  
-**Tags:** Array, Geometry, Combinatorics  
-**Link:** [https://leetcode.com/problems/count-number-of-trapezoids-ii/](https://leetcode.com/problems/count-number-of-trapezoids-ii/)
+**Tags:** Array, Hash Table, String  
+**Link:** [https://leetcode.com/problems/group-anagrams/](https://leetcode.com/problems/group-anagrams/)
 
 ---
 
 ## **Problem Summary**
 
-You are given a list of segment lengths.
-Your task is to count the number of **distinct quadruples** of segments that can form a **trapezoid** under the extended condition for this version of the problem.
+You are given an array of strings.
+Your task is to group the strings into collections where each group consists of strings that are **anagrams** of one another.
 
-A trapezoid is defined as a quadrilateral with at least one pair of parallel sides.
-The problem models this via segment-length constraints that differ slightly from Part I.
+Two strings are anagrams if they contain the same characters with identical frequencies, regardless of order.
 
-In this version, the quadruple ((a, b, c, d)), sorted as:
-
-```
-a ≤ b ≤ c ≤ d
-```
-
-forms a trapezoid if both of the following hold:
-
-1. The quadrilateral inequality:
-
-   ```
-   a + b + c > d
-   ```
-2. The trapezoid constraint:
-
-   ```
-   a + d > b + c
-   ```
-
-Both conditions must be satisfied.
+The output should be a list of groups, where each group contains all strings belonging to the same anagram class.
 
 ---
 
 ## **Key Insight**
 
-The validity of a quadruple depends on a pair of inequalities involving both the largest and smallest sides.
+Two strings are anagrams if and only if they share the same **canonical representation**.
+Common canonical forms include:
 
-Observations:
+1. Sorting the characters in the string
+2. Building a character-frequency signature
 
-* Sorting imposes structure:
-  (a) and (b) are always the two smaller sides; (c) and (d) are the larger sides.
-* The first inequality ensures the four segments can form **any** quadrilateral.
-* The second inequality imposes the **specific trapezoid shape** constraint.
+For example:
 
-Because the inequalities behave monotonically under sorted order, the problem can be solved using nested loops combined with two-pointer techniques to count valid combinations efficiently.
+* `"eat"` → `"aet"`
+* `"tea"` → `"aet"`
+* `"tan"` → `"ant"`
+
+Thus, grouping strings by their canonical forms naturally produces sets of anagrams.
+
+A hash map allows efficient grouping by mapping:
+
+```
+canonical_form → list of strings
+```
 
 ---
 
 ## **Approach**
 
-1. Sort the array of segment lengths.
+1. Create an empty hash map.
+2. For each word:
 
-2. Enumerate possible positions for the two largest sides:
+   * Compute its canonical representation.
+     (Most commonly, sort the string.)
+   * Insert the word into the hash map under its canonical key.
+3. After processing all strings, the values of the hash map represent the anagram groups.
+4. Return all groups.
 
-   * Let indices `k` and `m` represent the sides `c` and `d`.
-
-3. For the remaining sides (`a` and `b`), use two pointers to find pairs `(i, j)` that satisfy:
-
-   * Quadrilateral inequality:
-
-     ```
-     nums[i] + nums[j] + nums[k] > nums[m]
-     ```
-
-   * Trapezoid constraint:
-
-     ```
-     nums[i] + nums[m] > nums[j] + nums[k]
-     ```
-
-4. For valid ranges of `(i, j)`, count all contributing pairs.
-
-5. Continue for all valid `(k, m)` choices.
-
-Sorting ensures that increasing or decreasing a pointer produces predictable effects on the inequalities, enabling efficient counting rather than brute-force enumeration.
+This approach ensures that all words sharing the same canonical form end up in the same group.
 
 ---
 
@@ -87,50 +61,52 @@ Sorting ensures that increasing or decreasing a pointer produces predictable eff
 **Input**
 
 ```
-nums = [1, 2, 3, 4, 5]
+["eat", "tea", "tan", "ate", "nat", "bat"]
 ```
 
 **Explanation**
-After sorting:
+The strings group by sorted canonical forms:
 
-```
-[1, 2, 3, 4, 5]
-```
-
-Only certain quadruples satisfy both required inequalities.
-The exact count depends on combinations meeting the extended trapezoid constraints.
+* `"aet"` → `["eat", "tea", "ate"]`
+* `"ant"` → `["tan", "nat"]`
+* `"abt"` → `["bat"]`
 
 **Output**
 
 ```
-2
+[["eat", "tea", "ate"], ["tan", "nat"], ["bat"]]
 ```
 
 ---
 
 ## **Why This Works**
 
-The problem reduces to checking all quadruples that satisfy two inequalities.
-Because the array is sorted, inequalities become monotonic:
+The set of characters in a string, together with their counts, uniquely identifies an anagram class.
+Sorting the characters provides a simple and deterministic canonical form.
 
-* Increasing larger sides raises the right-hand side of one inequality.
-* Increasing smaller sides raises the left-hand side of both inequalities.
+Using the canonical representation as a hash key ensures:
 
-This structure allows efficient two-pointer scanning for `(a, b)` once `(c, d)` are fixed.
+* All true anagrams map to the same bucket
+* No non-anagrams can appear in the same group
 
-Instead of checking every possible combination explicitly, we exploit monotonicity to count valid pairs in linear time per `(c, d)` selection.
+This converts what seems like a pairwise comparison problem into a classification problem based on hashing.
 
 ---
 
 ## **Complexity**
 
-* **Time:** Approximately `O(n^3)` with efficient pointer movement
-* **Space:** `O(1)` aside from sorting
+Using sorting as the canonical form:
+
+* **Time:** `O(n * k log k)`
+  where `n` is the number of strings and `k` is the maximum string length
+* **Space:** `O(n * k)` for storing grouped strings
+
+Using character frequency counting instead of sorting improves the canonical computation to `O(k)`.
 
 ---
 
 ## **What I Learned**
 
-* How trapezoid constraints translate into algebraic conditions on sorted segment lengths.
-* How to navigate dual inequality constraints using pointer-based enumeration.
-* How geometric counting problems benefit from structural ordering of input values.
+* How canonical representations simplify grouping tasks.
+* Why hashing enables efficient classification of objects by structural similarity.
+* How string anagram relationships reduce to frequency analysis or sorting.
