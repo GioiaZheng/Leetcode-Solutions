@@ -1,114 +1,89 @@
-# 451. Sort Characters By Frequency
+# **LeetCode 451 – Sort Characters by Frequency**
 
 **Difficulty:** Medium  
-**Topics:** Hash Table, String, Sorting, Heap  
-**Link:** https://leetcode.com/problems/sort-characters-by-frequency/
+**Tags:** Hash Table, String, Sorting, Heap  
+**Link:** [https://leetcode.com/problems/sort-characters-by-frequency/](https://leetcode.com/problems/sort-characters-by-frequency/)
 
 ---
 
-## Problem Description
+## **Problem Summary**
 
-You are given a string `s`.  
-Your task is to **sort the characters** in decreasing order based on their frequency.
-
-- Characters with higher frequency must appear earlier.
-- If two characters have the same frequency, their relative order does not matter.
-- Uppercase and lowercase letters are treated as different characters.
-
-Return **any valid sorted string**.
+Given a string `s`, return a new string where its characters are sorted in **descending order by frequency**.
+Characters that appear more often should come earlier in the output.
+If two characters have the same frequency, their relative order does not matter.
 
 ---
 
-## Examples
+## **Key Insight**
 
-### Example 1
-```
+The problem is essentially:
 
-Input: s = "tree"
-Output: "eert"
+1. Count how many times each character appears.
+2. Sort characters based on these frequencies.
+3. Reconstruct the string accordingly.
 
-Explanation:
-'e' appears twice, while 't' and 'r' appear once.
-So any string starting with "ee" is valid.
+A frequency map is required, and sorting by frequency produces the final ordering.
 
-```
-
-### Example 2
-```
-
-Input: s = "cccaaa"
-Output: "aaaccc"
-
-Explanation:
-Both 'c' and 'a' appear 3 times.
-Any arrangement grouping same letters together is valid.
-
-```
-
-### Example 3
-```
-
-Input: s = "Aabb"
-Output: "bbAa"
-
-Explanation:
-'A' and 'a' are counted separately.
-
-```
+This is not about lexicographical order; the value being sorted is the **count**, not the character itself.
 
 ---
 
-## Key Insight
+## **Approach**
 
-To sort characters by frequency:
+1. Create a frequency map:
 
-1. Count the frequency of each character  
-2. Sort characters by their frequency (highest first)  
-3. Build the output string by repeating each character according to its count  
+   ```
+   character → count
+   ```
+2. Extract all characters into a list.
+3. Sort the list by frequency in descending order.
+4. Rebuild the output string by repeating each character according to its count.
+5. Return the final concatenated string.
 
-For example:
+This approach guarantees that more frequent characters appear earlier.
+
+---
+
+## **Example**
+
+**Input**
 
 ```
+s = "tree"
+```
 
-"tree" → {'t':1, 'r':1, 'e':2}
+**Explanation**
 
-Sorted order: ['e', 't', 'r']
+* `'e'` appears twice
+* `'t'` and `'r'` appear once
+  A valid output is `"eetr"`.
 
-Result: "ee" + "t" + "r" = "eert"
+**Output**
 
+```
+"eetr"
 ```
 
 ---
 
-## Algorithm
+## **Why This Works**
 
-1. Use `Counter` to compute frequencies  
-2. Sort characters by frequency using `sorted()` with a custom key  
-3. Build the output string by multiplying each character by its count  
+The sorting step ensures that characters are ordered by decreasing frequency.
+Since no specific tie-breaking rule is required, any stable or unstable sort is acceptable.
 
----
-
-## Complexity
-
-```
-
-Time:   O(n log n)
-Space:  O(n)
-
-```
-
-Where  
-- `n` = length of the string
-
-Optimized solutions exist (bucket sort, O(n)),  
-but the sorting approach is clear, reliable, and commonly accepted.
+The frequency map provides a complete summary of the input string, making reconstruction straightforward.
 
 ---
 
-## Summary
+## **Complexity**
 
-* Count each character's frequency  
-* Sort by frequency in descending order  
-* Concatenate repeated characters to form the final answer  
+* **Time:** `O(n log n)` due to sorting
+* **Space:** `O(n)` for storing the frequency map and the output string
 
-A clean and intuitive solution for frequency-based string sorting.
+---
+
+## **What I Learned**
+
+* How counting-based problems reduce naturally to sorting tasks.
+* Why decoupling “character value” from “frequency” is essential in ranked-string problems.
+* How histogram construction enables reconstruction of a sorted output.
