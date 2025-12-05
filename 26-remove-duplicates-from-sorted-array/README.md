@@ -1,114 +1,95 @@
-# 26. Remove Duplicates from Sorted Array
+# **LeetCode 26 – Remove Duplicates from Sorted Array**
 
 **Difficulty:** Easy  
-**Topics:** Array, Two Pointers  
-**Link:** https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+**Tags:** Array, Two Pointers  
+**Link:** [https://leetcode.com/problems/remove-duplicates-from-sorted-array/](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
 
 ---
 
-##  Problem Description
+## **Problem Summary**
 
-You are given a sorted integer array `nums`.  
-You must remove duplicates *in-place* such that each unique element appears **only once**, and the relative order stays the same.
+You are given a sorted array of integers.
+Your task is to remove duplicate values **in-place**, ensuring that each unique element appears exactly once.
 
-Let the number of unique elements be **k**.  
-Your function should:
+The function should return the number of unique elements.
+The first `k` elements of the array (after modification) should contain the unique values in their original order.
 
-1. Return `k`
-2. Ensure the first `k` elements of `nums` contain the unique values in sorted order
-3. The remaining elements can be ignored
+No additional array may be allocated; the operation must be performed using constant extra space.
 
-### The judge will run:
+---
+
+## **Key Insight**
+
+Because the array is already sorted:
+
+* All duplicates appear **next to each other**.
+* A single linear scan is enough to identify unique values.
+* The **two-pointer technique** allows us to overwrite duplicates while preserving the required elements.
+
+One pointer tracks the **position to write the next unique value**, and the other pointer scans through the array.
+
+---
+
+## **Approach**
+
+1. If the array is empty, the result is `0`.
+2. Initialize a write pointer `i` at index `0`.
+3. Traverse the array with a read pointer `j`:
+
+   * Whenever `nums[j] != nums[i]`, increment `i` and write `nums[j]` to `nums[i]`.
+4. At the end, the number of unique elements is `i + 1`.
+
+This ensures that all unique values are stored at the front of the array in sorted order.
+
+---
+
+## **Example**
+
+**Input**
+
+```
+nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
 ```
 
-k = removeDuplicates(nums)
-assert k == expected_length
-assert nums[:k] == expected_array
+**Explanation**
 
+* Unique elements are: `[0, 1, 2, 3, 4]`
+* They occupy the first 5 positions in the modified array.
+
+**Output**
+
+```
+5
 ```
 
 ---
 
-##  Examples
+## **Why This Works**
 
-### Example 1
-```
-
-Input: nums = [1,1,2]
-Output: 2, nums = [1,2,_]
+The sorted property guarantees that:
 
 ```
-
-### Example 2
-```
-
-Input: nums = [0,0,1,1,1,2,2,3,3,4]
-Output: 5, nums = [0,1,2,3,4,*,*,*,*,_]
-
-```
-
----
-
-##  Key Idea — Two Pointers
-
-Because the array is sorted, all duplicates are adjacent.
-
-We use:
-
-- `i` → the position where the next **unique element** should be written  
-- `j` → scans through the array
-
-Whenever we encounter a new number:
-
-```
-
 nums[j] != nums[i]
-→ move i forward
-→ write nums[j] into nums[i]
-
 ```
 
-### Final answer:
-```
+implies a new unique value.
+By overwriting the next available position, we avoid the need for additional storage and satisfy the in-place requirement.
 
-k = i + 1
-
-```
+The two-pointer technique ensures linear time complexity with constant extra memory.
 
 ---
 
-##  Algorithm
+## **Complexity**
 
-1. Start with `i = 0`
-2. Loop `j` from 1 to end
-3. When `nums[j] != nums[i]`, move i and copy:
-```
-
-i += 1
-nums[i] = nums[j]
-
-```
-4. Return `i + 1`
+* **Time:** `O(n)`
+* **Space:** `O(1)`
 
 ---
 
-##  Complexity
+## **What I Learned**
 
-```
+* How sorted structure simplifies duplicate detection.
+* How the two-pointer technique enables in-place modification.
+* Why in-place array rewriting is commonly paired with pointer-based iteration.
 
-Time:  O(n)
-Space: O(1)
-
-````
-
----
-
-## ✔ Summary
-
-* Use two pointers
-* Only overwrite when a new value appears
-* Result stored in first `k` positions
-* In-place and O(1) extra space
-
-Perfect for interviews.
-
+**0027 – Remove Element**
