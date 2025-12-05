@@ -1,129 +1,117 @@
-# **3432. Count Partitions with Even Sum Difference**
+# **LeetCode 3432 – Count Partitions with Even Sum Difference**
 
-**Difficulty:** Easy
-**Topics:** Prefix Sum, Parity, Math
+**Difficulty:** Easy  
+**Tags:** Prefix Sum, Math, Parity  
 **Link:** [https://leetcode.com/problems/count-partitions-with-even-sum-difference/](https://leetcode.com/problems/count-partitions-with-even-sum-difference/)
 
 ---
 
-##  Problem Summary
+## **Problem Summary**
 
-You are given an integer array `nums` of length `n`.
+You are given an array `nums` of length `n`.
+A partition index `i` (where `0 ≤ i < n − 1`) splits the array into:
 
-A **partition index** `i` (where `0 ≤ i < n − 1`) splits the array into:
+* Left part: `nums[0..i]`
+* Right part: `nums[i+1..n-1]`
 
-* Left subarray: `nums[0…i]`
-* Right subarray: `nums[i+1…n−1]`
-
-A partition is **valid** if:
+A partition is considered valid if:
 
 ```
-(sum(left) − sum(right)) is even
+(sum(left) − sum(right)) is even.
 ```
 
-Return the **number of valid partitions**.
+Your task is to count how many such valid partitions exist.
 
 ---
 
-##  Key Insight
+## **Key Insight**
 
 Let:
 
 ```
-left  = prefix sum up to i
-right = total − left
+left  = sum of nums[0..i]
+right = total_sum − left
 ```
 
-We need:
+Then:
 
 ```
-(left − right) % 2 == 0
+left − right = 2*left − total_sum
 ```
 
-Using parity rules:
+Because `2 * left` is always even, the parity of the expression is determined solely by `total_sum`.
+
+This leads to the key observation:
+
+* If `total_sum` is **odd**, then `left − right` is always odd → **no valid partitions**.
+* If `total_sum` is **even**, then `left − right` is always even → **all partitions are valid**.
+
+Thus, if the total sum is even, the answer is simply:
 
 ```
-(left − right) is even  ⇔  left % 2 == right % 2
-```
-
-Substitute `right = total − left`:
-
-```
-right % 2 = (total % 2) XOR (left % 2)
-```
-
-Setting `left % 2 == right % 2` implies:
-
-```
-total % 2 == 0
-```
-
-Thus, the entire condition depends solely on the **parity of the total sum**.
-
----
-
-##  Algorithm
-
-```
-1. Compute total = sum(nums)
-2. If total is odd → return 0
-3. Else → return n − 1
+n − 1
 ```
 
 ---
 
-##  Examples
+## **Approach**
 
-### Example 1
+1. Compute the total sum of the array.
+2. If the sum is odd, return `0`.
+3. If the sum is even, return `n − 1`, since every partition index is valid.
 
-```
-nums = [10,10,3,7,6]
-total = 36 (even)
+This eliminates the need for prefix sums or looping through possible partitions.
 
-All 4 partitions are valid.
+---
 
-Output: 4
-```
+## **Example**
 
-### Example 2
-
-```
-nums = [1,2,2]
-total = 5 (odd)
-
-No valid partitions.
-
-Output: 0
-```
-
-### Example 3
+**Input**
 
 ```
-nums = [2,4,6,8]
-total = 20 (even)
+nums = [1, 2, 3, 4]
+```
 
-All 3 partitions are valid.
+**Explanation**
 
-Output: 3
+* Total sum = 10 (even)
+* All partition indices (0, 1, 2) produce an even difference.
+
+**Output**
+
+```
+3
 ```
 
 ---
 
-##  Complexity
+## **Why This Works**
+
+The difference:
 
 ```
-Time:   O(1)
-Space:  O(1)
+left − right = 2*left − total_sum
 ```
+
+has the same parity as `total_sum` because:
+
+* Multiplying by 2 preserves evenness.
+* Subtracting two numbers does not change the underlying parity relationship.
+
+Since `left` can vary but `total_sum` is fixed, the parity of the difference never changes across partitions.
+Therefore, the total sum alone determines the answer.
 
 ---
 
-##  Final Conclusion (Bottom)
+## **Complexity**
 
-### If total sum is **odd** → No valid partitions
+* **Time:** `O(n)` for computing the total sum
+* **Space:** `O(1)`
 
-### If total sum is **even** → **All (n − 1)** partitions are valid
+---
 
-A simple parity check gives the optimal **O(1)** solution.
+## **What I Learned**
 
-要不要我帮你做这些？
+* How parity questions often simplify when expressions are algebraically reduced.
+* Why total-sum parity determines the parity of left-right differences.
+* How a seemingly partition-based problem can reduce to a constant-time conclusion after preprocessing.
