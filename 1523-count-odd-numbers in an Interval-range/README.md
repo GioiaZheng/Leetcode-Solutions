@@ -138,5 +138,3 @@ This is the optimal solution.
 * How parity-based problems can often be solved using integer patterns instead of loops.
 * Why interval problems can be computed using prefix-style counting (`count(0..high) − count(0..low−1)`).
 * How mathematical reasoning avoids time-limit exceed in large input ranges.
-
-告诉我即可！
