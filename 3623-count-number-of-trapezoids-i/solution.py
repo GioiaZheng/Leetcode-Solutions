@@ -1,5 +1,5 @@
 class Solution:
-    def numberOfTrapezoids(self, points: List[List[int]]) -> int:
+    def countTrapezoids(self, points: List[List[int]]) -> int:
         """
         Count horizontal trapezoids.
         A horizontal trapezoid is determined by choosing:
