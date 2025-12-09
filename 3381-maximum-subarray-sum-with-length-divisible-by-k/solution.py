@@ -1,5 +1,5 @@
 class Solution:
-    def maximumSubarraySum(self, nums, k):
+    def maxSubarraySum(self, nums, k):
         n = len(nums)
 
         # prefix[i] = sum of nums[0 .. i-1]
