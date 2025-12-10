@@ -1,7 +1,7 @@
 # **LeetCode 3577 – Count the Number of Computer Unlocking Permutations**
 
 **Difficulty:** Medium  
-**Tags:** Combinatorics, Sorting, Dependency Constraints  
+**Tags:** Sorting, Feasibility Check, Combinatorics  
 **Link:** [https://leetcode.com/problems/count-the-number-of-computer-unlocking-permutations/](https://leetcode.com/problems/count-the-number-of-computer-unlocking-permutations/)
 
 ---
@@ -10,9 +10,8 @@
 
 You are given an array `complexity` of length `n`, where each `complexity[i]` represents the password complexity of computer `i`.
 
-Computer **0 is already unlocked**, and every other computer must be unlocked using some previously unlocked computer.
-
-A computer `i` can be unlocked using computer `j` **if and only if**:
+Computer **0 is already unlocked**.
+Every other computer `i` must be unlocked using some previously unlocked computer `j`, and this is only allowed when:
 
 ```
 j < i   AND   complexity[j] < complexity[i]
@@ -24,169 +23,126 @@ Your task is to count the number of such valid permutations and return the answe
 
 ---
 
-## **Key Insight**
+# **Key Insight (based on this solution)**
 
-This is not a simple permutation counting problem.
-The unlocking rule imposes **strict dependency constraints**:
+Instead of counting permutations through layers or DAG reasoning,
+we observe a **much simpler structural fact**:
 
-### A computer `i` can only be unlocked if, before position `i`,
+###  If every computer `i > 0` has **at least one earlier index `j < i` with lower complexity**,
 
-there exists **at least one** computer with **lower complexity**.
+then the unlocking is always feasible **regardless of permutation**,
+except for one constraint:
 
-This divides computers into **layers**, where:
+### Computer **0 must appear first**,
 
-* A "layer" is a set of computers with the same complexity.
-* A layer can only be unlocked after **all earlier layers** have at least one index smaller than each of its members.
+because only computer 0 is unlocked at the start.
 
-### The process becomes:
+Once computer `0` is placed first:
 
-1. Sort computers by **complexity value** into layers.
-2. Layer 0 must contain index **0** (root unlocking source).
-   If not → **no valid sequences**.
-3. Each later layer can be inserted arbitrarily **after** all earlier layers,
-   because all dependencies point to earlier layers.
+* All other computers already satisfy the unlocking condition
+* There are **no additional ordering constraints**
+* Therefore all remaining `(n−1)!` permutations are valid
 
-This means the answer equals a product of **binomial coefficients**, representing:
+###  If any computer violates the condition:
 
-> How many ways to interleave each layer after prior ones while keeping internal order flexible.
+```
+min(complexity[0..i−1]) >= complexity[i]
+```
+
+then **computer i cannot be unlocked in any sequence**,
+and the answer is **0**.
+
+So the entire problem reduces to:
+
+1. **Check feasibility using bisect**
+   For each `i`, ensure someone before it has lower complexity.
+
+2. If all pass → answer = `(n−1)! mod 1e9+7`.
+
+This is exactly what your code implements.
 
 ---
 
-## **Approach**
+# **Algorithm Explanation**
 
-### **1. Group indices by complexity**
+### **1. Maintain a sorted multiset of previous complexities**
 
-Computers with identical complexity form one layer.
-
-Example:
+We insert `complexity[0]`, then for each `i`:
 
 ```
-complexity = [1, 2, 2, 5, 7]
-groups = {1:[0], 2:[1,2], 5:[3], 7:[4]}
+cnt = number of previous complexities < complexity[i]
 ```
 
-### **2. Sort layers by increasing complexity**
+This is computed using:
 
-Unlock conditions depend strictly on complexity.
-
-### **3. Feasibility check**
-
-For each computer `i`:
-
-```
-We must verify: exists j < i such that complexity[j] < complexity[i].
+```python
+cnt = bisect_left(sortedc, complexity[i])
 ```
 
-If a computer has no valid parent, the answer is `0`.
+If `cnt == 0`, unlocking is impossible → return `0`.
 
-For example:
+Otherwise insert the new value using:
 
-```
-[3, 3, 3, 4, 4, 4] → result = 0
-because computers at index 1 and 2 cannot be unlocked by any earlier index.
-```
-
-### **4. Count permutations using combinatorics**
-
-Let layer sizes be:
-
-```
-L1, L2, L3, ...
-```
-
-Layer 1 must contain index `0`.
-
-For each new layer with size `k`, when we have already placed `total` nodes:
-
-Number of ways to insert this layer:
-
-```
-C(total + k - 1, k)
-```
-
-This corresponds to placing `k` new items into `total` existing positions while ensuring the unlocking constraints.
-
-Final answer is the product of all such binomial coefficients.
-
-### **5. Use factorials + modular inverses**
-
-Combination values require fast computation under modulo `1e9+7`.
-
----
-
-## **Example**
-
-### **Input**
-
-```
-complexity = [1, 2, 3]
-```
-
-### Layers
-
-```
-1 → [0]
-2 → [1]
-3 → [2]
-```
-
-### Counting
-
-* Layer 1: must start → 1 way
-* Layer 2: C(1, 1) = 1
-* Layer 3: C(2, 1) = 2
-
-### **Output**
-
-```
-2
-```
-
-Valid sequences:
-
-```
-[0, 1, 2]
-[0, 2, 1]
+```python
+bisect.insort(sortedc, complexity[i])
 ```
 
 ---
 
-## **Why This Works**
+### **2. If feasibility holds for all nodes**
 
-The unlocking condition forms a **layered DAG structure**:
+There is no further dependency.
 
-* All nodes in higher layers depend on at least one node in earlier layers.
-* Nodes inside a layer cannot unlock each other because they have equal complexity.
-* Unlocking is always possible as long as each layer has at least one dependency in earlier layers.
-* Ordering between layers is flexible → combinatorial counting.
+Only rule:
+Computer `0` must be placed first.
 
-Thus, the problem reduces to:
+Thus:
 
-> A layered topological sorting count
-> = product of binomial coefficients representing interleaving ways.
+```
+Answer = factorial(n−1) mod (1e9 + 7)
+```
 
-This transforms a difficult dependency problem into a clean combinatorics problem.
-
----
-
-## **Complexity**
-
-| Operation                       | Cost         |
-| ------------------------------- | ------------ |
-| Sorting complexities            | `O(n log n)` |
-| Feasibility checking            | `O(n)`       |
-| Precomputing factorials         | `O(n)`       |
-| Final combinatorial calculation | `O(n)`       |
-
-**Overall:** `O(n log n)`
-**Space:** `O(n)`
+Your code computes this iteratively.
 
 ---
 
-## **What I Learned**
+# **Correctness Intuition**
 
-* How dependency rules can form a layered structure allowing combinatorial counting.
-* Why equal-complexity computers cannot unlock each other.
-* How to detect impossible scenarios by analyzing index ordering.
-* How to transform a DAG-topological-count problem into combinatorics.
-* Efficient use of factorials and modular inverses to compute large binomial coefficients.
+Why `(n−1)!`?
+
+After verifying feasibility:
+
+1. Computer 0 must be first (already unlocked).
+2. Every computer `i > 0` has at least one smaller-complexity predecessor by index.
+3. This property **does not depend on permutation order** anymore.
+
+That means:
+
+* Any permutation of the remaining `n−1` computers is valid.
+* Those computers impose no additional constraints on each other.
+
+So total valid sequences:
+
+```
+1 (fixed first element) × (n−1)! = (n−1)!
+```
+
+---
+
+# **Time & Space Complexity**
+
+| Component                     | Complexity   |
+| ----------------------------- | ------------ |
+| Feasibility check with bisect | `O(n log n)` |
+| Computing factorial(n−1)      | `O(n)`       |
+| Space usage                   | `O(n)`       |
+
+---
+
+# **What I Learned**
+
+* How to convert dependency rules into a simple feasibility check.
+* Using `bisect_left` to efficiently count “how many previous values are smaller.”
+* Why only index ordering matters for unlockability, not permutation ordering.
+* How feasibility collapses the problem into a simple factorial.
+* A clean and optimized `O(n log n)` implementation.
