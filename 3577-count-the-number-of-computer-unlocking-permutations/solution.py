@@ -1,51 +1,43 @@
+from typing import List
 MOD = 10**9 + 7
 
 class Solution:
     def countPermutations(self, complexity: List[int]) -> int:
         n = len(complexity)
 
-        # Step 1: group by complexity value
-        from collections import defaultdict
-        groups = defaultdict(list)
-        for i, c in enumerate(complexity):
-            groups[c].append(i)
+        # compute DP:
+        # dp[i] = number of ways if exactly i nodes are unlocked
+        dp = [0] * (n+1)
+        dp[1] = 1  # only {0}
 
-        # Step 2: sort by complexity
-        layers = []
-        for c in sorted(groups.keys()):
-            layers.append(groups[c])
+        # active = nodes with index < i and complexity < complexity[i]
+        active = 0
 
-        # Step 3: check feasibility
-        min_index = float('inf')
-        for layer in layers:
-            for idx in layer:
-                if idx != 0 and all(complexity[j] >= complexity[idx] for j in range(idx)):
-                    return 0
+        # multiset sorted by complexity
+        import bisect
+        sortedc = []
 
-        # Step 4: combinatorics
-        # Precompute factorials
-        fact = [1] * (n + 1)
-        inv = [1] * (n + 1)
-        for i in range(1, n + 1):
-            fact[i] = fact[i-1] * i % MOD
+        # insert complexity of index 0
+        sortedc.append(complexity[0])
 
-        inv[n] = pow(fact[n], MOD-2, MOD)
-        for i in reversed(range(n)):
-            inv[i] = inv[i+1] * (i+1) % MOD
+        for i in range(1, n):
+            # count how many unlocked nodes can unlock current node
+            # i.e. complexity[j] < complexity[i]
+            cnt = bisect.bisect_left(sortedc, complexity[i])
+            if cnt == 0:
+                return 0  # no one can unlock i
 
-        def C(a, b):
-            if a < b: return 0
-            return fact[a] * inv[b] % MOD * inv[a-b] % MOD
+            # insert and update
+            bisect.insort(sortedc, complexity[i])
 
-        total = 0
+        # If all nodes pass feasibility → answer = factorial(n-1)
+        # because only restriction is: 0 must be first
+        # after that all remaining nodes are free to permute
+        # but each must satisfy at least one unlock condition,
+        # which is ensured by above check
+
+        # factorial(n-1)
         ans = 1
-        for layer in layers:
-            k = len(layer)
-            if total == 0:
-                if layer[0] != 0:
-                    return 0
-            else:
-                ans = ans * C(total + k - 1, k) % MOD
-            total += k
-
+        for i in range(1, n):
+            ans = ans * i % MOD
         return ans
