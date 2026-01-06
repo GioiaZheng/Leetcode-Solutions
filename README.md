@@ -1,98 +1,126 @@
-# **LeetCode Solutions Repository**
+# LeetCode Solutions Repository
 
-Curated, well-documented **Python 3** solutions for a growing set of LeetCode problems. Each folder contains a clear explanation (`README.md`) and an implementation (`solution.py`) so this repo can serve as a reusable algorithm notebook.
+Curated, well-documented **Python 3** solutions for a growing set of LeetCode problems. Every problem folder contains:
+- `README.md` with a concise explanation and complexity notes.
+- `solution.py` with a clean, runnable implementation.
 
----
-
-## **Repository Layout**
-- `####-problem-name/` — individual problems with an explanation and `solution.py`.
-- `0000-notes/` — consolidated reference notes (moved from the old `notes/` path).
+Use this repo as a reusable algorithm notebook or a quick refresher before interviews.
 
 ---
 
-## **Notes**
-- **How to Think**
-  - [`how-to-read-problems.md`](0000-notes/00-how-to-think/how-to-read-problems.md) — reading and re-framing prompts effectively.
-  - [`how-to-choose-algorithms.md`](0000-notes/00-how-to-think/how-to-choose-algorithms.md) — picking solution strategies quickly.
-  - [`common-mistakes.md`](0000-notes/00-how-to-think/common-mistakes.md) — pitfalls to avoid during implementation.
-- **Arrays**
-  - [`array-basics.md`](0000-notes/01-array/array-basics.md) — traversal patterns and in-place tips.
-- **Hash Table**
-  - [`hashing-basics.md`](0000-notes/02-hash-table/hashing-basics.md) — core hashing concepts.
-  - [`frequency-count.md`](0000-notes/02-hash-table/frequency-count.md) — counting patterns with dictionaries.
-  - [`bucket-technique.md`](0000-notes/02-hash-table/bucket-technique.md) — bucket-based optimization tricks.
-- **Two Pointers**
-  - [`two-pointers-basics.md`](0000-notes/03-two-pointers/two-pointers-basics.md) — classic pointer patterns.
-- **Sliding Window**
-  - [`sliding-window-fixed.md`](0000-notes/04-sliding-window/sliding-window-fixed.md) — fixed-size templates.
-  - [`sliding-window-variable.md`](0000-notes/04-sliding-window/sliding-window-variable.md) — variable-size templates.
-- **Binary Search**
-  - [`binary-search-on-array.md`](0000-notes/05-binary-search/binary-search-on-array.md) — array boundary search.
-  - [`binary-search-on-answer.md`](0000-notes/05-binary-search/binary-search-on-answer.md) — search on monotonic answers.
-- **Prefix Sum**
-  - [`prefix-sum.md`](0000-notes/06-prefix-sum/prefix-sum.md) — prefix-sum patterns.
-  - [`difference-array.md`](0000-notes/06-prefix-sum/difference-array.md) — range update trick.
-- **Greedy**
-  - [`greedy-thinking.md`](0000-notes/07-greedy/greedy-thinking.md) — greedy decision making.
-  - [`interval-greedy.md`](0000-notes/07-greedy/interval-greedy.md) — interval scheduling patterns.
-- **Dynamic Programming**
-  - [`dp-introduction.md`](0000-notes/08-dynamic-programming/dp-introduction.md) — getting started with DP.
+## Repository structure
+- `####-problem-name/` — individual problems; run `python solution.py` to execute the reference implementation.
+- `0000-notes/` — reusable study notes and templates grouped by topic.
+- `LICENSE` — repository license details.
+
+### Notes library highlights
+- **How to think**: reading prompts, choosing algorithms, and avoiding common mistakes.
+- **Core patterns**: arrays, hashing, two pointers, sliding window, binary search, prefix sum, greedy, and dynamic programming.
+- **Practice helpers**: quick references for frequency counting, bucket techniques, interval scheduling, and more.
+
+#### Notes index
+- **00-how-to-think**: [how to read problems](0000-notes/00-how-to-think/how-to-read-problems.md), [how to choose algorithms](0000-notes/00-how-to-think/how-to-choose-algorithms.md), [common mistakes](0000-notes/00-how-to-think/common-mistakes.md)
+- **01-array**: [array basics](0000-notes/01-array/array-basics.md)
+- **02-hash-table**: [hashing basics](0000-notes/02-hash-table/hashing-basics.md), [frequency count](0000-notes/02-hash-table/frequency-count.md), [bucket technique](0000-notes/02-hash-table/bucket-technique.md)
+- **03-two-pointers**: [two-pointers basics](0000-notes/03-two-pointers/two-pointers-basics.md)
+- **04-sliding-window**: [fixed window](0000-notes/04-sliding-window/sliding-window-fixed.md), [variable window](0000-notes/04-sliding-window/sliding-window-variable.md)
+- **05-binary-search**: [binary search on array](0000-notes/05-binary-search/binary-search-on-array.md), [binary search on answer](0000-notes/05-binary-search/binary-search-on-answer.md)
+- **06-prefix-sum**: [prefix sum](0000-notes/06-prefix-sum/prefix-sum.md), [difference array](0000-notes/06-prefix-sum/difference-array.md)
+- **07-greedy**: [greedy thinking](0000-notes/07-greedy/greedy-thinking.md), [interval greedy](0000-notes/07-greedy/interval-greedy.md)
+- **08-dynamic-programming**: [introduction](0000-notes/08-dynamic-programming/dp-introduction.md), [state design](0000-notes/08-dynamic-programming/dp-state-design.md), [dp on array](0000-notes/08-dynamic-programming/dp-on-array.md), [dp on strings](0000-notes/08-dynamic-programming/dp-on-strings.md), [summary](0000-notes/08-dynamic-programming/summary.md)
+- **09-graph**: [graph basics](0000-notes/09-graph/graph-basics.md), [BFS](0000-notes/09-graph/bfs.md), [union find](0000-notes/09-graph/union-find.md), [topological sort](0000-notes/09-graph/topological-sort.md), [shortest path (Dijkstra)](0000-notes/09-graph/shortest-path-dijkstra.md)
+- **10-how-to-choose-algorithm**: [algorithm selection guide](0000-notes/10-how-to-choose-algorithm/algorithm-selection-guide.md)
+- **11-pattern-library**: [core patterns](0000-notes/11-pattern-library/core-patterns.md)
 
 ---
 
-## **Problem Catalog**
+## Quick start
+1. **Clone**: `git clone <repo-url>`
+2. **Navigate** to a problem directory, e.g. `cd 0001-two-sum`.
+3. **Run** the solution: `python solution.py`
+4. **Read** the accompanying `README.md` for the approach, complexity, and edge cases.
+
+> Tip: The folder naming convention is `<problem-id>-<kebab-case-title>` so you can jump directly to the problem you want to review.
+
+---
+
+## Problem catalog
 A topic-focused index of all solutions currently in the repository.
 
 | ID | Problem | Topics |
 | --- | --- | --- |
-| 0001 | [Two Sum](0001-two-sum/) | Array, Hash Table |
-| 0002 | [Add Two Numbers](0002-add-two-numbers/) | Linked List, Math |
-| 0003 | [Longest Substring Without Repeating Characters](0003-longest-substring-without-repeating-characters/) | Sliding Window, Hash Map, Two Pointers |
-| 0004 | [Median of Two Sorted Arrays](0004-median-of-two-sorted-arrays/) | Binary Search, Divide and Conquer, Partitioning |
-| 0005 | [Longest Palindromic Substring](0005-longest-palindromic-substring/) | String, Two Pointers, Expand Around Center |
-| 0006 | [Zigzag Conversion](0006-zigzag-conversion/) | String, Simulation |
-| 0007 | [Reverse Integer](0007-reverse-integer/) | Math |
-| 0008 | [String to Integer (atoi)](0008-string-to-integer-atoi/) | String, Parsing |
-| 0009 | [Palindrome Number](0009-palindrome-number/) | Math |
-| 0010 | [Regular Expression Matching](0010-regular-expression-matching/) | String, Dynamic Programming |
-| 0011 | [Container With Most Water](0011-container-with-most-water/) | Array, Two Pointers |
-| 0026 | [Remove Duplicates from Sorted Array](0026-remove-duplicates-from-sorted-array/) | Array, Two Pointers |
-| 0027 | [Remove Element](0027-remove-element/) | Array, Two Pointers |
-| 0028 | [Find the Index of the First Occurrence in a String](0028-find-the-index-of-the-first-occurrence-in-a-string/) | String, Two Pointers, Pattern Matching |
-| 0049 | [Group Anagrams](0049-group-anagrams/) | Array, Hash Table, String |
-| 0121 | [Best Time to Buy and Sell Stock](0121-best-time-to-buy-and-shell-stock/) | Array, Greedy |
-| 0164 | [Maximum Gap](0164-maximum-gap/) | Bucket Sort, Pigeonhole Principle, Sorting |
-| 0220 | [Contains Duplicate III](0220-contains-duplicate-iii/) | Sliding Window, Bucket Sort, Hash Map |
-| 0242 | [Valid Anagram](0242-valid-anagram/) | Hash Table, String, Sorting |
-| 0347 | [Top K Frequent Elements](0347-top-k-frequent-elements/) | Array, Hash Table, Heap, Sorting |
-| 0451 | [Sort Characters by Frequency](0451-sort-characters-by-frequency/) | Hash Table, String, Sorting, Heap |
-| 0692 | [Top K Frequent Words](0692-top-k-frequent-words/) | String, Hash Table, Heap, Sorting |
-| 0912 | [Sort an Array](0912-sort-an-array/) | Sorting, Divide and Conquer |
+| 0001 | [Two Sum](0001-two-sum/) | Array; Hash Table |
+| 0002 | [Add Two Numbers](0002-add-two-numbers/) | Linked List; Math |
+| 0003 | [Longest Substring Without Repeating Characters](0003-longest-substring-without-repeating-characters/) | Sliding Window; Hash Map |
+| 0004 | [Median of Two Sorted Arrays](0004-median-of-two-sorted-arrays/) | Binary Search; Divide & Conquer |
+| 0005 | [Longest Palindromic Substring](0005-longest-palindromic-substring/) | String; Expand Around Center; Dynamic Programming |
+| 0006 | [Zigzag Conversion](0006-zigzag-conversion/) | String; Simulation |
+| 0007 | [Reverse Integer](0007-reverse-integer/) | Math; Overflow Handling |
+| 0008 | [String to Integer (atoi)](0008-string-to-integer-atoi/) | String; Parsing |
+| 0009 | [Palindrome Number](0009-palindrome-number/) | Math; Two Pointers |
+| 0010 | [Regular Expression Matching](0010-regular-expression-matching/) | Dynamic Programming; Pattern Matching |
+| 0011 | [Container With Most Water](0011-container-with-most-water/) | Array; Two Pointers |
+| 0012 | [Integer to Roman](0012-integer-to-roman/) | Math; Mapping |
+| 0013 | [Roman to Integer](0013-roman-to-integer/) | Math; Mapping |
+| 0026 | [Remove Duplicates from Sorted Array](0026-remove-duplicates-from-sorted-array/) | Array; Two Pointers |
+| 0027 | [Remove Element](0027-remove-element/) | Array; Two Pointers |
+| 0028 | [Find the Index of the First Occurrence in a String](0028-find-the-index-of-the-first-occurrence-in-a-string/) | String; Two Pointers |
+| 0049 | [Group Anagrams](0049-group-anagrams/) | Hash Table; Sorting |
+| 0066 | [Plus One](0066-plus-one/) | Array; Simulation |
+| 0121 | [Best Time to Buy and Sell Stock](0121-best-time-to-buy-and-shell-stock/) | Array; Greedy |
+| 0164 | [Maximum Gap](0164-maximum-gap/) | Bucket Sort; Sorting |
+| 0220 | [Contains Duplicate III](0220-contains-duplicate-iii/) | Sliding Window; Bucket Sort |
+| 0242 | [Valid Anagram](0242-valid-anagram/) | Hash Table; Sorting |
+| 0347 | [Top K Frequent Elements](0347-top-k-frequent-elements/) | Heap; Hash Table |
+| 0451 | [Sort Characters by Frequency](0451-sort-characters-by-frequency/) | Heap; Hash Table |
+| 0692 | [Top K Frequent Words](0692-top-k-frequent-words/) | Heap; Sorting |
+| 0756 | [Pyramid Transition Matrix](0756-pyramid-transition-matrix/) | Graph; DFS |
+| 0840 | [Magic Squares in Grid](0840-magic-squares-in-grid/) | Array; Enumeration |
+| 0912 | [Sort an Array](0912-sort-an-array/) | Sorting; Divide & Conquer |
+| 0944 | [Delete Columns to Make Sorted](0944-delete-columns-to-make-sorted/) | Greedy; String |
+| 0955 | [Delete Columns to Make Sorted II](0955-delete-columns-to-make-sorted-ii/) | Greedy; String |
+| 0960 | [Delete Columns to Make Sorted III](0960-delete-columns-to-make-sorted-iii/) | Dynamic Programming; String |
+| 0961 | [N-Repeated Element in Size 2N Array](0961-n-repeated-element-in-size-2n-array/) | Hash Table; Counting |
+| 1161 | [Maximum Level of a Binary Tree](1161-maximum-level-of-a-binary-tree/) | Tree; BFS |
+| 1351 | [Count Negative Numbers in a Sorted Matrix](1351-count-negative-numbers-in-a-sorted-matrix/) | Matrix; Binary Search |
+| 1390 | [Four Divisors](1390-four-divisors/) | Math; Number Theory |
+| 1411 | [Number of Ways to Paint N x 3 Grid](1411-number-of-ways-to-pair-nx3-grid/) | Dynamic Programming; Combinatorics |
 | 1523 | [Count Odd Numbers in an Interval Range](1523-count-odd-numbers-in-an-interval-range/) | Math |
-| 1925 | [Count Square Sum Triples](1925-count-square-sum-triples/) | Math, Number Theory |
-| 2092 | [Find All People With Secret](2092-final-all-people-with-secret/) | Graph, BFS, Sorting |
-| 2110 | [Number of Smooth Descent Periods of a Stock](2110-number-of-smooth-descent-periods-of-a-stock/) | Array, Sliding Window, Consecutive Segment Counting |
-| 2141 | [Maximum Running Time of N Computers](2141-maximum-running-time-of-n-computers/) | Binary Search, Greedy, Math |
-| 2147 | [Number of Ways to Divide a Long Corridor](2147-number-of-ways-to-divide-a-long-corridor/) | Greedy, Combinatorics, Counting |
-| 2211 | [Count Collisions on a Road](2211-count-collisions-on-a-road/) | String, Simulation |
-| 2273 | [Find Resultant Array After Removing Anagrams](2273-find-resultant-array-after-removing-anagrams/) | Array, String, Hashing |
-| 2435 | [Paths in Matrix Whose Sum Is Divisible by K](2435-paths-in-matrix-divisible-by-k/) | Dynamic Programming, Matrix, Prefix Sum |
-| 3381 | [Maximum Subarray Sum With Length Divisible by K](3381-maximum-subarray-sum-with-length-divisible-by-k/) | Array, Prefix Sum, Hash Map |
-| 3432 | [Count Partitions with Even Sum Difference](3432-count-partitions-with-even-sum-difference/) | Prefix Sum, Math, Parity |
-| 3433 | [Count Mentions Per User](3433-count-mentions-per-user/) | Simulation, Hashing, Timeline Processing |
-| 3531 | [Count Covered Buildings](3531-count-convered-buildings/) | Hashing, Geometry, Grid, Prefix Min/Max |
-| 3562 | [Maximum Profit from Trading Stocks with Discounts](3562-maximum-profit-from-trading-stocks-with-discounts/) | Tree DP, Knapsack, Dynamic Programming, DFS |
-| 3573 | [Best Time to Buy and Sell Stock V](3573-best-time-to-buy-and-sell-stock-v/) | Dynamic Programming, Stock Trading, State Machine |
-| 3577 | [Count the Number of Computer Unlocking Permutations](3577-count-the-number-of-computer-unlocking-permutations/) | Sorting, Feasibility Check, Combinatorics |
-| 3578 | [Count Partitions With Max-Min Difference at Most K](3578-count-partitions-with-max-min-difference-at-most-k/) | Sliding Window, Monotonic Queue, Dynamic Programming, Prefix Sum |
-| 3583 | [Count Special Triplets](3583-count-special-triplets/) | Hash Map, Prefix/Suffix Frequency, Combinatorics |
-| 3606 | [Coupon Code Validator](3606-coupon-code-validator/) | String Validation, Sorting, Simulation |
-| 3623 | [Count Number of Trapezoids I](3623-count-number-of-trapezoids-i/) | Array, Geometry, Combinatorics |
-| 3625 | [Count Number of Trapezoids II](3625-count-number-of-trapezoids-ii/) | Array, Geometry, Combinatorics |
-| 3652 | [Best Time to Buy and Sell Stock using Strategy](3652-best-time-to-buy-and-sell-stock-using-strategy/) | Prefix Sum, Sliding Window, Greedy |
+| 1925 | [Count Square Sum Triples](1925-count-square-sum-triples/) | Math; Number Theory |
+| 1970 | [Last Day Where You Can Still Cross](1970-last-day-where-you-can-still-cross/) | Binary Search; BFS/Union Find |
+| 1975 | [Maximum Matrix Sum](1975-maximum-matrix-sum/) | Greedy; Matrix |
+| 2054 | [Two Best Non-Overlapping Events](2054-two-best-non-overlapping-events/) | Dynamic Programming; Sorting |
+| 2092 | [Find All People With Secret](2092-final-all-people-with-secret/) | Graph; Union Find |
+| 2110 | [Number of Smooth Descent Periods of a Stock](2110-number-of-smooth-descent-periods-of-a-stock/) | Sliding Window; Counting |
+| 2141 | [Maximum Running Time of N Computers](2141-maximum-running-time-of-n-computers/) | Binary Search; Greedy |
+| 2147 | [Number of Ways to Divide a Long Corridor](2147-number-of-ways-to-divide-a-long-corridor/) | Dynamic Programming; Combinatorics |
+| 2211 | [Count Collisions on a Road](2211-count-collisions-on-a-road/) | Simulation; Stack |
+| 2273 | [Find Resultant Array After Removing Anagrams](2273-find-resultant-array-after-removing-anagrams/) | String; Stack |
+| 2343 | [Query Kth Smallest Trimmed Number](2343-query-kth-smallest-trimmed-number/) | Sorting; Priority Queue |
+| 2402 | [Meeting Rooms III](2402-meeting-rooms-iii/) | Priority Queue; Scheduling |
+| 2435 | [Paths in Matrix Whose Sum Is Divisible by K](2435-paths-in-matrix-divisible-by-k/) | Dynamic Programming; Prefix Sum |
+| 2483 | [Minimum Penalty for a Shop](2483-minimum-pernalty-for-shop/) | Prefix Sum; Enumeration |
+| 3074 | [Apple Redistribution into Boxes](3074-apple-redistribution-into-boxes/) | Greedy; Sorting |
+| 3075 | [Maximize Happiness of Children](3075-maximize-happiness-of-children/) | Greedy; Sorting |
+| 3381 | [Maximum Subarray Sum With Length Divisible by K](3381-maximum-subarray-sum-with-length-divisible-by-k/) | Prefix Sum; Hash Map |
+| 3432 | [Count Partitions with Even Sum Difference](3432-count-partitions-with-even-sum-difference/) | Prefix Sum; Math |
+| 3433 | [Count Mentions Per User](3433-count-mentions-per-user/) | Simulation; Hash Table |
+| 3531 | [Count Covered Buildings](3531-count-convered-buildings/) | Geometry; Prefix Min/Max |
+| 3562 | [Maximum Profit from Trading Stocks with Discounts](3562-maximum-profit-from-trading-stocks-with-discounts/) | Tree DP; Knapsack |
+| 3573 | [Best Time to Buy and Sell Stock V](3573-best-time-to-buy-and-sell-stock-v/) | Dynamic Programming; State Machine |
+| 3577 | [Count the Number of Computer Unlocking Permutations](3577-count-the-number-of-computer-unlocking-permutations/) | Sorting; Feasibility Check |
+| 3578 | [Count Partitions With Max-Min Difference at Most K](3578-count-partitions-with-max-min-difference-at-most-k/) | Sliding Window; Dynamic Programming |
+| 3583 | [Count Special Triplets](3583-count-special-triplets/) | Hash Map; Prefix/Suffix Counting |
+| 3606 | [Coupon Code Validator](3606-coupon-code-validator/) | String; Simulation |
+| 3623 | [Count Number of Trapezoids I](3623-count-number-of-trapezoids-i/) | Array; Geometry |
+| 3625 | [Count Number of Trapezoids II](3625-count-number-of-trapezoids-ii/) | Array; Geometry |
+| 3652 | [Best Time to Buy and Sell Stock using Strategy](3652-best-time-to-buy-and-sell-stock-using-strategy/) | Prefix Sum; Sliding Window |
 
 ---
 
-## **How to Use**
-- Open any problem folder to read the explanation and run `solution.py` locally.
-- Keep an eye on `0000-notes/` for reusable templates and pattern summaries as they are added.
+## Contributing
+- Follow the existing folder naming pattern (`####-title-in-kebab-case`).
+- Provide both `README.md` (approach & complexity) and `solution.py` (idiomatic Python).
+- Keep explanations concise and prefer standard library solutions unless an external dependency is necessary.
+
+Happy coding and studying! 🚀
