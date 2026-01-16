@@ -23,6 +23,7 @@ class Solution:
             has_above = col_min[y] < x
             has_below = col_max[y] > x
 
+            # Covered means at least one building in all four directions.
             if has_left and has_right and has_above and has_below:
                 covered += 1
 
