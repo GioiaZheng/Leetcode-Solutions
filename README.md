@@ -44,6 +44,24 @@ Use this repo as a reusable algorithm notebook or a quick refresher before inter
 
 ---
 
+## Solution format
+Each problem folder follows a consistent template so you can skim or reuse ideas quickly.
+
+- **`README.md`** contains the problem summary, key insight, approach, complexity, and a short takeaway.
+- **`solution.py`** is a runnable reference solution with type hints and inline notes for tricky steps.
+
+If you want to add a new problem, start by copying any existing folder and updating the metadata.
+
+---
+
+## Quick checks
+There is no centralized test runner yet, but you can sanity-check a solution with:
+
+- `python solution.py` (runs the sample input if present)
+- `python -m py_compile solution.py` (verifies syntax)
+
+---
+
 ## Problem catalog
 A topic-focused index of all solutions currently in the repository.
 
@@ -67,7 +85,7 @@ A topic-focused index of all solutions currently in the repository.
 | 0028 | [Find the Index of the First Occurrence in a String](0028-find-the-index-of-the-first-occurrence-in-a-string/) | String; Two Pointers |
 | 0049 | [Group Anagrams](0049-group-anagrams/) | Hash Table; Sorting |
 | 0066 | [Plus One](0066-plus-one/) | Array; Simulation |
-| 0121 | [Best Time to Buy and Sell Stock](0121-best-time-to-buy-and-shell-stock/) | Array; Greedy |
+| 0121 | [Best Time to Buy and Sell Stock](0121-best-time-to-buy-and-sell-stock/) | Array; Greedy |
 | 0164 | [Maximum Gap](0164-maximum-gap/) | Bucket Sort; Sorting |
 | 0220 | [Contains Duplicate III](0220-contains-duplicate-iii/) | Sliding Window; Bucket Sort |
 | 0242 | [Valid Anagram](0242-valid-anagram/) | Hash Table; Sorting |
@@ -99,13 +117,13 @@ A topic-focused index of all solutions currently in the repository.
 | 2343 | [Query Kth Smallest Trimmed Number](2343-query-kth-smallest-trimmed-number/) | Sorting; Priority Queue |
 | 2402 | [Meeting Rooms III](2402-meeting-rooms-iii/) | Priority Queue; Scheduling |
 | 2435 | [Paths in Matrix Whose Sum Is Divisible by K](2435-paths-in-matrix-divisible-by-k/) | Dynamic Programming; Prefix Sum |
-| 2483 | [Minimum Penalty for a Shop](2483-minimum-pernalty-for-shop/) | Prefix Sum; Enumeration |
+| 2483 | [Minimum Penalty for a Shop](2483-minimum-penalty-for-shop/) | Prefix Sum; Enumeration |
 | 3074 | [Apple Redistribution into Boxes](3074-apple-redistribution-into-boxes/) | Greedy; Sorting |
 | 3075 | [Maximize Happiness of Children](3075-maximize-happiness-of-children/) | Greedy; Sorting |
 | 3381 | [Maximum Subarray Sum With Length Divisible by K](3381-maximum-subarray-sum-with-length-divisible-by-k/) | Prefix Sum; Hash Map |
 | 3432 | [Count Partitions with Even Sum Difference](3432-count-partitions-with-even-sum-difference/) | Prefix Sum; Math |
 | 3433 | [Count Mentions Per User](3433-count-mentions-per-user/) | Simulation; Hash Table |
-| 3531 | [Count Covered Buildings](3531-count-convered-buildings/) | Geometry; Prefix Min/Max |
+| 3531 | [Count Covered Buildings](3531-count-covered-buildings/) | Geometry; Prefix Min/Max |
 | 3562 | [Maximum Profit from Trading Stocks with Discounts](3562-maximum-profit-from-trading-stocks-with-discounts/) | Tree DP; Knapsack |
 | 3573 | [Best Time to Buy and Sell Stock V](3573-best-time-to-buy-and-sell-stock-v/) | Dynamic Programming; State Machine |
 | 3577 | [Count the Number of Computer Unlocking Permutations](3577-count-the-number-of-computer-unlocking-permutations/) | Sorting; Feasibility Check |
