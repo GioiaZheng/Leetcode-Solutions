@@ -85,28 +85,38 @@ A topic-focused index of all solutions currently in the repository.
 | 0028 | [Find the Index of the First Occurrence in a String](0028-find-the-index-of-the-first-occurrence-in-a-string/) | String; Two Pointers |
 | 0049 | [Group Anagrams](0049-group-anagrams/) | Hash Table; Sorting |
 | 0066 | [Plus One](0066-plus-one/) | Array; Simulation |
+| 0085 | [Maximal Rectangle](0085-maximal-rectangle/) | Dynamic Programming; Stack; Monotonic Stack |
 | 0121 | [Best Time to Buy and Sell Stock](0121-best-time-to-buy-and-sell-stock/) | Array; Greedy |
 | 0164 | [Maximum Gap](0164-maximum-gap/) | Bucket Sort; Sorting |
 | 0220 | [Contains Duplicate III](0220-contains-duplicate-iii/) | Sliding Window; Bucket Sort |
 | 0242 | [Valid Anagram](0242-valid-anagram/) | Hash Table; Sorting |
 | 0347 | [Top K Frequent Elements](0347-top-k-frequent-elements/) | Heap; Hash Table |
 | 0451 | [Sort Characters by Frequency](0451-sort-characters-by-frequency/) | Heap; Hash Table |
+| 0679 | [24 Game](0679-24-game/) | Backtracking; DFS; Math |
 | 0692 | [Top K Frequent Words](0692-top-k-frequent-words/) | Heap; Sorting |
+| 0712 | [Minimum ASCII Delete Sum for Two Strings](0712-minimum-ascii-delete-sum-for-two-strings/) | Dynamic Programming; String |
 | 0756 | [Pyramid Transition Matrix](0756-pyramid-transition-matrix/) | Graph; DFS |
 | 0840 | [Magic Squares in Grid](0840-magic-squares-in-grid/) | Array; Enumeration |
+| 0865 | [Smallest Subtree with all the Deepest Nodes](0865-smallest-subtree-with-all-the-deepest-nodes/) | Tree; Depth-First Search; Binary Tree; Lowest Common Ancestor |
 | 0912 | [Sort an Array](0912-sort-an-array/) | Sorting; Divide & Conquer |
 | 0944 | [Delete Columns to Make Sorted](0944-delete-columns-to-make-sorted/) | Greedy; String |
 | 0955 | [Delete Columns to Make Sorted II](0955-delete-columns-to-make-sorted-ii/) | Greedy; String |
 | 0960 | [Delete Columns to Make Sorted III](0960-delete-columns-to-make-sorted-iii/) | Dynamic Programming; String |
 | 0961 | [N-Repeated Element in Size 2N Array](0961-n-repeated-element-in-size-2n-array/) | Hash Table; Counting |
 | 1161 | [Maximum Level of a Binary Tree](1161-maximum-level-of-a-binary-tree/) | Tree; BFS |
+| 1266 | [Minimum Time Visiting All Points](1266-minimum-time-visiting-all-points/) | Geometry; Greedy; Math |
+| 1339 | [Maximum Product of Splitted Binary Tree](1339-maximum-product-of-splitted-binary-tree/) | Tree; Depth-First Search; Binary Tree; Math |
 | 1351 | [Count Negative Numbers in a Sorted Matrix](1351-count-negative-numbers-in-a-sorted-matrix/) | Matrix; Binary Search |
 | 1390 | [Four Divisors](1390-four-divisors/) | Math; Number Theory |
 | 1411 | [Number of Ways to Paint N x 3 Grid](1411-number-of-ways-to-pair-nx3-grid/) | Dynamic Programming; Combinatorics |
+| 1458 | [Max Dot Product of Two Subsequences](1458-max-dot-product-of-two-subsequence/) | Dynamic Programming; Array; Subsequence |
 | 1523 | [Count Odd Numbers in an Interval Range](1523-count-odd-numbers-in-an-interval-range/) | Math |
+| 1590 | [Make Sum Divisible by P](1590-make-sum-divisible-by-p/) | Prefix Sum; Hash Map; Modular Arithmetic |
+| 1895 | [Largest Magic Square](1895-largest-magic-square/) | Prefix Sum; Matrix; Enumeration |
 | 1925 | [Count Square Sum Triples](1925-count-square-sum-triples/) | Math; Number Theory |
 | 1970 | [Last Day Where You Can Still Cross](1970-last-day-where-you-can-still-cross/) | Binary Search; BFS/Union Find |
 | 1975 | [Maximum Matrix Sum](1975-maximum-matrix-sum/) | Greedy; Matrix |
+| 2047 | [Find the Largest Area of Square Inside Two Rectangles](2047-find-the-largest-area-of-square-inside-two-rectangles/) | Geometry; Brute Force; Enumeration |
 | 2054 | [Two Best Non-Overlapping Events](2054-two-best-non-overlapping-events/) | Dynamic Programming; Sorting |
 | 2092 | [Find All People With Secret](2092-final-all-people-with-secret/) | Graph; Union Find |
 | 2110 | [Number of Smooth Descent Periods of a Stock](2110-number-of-smooth-descent-periods-of-a-stock/) | Sliding Window; Counting |
@@ -118,11 +128,17 @@ A topic-focused index of all solutions currently in the repository.
 | 2402 | [Meeting Rooms III](2402-meeting-rooms-iii/) | Priority Queue; Scheduling |
 | 2435 | [Paths in Matrix Whose Sum Is Divisible by K](2435-paths-in-matrix-divisible-by-k/) | Dynamic Programming; Prefix Sum |
 | 2483 | [Minimum Penalty for a Shop](2483-minimum-penalty-for-shop/) | Prefix Sum; Enumeration |
+| 2872 | [Maximum Number of K-Divisible Components](2872-maximum-number-of-k-divisible-components/) | Tree; DFS; Greedy; Graph |
+| 2943 | [Maximize Area of Square Hole in Grid](2943-maximize-area-of-square-hole-in-grid/) | Greedy; Geometry; Sorting |
+| 2975 | [Maximum Square Area by Removing Fences From a Field](2975-maximum-square-area-by-removing-fences-from-a-field/) | Geometry; Hash Set; Greedy |
 | 3074 | [Apple Redistribution into Boxes](3074-apple-redistribution-into-boxes/) | Greedy; Sorting |
 | 3075 | [Maximize Happiness of Children](3075-maximize-happiness-of-children/) | Greedy; Sorting |
 | 3381 | [Maximum Subarray Sum With Length Divisible by K](3381-maximum-subarray-sum-with-length-divisible-by-k/) | Prefix Sum; Hash Map |
 | 3432 | [Count Partitions with Even Sum Difference](3432-count-partitions-with-even-sum-difference/) | Prefix Sum; Math |
 | 3433 | [Count Mentions Per User](3433-count-mentions-per-user/) | Simulation; Hash Table |
+| 3453 | [Separate Squares I](3453-Separate-squares-I/) | Binary Search; Geometry; Prefix Area |
+| 3454 | [Separate Squares II](3454-separate-squares-ii/) | Sweep Line; Segment Tree; Geometry; Binary Search |
+| 3512 | [Minimum Operations to Make Array Sum Divisible by K](3512-minimum-operations-to-make-array-sum-divisible-by-k/) | Math; Greedy; Modular Arithmetic |
 | 3531 | [Count Covered Buildings](3531-count-covered-buildings/) | Geometry; Prefix Min/Max |
 | 3562 | [Maximum Profit from Trading Stocks with Discounts](3562-maximum-profit-from-trading-stocks-with-discounts/) | Tree DP; Knapsack |
 | 3573 | [Best Time to Buy and Sell Stock V](3573-best-time-to-buy-and-sell-stock-v/) | Dynamic Programming; State Machine |
