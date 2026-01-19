@@ -13,6 +13,18 @@ Use this repo as a reusable algorithm notebook or a quick refresher before inter
 - `0000-notes/` — reusable study notes and templates grouped by topic.
 - `LICENSE` — repository license details.
 
+### Repository map
+```mermaid
+flowchart TD
+    Repo[LeetCode Solutions Repo]
+    Repo --> Problems["####-problem-name/"]
+    Repo --> Notes["0000-notes/"]
+    Repo --> License["LICENSE"]
+    Problems --> ProblemReadme["README.md (approach + complexity)"]
+    Problems --> ProblemSolution["solution.py (reference implementation)"]
+    Notes --> NotesTopics["Topic folders & guides"]
+```
+
 ### Notes library highlights
 - **How to think**: reading prompts, choosing algorithms, and avoiding common mistakes.
 - **Core patterns**: arrays, hashing, two pointers, sliding window, binary search, prefix sum, greedy, and dynamic programming.
