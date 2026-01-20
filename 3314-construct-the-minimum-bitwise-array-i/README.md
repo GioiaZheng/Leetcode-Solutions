@@ -114,7 +114,7 @@ ans = -1
 ## **Examples**
 
 ### Example 1
-````
+```
 
 nums = [2, 3, 5, 7]
 
