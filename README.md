@@ -46,6 +46,8 @@ flowchart TD
 - **10-how-to-choose-algorithm**: [algorithm selection guide](0000-notes/10-how-to-choose-algorithm/algorithm-selection-guide.md)
 - **11-pattern-library**: [core patterns](0000-notes/11-pattern-library/core-patterns.md)
 
+> 每篇笔记都有对应的中文版本，文件名以 `-zh.md` 结尾。
+
 ---
 
 ## Quick start
