@@ -1,7 +1,8 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        seen = {}  # value → index
+        seen = {}  # value to index mapping
 
+        # Iterate once and check whether the needed complement was seen before.
         for i, num in enumerate(nums):
             diff = target - num
 

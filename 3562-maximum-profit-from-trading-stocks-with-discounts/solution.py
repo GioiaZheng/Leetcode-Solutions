@@ -55,11 +55,11 @@ class Solution:
             gain_half = future[u] - half
 
             for b in range(budget + 1):
-                # parent NOT bought → no discount
+                # Parent not bought: no discount.
                 if b >= cost and sub[1][b - cost] >= 0:
                     dp0[b] = max(dp0[b], sub[1][b - cost] + gain_full)
 
-                # parent bought → discount
+                # Parent bought: discounted price.
                 if b >= half and sub[1][b - half] >= 0:
                     dp1[b] = max(dp1[b], sub[1][b - half] + gain_half)
 
