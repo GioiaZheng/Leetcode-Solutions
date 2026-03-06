@@ -1,63 +1,98 @@
 # LeetCode Solutions
 
-![Python](https://img.shields.io/badge/language-python-blue) ![LeetCode](https://img.shields.io/badge/leetcode-solutions-orange) ![Problems](https://img.shields.io/badge/problems-96-green) ![License](https://img.shields.io/badge/license-MIT-lightgrey)
+![Python](https://img.shields.io/badge/language-python-blue)
+![LeetCode](https://img.shields.io/badge/leetcode-solutions-orange)
+![Problems](https://img.shields.io/badge/problems-96-green)
+![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
-A curated collection of **Python 3** LeetCode solutions focused on clarity, consistency, and interview-oriented learning.
+A collection of **Python 3 implementations for LeetCode problems**, organized with consistent structure and concise explanations.
+The repository is intended as both a **solution reference** and a **structured review resource** for algorithm practice and interview preparation.
 
-## Repository snapshot
-- **96 solved problems** organized in standardized directories.
-- **Topic-tagged catalog** in [`CATALOG.md`](CATALOG.md) with no `TBD` placeholders.
-- **Reusable study notes** in [`0000-notes/`](0000-notes/) with English + Chinese variants.
+---
 
-## Why this repository
-This repository is designed as both a **solution archive** and a **study reference** for technical interviews.
+# Repository Overview
 
-Key characteristics:
+* **96 solved problems**, each stored in a dedicated directory.
+* A **topic-tagged index** available in [`CATALOG.md`](CATALOG.md).
+* **Algorithm study notes** located in [`0000-notes/`](0000-notes/), with both English and Chinese versions.
 
-- Consistent folder structure for every problem
-- Clear per-problem README explanations
-- Runnable Python implementations
-- Topic-based study notes
-- English + Chinese note variants
+Each problem directory contains:
 
-It can be used as:
+* `README.md` – problem summary, key insight, and complexity analysis
+* `solution.py` – a runnable Python implementation
 
-- an interview revision notebook
-- a personal algorithm knowledge base
-- a reference for common problem-solving patterns
+---
 
-## Directory Naming Convention
-All problem directories follow:
+# Repository Structure
 
-```text
+```
+####-problem-name/
+0000-notes/
+CATALOG.md
+LICENSE
+```
+
+Description of key components:
+
+| Path                 | Description                                           |
+| -------------------- | ----------------------------------------------------- |
+| `####-problem-name/` | One directory per LeetCode problem                    |
+| `0000-notes/`        | Algorithm notes and reusable problem-solving patterns |
+| `CATALOG.md`         | Full list of solved problems with topic tags          |
+| `LICENSE`            | License information                                   |
+
+---
+
+# Directory Naming Convention
+
+All problem directories follow the format:
+
+```
 ####-problem-name
 ```
 
 Where:
-- `####` = 4-digit problem ID.
-- `problem-name` = **kebab-case, lowercase** title.
 
-Canonical format:
-
-```text
-problem-id + kebab-case + lowercase
-```
+* `####` – four-digit LeetCode problem ID
+* `problem-name` – lowercase title written in **kebab-case**
 
 Examples:
-- `0001-two-sum`
-- `1458-max-dot-product-of-two-subsequences`
-- `3453-separate-squares-i`
 
-## Repository Structure
-- `####-problem-name/` — one problem per directory.
-- `0000-notes/` — reusable algorithm notes and study guides.
-- `CATALOG.md` — complete problem index.
-- `LICENSE` — license information.
+```
+0001-two-sum
+1458-max-dot-product-of-two-subsequences
+3453-separate-squares-i
+```
 
-## Problem Catalog
-- 👉 [Open full problem catalog](CATALOG.md)
+This convention keeps the repository predictable and allows quick navigation by problem ID.
 
-## Quick Start
+---
+
+# Problem Catalog
+
+The complete list of solved problems is maintained in:
+
+```
+CATALOG.md
+```
+
+Open the catalog:
+
+[View the problem catalog](CATALOG.md)
+
+The catalog includes:
+
+* Problem ID
+* Title
+* Directory link
+* Topic tags
+
+---
+
+# Quick Start
+
+Clone the repository and run any solution directly.
+
 ```bash
 git clone https://github.com/<username>/<repo-name>.git
 cd <repo-name>
@@ -66,31 +101,56 @@ cd 0001-two-sum
 python solution.py
 ```
 
-## Notes library
-The repository also contains reusable study notes covering common algorithm patterns.
-
-Topics include:
-
-- Arrays
-- Hash tables
-- Two pointers
-- Sliding window
-- Binary search
-- Prefix sum
-- Greedy
-- Dynamic programming
-- Graph algorithms
-- Recursion and backtracking
-
-See the full notes index here:
-
-➡️ [0000-notes/README.md](0000-notes/README.md)
-
-## Contributing
-- Follow the naming convention: `####-kebab-case-lowercase`.
-- Keep solutions self-contained and readable.
-- Include both explanation (`README.md`) and implementation (`solution.py`).
-- After adding/removing problem folders, run `python scripts/update_readme_stats.py` to refresh the badge and solved-count line.
+Most solutions include small test snippets or example usage that can be executed directly.
 
 ---
-If this repository helps your interview prep or daily practice, feel free to star it.
+
+# Notes Library
+
+The repository includes algorithm notes covering common problem-solving patterns.
+
+Main topics include:
+
+* Arrays
+* Hash tables
+* Two pointers
+* Sliding window
+* Binary search
+* Prefix sums
+* Greedy algorithms
+* Dynamic programming
+* Graph algorithms
+* Recursion and backtracking
+
+Full index:
+
+```
+0000-notes/README.md
+```
+
+These notes are designed as quick references for revisiting common interview techniques.
+
+---
+
+# Contributing
+
+Contributions are welcome.
+
+Please follow the existing repository conventions:
+
+* Use the directory format `####-problem-name`
+* Keep implementations clear and self-contained
+* Include both:
+
+  * explanation (`README.md`)
+  * implementation (`solution.py`)
+
+After adding or removing problems, update the repository statistics using:
+
+```bash
+python scripts/update_readme_stats.py
+```
+
+---
+
+If you find this repository useful for practice or interview preparation, consider starring the project.
