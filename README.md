@@ -6,6 +6,16 @@ Curated, well-documented **Python 3** solutions for a growing set of LeetCode pr
 
 Use this repo as a reusable algorithm notebook or a quick refresher before interviews.
 
+## Repository snapshot
+- **96 solved problems** in `####-problem-name/` directories.
+- **64 note documents** under `0000-notes/` (English + Chinese variants).
+- Organized by topic so you can quickly revise common interview patterns.
+
+## How to find a problem fast
+- Press `Ctrl/Cmd + F` in the **Problem catalog** and search by ID (for example `2402`) or title keyword.
+- Jump directly by folder name pattern: `####-kebab-case-title/`.
+- Prefer reading the per-problem `README.md` first, then run `python solution.py`.
+
 ---
 
 ## Repository structure
@@ -32,20 +42,20 @@ flowchart TD
 - **Practice helpers**: quick references for frequency counting, bucket techniques, interval scheduling, and more.
 
 #### Notes index
-- **00-how-to-think**: [how to read problems](0000-notes/00-how-to-think/how-to-read-problems.md), [how to choose algorithms](0000-notes/00-how-to-think/how-to-choose-algorithms.md), [common mistakes](0000-notes/00-how-to-think/common-mistakes.md)
-- **01-array**: [array basics](0000-notes/01-array/array-basics.md)
-- **02-hash-table**: [hashing basics](0000-notes/02-hash-table/hashing-basics.md), [frequency count](0000-notes/02-hash-table/frequency-count.md), [bucket technique](0000-notes/02-hash-table/bucket-technique.md)
-- **03-two-pointers**: [two-pointers basics](0000-notes/03-two-pointers/two-pointers-basics.md)
-- **04-sliding-window**: [fixed window](0000-notes/04-sliding-window/sliding-window-fixed.md), [variable window](0000-notes/04-sliding-window/sliding-window-variable.md)
-- **05-binary-search**: [binary search on array](0000-notes/05-binary-search/binary-search-on-array.md), [binary search on answer](0000-notes/05-binary-search/binary-search-on-answer.md)
-- **06-prefix-sum**: [prefix sum](0000-notes/06-prefix-sum/prefix-sum.md), [difference array](0000-notes/06-prefix-sum/difference-array.md)
-- **07-greedy**: [greedy thinking](0000-notes/07-greedy/greedy-thinking.md), [interval greedy](0000-notes/07-greedy/interval-greedy.md)
-- **08-dynamic-programming**: [introduction](0000-notes/08-dynamic-programming/dp-introduction.md), [state design](0000-notes/08-dynamic-programming/dp-state-design.md), [dp on array](0000-notes/08-dynamic-programming/dp-on-array.md), [dp on strings](0000-notes/08-dynamic-programming/dp-on-strings.md), [summary](0000-notes/08-dynamic-programming/summary.md)
-- **09-graph**: [graph basics](0000-notes/09-graph/graph-basics.md), [BFS](0000-notes/09-graph/bfs.md), [union find](0000-notes/09-graph/union-find.md), [topological sort](0000-notes/09-graph/topological-sort.md), [shortest path (Dijkstra)](0000-notes/09-graph/shortest-path-dijkstra.md)
-- **10-how-to-choose-algorithm**: [algorithm selection guide](0000-notes/10-how-to-choose-algorithm/algorithm-selection-guide.md)
-- **11-pattern-library**: [core patterns](0000-notes/11-pattern-library/core-patterns.md)
-
-> Each note also has a Chinese version with filenames ending in `-zh.md`.
+- **00-how-to-think**: [common mistakes](0000-notes/00-how-to-think/common-mistakes.md)（[中文](0000-notes/00-how-to-think/common-mistakes-zh.md)）, [how to choose algorithms](0000-notes/00-how-to-think/how-to-choose-algorithms.md)（[中文](0000-notes/00-how-to-think/how-to-choose-algorithms-zh.md)）, [how to read problems](0000-notes/00-how-to-think/how-to-read-problems.md)（[中文](0000-notes/00-how-to-think/how-to-read-problems-zh.md)）
+- **01-array**: [array basics](0000-notes/01-array/array-basics.md)（[中文](0000-notes/01-array/array-basics-zh.md)）
+- **02-hash-table**: [bucket technique](0000-notes/02-hash-table/bucket-technique.md)（[中文](0000-notes/02-hash-table/bucket-technique-zh.md)）, [frequency count](0000-notes/02-hash-table/frequency-count.md)（[中文](0000-notes/02-hash-table/frequency-count-zh.md)）, [hashing basics](0000-notes/02-hash-table/hashing-basics.md)（[中文](0000-notes/02-hash-table/hashing-basics-zh.md)）
+- **03-two-pointers**: [two pointers basics](0000-notes/03-two-pointers/two-pointers-basics.md)（[中文](0000-notes/03-two-pointers/two-pointers-basics-zh.md)）
+- **04-sliding-window**: [sliding window fixed](0000-notes/04-sliding-window/sliding-window-fixed.md)（[中文](0000-notes/04-sliding-window/sliding-window-fixed-zh.md)）, [sliding window variable](0000-notes/04-sliding-window/sliding-window-variable.md)（[中文](0000-notes/04-sliding-window/sliding-window-variable-zh.md)）
+- **05-binary-search**: [binary search on answer](0000-notes/05-binary-search/binary-search-on-answer.md)（[中文](0000-notes/05-binary-search/binary-search-on-answer-zh.md)）, [binary search on array](0000-notes/05-binary-search/binary-search-on-array.md)（[中文](0000-notes/05-binary-search/binary-search-on-array-zh.md)）
+- **06-prefix-sum**: [difference array](0000-notes/06-prefix-sum/difference-array.md)（[中文](0000-notes/06-prefix-sum/difference-array-zh.md)）, [prefix sum](0000-notes/06-prefix-sum/prefix-sum.md)（[中文](0000-notes/06-prefix-sum/prefix-sum-zh.md)）
+- **07-greedy**: [greedy thinking](0000-notes/07-greedy/greedy-thinking.md)（[中文](0000-notes/07-greedy/greedy-thinking-zh.md)）, [interval greedy](0000-notes/07-greedy/interval-greedy.md)（[中文](0000-notes/07-greedy/interval-greedy-zh.md)）
+- **08-dynamic-programming**: [dp introduction](0000-notes/08-dynamic-programming/dp-introduction.md)（[中文](0000-notes/08-dynamic-programming/dp-introduction-zh.md)）, [dp on array](0000-notes/08-dynamic-programming/dp-on-array.md)（[中文](0000-notes/08-dynamic-programming/dp-on-array-zh.md)）, [dp on strings](0000-notes/08-dynamic-programming/dp-on-strings.md)（[中文](0000-notes/08-dynamic-programming/dp-on-strings-zh.md)）, [dp state design](0000-notes/08-dynamic-programming/dp-state-design.md)（[中文](0000-notes/08-dynamic-programming/dp-state-design-zh.md)）, [summary](0000-notes/08-dynamic-programming/summary.md)（[中文](0000-notes/08-dynamic-programming/summary-zh.md)）
+- **09-graph**: [dfs](0000-notes/09-graph/0000-notes/09-graph/dfs.md)（[中文](0000-notes/09-graph/0000-notes/09-graph/dfs-zh.md)）, [summary](0000-notes/09-graph/0000-notes/09-graph/summary.md)（[中文](0000-notes/09-graph/0000-notes/09-graph/summary-zh.md)）, [bfs](0000-notes/09-graph/bfs.md)（[中文](0000-notes/09-graph/bfs-zh.md)）, [graph basics](0000-notes/09-graph/graph-basics.md)（[中文](0000-notes/09-graph/graph-basics-zh.md)）, [shortest path dijkstra](0000-notes/09-graph/shortest-path-dijkstra.md)（[中文](0000-notes/09-graph/shortest-path-dijkstra-zh.md)）, [topological sort](0000-notes/09-graph/topological-sort.md)（[中文](0000-notes/09-graph/topological-sort-zh.md)）, [union find](0000-notes/09-graph/union-find.md)（[中文](0000-notes/09-graph/union-find-zh.md)）
+- **10-how-to-choose-algorithm**: [algorithm selection guide](0000-notes/10-how-to-choose-algorithm/algorithm-selection-guide.md)（[中文](0000-notes/10-how-to-choose-algorithm/algorithm-selection-guide-zh.md)）
+- **11-pattern-library**: [core patterns](0000-notes/11-pattern-library/core-patterns.md)（[中文](0000-notes/11-pattern-library/core-patterns-zh.md)）
+- **12-recursion-backtracking**: [backtracking template](0000-notes/12-recursion-backtracking/backtracking-template.md)（[中文](0000-notes/12-recursion-backtracking/backtracking-template-zh.md)）, [recursion basics](0000-notes/12-recursion-backtracking/recursion-basics.md)（[中文](0000-notes/12-recursion-backtracking/recursion-basics-zh.md)）
+> Notes index entries now include both English and 中文 links (中文文件以 `-zh.md` 结尾)。
 
 ---
 
@@ -95,6 +105,8 @@ A topic-focused index of all solutions currently in the repository.
 | 0011 | [Container With Most Water](0011-container-with-most-water/) | Array; Two Pointers |
 | 0012 | [Integer to Roman](0012-integer-to-roman/) | Math; Mapping |
 | 0013 | [Roman to Integer](0013-roman-to-integer/) | Math; Mapping |
+| 0014 | [Longest Common Prefix](0014-longest-common-prefix/) | TBD |
+| 0015 | [3sum](0015-3sum/) | TBD |
 | 0026 | [Remove Duplicates from Sorted Array](0026-remove-duplicates-from-sorted-array/) | Array; Two Pointers |
 | 0027 | [Remove Element](0027-remove-element/) | Array; Two Pointers |
 | 0028 | [Find the Index of the First Occurrence in a String](0028-find-the-index-of-the-first-occurrence-in-a-string/) | String; Two Pointers |
@@ -118,15 +130,22 @@ A topic-focused index of all solutions currently in the repository.
 | 0955 | [Delete Columns to Make Sorted II](0955-delete-columns-to-make-sorted-ii/) | Greedy; String |
 | 0960 | [Delete Columns to Make Sorted III](0960-delete-columns-to-make-sorted-iii/) | Dynamic Programming; String |
 | 0961 | [N-Repeated Element in Size 2N Array](0961-n-repeated-element-in-size-2n-array/) | Hash Table; Counting |
+| 1015 | [Smallest Integer Divisible By K](1015-smallest-integer-divisible-by-k/) | TBD |
 | 1161 | [Maximum Level of a Binary Tree](1161-maximum-level-of-a-binary-tree/) | Tree; BFS |
+| 1200 | [Minimum Absolute Difference](1200-minimum-absolute-difference/) | TBD |
 | 1266 | [Minimum Time Visiting All Points](1266-minimum-time-visiting-all-points/) | Geometry; Greedy; Math |
+| 1292 | [Maximum Side Length Of A Square With Sum <= Threshold](1292-maximum-side-length-of-a-square-with-sum-<=-threshold/) | TBD |
 | 1339 | [Maximum Product of Splitted Binary Tree](1339-maximum-product-of-splitted-binary-tree/) | Tree; Depth-First Search; Binary Tree; Math |
 | 1351 | [Count Negative Numbers in a Sorted Matrix](1351-count-negative-numbers-in-a-sorted-matrix/) | Matrix; Binary Search |
 | 1390 | [Four Divisors](1390-four-divisors/) | Math; Number Theory |
 | 1411 | [Number of Ways to Paint N x 3 Grid](1411-number-of-ways-to-pair-nx3-grid/) | Dynamic Programming; Combinatorics |
 | 1458 | [Max Dot Product of Two Subsequences](1458-max-dot-product-of-two-subsequence/) | Dynamic Programming; Array; Subsequence |
 | 1523 | [Count Odd Numbers in an Interval Range](1523-count-odd-numbers-in-an-interval-range/) | Math |
+| 1582 | [Special Position In Binary Matrix](1582-special-position-in-binary-matrix/) | TBD |
 | 1590 | [Make Sum Divisible by P](1590-make-sum-divisible-by-p/) | Prefix Sum; Hash Map; Modular Arithmetic |
+| 1758 | [Minimum Changes To Make Alternating Binary String](1758-minimum-changes-to-make-alternating-binary-string/) | TBD |
+| 1784 | [Check If Binary String Has At Most One Segment Of Ones](1784-check-if-binary-string-has-at-most-one-segment-of-ones/) | TBD |
+| 1877 | [Minimize Maximum Pair Sum In Array](1877-minimize-maximum-pair-sum-in-array/) | TBD |
 | 1895 | [Largest Magic Square](1895-largest-magic-square/) | Prefix Sum; Matrix; Enumeration |
 | 1925 | [Count Square Sum Triples](1925-count-square-sum-triples/) | Math; Number Theory |
 | 1970 | [Last Day Where You Can Still Cross](1970-last-day-where-you-can-still-cross/) | Binary Search; BFS/Union Find |
@@ -148,11 +167,16 @@ A topic-focused index of all solutions currently in the repository.
 | 2975 | [Maximum Square Area by Removing Fences From a Field](2975-maximum-square-area-by-removing-fences-from-a-field/) | Geometry; Hash Set; Greedy |
 | 3074 | [Apple Redistribution into Boxes](3074-apple-redistribution-into-boxes/) | Greedy; Sorting |
 | 3075 | [Maximize Happiness of Children](3075-maximize-happiness-of-children/) | Greedy; Sorting |
+| 3314 | [Construct The Minimum Bitwise Array I](3314-construct-the-minimum-bitwise-array-i/) | TBD |
+| 3315 | [Construct The Minimum Bitwise Array II](3315-construct-the-minimum-bitwise-array-ii/) | TBD |
+| 3379 | [Transformed Array](3379-transformed-array/) | TBD |
 | 3381 | [Maximum Subarray Sum With Length Divisible by K](3381-maximum-subarray-sum-with-length-divisible-by-k/) | Prefix Sum; Hash Map |
 | 3432 | [Count Partitions with Even Sum Difference](3432-count-partitions-with-even-sum-difference/) | Prefix Sum; Math |
 | 3433 | [Count Mentions Per User](3433-count-mentions-per-user/) | Simulation; Hash Table |
 | 3453 | [Separate Squares I](3453-Separate-squares-I/) | Binary Search; Geometry; Prefix Area |
 | 3454 | [Separate Squares II](3454-separate-squares-ii/) | Sweep Line; Segment Tree; Geometry; Binary Search |
+| 3507 | [Minimum Pair Removal To Sort Array I](3507-minimum-pair-removal-to-sort-array-i/) | TBD |
+| 3510 | [Minimum Pair Removal To Sort Array II](3510-minimum-pair-removal-to-sort-array-ii/) | TBD |
 | 3512 | [Minimum Operations to Make Array Sum Divisible by K](3512-minimum-operations-to-make-array-sum-divisible-by-k/) | Math; Greedy; Modular Arithmetic |
 | 3531 | [Count Covered Buildings](3531-count-covered-buildings/) | Geometry; Prefix Min/Max |
 | 3562 | [Maximum Profit from Trading Stocks with Discounts](3562-maximum-profit-from-trading-stocks-with-discounts/) | Tree DP; Knapsack |
