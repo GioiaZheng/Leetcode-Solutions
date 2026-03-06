@@ -1,13 +1,11 @@
-# **LeetCode 121 – Best Time to Buy and Sell Stock**
-
-**Difficulty:** Easy  
-**Tags:** Array, Greedy  
+# LeetCode 121 – Best Time to Buy and Sell Stock
+**Difficulty:** Easy 
+**Tags:** Array, Greedy 
 **Link:** [https://leetcode.com/problems/best-time-to-buy-and-sell-stock/](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an array `prices`, where `prices[i]` is the stock price on day `i`.
 
 You want to maximize your profit by:
@@ -19,39 +17,36 @@ If no profitable transaction is possible, return `0`.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 * The profit depends on:
 
-  * the **lowest price so far** (best buying point)
-  * the **current price** (possible selling point)
+ * the **lowest price so far** (best buying point)
+ * the **current price** (possible selling point)
 * We only need to scan the array **once**.
 * At each day, we decide:
 
-  * Is this a better day to buy?
-  * Or is this a better day to sell?
+ * Is this a better day to buy?
+ * Or is this a better day to sell?
 
 This leads to a greedy, one-pass solution.
 
 ---
 
-## **Approach**
-
+## Approach
 1. Initialize:
 
-   * `min_price` to infinity
-   * `max_profit` to `0`
+ * `min_price` to infinity
+ * `max_profit` to `0`
 2. Iterate through each price:
 
-   * Update `min_price` if the current price is lower
-   * Otherwise, calculate the profit if selling today
-   * Update `max_profit` if the profit is higher
+ * Update `min_price` if the current price is lower
+ * Otherwise, calculate the profit if selling today
+ * Update `max_profit` if the profit is higher
 3. Return `max_profit`
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -82,8 +77,7 @@ Prices keep decreasing → no profitable transaction
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * Buying must always happen **before** selling.
 * Tracking the minimum price ensures a valid buying day.
 * Every price is considered once as a potential selling point.
@@ -91,17 +85,15 @@ Prices keep decreasing → no profitable transaction
 
 ---
 
-## **Complexity**
-
+## Complexity
 | Aspect | Complexity |
 | ------ | ---------- |
-| Time   | **O(n)**   |
-| Space  | **O(1)**   |
+| Time | **O(n)** |
+| Space | **O(1)** |
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How to transform a brute-force `O(n²)` problem into `O(n)`.
 * Why tracking historical minimums enables greedy solutions.
 * A fundamental stock-trading pattern used in many variations.
@@ -109,7 +101,7 @@ Prices keep decreasing → no profitable transaction
 
 ---
 
-###  Notes
+### Notes
 
 This problem is the foundation for more advanced stock problems:
 

@@ -1,21 +1,18 @@
-# **LeetCode 347 – Top K Frequent Elements**
-
-**Difficulty:** Medium  
-**Tags:** Array, Hash Table, Heap, Sorting  
+# LeetCode 347 – Top K Frequent Elements
+**Difficulty:** Medium 
+**Tags:** Array, Hash Table, Heap, Sorting 
 **Link:** [https://leetcode.com/problems/top-k-frequent-elements/](https://leetcode.com/problems/top-k-frequent-elements/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 Given an integer array `nums`, return a list containing the `k` most frequent elements.
 
 The order of the returned elements does not matter, but the result must contain exactly the `k` elements that appear most often in the array.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 The key observation is that this problem is about **frequency ranking**, not sorting by value.
 
 A mapping from elements to their occurrence counts is required.
@@ -31,13 +28,12 @@ Since the value range is arbitrary, a frequency map is essential.
 
 ---
 
-## **Approach**
-
+## Approach
 1. Iterate through the array and build a frequency map:
 
-   ```
-   element → count
-   ```
+ ```
+ element → count
+ ```
 2. Extract all unique elements.
 3. Sort them based on frequency in descending order.
 4. Take the first `k` items from the sorted list.
@@ -47,8 +43,7 @@ This method ensures correctness and is simple to implement.
 
 ---
 
-## **Example**
-
+## Example
 **Input**
 
 ```
@@ -67,8 +62,7 @@ The elements `1` (frequency 3) and `2` (frequency 2) are the top two most freque
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 The frequency map captures exactly how often each element appears.
 Sorting the keys by their associated counts guarantees that the top `k` entries correspond to the required result.
 
@@ -81,16 +75,14 @@ Using a hash map plus sorting provides clarity and efficiency.
 
 ---
 
-## **Complexity**
-
+## Complexity
 * **Time:** `O(n log n)` due to sorting
-  Can be optimized to `O(n)` with bucket sort or `O(n log k)` with a heap.
+ Can be optimized to `O(n)` with bucket sort or `O(n log k)` with a heap.
 * **Space:** `O(n)` for the frequency map
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How separating value and frequency simplifies ranking problems.
 * Why hash maps are essential for counting occurrences efficiently.
 * How different data structures (heap, bucket, sort) impact performance trade-offs.

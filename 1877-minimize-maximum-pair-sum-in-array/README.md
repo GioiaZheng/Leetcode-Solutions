@@ -1,13 +1,11 @@
-# **LeetCode 1877 – Minimize Maximum Pair Sum in Array**
-
+# LeetCode 1877 – Minimize Maximum Pair Sum in Array
 **Difficulty:** Medium
 **Tags:** Greedy, Sorting, Two Pointers
 **Link:** [https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/](https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an array `nums` of **even length**.
 
 You must pair up all elements such that:
@@ -21,8 +19,7 @@ Return the minimized possible value of the maximum pair sum.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 This is a classic **greedy pairing** problem.
 
 The goal is **not** to minimize the total sum, but to **balance the largest pair sum**.
@@ -35,8 +32,7 @@ This balances extremes and prevents any pair from becoming unnecessarily large.
 
 ---
 
-## **Why This Greedy Strategy Works**
-
+## Why This Greedy Strategy Works
 Assume the array is sorted:
 
 ```
@@ -46,20 +42,19 @@ a1 ≤ a2 ≤ ... ≤ a(n-1) ≤ an
 * The largest element `an` must be paired with **some** element.
 * To minimize the largest pair sum:
 
-  * Pairing `an` with the **smallest** element `a1` gives the smallest possible sum involving `an`.
+ * Pairing `an` with the **smallest** element `a1` gives the smallest possible sum involving `an`.
 * Any other pairing would only increase (or not reduce) the maximum pair sum.
 
 By repeating this logic, pairing extremes is always optimal.
 
 ---
 
-## **Algorithm**
-
+## Algorithm
 1. Sort the array `nums`
 2. Use two pointers:
 
-   * Left pointer starts at the beginning
-   * Right pointer starts at the end
+ * Left pointer starts at the beginning
+ * Right pointer starts at the end
 3. Pair `nums[left]` with `nums[right]`
 4. Track the maximum pair sum
 5. Move both pointers inward
@@ -67,8 +62,7 @@ By repeating this logic, pairing extremes is always optimal.
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -102,27 +96,24 @@ Answer: 8
 
 ---
 
-## **Complexity Analysis**
-
-| Aspect       | Complexity                |
+## Complexity Analysis
+| Aspect | Complexity |
 | ------------ | ------------------------- |
-| Sorting      | **O(n log n)**            |
-| Pairing scan | **O(n)**                  |
-| Total Time   | **O(n log n)**            |
-| Extra Space  | **O(1)** (excluding sort) |
+| Sorting | **O(n log n)** |
+| Pairing scan | **O(n)** |
+| Total Time | **O(n log n)** |
+| Extra Space | **O(1)** (excluding sort) |
 
 ---
 
-## **Common Mistakes**
-
-* ❌ Pairing adjacent elements after sorting
-* ❌ Trying to minimize each pair sum individually
-* ❌ Using DP or unnecessary data structures
+## Common Mistakes
+* Pairing adjacent elements after sorting
+* Trying to minimize each pair sum individually
+* Using DP or unnecessary data structures
 
 The greedy extreme-pairing strategy is sufficient and optimal.
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “Sort the array and pair the smallest and largest elements together; the maximum of these pair sums is minimized.”

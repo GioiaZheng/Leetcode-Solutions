@@ -1,20 +1,18 @@
-# **LeetCode 3433 – Count Mentions Per User**
-
-**Difficulty:** Medium  
-**Tags:** Simulation, Hashing, Timeline Processing  
+# LeetCode 3433 – Count Mentions Per User
+**Difficulty:** Medium 
+**Tags:** Simulation, Hashing, Timeline Processing 
 **Link:** [https://leetcode.com/problems/count-mentions-per-user/](https://leetcode.com/problems/count-mentions-per-user/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given:
 
 * An integer `numberOfUsers` representing the total number of users.
 * A list of `events`, where each event is either:
 
-  * A **MESSAGE** event mentioning users, or
-  * An **OFFLINE** event indicating that a user goes offline for 60 time units.
+ * A **MESSAGE** event mentioning users, or
+ * An **OFFLINE** event indicating that a user goes offline for 60 time units.
 
 Each message can mention:
 
@@ -32,8 +30,7 @@ Important constraints:
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 This problem is essentially a **timeline simulation** problem.
 
 The core difficulties are:
@@ -49,8 +46,7 @@ A direct simulation works efficiently because:
 
 ---
 
-## **Approach**
-
+## Approach
 ### 1. Event Ordering
 
 Events must be processed in this strict order:
@@ -58,8 +54,8 @@ Events must be processed in this strict order:
 1. Increasing timestamp
 2. At the same timestamp:
 
-   * **OFFLINE events first**
-   * **MESSAGE events after**
+ * **OFFLINE events first**
+ * **MESSAGE events after**
 
 This ensures that status changes are applied **before** mentions at the same time.
 
@@ -92,15 +88,14 @@ must be brought back online.
 
 ---
 
-## **Example**
-
+## Example
 **Input**
 
 ```
 numberOfUsers = 3
 events = [
-  ["OFFLINE","10","0"],
-  ["MESSAGE","12","HERE"]
+ ["OFFLINE","10","0"],
+ ["MESSAGE","12","HERE"]
 ]
 ```
 
@@ -118,8 +113,7 @@ events = [
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 The solution works because:
 
 * Timeline simulation guarantees correct ordering of state changes
@@ -131,8 +125,7 @@ This approach mirrors real-world event systems where **state transitions precede
 
 ---
 
-## **Complexity**
-
+## Complexity
 * **Time:** `O(numberOfUsers × events)`
 * **Space:** `O(numberOfUsers)`
 
@@ -140,8 +133,7 @@ Both are well within the problem constraints.
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How subtle ordering rules at the same timestamp can break an otherwise correct solution
 * Why event simulation problems require careful handling of **state duration**, not just equality checks
 * How to structure timeline-based problems to avoid hidden corner cases

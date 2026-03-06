@@ -1,13 +1,11 @@
-# **LeetCode 865 – Smallest Subtree with all the Deepest Nodes**
-
-**Difficulty:** Medium  
-**Tags:** Tree, Depth-First Search, Binary Tree, Lowest Common Ancestor  
+# LeetCode 865 – Smallest Subtree with all the Deepest Nodes
+**Difficulty:** Medium 
+**Tags:** Tree, Depth-First Search, Binary Tree, Lowest Common Ancestor 
 **Link:** [https://leetcode.com/problems/smallest-subtree-with-all-the-deepest-nodes/](https://leetcode.com/problems/smallest-subtree-with-all-the-deepest-nodes/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given the root of a binary tree.
 
 * The **depth** of a node is the number of edges from the root to that node.
@@ -22,8 +20,7 @@ The subtree must include:
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 This problem is equivalent to finding the:
 
 > **Lowest Common Ancestor (LCA) of all deepest leaves**
@@ -37,8 +34,7 @@ This naturally suggests a **bottom-up DFS** approach.
 
 ---
 
-## **Approach**
-
+## Approach
 Use a DFS that returns **two pieces of information** for each node:
 
 1. The **maximum depth** of its subtree
@@ -51,14 +47,13 @@ For a given node:
 * Recursively compute `(depth, subtree_root)` for left and right children
 * Compare left and right depths:
 
-  * If `left > right`: return left result
-  * If `right > left`: return right result
-  * If equal: current node is the answer
+ * If `left > right`: return left result
+ * If `right > left`: return right result
+ * If equal: current node is the answer
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -92,8 +87,7 @@ Output: [2]
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * DFS computes subtree depth information efficiently
 * The comparison of left and right depths identifies where deepest nodes are located
 * When depths are equal, the current node is the LCA of deepest nodes
@@ -101,21 +95,19 @@ Output: [2]
 
 ---
 
-## **Complexity**
-
+## Complexity
 Let `n` be the number of nodes and `h` the height of the tree.
 
 | Aspect | Complexity |
 | ------ | ---------- |
-| Time   | **O(n)**   |
-| Space  | **O(h)**   |
+| Time | **O(n)** |
+| Space | **O(h)** |
 
 Space complexity comes from the recursion stack.
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How to combine depth computation with result propagation
 * A clean way to find LCA using bottom-up DFS
 * Why returning multiple values from recursion simplifies tree problems
@@ -136,6 +128,5 @@ It also relates closely to:
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “Use bottom-up DFS returning (depth, node); when left and right depths are equal, the current node is the smallest subtree containing all deepest nodes.”

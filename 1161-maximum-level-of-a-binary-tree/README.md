@@ -1,13 +1,11 @@
-# **LeetCode 1161 – Maximum Level Sum of a Binary Tree**
-
-**Difficulty:** Medium  
-**Tags:** Tree, Breadth-First Search, Binary Tree  
+# LeetCode 1161 – Maximum Level Sum of a Binary Tree
+**Difficulty:** Medium 
+**Tags:** Tree, Breadth-First Search, Binary Tree 
 **Link:** [https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree/](https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given the root of a binary tree.
 
 * The root is at **level 1**
@@ -19,38 +17,35 @@ Return the **smallest level number** that has the **maximum sum**.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 * This is a classic **level-order traversal (BFS)** problem.
 * Each level can be processed independently.
 * BFS naturally processes levels from top to bottom, which helps ensure:
 
-  * If multiple levels have the same maximum sum,
-  * The **smallest level index** is returned automatically.
+ * If multiple levels have the same maximum sum,
+ * The **smallest level index** is returned automatically.
 
 ---
 
-## **Approach**
-
+## Approach
 1. Use a queue to perform **Breadth-First Search**.
 2. Initialize:
 
-   * `level = 1`
-   * `max_sum = -∞`
-   * `answer_level = 1`
+ * `level = 1`
+ * `max_sum = -∞`
+ * `answer_level = 1`
 3. While the queue is not empty:
 
-   * Process all nodes currently in the queue (one full level)
-   * Compute the sum of their values
-   * Compare with `max_sum`:
+ * Process all nodes currently in the queue (one full level)
+ * Compute the sum of their values
+ * Compare with `max_sum`:
 
-     * If greater, update `max_sum` and `answer_level`
+ * If greater, update `max_sum` and `answer_level`
 4. Increment level counter and continue.
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -79,8 +74,7 @@ Output: 2
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * BFS guarantees nodes are grouped by level.
 * Each node is visited exactly once.
 * Tracking the maximum sum during traversal is efficient and safe.
@@ -88,21 +82,19 @@ Output: 2
 
 ---
 
-## **Complexity**
-
+## Complexity
 Let `n` be the number of nodes.
 
 | Aspect | Complexity |
 | ------ | ---------- |
-| Time   | **O(n)**   |
-| Space  | **O(n)**   |
+| Time | **O(n)** |
+| Space | **O(n)** |
 
 The queue may store up to one full level of nodes.
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How BFS naturally fits level-based tree problems.
 * Why level-order traversal simplifies aggregation tasks.
 * Handling ties by relying on traversal order.
@@ -110,7 +102,7 @@ The queue may store up to one full level of nodes.
 
 ---
 
-###  Notes
+### Notes
 
 This problem pairs well with other BFS-based tree problems such as:
 
@@ -120,6 +112,5 @@ This problem pairs well with other BFS-based tree problems such as:
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “Perform BFS, compute the sum at each level, and return the smallest level with the maximum sum.”

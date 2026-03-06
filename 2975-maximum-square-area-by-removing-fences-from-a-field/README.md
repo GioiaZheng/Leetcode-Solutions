@@ -1,13 +1,11 @@
-# **LeetCode 2975 – Maximum Square Area by Removing Fences From a Field**
-
-**Difficulty:** Medium  
-**Tags:** Geometry, Hash Set, Greedy  
+# LeetCode 2975 – Maximum Square Area by Removing Fences From a Field
+**Difficulty:** Medium 
+**Tags:** Geometry, Hash Set, Greedy 
 **Link:** https://leetcode.com/problems/maximum-square-area-by-removing-fences-from-a-field/
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given a large rectangular field with corners at `(1, 1)` and `(m, n)`.
 
 The field is divided by:
@@ -26,8 +24,7 @@ The answer should be returned **modulo `10^9 + 7`**.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 Removing fences allows you to **merge adjacent rectangular regions**.
 
 A square field is possible **if and only if**:
@@ -40,8 +37,7 @@ So the problem becomes:
 
 ---
 
-## **Reformulation**
-
+## Reformulation
 1. Consider all horizontal fence positions:
 ```
 
@@ -56,7 +52,7 @@ So the problem becomes:
 ```
 3. By removing all fences between two positions, you create a field with:
 - Height = difference between two horizontal positions
-- Width  = difference between two vertical positions
+- Width = difference between two vertical positions
 
 We want:
 ```
@@ -74,8 +70,7 @@ area = side²
 
 ---
 
-## **Approach**
-
+## Approach
 ### Step 1: Collect All Possible Gaps
 
 - Sort horizontal fence positions
@@ -104,8 +99,7 @@ area = side²
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 ```
 
@@ -143,8 +137,7 @@ Output:
 No common horizontal and vertical gap → no square possible.
 ---
 
-## **Why This Works**
-
+## Why This Works
 * Removing fences merges regions defined by fence coordinates
 * Any square must align with fence lines
 * The side length must appear **both horizontally and vertically**
@@ -152,24 +145,22 @@ No common horizontal and vertical gap → no square possible.
 
 ---
 
-## **Complexity Analysis**
-
+## Complexity Analysis
 Let:
 
 * `H = len(hFences) + 2`
 * `V = len(vFences) + 2`
 
-| Aspect | Complexity     |
+| Aspect | Complexity |
 | ------ | -------------- |
-| Time   | **O(H² + V²)** |
-| Space  | **O(H²)**      |
+| Time | **O(H² + V²)** |
+| Space | **O(H²)** |
 
 This is efficient enough given the constraints.
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * Geometry problems often reduce to **distance matching**
 * Using a **set for fast lookup** simplifies the solution
 * Boundary conditions (fixed fences) are crucial
@@ -177,14 +168,12 @@ This is efficient enough given the constraints.
 
 ---
 
-## **Related Problems**
-
+## Related Problems
 * 2943. Maximize Area of Square Hole in Grid
 * 221. Maximal Square
 * 84. Largest Rectangle in Histogram
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “Compute all possible distances between horizontal and vertical fences, find the largest common distance, and return its square as the maximum square area.”

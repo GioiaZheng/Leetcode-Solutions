@@ -1,13 +1,11 @@
-# **LeetCode 7 – Reverse Integer**
-
-**Difficulty:** Medium  
-**Tags:** Math  
+# LeetCode 7 – Reverse Integer
+**Difficulty:** Medium 
+**Tags:** Math 
 **Link:** [https://leetcode.com/problems/reverse-integer/](https://leetcode.com/problems/reverse-integer/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given a **signed 32-bit integer** `x`.
 
 Your task is to **reverse its digits** and return the reversed integer.
@@ -24,14 +22,13 @@ Assume the environment does not allow you to store **64-bit integers**, so overf
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 * Reversing an integer can be done by **extracting digits one by one**.
 * Each step:
 
-  * Take the last digit using modulo (`% 10`)
-  * Remove the last digit using integer division (`// 10`)
-  * Append it to the reversed number
+ * Take the last digit using modulo (`% 10`)
+ * Remove the last digit using integer division (`// 10`)
+ * Append it to the reversed number
 * The **main difficulty** is preventing overflow **before it happens**.
 
 The core operation is:
@@ -42,24 +39,22 @@ rev = rev * 10 + digit
 
 ---
 
-## **Approach**
-
+## Approach
 1. Determine the sign of the number.
 2. Work with the absolute value of `x`.
 3. Initialize `rev = 0`.
 4. While `x != 0`:
 
-   * Extract the last digit.
-   * Remove the last digit from `x`.
-   * **Check for overflow** before updating `rev`.
-   * Append the digit to `rev`.
+ * Extract the last digit.
+ * Remove the last digit from `x`.
+ * **Check for overflow** before updating `rev`.
+ * Append the digit to `rev`.
 5. Restore the original sign.
 6. Return the result (or `0` if overflow occurs).
 
 ---
 
-## **Overflow Check**
-
+## Overflow Check
 Let:
 
 ```python
@@ -90,8 +85,7 @@ INT_MAX = 2147483647
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -119,8 +113,7 @@ Output: 21
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * Each digit is processed exactly once.
 * Overflow is prevented **before it occurs**, respecting the 32-bit constraint.
 * The algorithm uses only **constant extra space**.
@@ -128,17 +121,15 @@ Output: 21
 
 ---
 
-## **Complexity**
-
-| Aspect | Complexity     |
+## Complexity
+| Aspect | Complexity |
 | ------ | -------------- |
-| Time   | **O(log10 n)** |
-| Space  | **O(1)**       |
+| Time | **O(log10 n)** |
+| Space | **O(1)** |
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How to reverse integers using pure arithmetic operations.
 * Why overflow must be checked **before multiplication**.
 * How to handle signed integers cleanly.

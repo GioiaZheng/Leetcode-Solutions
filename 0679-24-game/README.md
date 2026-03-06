@@ -1,26 +1,23 @@
-# **LeetCode 679 – 24 Game**
-
-**Difficulty:** Hard  
-**Tags:** Backtracking, DFS, Math  
+# LeetCode 679 – 24 Game
+**Difficulty:** Hard 
+**Tags:** Backtracking, DFS, Math 
 **Link:** https://leetcode.com/problems/24-game/
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given **4 cards**, each with an integer value between **1 and 9**.
 
 Your goal is to determine whether it is possible to **use all four numbers exactly once**, together with:
 
-- Arithmetic operators: `+  -  *  /`
+- Arithmetic operators: `+ - * /`
 - Parentheses `(` `)`
 
 to form an expression that evaluates to **24**.
 
 ---
 
-### **Rules & Constraints**
-
+### Rules & Constraints
 - Division `/` is **real division**
 - Every operation must be **binary** (no unary minus)
 - **No concatenation** of numbers
@@ -29,8 +26,7 @@ to form an expression that evaluates to **24**.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 This is a **pure search problem**.
 
 The number of cards is fixed (**4**), so we can:
@@ -41,16 +37,15 @@ This naturally leads to a **DFS + Backtracking** solution.
 
 ---
 
-## **Core Idea**
-
+## Core Idea
 At each step:
 
 1. Pick **two distinct numbers** `a` and `b`
 2. Combine them using all valid operations:
-   - `a + b`
-   - `a - b`, `b - a`
-   - `a * b`
-   - `a / b`, `b / a` (if divisor ≠ 0)
+ - `a + b`
+ - `a - b`, `b - a`
+ - `a * b`
+ - `a / b`, `b / a` (if divisor ≠ 0)
 3. Replace `a` and `b` with the result
 4. Recurse on the new list
 
@@ -58,8 +53,7 @@ When only **one number remains**, check if it is approximately **24**.
 
 ---
 
-## **Why Floating-Point Tolerance Is Needed**
-
+## Why Floating-Point Tolerance Is Needed
 Division creates floating-point values.
 
 So instead of checking:
@@ -80,8 +74,7 @@ This avoids precision errors.
 
 ---
 
-## **Approach**
-
+## Approach
 ### Step 1: Convert to Floats
 Convert all numbers to `float` to support real division.
 
@@ -91,13 +84,12 @@ Convert all numbers to `float` to support real division.
 
 - If only one number remains → check if it equals 24
 - Otherwise:
-  - Try all ordered pairs `(a, b)`
-  - Try all operations
-  - Recurse with the reduced list
-  - Backtrack if unsuccessful
+ - Try all ordered pairs `(a, b)`
+ - Try all operations
+ - Recurse with the reduced list
+ - Backtrack if unsuccessful
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -124,8 +116,7 @@ No valid expression evaluates to 24.
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * Total state space is very small
 * All valid expressions are explored
 * Backtracking avoids unnecessary work
@@ -133,19 +124,17 @@ No valid expression evaluates to 24.
 
 ---
 
-## **Complexity Analysis**
-
+## Complexity Analysis
 Since the number of cards is fixed:
 
-| Aspect | Complexity                |
+| Aspect | Complexity |
 | ------ | ------------------------- |
-| Time   | **O(1)** (bounded search) |
-| Space  | **O(1)**                  |
+| Time | **O(1)** (bounded search) |
+| Space | **O(1)** |
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How to systematically explore all arithmetic expressions
 * Handling non-commutative operations (`-` and `/`)
 * Managing floating-point precision safely
@@ -153,14 +142,12 @@ Since the number of cards is fixed:
 
 ---
 
-## **Related Problems**
-
+## Related Problems
 * 282. Expression Add Operators
 * 241. Different Ways to Add Parentheses
 * 772. Basic Calculator III
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “Use DFS and backtracking to try all pairwise combinations of numbers with four arithmetic operations until checking whether 24 can be reached within floating-point tolerance.”

@@ -1,23 +1,21 @@
-# **LeetCode 3379 – Transformed Array**
-
-**Difficulty:** Easy  
-**Tags:** Array, Simulation, Modulo  
+# LeetCode 3379 – Transformed Array
+**Difficulty:** Easy 
+**Tags:** Array, Simulation, Modulo 
 **Link:** [https://leetcode.com/problems/transformed-array/](https://leetcode.com/problems/transformed-array/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an integer array `nums` representing a **circular array**.
 
 You need to create a new array `result` of the same length, where for each index `i`:
 
 * If `nums[i] > 0`
-  → Move `nums[i]` steps **to the right** from index `i`
+ → Move `nums[i]` steps **to the right** from index `i`
 * If `nums[i] < 0`
-  → Move `abs(nums[i])` steps **to the left** from index `i`
+ → Move `abs(nums[i])` steps **to the left** from index `i`
 * If `nums[i] == 0`
-  → `result[i] = 0`
+ → `result[i] = 0`
 
 Because the array is **circular**, moving past either end wraps around.
 
@@ -25,8 +23,7 @@ Return the transformed array `result`.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 This is a **direct simulation** problem.
 
 The only tricky part is handling the **circular movement**, which can be solved cleanly using:
@@ -37,8 +34,7 @@ Instead of manually wrapping indices, we can directly compute the destination in
 
 ---
 
-## **Core Observation**
-
+## Core Observation
 For any index `i`:
 
 ```
@@ -57,20 +53,18 @@ Special case:
 
 ---
 
-## **Algorithm**
-
+## Algorithm
 1. Let `n` be the length of `nums`
 2. Initialize result array `res` with size `n`
 3. For each index `i`:
 
-   * If `nums[i] == 0`, set `res[i] = 0`
-   * Otherwise, compute `(i + nums[i]) % n` and copy that value
+ * If `nums[i] == 0`, set `res[i] = 0`
+ * Otherwise, compute `(i + nums[i]) % n` and copy that value
 4. Return `res`
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -110,24 +104,21 @@ Output: [-1, -1, 4]
 
 ---
 
-## **Complexity Analysis**
-
-| Aspect      | Complexity |
+## Complexity Analysis
+| Aspect | Complexity |
 | ----------- | ---------- |
-| Time        | **O(n)**   |
-| Extra Space | **O(n)**   |
+| Time | **O(n)** |
+| Extra Space | **O(n)** |
 
 ---
 
-## **Common Mistakes**
-
-* ❌ Forgetting the array is circular
-* ❌ Manually looping step-by-step instead of using modulo
-* ❌ Not handling negative indices properly
-* ❌ Overcomplicating with extra data structures
+## Common Mistakes
+* Forgetting the array is circular
+* Manually looping step-by-step instead of using modulo
+* Not handling negative indices properly
+* Overcomplicating with extra data structures
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “For each index, move `nums[i]` steps and use modulo to wrap around the circular array.”

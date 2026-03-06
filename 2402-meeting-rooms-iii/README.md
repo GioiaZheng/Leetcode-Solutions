@@ -1,23 +1,21 @@
-# **LeetCode 2402 – Meeting Rooms III**
-
-**Difficulty:** Hard  
-**Tags:** Heap (Priority Queue), Simulation, Sorting  
+# LeetCode 2402 – Meeting Rooms III
+**Difficulty:** Hard 
+**Tags:** Heap (Priority Queue), Simulation, Sorting 
 **Link:** [https://leetcode.com/problems/meeting-rooms-iii/](https://leetcode.com/problems/meeting-rooms-iii/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given:
 
 * An integer `n`, representing `n` meeting rooms labeled from `0` to `n - 1`
 * An array `meetings`, where:
 
-  ```
-  meetings[i] = [start, end]
-  ```
+ ```
+ meetings[i] = [start, end]
+ ```
 
-  indicates a meeting scheduled in the half-closed interval `[start, end)`
+ indicates a meeting scheduled in the half-closed interval `[start, end)`
 
 Rules for assigning meetings:
 
@@ -25,50 +23,47 @@ Rules for assigning meetings:
 2. If there are free rooms, assign the meeting to the **unused room with the smallest index**.
 3. If no rooms are available:
 
-   * Delay the meeting until a room becomes free
-   * Keep the **original duration** of the meeting
-   * Meetings with earlier original start times have priority
+ * Delay the meeting until a room becomes free
+ * Keep the **original duration** of the meeting
+ * Meetings with earlier original start times have priority
 4. Return the room that held the **most meetings**.
 
-   * If there is a tie, return the room with the **smallest index**.
+ * If there is a tie, return the room with the **smallest index**.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 * This is a **simulation problem** with strict ordering rules.
 * We need to efficiently:
 
-  * Find the smallest available room
-  * Find the room that finishes earliest
+ * Find the smallest available room
+ * Find the room that finishes earliest
 * A **two-heap approach** allows us to model this process precisely.
 
 ---
 
-## **Approach**
-
+## Approach
 1. Sort all meetings by `start` time.
 2. Maintain two min-heaps:
 
-   * `available`: free rooms ordered by room index
-   * `busy`: occupied rooms ordered by `(end_time, room_index)`
+ * `available`: free rooms ordered by room index
+ * `busy`: occupied rooms ordered by `(end_time, room_index)`
 3. For each meeting:
 
-   * Free all rooms whose meetings have ended by the current `start`
-   * If a room is available:
+ * Free all rooms whose meetings have ended by the current `start`
+ * If a room is available:
 
-     * Assign the meeting immediately
-   * Otherwise:
+ * Assign the meeting immediately
+ * Otherwise:
 
-     * Take the room that finishes earliest
-     * Delay the meeting to start at that time
+ * Take the room that finishes earliest
+ * Delay the meeting to start at that time
 4. Count how many meetings each room hosts.
 5. Return the room with the maximum count (smallest index on ties).
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -80,12 +75,6 @@ Output: 0
 ```
 
 Explanation:
-
-```
-Room 0: 2 meetings
-Room 1: 2 meetings
-→ return room 0 (smaller index)
-```
 
 ---
 
@@ -101,15 +90,9 @@ Output: 1
 
 Explanation:
 
-```
-Room 1 and Room 2 both host 2 meetings
-→ return room 1
-```
-
 ---
 
-## **Why This Works**
-
+## Why This Works
 * Sorting guarantees meetings are processed in the correct order.
 * The `available` heap enforces the smallest-index rule.
 * The `busy` heap ensures the earliest-finishing room is reused first.
@@ -118,12 +101,11 @@ Room 1 and Room 2 both host 2 meetings
 
 ---
 
-## **Complexity**
-
-| Aspect | Complexity     |
+## Complexity
+| Aspect | Complexity |
 | ------ | -------------- |
-| Time   | **O(m log n)** |
-| Space  | **O(n)**       |
+| Time | **O(m log n)** |
+| Space | **O(n)** |
 
 Where:
 
@@ -132,8 +114,7 @@ Where:
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How to simulate scheduling systems with priority constraints.
 * Why multiple heaps are useful for real-time resource allocation.
 * How to correctly model delayed tasks while preserving order.

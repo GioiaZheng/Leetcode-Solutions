@@ -1,13 +1,11 @@
-# **LeetCode 1925 – Count Square Sum Triples**
-
-**Difficulty:** Easy  
-**Tags:** Math, Number Theory  
+# LeetCode 1925 – Count Square Sum Triples
+**Difficulty:** Easy 
+**Tags:** Math, Number Theory 
 **Link:** [https://leetcode.com/problems/count-square-sum-triples/](https://leetcode.com/problems/count-square-sum-triples/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 A **square triple** is a triple `(a, b, c)` of positive integers such that:
 
 $$
@@ -24,8 +22,7 @@ Note: Triples `(a, b, c)` and `(b, a, c)` are treated as **different** because t
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 A brute-force solution checks all possible `(a, b, c)` combinations using **three nested loops**, which results in:
 
 [
@@ -59,42 +56,35 @@ O(n^2)
 
 ---
 
-## **Approach**
-
-### **1. Loop over all values of a and b**
-
+## Approach
+### 1. Loop over all values of a and b
 Both `a` and `b` run from `1` to `n`.
 
-### **2. Compute the only possible c**
-
+### 2. Compute the only possible c
 $$
 c = \sqrt{a^2 + b^2}
 $$
 
 We cast it to `int` before checking.
 
-### **3. Check if c is a valid integer**
-
+### 3. Check if c is a valid integer
 A perfect square condition:
 
 $$
 c^2 = a^2 + b^2
 $$
 
-### **4. Ensure c is within range**
-
+### 4. Ensure c is within range
 $$
 c \le n
 $$
 
-### **5. Count the triple**
-
+### 5. Count the triple
 Since `(a, b, c)` and `(b, a, c)` are both valid, we allow all pair permutations.
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -125,8 +115,7 @@ Valid triples:
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * We compute `c` directly instead of testing all possible values.
 * Checking whether a number is a perfect square is extremely fast.
 * The order of `(a, b)` matters, matching the problem's definition.
@@ -134,19 +123,17 @@ Valid triples:
 
 ---
 
-## **Complexity**
-
+## Complexity
 | Aspect | Complexity |
 | ------ | ---------- |
-| Time   | **O(n²)**  |
-| Space  | **O(1)**   |
+| Time | **O(n²)** |
+| Space | **O(1)** |
 
 This is optimal for the constraints.
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How mathematical transformation reduces algorithmic complexity.
 * Why eliminating loops dramatically improves performance.
 * How to detect perfect squares efficiently using integer arithmetic.

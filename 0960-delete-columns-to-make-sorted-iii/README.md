@@ -1,13 +1,11 @@
-# **LeetCode 960 – Delete Columns to Make Sorted III**
-
-**Difficulty:** Hard  
-**Tags:** Array, String, Dynamic Programming  
+# LeetCode 960 – Delete Columns to Make Sorted III
+**Difficulty:** Hard 
+**Tags:** Array, String, Dynamic Programming 
 **Link:** [https://leetcode.com/problems/delete-columns-to-make-sorted-iii/](https://leetcode.com/problems/delete-columns-to-make-sorted-iii/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an array of strings `strs`, where all strings have the same length.
 
 You may delete any number of **column indices**, and for each deleted column,
@@ -19,7 +17,7 @@ After deletions, **each individual string (row)** must be in **lexicographic ord
 strs[i][0] <= strs[i][1] <= ... <= strs[i][len-1]
 ```
 
-⚠️ Note:
+ Note:
 
 * The rows **do not need to be ordered relative to each other**
 * Only **each row itself** must be non-decreasing
@@ -28,21 +26,19 @@ Return the **minimum number of columns** that must be deleted.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 * This is **not** a greedy column-deletion problem like 944 or 955.
 * We want to **keep a subsequence of columns** such that:
 
-  * For every row, characters are non-decreasing across those columns.
+ * For every row, characters are non-decreasing across those columns.
 * This becomes a **Longest Non-Decreasing Subsequence (LNDS)** problem across columns,
-  **simultaneously for all rows**.
+ **simultaneously for all rows**.
 
 So instead of minimizing deletions, we maximize the number of columns we keep.
 
 ---
 
-## **Reformulation**
-
+## Reformulation
 Let:
 
 * `m` = number of columns
@@ -56,8 +52,7 @@ minimum deletions = m - max_keep
 
 ---
 
-## **Approach (Dynamic Programming)**
-
+## Approach (Dynamic Programming)
 Define:
 
 ```
@@ -69,7 +64,7 @@ Transition:
 For every pair of columns `i < j`:
 
 * Column `j` can follow column `i` **if and only if**
-  for **all rows k**:
+ for **all rows k**:
 
 ```
 strs[k][i] <= strs[k][j]
@@ -84,7 +79,7 @@ dp[j] = max(dp[j], dp[i] + 1)
 Initialize:
 
 ```
-dp[j] = 1   (each column alone is valid)
+dp[j] = 1 (each column alone is valid)
 ```
 
 Answer:
@@ -95,8 +90,7 @@ min deletions = m - max(dp)
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -143,8 +137,7 @@ All rows already sorted → no deletions needed
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * Each column is treated as a state in DP.
 * Valid transitions ensure **all rows remain sorted**.
 * This is a classic **LIS-style DP** generalized across multiple strings.
@@ -152,12 +145,11 @@ All rows already sorted → no deletions needed
 
 ---
 
-## **Complexity**
-
-| Aspect | Complexity    |
+## Complexity
+| Aspect | Complexity |
 | ------ | ------------- |
-| Time   | **O(m² × n)** |
-| Space  | **O(m)**      |
+| Time | **O(m² × n)** |
+| Space | **O(m)** |
 
 Where:
 
@@ -168,8 +160,7 @@ Given constraints (`n, m ≤ 100`), this is feasible.
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How LIS-style DP can be generalized to multidimensional constraints.
 * Why greedy fails for this version of the problem.
 * How to convert a “minimum deletions” problem into a “maximum keep” problem.
@@ -177,7 +168,7 @@ Given constraints (`n, m ≤ 100`), this is feasible.
 
 ---
 
-###  Notes
+### Notes
 
 These three problems form a **perfect learning progression**:
 

@@ -1,13 +1,11 @@
-# **LeetCode 3625 – Count Number of Trapezoids II**
-
-**Difficulty:** Medium  
-**Tags:** Array, Geometry, Combinatorics  
+# LeetCode 3625 – Count Number of Trapezoids II
+**Difficulty:** Medium 
+**Tags:** Array, Geometry, Combinatorics 
 **Link:** [https://leetcode.com/problems/count-number-of-trapezoids-ii/](https://leetcode.com/problems/count-number-of-trapezoids-ii/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given a list of segment lengths.
 Your task is to count the number of **distinct quadruples** of segments that can form a **trapezoid** under the extended condition for this version of the problem.
 
@@ -24,27 +22,26 @@ forms a trapezoid if both of the following hold:
 
 1. The quadrilateral inequality:
 
-   ```
-   a + b + c > d
-   ```
+ ```
+ a + b + c > d
+ ```
 2. The trapezoid constraint:
 
-   ```
-   a + d > b + c
-   ```
+ ```
+ a + d > b + c
+ ```
 
 Both conditions must be satisfied.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 The validity of a quadruple depends on a pair of inequalities involving both the largest and smallest sides.
 
 Observations:
 
 * Sorting imposes structure:
-  (a) and (b) are always the two smaller sides; (c) and (d) are the larger sides.
+ (a) and (b) are always the two smaller sides; (c) and (d) are the larger sides.
 * The first inequality ensures the four segments can form **any** quadrilateral.
 * The second inequality imposes the **specific trapezoid shape** constraint.
 
@@ -52,27 +49,26 @@ Because the inequalities behave monotonically under sorted order, the problem ca
 
 ---
 
-## **Approach**
-
+## Approach
 1. Sort the array of segment lengths.
 
 2. Enumerate possible positions for the two largest sides:
 
-   * Let indices `k` and `m` represent the sides `c` and `d`.
+ * Let indices `k` and `m` represent the sides `c` and `d`.
 
 3. For the remaining sides (`a` and `b`), use two pointers to find pairs `(i, j)` that satisfy:
 
-   * Quadrilateral inequality:
+ * Quadrilateral inequality:
 
-     ```
-     nums[i] + nums[j] + nums[k] > nums[m]
-     ```
+ ```
+ nums[i] + nums[j] + nums[k] > nums[m]
+ ```
 
-   * Trapezoid constraint:
+ * Trapezoid constraint:
 
-     ```
-     nums[i] + nums[m] > nums[j] + nums[k]
-     ```
+ ```
+ nums[i] + nums[m] > nums[j] + nums[k]
+ ```
 
 4. For valid ranges of `(i, j)`, count all contributing pairs.
 
@@ -82,8 +78,7 @@ Sorting ensures that increasing or decreasing a pointer produces predictable eff
 
 ---
 
-## **Example**
-
+## Example
 **Input**
 
 ```
@@ -108,8 +103,7 @@ The exact count depends on combinations meeting the extended trapezoid constrain
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 The problem reduces to checking all quadruples that satisfy two inequalities.
 Because the array is sorted, inequalities become monotonic:
 
@@ -122,15 +116,13 @@ Instead of checking every possible combination explicitly, we exploit monotonici
 
 ---
 
-## **Complexity**
-
+## Complexity
 * **Time:** Approximately `O(n^3)` with efficient pointer movement
 * **Space:** `O(1)` aside from sorting
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How trapezoid constraints translate into algebraic conditions on sorted segment lengths.
 * How to navigate dual inequality constraints using pointer-based enumeration.
 * How geometric counting problems benefit from structural ordering of input values.

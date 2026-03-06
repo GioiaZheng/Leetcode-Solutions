@@ -1,13 +1,11 @@
-# **LeetCode 15 – 3Sum**
-
-**Difficulty:** Medium  
-**Tags:** Array, Two Pointers, Sorting  
+# LeetCode 15 – 3Sum
+**Difficulty:** Medium 
+**Tags:** Array, Two Pointers, Sorting 
 **Link:** [https://leetcode.com/problems/3sum/](https://leetcode.com/problems/3sum/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an integer array `nums`.
 
 Your task is to find **all unique triplets** `[nums[i], nums[j], nums[k]]` such that:
@@ -21,44 +19,41 @@ The order of triplets and the order of numbers inside a triplet do **not** matte
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 * Sorting the array allows:
 
-  * Efficient searching using the **two-pointer technique**
-  * Easy handling of **duplicate values**
+ * Efficient searching using the **two-pointer technique**
+ * Easy handling of **duplicate values**
 * Once sorted:
 
-  * Fix one number
-  * Reduce the problem to a **2Sum** search on the remaining array
+ * Fix one number
+ * Reduce the problem to a **2Sum** search on the remaining array
 
 This transforms a brute-force `O(n³)` problem into an `O(n²)` solution.
 
 ---
 
-## **Approach**
-
+## Approach
 1. **Sort** the array.
 2. Iterate through the array with index `i`:
 
-   * Skip duplicate values for `nums[i]`
+ * Skip duplicate values for `nums[i]`
 3. For each `i`, use two pointers:
 
-   * `left = i + 1`
-   * `right = n - 1`
+ * `left = i + 1`
+ * `right = n - 1`
 4. Compute the sum:
 
-   * If sum == 0 → record the triplet
-   * If sum < 0 → move `left` forward
-   * If sum > 0 → move `right` backward
+ * If sum == 0 → record the triplet
+ * If sum < 0 → move `left` forward
+ * If sum > 0 → move `right` backward
 5. After finding a valid triplet:
 
-   * Skip duplicates for both `left` and `right`
+ * Skip duplicates for both `left` and `right`
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -78,7 +73,7 @@ Valid triplets:
 
 ```
 -1 + -1 + 2 = 0
--1 +  0 + 1 = 0
+-1 + 0 + 1 = 0
 ```
 
 ---
@@ -101,31 +96,28 @@ Output: [[0,0,0]]
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * Sorting enables deterministic pointer movement.
 * Two-pointer search efficiently finds pairs with a target sum.
 * Skipping duplicates ensures:
 
-  * Each triplet is unique
-  * No redundant results
+ * Each triplet is unique
+ * No redundant results
 * Each valid combination is explored exactly once.
 
 ---
 
-## **Complexity**
-
+## Complexity
 Let `n = len(nums)`.
 
-| Aspect | Complexity                  |
+| Aspect | Complexity |
 | ------ | --------------------------- |
-| Time   | **O(n²)**                   |
-| Space  | **O(1)** (excluding output) |
+| Time | **O(n²)** |
+| Space | **O(1)** (excluding output) |
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How sorting simplifies multi-sum problems.
 * Correct and careful handling of duplicates.
 * Applying two-pointer techniques beyond 2Sum.
@@ -145,6 +137,5 @@ Mastering **3Sum** makes these much easier.
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “Sort the array, fix one element, then use two pointers to find pairs summing to the target while skipping duplicates.”

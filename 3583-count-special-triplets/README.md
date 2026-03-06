@@ -1,13 +1,11 @@
-# **LeetCode 3583 – Count Special Triplets**
-
-**Difficulty:** Medium  
-**Tags:** Hash Map, Prefix/Suffix Frequency, Combinatorics  
+# LeetCode 3583 – Count Special Triplets
+**Difficulty:** Medium 
+**Tags:** Hash Map, Prefix/Suffix Frequency, Combinatorics 
 **Link:** [https://leetcode.com/problems/count-special-triplets/](https://leetcode.com/problems/count-special-triplets/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an integer array `nums`.
 
 A *special triplet* is a tuple `(i, j, k)` such that:
@@ -20,19 +18,18 @@ Your task is to count all such special triplets and return the result modulo `(1
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 For each middle index `j`, the triplet `(i, j, k)` is valid only if:
 
 ```
-nums[i] = 2 * nums[j]   for i < j
-nums[k] = 2 * nums[j]   for k > j
+nums[i] = 2 * nums[j] for i < j
+nums[k] = 2 * nums[j] for k > j
 ```
 
 Thus, the number of valid triplets centered at index `j` is:
 
 ```
-count_left(2 * nums[j])  ×  count_right(2 * nums[j])
+count_left(2 * nums[j]) × count_right(2 * nums[j])
 ```
 
 This naturally leads to a **prefix–suffix frequency** technique:
@@ -46,26 +43,25 @@ This transforms the entire problem into **O(n)** complexity.
 
 ---
 
-## **Approach**
-
+## Approach
 1. Build a frequency table `rightCount` containing all numbers in `nums`.
-   This represents all possible `k > j`.
+ This represents all possible `k > j`.
 
 2. Initialize an empty `leftCount`, representing all `i < j`.
 
 3. Iterate through the array with index `j`.
-   For each `j`:
+ For each `j`:
 
-   * Remove `nums[j]` from `rightCount` (it cannot serve as `k` anymore).
-   * Let `need = 2 × nums[j]`.
-   * Count valid prefixes and suffixes:
+ * Remove `nums[j]` from `rightCount` (it cannot serve as `k` anymore).
+ * Let `need = 2 × nums[j]`.
+ * Count valid prefixes and suffixes:
 
-     ```
-     leftCount[need]  → number of valid i
-     rightCount[need] → number of valid k
-     ```
-   * Multiply the two counts and add to the answer.
-   * Add `nums[j]` to `leftCount`, since it will be part of prefixes for future indices.
+ ```
+ leftCount[need] → number of valid i
+ rightCount[need] → number of valid k
+ ```
+ * Multiply the two counts and add to the answer.
+ * Add `nums[j]` to `leftCount`, since it will be part of prefixes for future indices.
 
 4. Return the total count modulo `(10^9 + 7)`.
 
@@ -73,8 +69,7 @@ This method avoids any nested loops and leverages hash maps for constant-time lo
 
 ---
 
-## **Example**
-
+## Example
 **Input**
 
 ```
@@ -96,8 +91,7 @@ Each valid triplet arises from matching the middle element with correct values o
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 This strategy succeeds because:
 
 * The constraint `i < j < k` naturally splits the problem into **left** and **right** segments.
@@ -109,15 +103,13 @@ The key idea is recognizing that each `j`'s contribution is fully determined by 
 
 ---
 
-## **Complexity**
-
+## Complexity
 * **Time:** `O(n)` — single pass with constant-time hash map operations.
 * **Space:** `O(n)` — two frequency tables.
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How a triplet-counting problem can be transformed using prefix–suffix counting.
 * How to apply combinatorics (`count_left × count_right`) to avoid nested loops.
 * Why hash maps enable linear-time solutions in frequency-dependent problems.

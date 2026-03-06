@@ -1,13 +1,11 @@
-# **LeetCode 1200 – Minimum Absolute Difference**
-
-**Difficulty:** Easy  
-**Tags:** Sorting, Greedy  
+# LeetCode 1200 – Minimum Absolute Difference
+**Difficulty:** Easy 
+**Tags:** Sorting, Greedy 
 **Link:** [https://leetcode.com/problems/minimum-absolute-difference/](https://leetcode.com/problems/minimum-absolute-difference/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an array `arr` of **distinct integers**.
 
 Your task is to find **all pairs of elements** `[a, b]` such that:
@@ -20,8 +18,7 @@ Return the list of such pairs in **ascending order**.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 If the array is **sorted**, the minimum absolute difference between any two elements **must occur between adjacent elements**.
 
 Why?
@@ -34,8 +31,7 @@ Why?
 
 ---
 
-## **Algorithm**
-
+## Algorithm
 1. Sort the array `arr`
 2. Iterate through adjacent pairs and compute differences
 3. Track the minimum difference found
@@ -44,8 +40,7 @@ Why?
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -72,7 +67,7 @@ Input: arr = [1,3,6,10,15]
 Sorted: [1,3,6,10,15]
 
 Differences:
-3 - 1 = 2   ← minimum
+3 - 1 = 2 ← minimum
 6 - 3 = 3
 10 - 6 = 4
 15 - 10 = 5
@@ -83,19 +78,17 @@ Output:
 
 ---
 
-## **Complexity Analysis**
-
-| Aspect        | Complexity                  |
+## Complexity Analysis
+| Aspect | Complexity |
 | ------------- | --------------------------- |
-| Sorting       | **O(n log n)**              |
-| One pass scan | **O(n)**                    |
-| Total Time    | **O(n log n)**              |
-| Extra Space   | **O(1)** (excluding output) |
+| Sorting | **O(n log n)** |
+| One pass scan | **O(n)** |
+| Total Time | **O(n log n)** |
+| Extra Space | **O(1)** (excluding output) |
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * Sorting ensures elements are in order
 * Adjacent differences capture the minimum possible gap
 * Greedy scanning avoids unnecessary comparisons
@@ -103,14 +96,12 @@ Output:
 
 ---
 
-## **Common Mistakes**
-
-* ❌ Comparing all possible pairs (O(n²))
-* ❌ Forgetting to sort first
-* ❌ Returning pairs out of order
+## Common Mistakes
+* Comparing all possible pairs (O(n²))
+* Forgetting to sort first
+* Returning pairs out of order
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “After sorting, the minimum absolute difference must occur between adjacent elements, so we scan neighbors and collect all pairs with the smallest gap.”

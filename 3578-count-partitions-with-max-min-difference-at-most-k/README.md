@@ -1,14 +1,14 @@
 # 3578. Count Partitions With Max-Min Difference at Most K
 
-**Difficulty:** Medium  
-**Topics:** Sliding Window, Monotonic Queue, Dynamic Programming, Prefix Sum  
+**Difficulty:** Medium 
+**Topics:** Sliding Window, Monotonic Queue, Dynamic Programming, Prefix Sum 
 **Link:** https://leetcode.com/problems/count-partitions-with-max-min-difference-at-most-k/
 
 ---
 
 ## Problem Description
 
-You are given an integer array `nums` and an integer `k`.  
+You are given an integer array `nums` and an integer `k`. 
 Your task is to partition `nums` into **one or more non-empty contiguous segments**, such that:
 
 ```
@@ -17,7 +17,7 @@ max(segment) - min(segment) <= k
 
 ```
 
-Return the **number of valid ways** to partition the array.  
+Return the **number of valid ways** to partition the array. 
 Since the answer can be large, return it modulo `1e9 + 7`.
 
 ---
@@ -72,7 +72,7 @@ max(nums[l..r]) - min(nums[l..r]) <= k
 
 ```
 
-For each `r`, we find the smallest `l` such that `[l..r]` is valid.  
+For each `r`, we find the smallest `l` such that `[l..r]` is valid. 
 All starting points `l..r` produce valid partitions.
 
 Let `dp[i]` = number of valid ways to partition `nums[0..i-1]`.
@@ -88,8 +88,8 @@ We can compute this sum using prefix sums.
 
 To find the valid window `[l..r]`, we use:
 
-- A **monotonic decreasing deque** to track the max  
-- A **monotonic increasing deque** to track the min  
+- A **monotonic decreasing deque** to track the max 
+- A **monotonic increasing deque** to track the min 
 
 This gives O(n) window expansion.
 
@@ -114,7 +114,7 @@ dp[r+1] = sum(dp[l..r])
 
 ```
 
-Time:  O(n)
+Time: O(n)
 Space: O(n)
 
 ```

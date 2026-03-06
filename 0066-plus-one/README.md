@@ -1,13 +1,11 @@
-# **LeetCode 66 – Plus One**
-
-**Difficulty:** Easy  
-**Tags:** Array, Math  
+# LeetCode 66 – Plus One
+**Difficulty:** Easy 
+**Tags:** Array, Math 
 **Link:** [https://leetcode.com/problems/plus-one/](https://leetcode.com/problems/plus-one/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an integer represented as an array `digits`, where:
 
 * Each element is a single digit (`0–9`)
@@ -18,8 +16,7 @@ Your task is to **increment the integer by one** and return the resulting array 
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 * Adding one starts from the **least significant digit** (the end of the array).
 * If a digit is less than `9`, you can increment it and finish.
 * If a digit is `9`, it becomes `0` and produces a **carry** to the left.
@@ -29,22 +26,20 @@ This is exactly how addition works by hand.
 
 ---
 
-## **Approach**
-
+## Approach
 1. Traverse the array from right to left.
 2. If the current digit is less than `9`:
 
-   * Increment it by `1`
-   * Return the array immediately
+ * Increment it by `1`
+ * Return the array immediately
 3. Otherwise (`digit == 9`):
 
-   * Set it to `0` and continue
+ * Set it to `0` and continue
 4. If all digits were `9`, prepend `1` to the array.
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -72,8 +67,7 @@ Output: [1,0]
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * The carry only propagates while digits are `9`.
 * As soon as a digit less than `9` is found, the process stops.
 * The algorithm mimics elementary addition exactly.
@@ -81,19 +75,17 @@ Output: [1,0]
 
 ---
 
-## **Complexity**
-
-| Aspect | Complexity                           |
+## Complexity
+| Aspect | Complexity |
 | ------ | ------------------------------------ |
-| Time   | **O(n)**                             |
-| Space  | **O(1)** (in-place, ignoring output) |
+| Time | **O(n)** |
+| Space | **O(1)** (in-place, ignoring output) |
 
 Where `n = len(digits)`.
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How to simulate arithmetic operations on digit arrays.
 * Why handling carry correctly is essential.
 * A classic example of right-to-left array processing.
@@ -113,6 +105,5 @@ This happens when the carry propagates through all digits.
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “Traverse digits from right to left, handle carry from 9s, and prepend 1 if needed.”

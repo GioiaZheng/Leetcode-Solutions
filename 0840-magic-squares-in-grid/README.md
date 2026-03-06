@@ -1,13 +1,11 @@
-# **LeetCode 840 – Magic Squares In Grid**
-
-**Difficulty:** Medium  
-**Tags:** Array, Matrix, Brute Force  
+# LeetCode 840 – Magic Squares In Grid
+**Difficulty:** Medium 
+**Tags:** Array, Matrix, Brute Force 
 **Link:** [https://leetcode.com/problems/magic-squares-in-grid/](https://leetcode.com/problems/magic-squares-in-grid/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 A **3 × 3 magic square** is a grid that satisfies:
 
 * Contains **distinct numbers from 1 to 9**
@@ -19,51 +17,47 @@ Return the **number of 3 × 3 subgrids** inside `grid` that are magic squares.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 * A magic square can **only be 3 × 3** and use numbers `1–9`.
 * Therefore, the problem reduces to:
 
-  * Enumerating all possible 3 × 3 subgrids
-  * Checking whether each one satisfies magic square properties
+ * Enumerating all possible 3 × 3 subgrids
+ * Checking whether each one satisfies magic square properties
 * Strong mathematical constraints allow **early pruning**.
 
 ---
 
-## **Important Observations**
-
+## Important Observations
 1. All numbers must be **unique** and in range `1–9`
 2. In a valid 3 × 3 magic square using numbers `1–9`,
-   the **center must always be `5`**
+ the **center must always be `5`**
 3. All row sums, column sums, and diagonal sums must be equal
 
 These observations significantly reduce unnecessary checks.
 
 ---
 
-## **Approach**
-
+## Approach
 1. Enumerate every possible 3 × 3 subgrid.
 2. For each subgrid:
 
-   * Check all values are in `[1, 9]` and distinct
-   * Verify the center element is `5`
-   * Compute the target sum using the first row
-   * Check all rows, columns, and diagonals
+ * Check all values are in `[1, 9]` and distinct
+ * Verify the center element is `5`
+ * Compute the target sum using the first row
+ * Check all rows, columns, and diagonals
 3. Count how many subgrids pass all checks.
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
 Input:
 grid = [
-  [4,3,8,4],
-  [9,5,1,9],
-  [2,7,6,2]
+ [4,3,8,4],
+ [9,5,1,9],
+ [2,7,6,2]
 ]
 
 Output: 1
@@ -94,8 +88,7 @@ Grid is too small to contain a 3×3 subgrid
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * The grid size is small (`≤ 10 × 10`)
 * Every check is constant time
 * Strong constraints (distinct 1–9, center = 5) prune invalid cases early
@@ -103,12 +96,11 @@ Grid is too small to contain a 3×3 subgrid
 
 ---
 
-## **Complexity**
-
-| Aspect | Complexity   |
+## Complexity
+| Aspect | Complexity |
 | ------ | ------------ |
-| Time   | **O(R × C)** |
-| Space  | **O(1)**     |
+| Time | **O(R × C)** |
+| Space | **O(1)** |
 
 Where:
 
@@ -117,8 +109,7 @@ Where:
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How mathematical properties simplify brute-force problems
 * Why knowing **invariants** (like center = 5) is powerful
 * Efficient subgrid validation techniques
@@ -138,6 +129,5 @@ This property is unique to 3 × 3 magic squares using `1–9`.
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “Enumerate each 3×3 subgrid and validate it using the fixed properties of a 1–9 magic square, especially the center being 5.”

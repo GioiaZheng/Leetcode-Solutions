@@ -1,13 +1,11 @@
-# **LeetCode 2943 – Maximize Area of Square Hole in Grid**
-
-**Difficulty:** Medium  
-**Tags:** Greedy, Geometry, Sorting  
+# LeetCode 2943 – Maximize Area of Square Hole in Grid
+**Difficulty:** Medium 
+**Tags:** Greedy, Geometry, Sorting 
 **Link:** https://leetcode.com/problems/maximize-area-of-square-hole-in-grid/
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given a rectangular grid formed by:
 
 - `n + 2` **horizontal bars**
@@ -25,8 +23,7 @@ Your task is to **remove some (possibly none) of the removable bars** to create 
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 Removing bars allows adjacent unit cells to **merge**.
 
 ### Important Observation
@@ -49,8 +46,7 @@ The **area** is simply the square of this side length.
 
 ---
 
-## **Approach**
-
+## Approach
 ### Step 1: Find Longest Consecutive Sequence
 
 For both `hBars` and `vBars`:
@@ -72,8 +68,7 @@ area = side × side
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -114,8 +109,7 @@ Removing one horizontal and one vertical bar creates a `2 × 2` square.
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * Only **consecutive bar removals** can enlarge a hole
 * Horizontal and vertical expansions are independent
 * The limiting dimension determines the largest possible square
@@ -123,19 +117,17 @@ Removing one horizontal and one vertical bar creates a `2 × 2` square.
 
 ---
 
-## **Complexity Analysis**
-
+## Complexity Analysis
 Let `H = len(hBars)` and `V = len(vBars)`.
 
-| Aspect | Complexity               |
+| Aspect | Complexity |
 | ------ | ------------------------ |
-| Time   | **O(H log H + V log V)** |
-| Space  | **O(1)**                 |
+| Time | **O(H log H + V log V)** |
+| Space | **O(1)** |
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * Grid problems often reduce to **interval analysis**
 * Consecutive sequences can replace costly simulations
 * Understanding how removals affect geometry is key
@@ -143,14 +135,12 @@ Let `H = len(hBars)` and `V = len(vBars)`.
 
 ---
 
-## **Related Problems**
-
+## Related Problems
 * 221. Maximal Square
 * 84. Largest Rectangle in Histogram
 * 85. Maximal Rectangle
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “The largest square hole is formed by removing the longest consecutive horizontal and vertical bars; the side length is the minimum of those lengths plus one.”

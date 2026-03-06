@@ -1,16 +1,14 @@
-# **LeetCode 712 – Minimum ASCII Delete Sum for Two Strings**
-
-**Difficulty:** Medium  
-**Tags:** Dynamic Programming, String  
+# LeetCode 712 – Minimum ASCII Delete Sum for Two Strings
+**Difficulty:** Medium 
+**Tags:** Dynamic Programming, String 
 **Link:** https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings/
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given two strings `s1` and `s2`.
 
-You may delete characters from either string.  
+You may delete characters from either string. 
 Each deletion costs the **ASCII value** of the deleted character.
 
 Your task is to make the two strings **exactly equal** with the **minimum possible total ASCII deletion cost**.
@@ -19,8 +17,7 @@ Return that minimum cost.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 This problem is a **weighted version of the Longest Common Subsequence (LCS)** problem.
 
 - In classic **LCS**, we maximize the length of the common subsequence.
@@ -30,8 +27,7 @@ Rather than directly deciding what to keep, we compute the **minimum deletion co
 
 ---
 
-## **Approach**
-
+## Approach
 We use **Dynamic Programming**.
 
 ### 🔹 State Definition
@@ -48,9 +44,9 @@ s1[i:] and s2[j:] equal
 ### 🔹 Base Cases
 
 - If `i == len(s1)`:
-  - We must delete all remaining characters in `s2[j:]`
+ - We must delete all remaining characters in `s2[j:]`
 - If `j == len(s2)`:
-  - We must delete all remaining characters in `s1[i:]`
+ - We must delete all remaining characters in `s1[i:]`
 
 ---
 
@@ -68,8 +64,8 @@ dp[i][j] = dp[i+1][j+1]
 ```
 
 dp[i][j] = min(
-ord(s1[i]) + dp[i+1][j],   # delete s1[i]
-ord(s2[j]) + dp[i][j+1]    # delete s2[j]
+ord(s1[i]) + dp[i+1][j], # delete s1[i]
+ord(s2[j]) + dp[i][j+1] # delete s2[j]
 )
 
 ```
@@ -86,8 +82,7 @@ dp[0][0]
 
 ---
 
-## **Examples**
-
+## Examples
 ### Example 1
 
 ```
@@ -104,7 +99,7 @@ Output:
 Explanation:
 
 - Delete `'s'` → ASCII 115
-- Delete `'t'` → ASCII 116  
+- Delete `'t'` → ASCII 116 
 - Remaining string: `"ea"`
 
 Total cost:
@@ -140,8 +135,7 @@ Total minimum cost = **403**
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 - Dynamic Programming ensures every subproblem is solved once.
 - Each state represents the cheapest way to align suffixes.
 - Choosing the minimum deletion cost at each mismatch guarantees a global optimum.
@@ -149,8 +143,7 @@ Total minimum cost = **403**
 
 ---
 
-## **Complexity**
-
+## Complexity
 Let:
 
 - `m = len(s1)`
@@ -163,8 +156,7 @@ Let:
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 - How to convert LCS into a **cost-minimization DP problem**
 - Handling weighted deletions instead of counting operations
 - Recognizing shared structure between string DP problems
@@ -172,14 +164,12 @@ Let:
 
 ---
 
-## **Related Problems**
-
-- 1143. Longest Common Subsequence  
-- 583. Delete Operation for Two Strings  
-- 72. Edit Distance  
+## Related Problems
+- 1143. Longest Common Subsequence 
+- 583. Delete Operation for Two Strings 
+- 72. Edit Distance 
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “Use dynamic programming where `dp[i][j]` stores the minimum ASCII cost to make `s1[i:]` and `s2[j:]` equal, deleting the cheaper character when they differ.”

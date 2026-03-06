@@ -1,21 +1,18 @@
-# **LeetCode 3 – Longest Substring Without Repeating Characters**
-
-**Difficulty:** Medium  
-**Tags:** Sliding Window, Hash Map, Two Pointers  
+# LeetCode 3 – Longest Substring Without Repeating Characters
+**Difficulty:** Medium 
+**Tags:** Sliding Window, Hash Map, Two Pointers 
 **Link:** [https://leetcode.com/problems/longest-substring-without-repeating-characters/](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 Given a string `s`, the task is to determine the **length** of the longest substring that contains **no repeated characters**.
 
 A substring must consist of **contiguous characters**, unlike a subsequence.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 A brute-force solution would check every possible substring, but this leads to `O(n²)` time and is far too slow for inputs as large as `50,000` characters.
 
 The key observation is:
@@ -33,40 +30,38 @@ This ensures each character is processed at most twice (once by `right`, once by
 
 ---
 
-## **Approach**
-
+## Approach
 1. Use a dictionary `last_seen` to record the most recent index of each character.
 2. Initialize two pointers:
 
-   * `left` = start of current window
-   * `right` = current character being examined
+ * `left` = start of current window
+ * `right` = current character being examined
 3. For each character `s[right]`:
 
-   * If the character is already in `last_seen` **and** its previous index is inside the window (`>= left`),
-     then update:
+ * If the character is already in `last_seen` **and** its previous index is inside the window (`>= left`),
+ then update:
 
-     ```
-     left = last_seen[s[right]] + 1
-     ```
-   * Update the character’s latest index:
+ ```
+ left = last_seen[s[right]] + 1
+ ```
+ * Update the character’s latest index:
 
-     ```
-     last_seen[s[right]] = right
-     ```
-   * Compute window size:
+ ```
+ last_seen[s[right]] = right
+ ```
+ * Compute window size:
 
-     ```
-     right - left + 1
-     ```
-   * Update `max_len` accordingly.
+ ```
+ right - left + 1
+ ```
+ * Update `max_len` accordingly.
 4. Return `max_len`.
 
 This maintains a valid window at all times and ensures linear performance.
 
 ---
 
-## **Example**
-
+## Example
 **Input**
 
 ```
@@ -93,8 +88,7 @@ The longest valid substring is `"wke"` with length **3**.
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * The sliding window ensures we never reconsider characters outside the active substring.
 * The dictionary lets us jump the `left` pointer efficiently to avoid duplicates.
 * Each pointer (`left`, `right`) moves only forward, giving a true **O(n)** algorithm.
@@ -102,15 +96,13 @@ The longest valid substring is `"wke"` with length **3**.
 
 ---
 
-## **Complexity**
-
+## Complexity
 * **Time:** `O(n)` — Each index visited at most twice
 * **Space:** `O(k)` where `k` is the character set size (at most 128 for ASCII)
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How sliding window algorithms convert seemingly quadratic problems into linear ones.
 * The importance of tracking the **most recent index** of characters.
 * Why moving `left` only forward (never backward) ensures linear time.

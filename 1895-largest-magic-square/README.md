@@ -1,28 +1,25 @@
-# **LeetCode 1895 – Largest Magic Square**
-
-**Difficulty:** Medium  
-**Tags:** Prefix Sum, Matrix, Enumeration  
+# LeetCode 1895 – Largest Magic Square
+**Difficulty:** Medium 
+**Tags:** Prefix Sum, Matrix, Enumeration 
 **Link:** https://leetcode.com/problems/largest-magic-square/
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 A **k × k magic square** is a square subgrid where:
 
-- All **row sums** are equal  
-- All **column sums** are equal  
-- The **two diagonal sums** are equal  
+- All **row sums** are equal 
+- All **column sums** are equal 
+- The **two diagonal sums** are equal 
 
-> The values do **not** need to be distinct.  
+> The values do **not** need to be distinct. 
 > Every `1 × 1` grid is trivially a magic square.
 
 Given an `m × n` integer grid, return the **largest possible side length `k`** of a magic square contained in the grid.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 The brute-force idea is simple:
 
 - Enumerate all possible square sizes `k`
@@ -30,12 +27,12 @@ The brute-force idea is simple:
 
 However, **naively computing sums would be too slow**.
 
-### Optimization Trick  
+### Optimization Trick 
 Use **prefix sums** to compute:
 
 - Any row sum
 - Any column sum
-- Any diagonal sum  
+- Any diagonal sum 
 
 in **O(1)** time.
 
@@ -43,18 +40,17 @@ This makes the brute-force approach efficient enough.
 
 ---
 
-## **Prefix Sum Preparation**
-
+## Prefix Sum Preparation
 We precompute:
 
-### 1️⃣ Row prefix sums
+### Row prefix sums
 ```
 
 rowSum[i][j] = sum of grid[i][0..j-1]
 
 ```
 
-### 2️⃣ Column prefix sums
+### Column prefix sums
 ```
 
 colSum[i][j] = sum of grid[0..i-1][j]
@@ -67,24 +63,22 @@ This allows:
 
 ---
 
-## **Checking a k × k Magic Square**
-
+## Checking a k × k Magic Square
 For a square with top-left corner `(r, c)` and size `k`:
 
 1. Compute the **target sum** using the first row
 2. Check:
-   - All `k` row sums
-   - All `k` column sums
+ - All `k` row sums
+ - All `k` column sums
 3. Check the two diagonals:
-   - Main diagonal
-   - Anti-diagonal
+ - Main diagonal
+ - Anti-diagonal
 
 If all match → it's a magic square.
 
 ---
 
-## **Approach**
-
+## Approach
 ### Step 1: Precompute prefix sums
 
 - `rowSum`
@@ -107,8 +101,7 @@ If no square larger than `1 × 1` is valid, return `1`.
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -129,31 +122,28 @@ Explanation:
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * Prefix sums reduce sum checks from `O(k)` to `O(1)`
 * Enumeration is feasible because `m, n ≤ 50`
 * Checking largest sizes first avoids unnecessary work
 
 ---
 
-## **Complexity Analysis**
-
+## Complexity Analysis
 Let `K = min(m, n)`.
 
-| Aspect      | Complexity               |
+| Aspect | Complexity |
 | ----------- | ------------------------ |
-| Prefix sums | `O(mn)`                  |
-| Enumeration | `O(K × m × n)`           |
-| Total       | **O(m × n × min(m, n))** |
-| Space       | **O(mn)**                |
+| Prefix sums | `O(mn)` |
+| Enumeration | `O(K × m × n)` |
+| Total | **O(m × n × min(m, n))** |
+| Space | **O(mn)** |
 
 This fits comfortably within constraints.
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * Prefix sums are extremely powerful for matrix problems
 * Checking constraints first (largest `k`) improves performance
 * Geometry + prefix sums is a common interview pattern
@@ -161,14 +151,12 @@ This fits comfortably within constraints.
 
 ---
 
-## **Related Problems**
-
+## Related Problems
 * 840. Magic Squares In Grid
 * 221. Maximal Square
 * 3047. Largest Square Inside Two Rectangles
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “Precompute row and column prefix sums, then enumerate square sizes from largest to smallest and verify row, column, and diagonal sums in O(1) time.”
