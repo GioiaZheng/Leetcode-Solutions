@@ -6,9 +6,9 @@ class Solution:
         # Step 1: count word frequency
         freq = Counter(words)
         
-        # Step 2: sort according to:
-        # - highest frequency first      → (-freq[w])
-        # - alphabetical order for ties  → (w)
+        # Step 2: sort by these rules:
+        # - Higher frequency comes first (-freq[w]).
+        # - For equal frequency, smaller lexicographical word comes first (w).
         sorted_words = sorted(freq, key=lambda w: (-freq[w], w))
         
         # Step 3: return first k words

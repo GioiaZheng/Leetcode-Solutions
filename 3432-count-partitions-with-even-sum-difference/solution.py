@@ -5,9 +5,9 @@ class Solution:
 
         # If total sum is odd, left_sum - right_sum can never be even.
         # Because parity(left - right) = parity(total)
-        # → so odd total ⇒ odd difference ⇒ no valid partitions.
+        # Therefore, an odd total implies an odd difference, so no valid partitions.
         if total % 2 == 1:
             return 0
 
-        # If total sum is even, ALL (n − 1) partitions are valid.
+        # If the total sum is even, every split point works, so there are (n - 1) valid partitions.
         return len(nums) - 1

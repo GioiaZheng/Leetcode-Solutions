@@ -29,7 +29,7 @@ class Solution:
                 room = heapq.heappop(available)
                 heapq.heappush(busy, (end, room))
             else:
-                # No room available → delay meeting
+                # No room is available, so delay this meeting.
                 finish_time, room = heapq.heappop(busy)
                 # Start when this room becomes free
                 new_end = finish_time + duration
