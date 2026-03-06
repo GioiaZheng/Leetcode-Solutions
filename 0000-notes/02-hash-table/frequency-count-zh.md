@@ -1,37 +1,38 @@
 # 频次统计（中文版）
 
-本笔记聚焦“频次统计”这一类哈希应用。英文详版见：[frequency-count.md](frequency-count.md)。
+频次统计是哈希最常见子模式，适合“字母出现次数、数字重复次数”类题。
 
----
+## 标准模板
 
-## 核心思想
+```python
+cnt = {}
+for x in arr:
+    cnt[x] = cnt.get(x, 0) + 1
+```
 
-- 用哈希表记录每个元素出现次数。
-- 常用于：
-  - 找众数/最高频
-  - 判断变位词
-  - 频次差/频次匹配
+或使用 `collections.Counter`。
 
----
+## 典型场景
 
-## 模板
+- 有效字母异位词
+- 前 k 高频元素
+- 是否可重排成目标形式
+
+## 例子：判断异位词
 
 ```python
 from collections import Counter
-freq = Counter(nums)
+return Counter(s) == Counter(t)
 ```
 
-或手动更新：
+## 进阶：频次 + 堆
 
-```python
-freq = {}
-for x in nums:
-    freq[x] = freq.get(x, 0) + 1
-```
-
----
+前 k 高频常见做法：
+1. 先统计频次。
+2. 再用最小堆维护前 k。
 
 ## 易错点
 
-- 忘记初始化/更新
-- 只统计一次，忽略增量维护
+- 统计对象错了（字符 vs 单词）。
+- 忘记处理大小写与空格规则。
+- 排序比较时，频次相同的 tie-break 未按题意处理。
