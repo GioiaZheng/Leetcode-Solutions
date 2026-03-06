@@ -1,31 +1,32 @@
 # 固定长度滑动窗口（中文版）
 
-本笔记介绍固定窗口的典型结构。英文详版见：[sliding-window-fixed.md](sliding-window-fixed.md)。
-
----
-
-## 核心场景
-
-- 子数组长度固定
-- 连续区间内求和/最值/计数
-
----
+当题目要求“长度恰好为 k 的子数组/子串”时，优先考虑固定窗口。
 
 ## 模板
 
 ```python
-window_sum = sum(nums[:k])
-ans = window_sum
-
-for i in range(k, n):
-    window_sum += nums[i] - nums[i - k]
-    ans = max(ans, window_sum)
+window_sum = 0
+for i, x in enumerate(nums):
+    window_sum += x
+    if i >= k:
+        window_sum -= nums[i-k]
+    if i >= k-1:
+        # 用 window_sum 更新答案
+        pass
 ```
 
----
+## 例子：长度 k 的最大平均值
 
-## 注意点
+- 维护窗口和。
+- 每次右移 1 格，减去离开元素、加上新元素。
+- 时间 O(n)，空间 O(1)。
 
-- 初始化第一段窗口
-- 更新顺序别写反
-- k 可能等于 n
+## 适用信号
+
+- 子数组长度固定为 k。
+- 每个窗口都需要计算某个指标（和、最大值、不同字符数）。
+
+## 易错点
+
+- 下标偏移 `i-k` 写错。
+- 忘记从 `i >= k-1` 才开始更新答案。

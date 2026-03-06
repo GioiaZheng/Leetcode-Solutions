@@ -1,32 +1,35 @@
 # 数组上的二分查找（中文版）
 
-本笔记总结在有序数组上进行二分的要点。英文详版见：[binary-search-on-array.md](binary-search-on-array.md)。
+二分前提：搜索空间有序（单调）。
 
----
+## 两种常见目标
 
-## 核心要点
+1. 找某个值是否存在。
+2. 找边界（第一个 >= target，最后一个 <= target）。
 
-- 二分的前提：**有序**或**单调**。
-- 明确目标：找等值、最左、最右、插入位置。
-
----
-
-## 模板
+## 标准模板（左闭右闭）
 
 ```python
-left, right = 0, n - 1
-while left <= right:
-    mid = (left + right) // 2
+l, r = 0, n - 1
+while l <= r:
+    mid = (l + r) // 2
     if nums[mid] < target:
-        left = mid + 1
+        l = mid + 1
+    elif nums[mid] > target:
+        r = mid - 1
     else:
-        right = mid - 1
+        return mid
+return -1
 ```
 
----
+## 边界查找示例
+
+找第一个 `>= target`：
+- 若 `nums[mid] >= target`，收缩右边 `r = mid - 1`。
+- 否则 `l = mid + 1`。
 
 ## 易错点
 
-- 循环条件（<= vs <）
-- mid 计算与边界更新
-- 最终返回 left 还是 right
+- 死循环：区间不缩小。
+- `mid` 溢出（C++ 可用 `l + (r-l)/2`）。
+- 模板混用（左闭右开与左闭右闭混乱）。
