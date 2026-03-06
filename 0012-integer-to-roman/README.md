@@ -1,13 +1,11 @@
-# **LeetCode 12 – Integer to Roman**
-
-**Difficulty:** Medium  
-**Tags:** Math, String, Greedy  
+# LeetCode 12 – Integer to Roman
+**Difficulty:** Medium 
+**Tags:** Math, String, Greedy 
 **Link:** [https://leetcode.com/problems/integer-to-roman/](https://leetcode.com/problems/integer-to-roman/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an integer `num` (1 ≤ num ≤ 3999).
 
 Your task is to convert it into a **Roman numeral string** following standard Roman numeral rules:
@@ -19,17 +17,16 @@ Your task is to convert it into a **Roman numeral string** following standard Ro
 
 ---
 
-## **Roman Symbols**
-
+## Roman Symbols
 | Symbol | Value |
 | ------ | ----- |
-| I      | 1     |
-| V      | 5     |
-| X      | 10    |
-| L      | 50    |
-| C      | 100   |
-| D      | 500   |
-| M      | 1000  |
+| I | 1 |
+| V | 5 |
+| X | 10 |
+| L | 50 |
+| C | 100 |
+| D | 500 |
+| M | 1000 |
 
 Allowed subtractive forms:
 
@@ -39,8 +36,7 @@ Allowed subtractive forms:
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 * Roman numerals can be generated **greedily**.
 * Always subtract the **largest possible Roman value** from the remaining number.
 * By including subtractive values directly in the mapping, we avoid special-case logic.
@@ -48,24 +44,22 @@ Allowed subtractive forms:
 
 ---
 
-## **Approach**
-
+## Approach
 1. Prepare an ordered list of `(value, symbol)` pairs:
 
-   * From largest to smallest
-   * Include subtractive values (900, 400, 90, etc.)
+ * From largest to smallest
+ * Include subtractive values (900, 400, 90, etc.)
 2. Initialize an empty result string.
 3. While `num > 0`:
 
-   * Find the largest value `v` ≤ `num`
-   * Append its Roman symbol
-   * Subtract `v` from `num`
+ * Find the largest value `v` ≤ `num`
+ * Append its Roman symbol
+ * Subtract `v` from `num`
 4. Continue until `num` becomes 0.
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -78,8 +72,8 @@ Breakdown:
 ```
 3000 → MMM
  700 → DCC
-  40 → XL
-   9 → IX
+ 40 → XL
+ 9 → IX
 ```
 
 ---
@@ -102,8 +96,7 @@ Output: "MCMXCIV"
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * Roman numeral rules are inherently **greedy**
 * Subtractive cases are finite and explicitly listed
 * Each step reduces `num`, guaranteeing termination
@@ -111,12 +104,11 @@ Output: "MCMXCIV"
 
 ---
 
-## **Complexity**
-
+## Complexity
 | Aspect | Complexity |
 | ------ | ---------- |
-| Time   | **O(1)**   |
-| Space  | **O(1)**   |
+| Time | **O(1)** |
+| Space | **O(1)** |
 
 Explanation:
 
@@ -125,15 +117,14 @@ Explanation:
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How greedy algorithms can simplify rule-based conversions
 * Why explicitly encoding edge cases is often cleaner than branching logic
 * How to model a real-world numeral system with a deterministic algorithm
 
 ---
 
-###  Notes
+### Notes
 
 This is a **classic greedy + mapping problem** and frequently appears in interviews.
 
@@ -145,6 +136,5 @@ Understanding this problem helps with:
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “Convert the number greedily by repeatedly subtracting the largest possible Roman value.”

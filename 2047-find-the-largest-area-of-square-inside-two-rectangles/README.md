@@ -1,13 +1,11 @@
-# **LeetCode 3047 – Find the Largest Area of Square Inside Two Rectangles**
-
-**Difficulty:** Medium  
-**Tags:** Geometry, Brute Force, Enumeration  
+# LeetCode 3047 – Find the Largest Area of Square Inside Two Rectangles
+**Difficulty:** Medium 
+**Tags:** Geometry, Brute Force, Enumeration 
 **Link:** https://leetcode.com/problems/find-the-largest-area-of-square-inside-two-rectangles/
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given `n` axis-aligned rectangles on a 2D plane.
 
 Each rectangle `i` is defined by:
@@ -22,9 +20,8 @@ You must find the **maximum area of a square** that can fit **inside the interse
 
 ---
 
-## **Key Insight**
-
-### 1️⃣ Intersection of Two Rectangles
+## Key Insight
+### Intersection of Two Rectangles
 
 The intersection of two axis-aligned rectangles (if it exists) is itself a rectangle.
 
@@ -33,7 +30,7 @@ For rectangles `i` and `j`:
 - Bottom-left of intersection:
 ```
 
-x_left   = max(x1_i, x1_j)
+x_left = max(x1_i, x1_j)
 y_bottom = max(y1_i, y1_j)
 
 ```
@@ -42,25 +39,25 @@ y_bottom = max(y1_i, y1_j)
 ```
 
 x_right = min(x2_i, x2_j)
-y_top   = min(y2_i, y2_j)
+y_top = min(y2_i, y2_j)
 
 ```
 
 The intersection exists **if and only if**:
 ```
 
-x_left < x_right  AND  y_bottom < y_top
+x_left < x_right AND y_bottom < y_top
 
 ```
 
 ---
 
-### 2️⃣ Largest Square Inside a Rectangle
+### Largest Square Inside a Rectangle
 
 If an intersection rectangle has:
 ```
 
-width  = x_right - x_left
+width = x_right - x_left
 height = y_top - y_bottom
 
 ```
@@ -75,8 +72,7 @@ area = side²
 
 ---
 
-## **Approach**
-
+## Approach
 ### Step 1: Enumerate All Rectangle Pairs
 
 Since `n ≤ 1000`, we can safely enumerate all pairs `(i, j)` with `i < j`.
@@ -96,14 +92,13 @@ For each pair:
 Keep a global maximum across all rectangle pairs.
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
 Input:
 bottomLeft = [[1,1],[2,2],[3,1]]
-topRight   = [[3,3],[4,4],[6,6]]
+topRight = [[3,3],[4,4],[6,6]]
 
 Output:
 1
@@ -122,7 +117,7 @@ Explanation:
 ```
 Input:
 bottomLeft = [[1,1],[3,3],[3,1]]
-topRight   = [[2,2],[4,4],[4,2]]
+topRight = [[2,2],[4,4],[4,2]]
 
 Output:
 0
@@ -135,8 +130,7 @@ Explanation:
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * Any square must lie inside the intersection of at least two rectangles
 * The intersection geometry is simple and deterministic
 * Checking all pairs guarantees no valid case is missed
@@ -144,21 +138,19 @@ Explanation:
 
 ---
 
-## **Complexity Analysis**
-
+## Complexity Analysis
 Let `n` be the number of rectangles.
 
 | Aspect | Complexity |
 | ------ | ---------- |
-| Time   | **O(n²)**  |
-| Space  | **O(1)**   |
+| Time | **O(n²)** |
+| Space | **O(1)** |
 
 This is efficient enough for `n ≤ 1000`.
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * Intersection of axis-aligned rectangles is easy to compute
 * Geometry problems often reduce to careful boundary comparisons
 * Brute-force pair enumeration can be optimal when constraints allow
@@ -166,14 +158,12 @@ This is efficient enough for `n ≤ 1000`.
 
 ---
 
-## **Related Problems**
-
+## Related Problems
 * 2975. Maximum Square Area by Removing Fences From a Field
 * 2943. Maximize Area of Square Hole in Grid
 * 221. Maximal Square
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “Enumerate all rectangle pairs, compute their intersection, and the largest square inside it has area equal to the square of the minimum of the intersection’s width and height.”

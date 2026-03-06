@@ -1,13 +1,11 @@
-# **LeetCode 1 – Two Sum**
-
-**Difficulty:** Easy  
-**Tags:** Array, Hash Table  
+# LeetCode 1 – Two Sum
+**Difficulty:** Easy 
+**Tags:** Array, Hash Table 
 **Link:** [https://leetcode.com/problems/two-sum/](https://leetcode.com/problems/two-sum/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 Given an integer array `nums` and an integer `target`, return **indices** of the two numbers such that their sum equals `target`.
 
 Constraints:
@@ -18,8 +16,7 @@ Constraints:
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 The key relationship is:
 
 $$
@@ -38,26 +35,24 @@ A hash map lets us check this in **O(1)** time.
 
 ---
 
-## **Approach**
-
+## Approach
 1. Create a hash map (`seen`) that stores:
 
-   ```
-   number → index
-   ```
+ ```
+ number → index
+ ```
 2. Loop through the array:
 
-   * Compute complement: `target - num`
-   * If complement exists in the map → solution found
-   * Otherwise, record current number and continue
+ * Compute complement: `target - num`
+ * If complement exists in the map → solution found
+ * Otherwise, record current number and continue
 3. Return the pair of indices.
 
 Because the problem guarantees **exactly one solution**, we do not need extra checks.
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -93,8 +88,7 @@ Output: [0,1]
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * A hash map allows **O(1)** lookup for the complement.
 * Each element is processed exactly once → **O(n)** time.
 * This avoids the slow brute-force approach (**O(n²)**).
@@ -103,17 +97,15 @@ This is the classic optimal solution for Two Sum.
 
 ---
 
-## **Complexity**
-
-| Aspect | Complexity                                  |
+## Complexity
+| Aspect | Complexity |
 | ------ | ------------------------------------------- |
-| Time   | **O(n)**                                    |
-| Space  | **O(n)** (hash map storing visited numbers) |
+| Time | **O(n)** |
+| Space | **O(n)** (hash map storing visited numbers) |
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How hashing helps reduce a quadratic problem to linear time.
 * The concept of computing a **complement** for target sum problems.
 * Why storing value → index is enough to retrieve the correct pair.

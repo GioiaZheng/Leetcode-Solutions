@@ -1,13 +1,11 @@
-# **LeetCode 2092 – Find All People With Secret**
-
-**Difficulty:** Hard  
-**Tags:** Graph, BFS, Sorting  
+# LeetCode 2092 – Find All People With Secret
+**Difficulty:** Hard 
+**Tags:** Graph, BFS, Sorting 
 **Link:** [https://leetcode.com/problems/find-all-people-with-secret/](https://leetcode.com/problems/find-all-people-with-secret/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 There are `n` people labeled from `0` to `n - 1`.
 
 You are given a list of meetings, where:
@@ -30,8 +28,7 @@ Return **all people who know the secret after all meetings**, in any order.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 * Meetings must be processed **in chronological order**.
 * Secret sharing can **chain within the same time**.
 * Secret sharing **cannot cross time boundaries** unless carried by a person who already knows it.
@@ -43,25 +40,23 @@ Therefore:
 
 ---
 
-## **Approach**
-
+## Approach
 1. Sort all meetings by `time`.
 2. Initialize a set `know` with `{0, firstPerson}`.
 3. Process meetings **grouped by the same time**:
 
-   * Build a temporary graph for meetings at this time.
-   * Start BFS from people who already know the secret.
-   * Spread the secret within this time block only.
+ * Build a temporary graph for meetings at this time.
+ * Start BFS from people who already know the secret.
+ * Spread the secret within this time block only.
 4. After finishing this time block:
 
-   * Add all newly informed people to `know`.
-   * Discard the temporary graph.
+ * Add all newly informed people to `know`.
+ * Discard the temporary graph.
 5. Continue until all meetings are processed.
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -101,8 +96,7 @@ Output: [0,1,2,3,4]
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * Sorting ensures meetings are processed in correct time order.
 * Temporary graphs prevent secrets from leaking across different times.
 * BFS guarantees full propagation **within the same time block**.
@@ -110,19 +104,17 @@ Output: [0,1,2,3,4]
 
 ---
 
-## **Complexity**
-
-| Aspect | Complexity                                 |
+## Complexity
+| Aspect | Complexity |
 | ------ | ------------------------------------------ |
-| Time   | **O(m log m)** (sorting meetings)          |
-| Space  | **O(m)** (temporary graphs per time block) |
+| Time | **O(m log m)** (sorting meetings) |
+| Space | **O(m)** (temporary graphs per time block) |
 
 Where `m = len(meetings)`.
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How to handle **time-based constraints** in graph problems.
 * Why grouping events by time is essential for correctness.
 * How BFS can simulate instantaneous propagation.
@@ -130,7 +122,7 @@ Where `m = len(meetings)`.
 
 ---
 
-###  Notes
+### Notes
 
 This is a classic example of **time-aware graph traversal**.
 

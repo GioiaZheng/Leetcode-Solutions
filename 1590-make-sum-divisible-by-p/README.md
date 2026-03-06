@@ -1,24 +1,21 @@
-# **LeetCode 1590 – Make Sum Divisible by P**
-
-**Difficulty:** Medium  
-**Tags:** Prefix Sum, Hash Map, Modular Arithmetic  
+# LeetCode 1590 – Make Sum Divisible by P
+**Difficulty:** Medium 
+**Tags:** Prefix Sum, Hash Map, Modular Arithmetic 
 **Link:** https://leetcode.com/problems/make-sum-divisible-by-p/
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an array of **positive integers** `nums` and an integer `p`.
 
 You may remove **one contiguous subarray** (possibly empty, but **not the entire array**) such that the **sum of the remaining elements is divisible by `p`**.
 
-Return the **minimum length** of the subarray to remove.  
+Return the **minimum length** of the subarray to remove. 
 If it is impossible, return **`-1`**.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 Let:
 
 ```
@@ -52,16 +49,14 @@ We must remove a subarray whose **sum ≡ need (mod p)**, so that:
 
 ---
 
-## **Reformulation**
-
+## Reformulation
 This becomes:
 
 > Find the **shortest subarray** whose sum modulo `p` equals `need`.
 
 ---
 
-## **Prefix Sum + Modulo Trick**
-
+## Prefix Sum + Modulo Trick
 Define prefix sum modulo:
 ```
 
@@ -92,8 +87,7 @@ prefix[j] == (prefix[i] - need + p) % p
 
 ---
 
-## **Approach**
-
+## Approach
 ### Step 1: Compute Total Sum
 - If `total_sum % p == 0`, return `0`
 
@@ -111,9 +105,9 @@ seen = {0: -1}
 - For each index `i`:
 - Compute `prefix = (prefix + nums[i]) % p`
 - Compute the target modulo:
-  ```
-  target = (prefix - need + p) % p
-  ```
+ ```
+ target = (prefix - need + p) % p
+ ```
 - If `target` exists in `seen`, update the answer
 - Update `seen[prefix] = i`
 
@@ -126,8 +120,7 @@ seen = {0: -1}
 
 ---
 
-## **Example Walkthrough**
-
+## Example Walkthrough
 ### Example 1
 ```
 nums = [3,1,4,2], p = 6
@@ -164,8 +157,7 @@ Answer = `0`.
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * Prefix sums allow us to express any subarray sum efficiently
 * Modular arithmetic turns the problem into a lookup
 * Hash map ensures **O(1)** average lookup time
@@ -173,19 +165,17 @@ Answer = `0`.
 
 ---
 
-## **Complexity Analysis**
-
+## Complexity Analysis
 Let `n = len(nums)`.
 
-| Aspect | Complexity                     |
+| Aspect | Complexity |
 | ------ | ------------------------------ |
-| Time   | **O(n)**                       |
-| Space  | **O(p)** (at most `n` entries) |
+| Time | **O(n)** |
+| Space | **O(p)** (at most `n` entries) |
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * Removing a subarray can be reframed as finding a modulo condition
 * Prefix sum modulo is a powerful pattern for divisibility problems
 * Hash maps help track optimal subarray boundaries efficiently
@@ -193,14 +183,12 @@ Let `n = len(nums)`.
 
 ---
 
-## **Related Problems**
-
+## Related Problems
 * 560. Subarray Sum Equals K
 * 523. Continuous Subarray Sum
 * 974. Subarray Sums Divisible by K
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “Use prefix sums modulo `p` and a hash map to find the shortest subarray whose removal makes the total sum divisible by `p`.”

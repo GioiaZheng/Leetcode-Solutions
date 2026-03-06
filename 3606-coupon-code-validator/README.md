@@ -1,13 +1,11 @@
-# **LeetCode 3606 – Coupon Code Validator**
-
-**Difficulty:** Easy  
-**Tags:** String Validation, Sorting, Simulation  
+# LeetCode 3606 – Coupon Code Validator
+**Difficulty:** Easy 
+**Tags:** String Validation, Sorting, Simulation 
 **Link:** [https://leetcode.com/problems/coupon-code-validator/](https://leetcode.com/problems/coupon-code-validator/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given three arrays of equal length `n`, describing `n` coupons:
 
 * `code[i]`: a string representing the coupon identifier
@@ -19,30 +17,29 @@ A coupon is considered **valid** if **all** of the following conditions hold:
 * `code[i]` is **non-empty**
 * `code[i]` contains **only**:
 
-  * letters (`a–z`, `A–Z`)
-  * digits (`0–9`)
-  * underscore (`_`)
+ * letters (`a–z`, `A–Z`)
+ * digits (`0–9`)
+ * underscore (`_`)
 * `businessLine[i]` is one of:
 
-  * `"electronics"`
-  * `"grocery"`
-  * `"pharmacy"`
-  * `"restaurant"`
+ * `"electronics"`
+ * `"grocery"`
+ * `"pharmacy"`
+ * `"restaurant"`
 * `isActive[i]` is `true`
 
 Your task is to return the list of **valid coupon codes**, sorted by:
 
 1. Business line priority
 
-   ```
-   electronics → grocery → pharmacy → restaurant
-   ```
+ ```
+ electronics → grocery → pharmacy → restaurant
+ ```
 2. Lexicographical order of the code within the same business line
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 This problem is a combination of:
 
 1. **String validation**
@@ -59,8 +56,7 @@ Given the small constraints, a **direct simulation and sorting approach** is bot
 
 ---
 
-## **Approach**
-
+## Approach
 ### 1. Validation Rules
 
 For each coupon, check in order:
@@ -69,8 +65,8 @@ For each coupon, check in order:
 2. The code is non-empty
 3. Every character in the code is:
 
-   * alphanumeric **or**
-   * underscore (`_`)
+ * alphanumeric **or**
+ * underscore (`_`)
 4. The business line is one of the allowed categories
 
 Only coupons passing all checks are kept.
@@ -92,8 +88,7 @@ This guarantees:
 
 ---
 
-## **Example**
-
+## Example
 **Input**
 
 ```
@@ -117,8 +112,7 @@ Sorted by business line and code:
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 The solution works because:
 
 * Validation rules are applied **independently and explicitly**
@@ -130,22 +124,20 @@ By separating **filtering** from **ordering**, the logic remains easy to reason 
 
 ---
 
-## **Complexity**
-
+## Complexity
 * **Time Complexity:** `O(n log n)`
 
-  * `O(n)` for validation
-  * `O(n log n)` for sorting
+ * `O(n)` for validation
+ * `O(n log n)` for sorting
 * **Space Complexity:** `O(n)`
 
-  * to store valid coupons
+ * to store valid coupons
 
 Both are well within the given constraints.
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * Why `isalnum()` is not sufficient when underscores are allowed
 * How small edge cases (like `"_"`) can cause late test failures
 * The value of assigning numeric priorities for custom sorting rules

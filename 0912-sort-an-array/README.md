@@ -1,13 +1,11 @@
-# **LeetCode 912 – Sort an Array**
-
-**Difficulty:** Medium  
-**Tags:** Sorting, Divide and Conquer  
+# LeetCode 912 – Sort an Array
+**Difficulty:** Medium 
+**Tags:** Sorting, Divide and Conquer 
 **Link:** [https://leetcode.com/problems/sort-an-array/](https://leetcode.com/problems/sort-an-array/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an array `nums` and must return it sorted in **ascending order**.
 
 However:
@@ -18,8 +16,7 @@ However:
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 The problem explicitly forbids built-in sorting and expects you to implement a classic **O(n log n)** sorting algorithm. Valid choices include:
 
 * **Merge Sort** (stable, simpler to implement)
@@ -37,9 +34,8 @@ Thus, Merge Sort is the ideal approach.
 
 ---
 
-## **Approach: Merge Sort**
-
-###  Divide
+## Approach: Merge Sort
+### Divide
 
 Split the array into two halves recursively:
 
@@ -47,11 +43,11 @@ $$
 \text{left} = \text{nums}[0:\text{mid}], \quad \text{right} = \text{nums}[\text{mid}:]
 $$
 
-###  Conquer
+### Conquer
 
 Sort each half recursively.
 
-###  Combine
+### Combine
 
 Merge the two sorted halves by comparing elements one by one.
 
@@ -68,26 +64,24 @@ $$
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
-Input:  [5,2,3,1]
+Input: [5,2,3,1]
 Output: [1,2,3,5]
 ```
 
 ### Example 2
 
 ```
-Input:  [5,1,1,2,0,0]
+Input: [5,1,1,2,0,0]
 Output: [0,0,1,1,2,5]
 ```
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * Merge Sort guarantees **O(n log n)** in all cases.
 * It does not rely on built-ins, satisfying constraints.
 * Recursion divides the array into smaller parts until trivially sorted.
@@ -97,19 +91,17 @@ This algorithm is reliable, predictable, and suitable for large inputs.
 
 ---
 
-## **Complexity**
-
-| Aspect    | Complexity                |
+## Complexity
+| Aspect | Complexity |
 | --------- | ------------------------- |
-| **Time**  | O(n log n)                |
+| **Time** | O(n log n) |
 | **Space** | O(n) due to merge buffers |
 
 (Heap Sort can achieve O(1) space but is significantly more complex.)
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How Merge Sort uses divide-and-conquer to achieve optimal sorting time.
 * Why built-in sorts are often O(n log n) under the hood.
 * How to merge two sorted arrays efficiently.

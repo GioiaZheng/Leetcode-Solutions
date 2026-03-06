@@ -1,13 +1,11 @@
-# **LeetCode 1458 – Max Dot Product of Two Subsequences**
-
-**Difficulty:** Hard  
-**Tags:** Dynamic Programming, Array, Subsequence  
+# LeetCode 1458 – Max Dot Product of Two Subsequences
+**Difficulty:** Hard 
+**Tags:** Dynamic Programming, Array, Subsequence 
 **Link:** [https://leetcode.com/problems/max-dot-product-of-two-subsequences/](https://leetcode.com/problems/max-dot-product-of-two-subsequences/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given two integer arrays `nums1` and `nums2`.
 
 Your task is to select:
@@ -24,7 +22,7 @@ a1*b1 + a2*b2 + ... + ak*bk
 
 Return the **maximum possible dot product**.
 
-⚠️ Important:
+ Important:
 
 * Subsequences must be **non-empty**
 * Values can be **negative**
@@ -32,8 +30,7 @@ Return the **maximum possible dot product**.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 This is a **subsequence DP problem**, similar in structure to:
 
 * Longest Common Subsequence (LCS)
@@ -50,14 +47,13 @@ This means:
 
 ---
 
-## **DP State Definition**
-
+## DP State Definition
 Let:
 
 ```
 dp[i][j] = maximum dot product using
-           nums1[i:] and nums2[j:],
-           with at least one pair chosen
+ nums1[i:] and nums2[j:],
+ with at least one pair chosen
 ```
 
 This ensures:
@@ -67,8 +63,7 @@ This ensures:
 
 ---
 
-## **DP Transition**
-
+## DP Transition
 At position `(i, j)`, we have three choices:
 
  **Take both elements**
@@ -93,16 +88,15 @@ So:
 
 ```
 dp[i][j] = max(
-    nums1[i] * nums2[j] + max(0, dp[i+1][j+1]),
-    dp[i+1][j],
-    dp[i][j+1]
+ nums1[i] * nums2[j] + max(0, dp[i+1][j+1]),
+ dp[i+1][j],
+ dp[i][j+1]
 )
 ```
 
 ---
 
-## **Why `max(0, dp[i+1][j+1])`?**
-
+## Why `max(0, dp[i+1][j+1])`?
 * If continuing the subsequence **hurts the sum**, we stop
 * This allows starting a new subsequence at `(i, j)`
 * Ensures at least one pair is chosen
@@ -111,8 +105,7 @@ This is the **key trick** of the problem.
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -146,36 +139,33 @@ Answer is **-1**, not 0.
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * Dynamic programming explores all valid alignments
 * The transition ensures:
 
-  * Subsequences remain aligned
-  * At least one pair is selected
+ * Subsequences remain aligned
+ * At least one pair is selected
 * Negative-only cases are handled correctly
 * The DP structure mirrors classical sequence alignment problems
 
 ---
 
-## **Complexity**
-
+## Complexity
 Let:
 
 * `n = len(nums1)`
 * `m = len(nums2)`
 
-| Aspect | Complexity   |
+| Aspect | Complexity |
 | ------ | ------------ |
-| Time   | **O(n · m)** |
-| Space  | **O(n · m)** |
+| Time | **O(n · m)** |
+| Space | **O(n · m)** |
 
 With `n, m ≤ 500`, this is acceptable.
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How to adapt LCS-style DP to optimization problems
 * Handling **non-empty constraints** in DP
 * Why zero-initialization can break correctness
@@ -195,6 +185,5 @@ Understanding this greatly strengthens DP intuition.
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “Use DP like LCS, but maximize dot product and enforce non-empty subsequences by allowing negative results.”

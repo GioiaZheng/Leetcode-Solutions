@@ -1,13 +1,11 @@
-# **LeetCode 3381 – Maximum Subarray Sum With Length Divisible by K**
-
-**Difficulty:** Medium  
-**Tags:** Array, Prefix Sum, Hash Map  
+# LeetCode 3381 – Maximum Subarray Sum With Length Divisible by K
+**Difficulty:** Medium 
+**Tags:** Array, Prefix Sum, Hash Map 
 **Link:** [https://leetcode.com/problems/maximum-subarray-sum-with-length-divisible-by-k/](https://leetcode.com/problems/maximum-subarray-sum-with-length-divisible-by-k/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an integer array and an integer `k`.
 The task is to find the **maximum subarray sum** among all subarrays whose **length is divisible by `k`**.
 
@@ -15,8 +13,7 @@ A subarray is defined as a contiguous part of the array.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 The length constraint introduces a modular condition:
 
 ```
@@ -42,24 +39,23 @@ For each remainder class, if we keep track of the **smallest prefix sum** seen s
 
 ---
 
-## **Approach**
-
+## Approach
 1. Compute prefix sums:
 
-   ```
-   prefix[j] = nums[0] + nums[1] + ... + nums[j]
-   ```
+ ```
+ prefix[j] = nums[0] + nums[1] + ... + nums[j]
+ ```
 2. Group indices by their remainder `j % k`.
 3. For each remainder group:
 
-   * Track the smallest prefix sum encountered.
-   * For each new index `j`, compute:
+ * Track the smallest prefix sum encountered.
+ * For each new index `j`, compute:
 
-     ```
-     candidate = prefix[j] - min_prefix_in_group
-     ```
+ ```
+ candidate = prefix[j] - min_prefix_in_group
+ ```
 
-     which represents a subarray length divisible by `k`.
+ which represents a subarray length divisible by `k`.
 4. Update the result with the maximum such candidate.
 5. Return the largest sum found.
 
@@ -67,8 +63,7 @@ This uses the fact that subtracting two prefix sums yields a subarray sum.
 
 ---
 
-## **Example**
-
+## Example
 **Input**
 
 ```
@@ -88,8 +83,7 @@ Among all even-length subarrays, the maximum sum occurs for the subarray `[3, -1
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 A subarray's sum is given by:
 
 ```
@@ -108,15 +102,13 @@ By keeping track of the smallest prefix sum in each class, the algorithm efficie
 
 ---
 
-## **Complexity**
-
+## Complexity
 * **Time:** `O(n)`
 * **Space:** `O(k)` for storing prefix minima by remainder class
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How modular arithmetic applies to subarray length constraints.
 * How prefix sums transform subarray-sum problems into difference calculations.
 * How grouping indices by modulo classes enables efficient subarray maximization.

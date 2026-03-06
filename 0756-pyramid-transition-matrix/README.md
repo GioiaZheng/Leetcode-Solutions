@@ -1,13 +1,11 @@
-# **LeetCode 756 – Pyramid Transition Matrix**
-
-**Difficulty:** Medium  
-**Tags:** DFS, Backtracking, Memoization, Hash Table  
+# LeetCode 756 – Pyramid Transition Matrix
+**Difficulty:** Medium 
+**Tags:** DFS, Backtracking, Memoization, Hash Table 
 **Link:** [https://leetcode.com/problems/pyramid-transition-matrix/](https://leetcode.com/problems/pyramid-transition-matrix/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are stacking blocks to form a pyramid.
 
 * Each block has a color represented by a single letter.
@@ -17,7 +15,7 @@ You are stacking blocks to form a pyramid.
 Each pattern is a string `"ABC"` meaning:
 
 ```
-  C
+ C
  A B
 ```
 
@@ -30,8 +28,7 @@ Return `true` if you can build the pyramid all the way to the top (one block), o
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 * The pyramid is built **level by level**, from bottom to top.
 * Each level is a string, and the next level is constructed from **adjacent pairs**.
 * This is a classic **DFS + backtracking** problem.
@@ -41,8 +38,7 @@ Without memoization, the same intermediate strings are recomputed many times, le
 
 ---
 
-## **Core Challenge**
-
+## Core Challenge
 Different construction paths may lead to the **same intermediate level**.
 
 Example:
@@ -58,8 +54,7 @@ This is why **memoization is essential**.
 
 ---
 
-## **Approach**
-
+## Approach
 ### Step 1: Preprocessing
 
 Convert `allowed` into a mapping:
@@ -84,17 +79,16 @@ This allows O(1) lookup during DFS.
 
 * Use a dictionary:
 
-  ```
-  memo[level_string] = True / False
-  ```
+ ```
+ memo[level_string] = True / False
+ ```
 * If a level has been evaluated before, return the cached result immediately.
 
 This avoids exponential recomputation and guarantees performance.
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -133,31 +127,28 @@ All possible constructions eventually fail before reaching the top.
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * DFS explores all valid constructions.
 * Backtracking ensures all combinations are tried.
 * Memoization prevents re-evaluating the same failed states.
 * The number of unique states is small due to:
 
-  * Small alphabet size (A–F)
-  * Maximum length of 6
+ * Small alphabet size (A–F)
+ * Maximum length of 6
 
 ---
 
-## **Complexity**
-
-| Aspect | Complexity                               |
+## Complexity
+| Aspect | Complexity |
 | ------ | ---------------------------------------- |
-| Time   | **Exponential (pruned heavily by memo)** |
-| Space  | **O(number of unique level strings)**    |
+| Time | **Exponential (pruned heavily by memo)** |
+| Space | **O(number of unique level strings)** |
 
 In practice, the memoized solution runs fast and passes all test cases.
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * DFS alone is not enough for problems with overlapping subproblems.
 * Memoization is crucial when different paths lead to the same state.
 * This problem is a textbook example of **DFS + memoization**.
@@ -165,7 +156,7 @@ In practice, the memoized solution runs fast and passes all test cases.
 
 ---
 
-###  Notes
+### Notes
 
 Without memoization, this solution **will TLE** on dense `allowed` inputs.
 
@@ -176,6 +167,5 @@ This problem is often used to test:
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “Use DFS with backtracking to build the pyramid level by level, and memoize intermediate levels to avoid recomputation.”

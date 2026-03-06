@@ -1,13 +1,11 @@
-# **LeetCode 3075 – Maximize Happiness of Selected Children**
-
-**Difficulty:** Medium  
-**Tags:** Array, Greedy, Sorting  
+# LeetCode 3075 – Maximize Happiness of Selected Children
+**Difficulty:** Medium 
+**Tags:** Array, Greedy, Sorting 
 **Link:** [https://leetcode.com/problems/maximize-happiness-of-selected-children/](https://leetcode.com/problems/maximize-happiness-of-selected-children/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an array `happiness`, where `happiness[i]` represents the happiness value of the `i`-th child.
 
 There are `n` children standing in a queue. You will select **exactly `k` children**, one per turn.
@@ -22,8 +20,7 @@ Return the **maximum possible sum of happiness values** of the selected children
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 * Every time you pick a child, all remaining children lose `1` happiness.
 * Therefore, if a child is picked at turn `t` (0-indexed), its effective happiness is:
 
@@ -33,29 +30,27 @@ max(happiness[i] - t, 0)
 
 * To maximize the total happiness:
 
-  * Pick children with **larger initial happiness earlier**
-  * So that the reduction affects them as little as possible
+ * Pick children with **larger initial happiness earlier**
+ * So that the reduction affects them as little as possible
 
 This directly suggests a **greedy strategy**.
 
 ---
 
-## **Approach**
-
+## Approach
 1. Sort the `happiness` array in **descending order**.
 2. Iterate through the first `k` elements:
 
-   * For the `i`-th selected child, add:
+ * For the `i`-th selected child, add:
 
-     ```
-     max(happiness[i] - i, 0)
-     ```
+ ```
+ max(happiness[i] - i, 0)
+ ```
 3. Accumulate the sum and return it.
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -111,8 +106,7 @@ Pick the maximum happiness child
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * The happiness reduction depends **only on how many children were picked before**.
 * Picking the happiest children earlier minimizes their loss.
 * Sorting ensures we always make the locally optimal choice, which leads to a global optimum.
@@ -120,17 +114,15 @@ Pick the maximum happiness child
 
 ---
 
-## **Complexity**
-
-| Aspect | Complexity               |
+## Complexity
+| Aspect | Complexity |
 | ------ | ------------------------ |
-| Time   | **O(n log n)**           |
-| Space  | **O(1)** (in-place sort) |
+| Time | **O(n log n)** |
+| Space | **O(1)** (in-place sort) |
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How to convert a dynamic process into a static formula.
 * Why greedy works when the cost grows linearly with time.
 * A common pattern: **sort first, then apply a decreasing offset**.

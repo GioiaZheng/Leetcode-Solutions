@@ -1,21 +1,18 @@
-# **LeetCode 451 – Sort Characters by Frequency**
-
-**Difficulty:** Medium  
-**Tags:** Hash Table, String, Sorting, Heap  
+# LeetCode 451 – Sort Characters by Frequency
+**Difficulty:** Medium 
+**Tags:** Hash Table, String, Sorting, Heap 
 **Link:** [https://leetcode.com/problems/sort-characters-by-frequency/](https://leetcode.com/problems/sort-characters-by-frequency/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 Given a string `s`, return a new string where its characters are sorted in **descending order by frequency**.
 Characters that appear more often should come earlier in the output.
 If two characters have the same frequency, their relative order does not matter.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 The problem is essentially:
 
 1. Count how many times each character appears.
@@ -28,13 +25,12 @@ This is not about lexicographical order; the value being sorted is the **count**
 
 ---
 
-## **Approach**
-
+## Approach
 1. Create a frequency map:
 
-   ```
-   character → count
-   ```
+ ```
+ character → count
+ ```
 2. Extract all characters into a list.
 3. Sort the list by frequency in descending order.
 4. Rebuild the output string by repeating each character according to its count.
@@ -44,8 +40,7 @@ This approach guarantees that more frequent characters appear earlier.
 
 ---
 
-## **Example**
-
+## Example
 **Input**
 
 ```
@@ -56,7 +51,7 @@ s = "tree"
 
 * `'e'` appears twice
 * `'t'` and `'r'` appear once
-  A valid output is `"eetr"`.
+ A valid output is `"eetr"`.
 
 **Output**
 
@@ -66,8 +61,7 @@ s = "tree"
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 The sorting step ensures that characters are ordered by decreasing frequency.
 Since no specific tie-breaking rule is required, any stable or unstable sort is acceptable.
 
@@ -75,15 +69,13 @@ The frequency map provides a complete summary of the input string, making recons
 
 ---
 
-## **Complexity**
-
+## Complexity
 * **Time:** `O(n log n)` due to sorting
 * **Space:** `O(n)` for storing the frequency map and the output string
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How counting-based problems reduce naturally to sorting tasks.
 * Why decoupling “character value” from “frequency” is essential in ranked-string problems.
 * How histogram construction enables reconstruction of a sorted output.

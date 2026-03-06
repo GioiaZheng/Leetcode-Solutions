@@ -16,14 +16,13 @@ Use this repo as a reusable algorithm notebook or a quick refresher before inter
 ### Repository map
 ```mermaid
 flowchart TD
-    Repo[LeetCode Solutions Repo]
-    Repo --> Problems["####-problem-name/"]
-    Repo --> Notes["0000-notes/"]
-    Repo --> License["LICENSE"]
-    Problems --> ProblemReadme["README.md (approach + complexity)"]
-    Problems --> ProblemSolution["solution.py (reference implementation)"]
-    Notes --> NotesTopics["Topic folders & guides"]
-
+ Repo[LeetCode Solutions Repo]
+ Repo --> Problems["####-problem-name/"]
+ Repo --> Notes["0000-notes/"]
+ Repo --> License["LICENSE"]
+ Problems --> ProblemReadme["README.md (approach + complexity)"]
+ Problems --> ProblemSolution["solution.py (reference implementation)"]
+ Notes --> NotesTopics["Topic folders & guides"]
 
 ```
 
@@ -46,7 +45,7 @@ flowchart TD
 - **10-how-to-choose-algorithm**: [algorithm selection guide](0000-notes/10-how-to-choose-algorithm/algorithm-selection-guide.md)
 - **11-pattern-library**: [core patterns](0000-notes/11-pattern-library/core-patterns.md)
 
-> 每篇笔记都有对应的中文版本，文件名以 `-zh.md` 结尾。
+> Each note also has a Chinese version with filenames ending in `-zh.md`.
 
 ---
 
@@ -173,4 +172,4 @@ A topic-focused index of all solutions currently in the repository.
 - Provide both `README.md` (approach & complexity) and `solution.py` (idiomatic Python).
 - Keep explanations concise and prefer standard library solutions unless an external dependency is necessary.
 
-Happy coding and studying! 🚀
+Happy coding and studying!

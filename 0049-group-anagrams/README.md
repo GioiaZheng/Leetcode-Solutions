@@ -1,13 +1,11 @@
-# **LeetCode 49 – Group Anagrams**
-
-**Difficulty:** Medium  
-**Tags:** Array, Hash Table, String  
+# LeetCode 49 – Group Anagrams
+**Difficulty:** Medium 
+**Tags:** Array, Hash Table, String 
 **Link:** [https://leetcode.com/problems/group-anagrams/](https://leetcode.com/problems/group-anagrams/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an array of strings.
 Your task is to group the strings into collections where each group consists of strings that are **anagrams** of one another.
 
@@ -17,8 +15,7 @@ The output should be a list of groups, where each group contains all strings bel
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 Two strings are anagrams if and only if they share the same **canonical representation**.
 Common canonical forms include:
 
@@ -41,14 +38,13 @@ canonical_form → list of strings
 
 ---
 
-## **Approach**
-
+## Approach
 1. Create an empty hash map.
 2. For each word:
 
-   * Compute its canonical representation.
-     (Most commonly, sort the string.)
-   * Insert the word into the hash map under its canonical key.
+ * Compute its canonical representation.
+ (Most commonly, sort the string.)
+ * Insert the word into the hash map under its canonical key.
 3. After processing all strings, the values of the hash map represent the anagram groups.
 4. Return all groups.
 
@@ -56,8 +52,7 @@ This approach ensures that all words sharing the same canonical form end up in t
 
 ---
 
-## **Example**
-
+## Example
 **Input**
 
 ```
@@ -79,8 +74,7 @@ The strings group by sorted canonical forms:
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 The set of characters in a string, together with their counts, uniquely identifies an anagram class.
 Sorting the characters provides a simple and deterministic canonical form.
 
@@ -93,20 +87,18 @@ This converts what seems like a pairwise comparison problem into a classificatio
 
 ---
 
-## **Complexity**
-
+## Complexity
 Using sorting as the canonical form:
 
 * **Time:** `O(n * k log k)`
-  where `n` is the number of strings and `k` is the maximum string length
+ where `n` is the number of strings and `k` is the maximum string length
 * **Space:** `O(n * k)` for storing grouped strings
 
 Using character frequency counting instead of sorting improves the canonical computation to `O(k)`.
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How canonical representations simplify grouping tasks.
 * Why hashing enables efficient classification of objects by structural similarity.
 * How string anagram relationships reduce to frequency analysis or sorting.

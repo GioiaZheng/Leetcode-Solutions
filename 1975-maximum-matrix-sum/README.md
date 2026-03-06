@@ -1,13 +1,11 @@
-# **LeetCode 1975 – Maximum Matrix Sum**
-
-**Difficulty:** Medium  
-**Tags:** Matrix, Greedy, Math  
+# LeetCode 1975 – Maximum Matrix Sum
+**Difficulty:** Medium 
+**Tags:** Matrix, Greedy, Math 
 **Link:** [https://leetcode.com/problems/maximum-matrix-sum/](https://leetcode.com/problems/maximum-matrix-sum/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an `n × n` integer matrix.
 
 You may perform the following operation **any number of times**:
@@ -21,14 +19,13 @@ Return the maximum possible matrix sum.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 * Flipping two adjacent cells changes the **sign of exactly two elements**.
 * Therefore, the **parity (even/odd)** of the number of negative elements **never changes**.
 * This means:
 
-  * If the total number of negative elements is **even**, all values can be made non-negative.
-  * If the total number of negative elements is **odd**, exactly **one value must remain negative**.
+ * If the total number of negative elements is **even**, all values can be made non-negative.
+ * If the total number of negative elements is **odd**, exactly **one value must remain negative**.
 
 Thus, the optimal strategy depends only on:
 
@@ -38,26 +35,24 @@ Thus, the optimal strategy depends only on:
 
 ---
 
-## **Approach**
-
+## Approach
 1. Initialize:
 
-   * `total` = sum of absolute values of all elements
-   * `neg_count` = number of negative elements
-   * `min_abs` = minimum absolute value in the matrix
+ * `total` = sum of absolute values of all elements
+ * `neg_count` = number of negative elements
+ * `min_abs` = minimum absolute value in the matrix
 2. If `neg_count` is even:
 
-   * All elements can be made positive
-   * Return `total`
+ * All elements can be made positive
+ * Return `total`
 3. If `neg_count` is odd:
 
-   * One element must remain negative
-   * Subtract `2 × min_abs` from `total`
+ * One element must remain negative
+ * Subtract `2 × min_abs` from `total`
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -93,32 +88,29 @@ Minimum absolute value = 1
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * The operation preserves the parity of negative numbers.
 * Flipping signs does not change absolute values.
 * To maximize the sum:
 
-  * Make as many values positive as possible
-  * If one must stay negative, choose the **smallest absolute value**
+ * Make as many values positive as possible
+ * If one must stay negative, choose the **smallest absolute value**
 
 This turns a matrix operation problem into a **simple greedy calculation**.
 
 ---
 
-## **Complexity**
-
+## Complexity
 Let `n` be the matrix size.
 
 | Aspect | Complexity |
 | ------ | ---------- |
-| Time   | **O(n²)**  |
-| Space  | **O(1)**   |
+| Time | **O(n²)** |
+| Space | **O(1)** |
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How invariants (parity of negatives) restrict possible outcomes
 * Turning a complex operation problem into a greedy math solution
 * Why absolute values often simplify optimization problems
@@ -138,6 +130,5 @@ Understanding this idea helps with many similar problems involving:
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “The operation preserves the parity of negatives, so the maximum sum is the total of absolute values minus twice the smallest absolute value if negatives are odd.”

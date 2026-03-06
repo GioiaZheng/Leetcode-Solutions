@@ -1,13 +1,11 @@
-# **LeetCode 1784 – Check if Binary String Has at Most One Segment of Ones**
-
-**Difficulty:** Easy  
-**Tags:** String, Greedy  
+# LeetCode 1784 – Check if Binary String Has at Most One Segment of Ones
+**Difficulty:** Easy 
+**Tags:** String, Greedy 
 **Link:** [https://leetcode.com/problems/check-if-binary-string-has-at-most-one-segment-of-ones/](https://leetcode.com/problems/check-if-binary-string-has-at-most-one-segment-of-ones/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given a binary string `s` **without leading zeros**.
 
 Return `true` if the string contains **at most one contiguous segment of `1`s**. Otherwise, return `false`.
@@ -16,8 +14,7 @@ A contiguous segment means all the `1`s appear together without being separated 
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 Because the string **always starts with `1`**, the first segment of `1`s begins at the start of the string.
 
 The only way to have **more than one segment of `1`s** is:
@@ -38,8 +35,7 @@ A simpler observation:
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 If `1`s form only one contiguous segment, the structure of the string must be:
 
 ```
@@ -52,8 +48,7 @@ Therefore, we simply check whether a `1` appears **after the first `0`**.
 
 ---
 
-## **Algorithm**
-
+## Algorithm
 1. Traverse the string from left to right
 2. Track whether a `0` has appeared
 3. If a `1` appears after a `0`, return `false`
@@ -61,8 +56,7 @@ Therefore, we simply check whether a `1` appears **after the first `0`**.
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -94,27 +88,24 @@ Output: true
 
 ---
 
-## **Complexity Analysis**
-
+## Complexity Analysis
 | Aspect | Complexity |
 | ------ | ---------- |
-| Time   | **O(n)**   |
-| Space  | **O(1)**   |
+| Time | **O(n)** |
+| Space | **O(1)** |
 
 * We only scan the string once.
 
 ---
 
-## **Common Mistakes**
-
-* ❌ Counting total number of `1`s instead of checking **continuity**
-* ❌ Treating separated `1`s as a single segment
-* ❌ Using unnecessary data structures
+## Common Mistakes
+* Counting total number of `1`s instead of checking **continuity**
+* Treating separated `1`s as a single segment
+* Using unnecessary data structures
 
 A single linear scan is enough.
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “Since the string starts with `1`, the string is valid if no `1` appears after the first `0`.”

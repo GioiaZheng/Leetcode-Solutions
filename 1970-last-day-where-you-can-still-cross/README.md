@@ -1,24 +1,22 @@
-# **LeetCode 1970 – Last Day Where You Can Still Cross**
-
-**Difficulty:** Hard  
-**Tags:** Binary Search, BFS, Graph, Matrix  
+# LeetCode 1970 – Last Day Where You Can Still Cross
+**Difficulty:** Hard 
+**Tags:** Binary Search, BFS, Graph, Matrix 
 **Link:** [https://leetcode.com/problems/last-day-where-you-can-still-cross/](https://leetcode.com/problems/last-day-where-you-can-still-cross/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given a grid with `row` rows and `col` columns.
 
 * Initially (day `0`), all cells are **land**.
 * Each day, **one cell becomes water**.
 * You are given the flooding order in `cells`, where:
 
-  ```
-  cells[i] = [r, c]   (1-based)
-  ```
+ ```
+ cells[i] = [r, c] (1-based)
+ ```
 
-  means cell `(r, c)` becomes water on day `i + 1`.
+ means cell `(r, c)` becomes water on day `i + 1`.
 
 You can move **up, down, left, right** on land cells.
 
@@ -31,25 +29,23 @@ using only land cells.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 * As days go by, **more cells become water**.
 * Once it becomes impossible to cross, it will **never become possible again**.
 
 This gives a **monotonic property**:
 
 ```
-Day:   0   1   2   3   4   ...
+Day: 0 1 2 3 4 ...
 CanCross:
-       T   T   T   F   F
+ T T T F F
 ```
 
 This allows us to use **Binary Search on the answer**.
 
 ---
 
-## **Approach**
-
+## Approach
 ### Step 1: Binary Search on Day
 
 * Search for the **largest day `d`** such that crossing is still possible.
@@ -63,7 +59,7 @@ For a given day `d`:
 
 1. Build the grid:
 
-   * Mark the first `d` flooded cells as water.
+ * Mark the first `d` flooded cells as water.
 2. Start BFS from **all land cells in the top row**.
 3. Traverse only land cells.
 4. If any BFS path reaches the **bottom row**, crossing is possible.
@@ -78,8 +74,7 @@ For a given day `d`:
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -122,8 +117,7 @@ Output: 3
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * Flooding is irreversible → feasibility is monotonic.
 * Binary search efficiently finds the boundary.
 * BFS guarantees correct reachability checking.
@@ -131,12 +125,11 @@ Output: 3
 
 ---
 
-## **Complexity**
-
-| Aspect | Complexity                |
+## Complexity
+| Aspect | Complexity |
 | ------ | ------------------------- |
-| Time   | **O(R × C × log(R × C))** |
-| Space  | **O(R × C)**              |
+| Time | **O(R × C × log(R × C))** |
+| Space | **O(R × C)** |
 
 Where:
 
@@ -145,8 +138,7 @@ Where:
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How to recognize **Binary Search on Answer** problems.
 * Why monotonicity is crucial for optimization.
 * How BFS can be used as a feasibility checker.
@@ -166,6 +158,5 @@ The binary search + BFS solution is usually preferred for clarity and interviews
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “The feasibility of crossing is monotonic, so we binary search the day and use BFS to check reachability.”

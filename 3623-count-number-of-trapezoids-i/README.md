@@ -1,13 +1,11 @@
-# **LeetCode 3623 – Count Number of Trapezoids I**
-
+# LeetCode 3623 – Count Number of Trapezoids I
 **Difficulty:** Medium
 **Tags:** Array, Geometry, Combinatorics
 **Link:** [https://leetcode.com/problems/count-number-of-trapezoids-i/](https://leetcode.com/problems/count-number-of-trapezoids-i/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an array representing the lengths of multiple line segments.
 Your task is to count the number of **distinct quadruples** of segments that can form a **trapezoid**.
 
@@ -19,16 +17,15 @@ A quadruple of segment lengths forms a trapezoid if:
 * After sorting the four chosen lengths (a \le b \le c \le d),
 * They satisfy the inequality:
 
-  ```
-  c + d > a + b
-  ```
+ ```
+ c + d > a + b
+ ```
 
 This condition corresponds to the quadrilateral inequality under trapezoid constraints.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 For four segments to form any quadrilateral (including a trapezoid), the **largest two sides** must exceed the sum of the **smallest two sides**.
 Thus, for a valid quadruple:
 
@@ -42,28 +39,26 @@ This reduces the brute-force (O(n^4)) approach to a more manageable combinatoria
 
 ---
 
-## **Approach**
-
+## Approach
 1. Sort the array of segment lengths.
 2. Select two indices representing the **two largest sides** of the quadruple:
 
-   * Let these be `k` and `m`.
+ * Let these be `k` and `m`.
 3. For each pair `(k, m)`:
 
-   * Use two pointers (`i` and `j`) to enumerate all valid smaller-side pairs.
-   * Move the pointers according to whether:
+ * Use two pointers (`i` and `j`) to enumerate all valid smaller-side pairs.
+ * Move the pointers according to whether:
 
-     ```
-     nums[i] + nums[j] < nums[k] + nums[m]
-     ```
+ ```
+ nums[i] + nums[j] < nums[k] + nums[m]
+ ```
 4. Accumulate the number of valid `(i, j)` pairs for each `(k, m)`.
 
 Sorting ensures that the inequality behaves monotonically, enabling an efficient scanning process.
 
 ---
 
-## **Example**
-
+## Example
 **Input**
 
 ```
@@ -89,8 +84,7 @@ All valid quadruples where the two largest sides exceed the sum of the two small
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 The inequality:
 
 ```
@@ -109,15 +103,13 @@ By iterating over only the larger sides and counting pairs of smaller sides, the
 
 ---
 
-## **Complexity**
-
+## Complexity
 * **Time:** Typically `O(n^3)` with pointer optimization
 * **Space:** `O(1)` aside from sorting
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How geometric inequalities translate into array-based constraints.
 * Why sorting and two-pointer methods are effective for sum-based combinatorial checks.
 * How selecting larger elements first simplifies reasoning about valid combinations.

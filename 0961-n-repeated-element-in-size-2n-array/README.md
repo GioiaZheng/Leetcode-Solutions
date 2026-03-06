@@ -1,13 +1,11 @@
-# **LeetCode 961 – N-Repeated Element in Size 2N Array**
-
-**Difficulty:** Easy  
-**Tags:** Array, Hash Table  
+# LeetCode 961 – N-Repeated Element in Size 2N Array
+**Difficulty:** Easy 
+**Tags:** Array, Hash Table 
 **Link:** [https://leetcode.com/problems/n-repeated-element-in-size-2n-array/](https://leetcode.com/problems/n-repeated-element-in-size-2n-array/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an integer array `nums` with the following properties:
 
 * `nums.length == 2 * n`
@@ -19,31 +17,28 @@ Return the element that is repeated `n` times.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 * Because there is **only one repeated element**, and it appears **n times**,
-  it must appear **very frequently** in the array.
+ it must appear **very frequently** in the array.
 * While scanning the array, the **first element that appears twice**
-  must be the repeated one.
+ must be the repeated one.
 * Therefore, we do **not** need to count frequencies or sort the array.
 
 A simple hash set is sufficient.
 
 ---
 
-## **Approach**
-
+## Approach
 1. Create an empty set `seen`.
 2. Traverse the array:
 
-   * If the current element is already in `seen`, return it immediately.
-   * Otherwise, add it to `seen`.
+ * If the current element is already in `seen`, return it immediately.
+ * Otherwise, add it to `seen`.
 3. The first repeated element encountered is guaranteed to be the answer.
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -71,8 +66,7 @@ Output: 5
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * The problem guarantees exactly one element is repeated `n` times.
 * Any duplicate detected during traversal **must be the answer**.
 * Early exit avoids unnecessary computation.
@@ -80,19 +74,17 @@ Output: 5
 
 ---
 
-## **Complexity**
-
+## Complexity
 | Aspect | Complexity |
 | ------ | ---------- |
-| Time   | **O(n)**   |
-| Space  | **O(n)**   |
+| Time | **O(n)** |
+| Space | **O(n)** |
 
 Where `n = nums.length / 2`.
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How strong problem constraints can simplify solutions.
 * When early termination is safe and optimal.
 * A clean use case for hash sets in array problems.
@@ -100,7 +92,7 @@ Where `n = nums.length / 2`.
 
 ---
 
-###  Notes
+### Notes
 
 Alternative solutions exist (e.g., random sampling or adjacent comparison),
 but the hash set approach is:
@@ -113,6 +105,5 @@ Especially suitable for interviews and clean code repositories.
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “Scan the array and return the first element that appears twice using a hash set.”

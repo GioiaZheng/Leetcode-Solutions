@@ -1,13 +1,11 @@
-# **LeetCode 14 – Longest Common Prefix**
-
-**Difficulty:** Easy  
-**Tags:** String  
+# LeetCode 14 – Longest Common Prefix
+**Difficulty:** Easy 
+**Tags:** String 
 **Link:** [https://leetcode.com/problems/longest-common-prefix/](https://leetcode.com/problems/longest-common-prefix/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an array of strings `strs`.
 
 Your task is to find the **longest common prefix** shared by all strings in the array.
@@ -16,33 +14,30 @@ Your task is to find the **longest common prefix** shared by all strings in the 
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 * The common prefix must be a prefix of **every** string.
 * If we start with the **entire first string** as a candidate prefix,
-  we can gradually shrink it until it matches all other strings.
+ we can gradually shrink it until it matches all other strings.
 * Once the prefix becomes empty, no common prefix exists.
 
 ---
 
-## **Approach**
-
+## Approach
 1. If the input array is empty, return `""`.
 2. Initialize `prefix` as the first string in the array.
 3. For each remaining string:
 
-   * While the current string does **not start with `prefix`**:
+ * While the current string does **not start with `prefix`**:
 
-     * Remove the last character from `prefix`
-     * If `prefix` becomes empty, return `""`
+ * Remove the last character from `prefix`
+ * If `prefix` becomes empty, return `""`
 4. After all strings are processed, return `prefix`.
 
 This is known as the **horizontal scanning** approach.
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -75,8 +70,7 @@ No prefix is common to all strings
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * Any common prefix must be a prefix of the first string.
 * Shrinking the prefix guarantees correctness.
 * Early termination avoids unnecessary comparisons.
@@ -84,22 +78,20 @@ No prefix is common to all strings
 
 ---
 
-## **Complexity**
-
+## Complexity
 Let:
 
 * `n` = number of strings
 * `m` = length of the shortest string
 
-| Aspect | Complexity   |
+| Aspect | Complexity |
 | ------ | ------------ |
-| Time   | **O(n · m)** |
-| Space  | **O(1)**     |
+| Time | **O(n · m)** |
+| Space | **O(1)** |
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * A clean way to solve prefix problems using string operations.
 * How greedy shrinking leads to a correct solution.
 * A foundational string problem frequently asked in interviews.
@@ -118,6 +110,5 @@ However, horizontal scanning is the **clearest and most intuitive**.
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “Start with the first string as the prefix and shrink it until all strings share it.”

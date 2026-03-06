@@ -1,13 +1,11 @@
-# **LeetCode 3453 – Separate Squares I**
-
-**Difficulty:** Medium  
-**Tags:** Binary Search, Geometry, Prefix Area  
+# LeetCode 3453 – Separate Squares I
+**Difficulty:** Medium 
+**Tags:** Binary Search, Geometry, Prefix Area 
 **Link:** https://leetcode.com/problems/separate-squares-i/
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given several axis-aligned squares on a 2D plane.
 
 Each square is represented as:
@@ -30,8 +28,7 @@ Your task is to find the **minimum y-coordinate** of a horizontal line such that
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 The problem can be reduced to finding a value `y = h` such that:
 
 ```
@@ -47,23 +44,21 @@ Area_below(h) = Total_area / 2
 
 ---
 
-## **How Area Is Computed**
-
+## How Area Is Computed
 For a single square `[x, y, l]`:
 
-- If `h ≤ y`  
-  → The square is completely above the line → contributes `0`
-- If `h ≥ y + l`  
-  → The square is completely below the line → contributes `l²`
-- Otherwise  
-  → The line cuts the square → contributes `l × (h − y)`
+- If `h ≤ y` 
+ → The square is completely above the line → contributes `0`
+- If `h ≥ y + l` 
+ → The square is completely below the line → contributes `l²`
+- Otherwise 
+ → The line cuts the square → contributes `l × (h − y)`
 
 The total area below the line is the sum of contributions from all squares.
 
 ---
 
-## **Approach**
-
+## Approach
 ### Step 1: Compute Total Area
 Sum up `l²` for all squares and divide by 2 to get the target area.
 
@@ -84,8 +79,7 @@ Repeat until the desired precision is reached.
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 ```
 
@@ -118,8 +112,7 @@ The areas above and below `y = 7/6` are equal.
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * Area accumulation is **linear and continuous**
 * The function is **monotonic**, enabling binary search
 * Overlapping squares do not complicate the logic because areas are counted independently
@@ -127,21 +120,19 @@ The areas above and below `y = 7/6` are equal.
 
 ---
 
-## **Complexity Analysis**
-
+## Complexity Analysis
 Let `n` be the number of squares.
 
-| Aspect | Complexity       |
+| Aspect | Complexity |
 | ------ | ---------------- |
-| Time   | **O(n · log R)** |
-| Space  | **O(1)**         |
+| Time | **O(n · log R)** |
+| Space | **O(1)** |
 
 > `R` is the numeric range of y-values, not the number of squares.
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How to apply **binary search on continuous answers**
 * Modeling geometry problems using monotonic functions
 * Handling overlaps correctly by counting areas independently
@@ -149,14 +140,12 @@ Let `n` be the number of squares.
 
 ---
 
-## **Related Problems**
-
+## Related Problems
 * 218. The Skyline Problem
 * 699. Falling Squares
 * 850. Rectangle Area II
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “Model the area below a horizontal line as a monotonic function of y and use binary search to find where it equals half of the total square area.”

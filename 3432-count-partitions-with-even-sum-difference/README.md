@@ -1,13 +1,11 @@
-# **LeetCode 3432 – Count Partitions with Even Sum Difference**
-
-**Difficulty:** Easy  
-**Tags:** Prefix Sum, Math, Parity  
+# LeetCode 3432 – Count Partitions with Even Sum Difference
+**Difficulty:** Easy 
+**Tags:** Prefix Sum, Math, Parity 
 **Link:** [https://leetcode.com/problems/count-partitions-with-even-sum-difference/](https://leetcode.com/problems/count-partitions-with-even-sum-difference/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an array `nums` of length `n`.
 A partition index `i` (where `0 ≤ i < n − 1`) splits the array into:
 
@@ -24,12 +22,11 @@ Your task is to count how many such valid partitions exist.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 Let:
 
 ```
-left  = sum of nums[0..i]
+left = sum of nums[0..i]
 right = total_sum − left
 ```
 
@@ -54,8 +51,7 @@ n − 1
 
 ---
 
-## **Approach**
-
+## Approach
 1. Compute the total sum of the array.
 2. If the sum is odd, return `0`.
 3. If the sum is even, return `n − 1`, since every partition index is valid.
@@ -64,8 +60,7 @@ This eliminates the need for prefix sums or looping through possible partitions.
 
 ---
 
-## **Example**
-
+## Example
 **Input**
 
 ```
@@ -85,8 +80,7 @@ nums = [1, 2, 3, 4]
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 The difference:
 
 ```
@@ -103,15 +97,13 @@ Therefore, the total sum alone determines the answer.
 
 ---
 
-## **Complexity**
-
+## Complexity
 * **Time:** `O(n)` for computing the total sum
 * **Space:** `O(1)`
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How parity questions often simplify when expressions are algebraically reduced.
 * Why total-sum parity determines the parity of left-right differences.
 * How a seemingly partition-based problem can reduce to a constant-time conclusion after preprocessing.

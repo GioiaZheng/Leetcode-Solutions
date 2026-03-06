@@ -1,13 +1,11 @@
-# **LeetCode 220 – Contains Duplicate III**
-
-**Difficulty:** Hard  
-**Tags:** Sliding Window, Bucket Sort, Hash Map  
+# LeetCode 220 – Contains Duplicate III
+**Difficulty:** Hard 
+**Tags:** Sliding Window, Bucket Sort, Hash Map 
 **Link:** [https://leetcode.com/problems/contains-duplicate-iii/](https://leetcode.com/problems/contains-duplicate-iii/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an integer array `nums`, and two integers `indexDiff` and `valueDiff`.
 
 The task is to determine whether there exist two distinct indices `(i, j)` such that:
@@ -22,8 +20,7 @@ The constraints allow up to `10^5` elements, which means any brute-force or nest
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 This problem imposes **two simultaneous constraints**:
 
 ### 1. Index constraint
@@ -66,39 +63,37 @@ Additionally, we enforce the **index constraint** by sliding the window and remo
 
 ---
 
-## **Approach**
-
+## Approach
 1. If `valueDiff < 0`, return `false` directly (no pair can satisfy).
 2. Define bucket size:
 
-   ```
-   bucketSize = valueDiff + 1
-   ```
+ ```
+ bucketSize = valueDiff + 1
+ ```
 3. Define a hash map `bucket` mapping bucket IDs to the values inside them.
 4. For each index `i` and value `x = nums[i]`:
 
-   * Compute bucket ID:
+ * Compute bucket ID:
 
-     ```
-     bucketId = x // bucketSize
-     ```
-   * Check:
+ ```
+ bucketId = x // bucketSize
+ ```
+ * Check:
 
-     * If bucketId exists → valid pair
-     * If bucketId − 1 exists and difference ≤ valueDiff → valid
-     * If bucketId + 1 exists and difference ≤ valueDiff → valid
-   * Insert the value into its bucket.
+ * If bucketId exists → valid pair
+ * If bucketId − 1 exists and difference ≤ valueDiff → valid
+ * If bucketId + 1 exists and difference ≤ valueDiff → valid
+ * Insert the value into its bucket.
 5. Maintain sliding-window size:
 
-   * If window exceeds `indexDiff`, remove the element `nums[i - indexDiff]` from its bucket.
+ * If window exceeds `indexDiff`, remove the element `nums[i - indexDiff]` from its bucket.
 6. If no valid pair is found, return `false`.
 
 This achieves near-constant-time bucket insertion and lookup, giving a performant solution for large arrays.
 
 ---
 
-## **Example**
-
+## Example
 **Input**
 
 ```
@@ -121,8 +116,7 @@ true
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 The bucket method is built on the observation that:
 
 ### • If two values differ by at most `valueDiff`,
@@ -143,17 +137,15 @@ This is a classic application of bucketization combined with window maintenance.
 
 ---
 
-## **Complexity**
-
-| Operation | Complexity                                             |
+## Complexity
+| Operation | Complexity |
 | --------- | ------------------------------------------------------ |
-| Time      | `O(n)` average, `O(n log n)` worst-case due to hashing |
-| Space     | `O(indexDiff)` buckets stored in memory                |
+| Time | `O(n)` average, `O(n log n)` worst-case due to hashing |
+| Space | `O(indexDiff)` buckets stored in memory |
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How value constraints can be transformed into bucket ranges.
 * Why bucket size `(valueDiff + 1)` ensures correctness.
 * How to combine sliding-window logic with bucketization to satisfy both index and value constraints.

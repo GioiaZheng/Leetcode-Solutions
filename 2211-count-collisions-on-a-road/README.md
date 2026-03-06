@@ -1,13 +1,11 @@
-# **LeetCode 2211 – Count Collisions on a Road**
-
-**Difficulty:** Medium  
-**Tags:** String, Simulation  
+# LeetCode 2211 – Count Collisions on a Road
+**Difficulty:** Medium 
+**Tags:** String, Simulation 
 **Link:** [https://leetcode.com/problems/count-collisions-on-a-road/](https://leetcode.com/problems/count-collisions-on-a-road/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given a string representing the directions of cars on a one-lane road.
 Each character is one of:
 
@@ -21,8 +19,7 @@ The task is to compute the number of collisions that will occur until no further
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 A collision happens **only** in the following cases:
 
 1. A right-moving car `'R'` meets a stationary car `'S'`.
@@ -40,17 +37,16 @@ Within the remaining segment, every non-`'S'` car will eventually collide.
 
 ---
 
-## **Approach**
-
+## Approach
 1. Trim the string:
 
-   * Remove all leading `'L'`.
-   * Remove all trailing `'R'`.
+ * Remove all leading `'L'`.
+ * Remove all trailing `'R'`.
 
 2. In the resulting substring, count the characters that are:
 
-   * `'L'` → will collide once
-   * `'R'` → will collide once
+ * `'L'` → will collide once
+ * `'R'` → will collide once
 
 3. The number of collisions equals the number of non-`'S'` characters in this trimmed portion.
 
@@ -58,8 +54,7 @@ This works because any movement in the interior eventually results in a collisio
 
 ---
 
-## **Example**
-
+## Example
 **Input**
 
 ```
@@ -82,8 +77,7 @@ Total collisions = 5.
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 Cars at the edges that move outward cannot participate in collisions, so they can be ignored.
 
 For every car remaining inside the trimmed segment:
@@ -95,15 +89,13 @@ Thus, all non-stationary cars within the interior must collide exactly once.
 
 ---
 
-## **Complexity**
-
+## Complexity
 * **Time:** `O(n)`
 * **Space:** `O(1)`
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How collision problems can be reduced by trimming non-interactive boundary elements.
 * The importance of recognizing which states cannot change and ignoring them.
 * How to convert a step-by-step simulation into a counting problem by observing invariants.

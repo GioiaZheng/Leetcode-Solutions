@@ -1,13 +1,11 @@
-# **LeetCode 2 – Add Two Numbers**
-
-**Difficulty:** Medium  
-**Tags:** Linked List, Math  
+# LeetCode 2 – Add Two Numbers
+**Difficulty:** Medium 
+**Tags:** Linked List, Math 
 **Link:** [https://leetcode.com/problems/add-two-numbers/](https://leetcode.com/problems/add-two-numbers/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given two non-empty linked lists representing two non-negative integers.
 The digits are stored in **reverse order**, and each node contains a single digit.
 
@@ -17,8 +15,7 @@ No number includes leading zeros except 0 itself.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 * We process the lists **digit by digit**, simulating elementary school addition.
 * Carry must be propagated across digits.
 * Linked lists may have **different lengths**.
@@ -36,14 +33,13 @@ $$
 
 ---
 
-## **Approach**
-
+## Approach
 1. Create a dummy head to simplify pointer handling.
 2. Loop while:
 
-   * `l1` exists
-   * `l2` exists
-   * or carry exists
+ * `l1` exists
+ * `l2` exists
+ * or carry exists
 3. Extract values (use `0` if a list is shorter).
 4. Compute sum and update carry.
 5. Append a new node with the digit.
@@ -51,8 +47,7 @@ $$
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -86,8 +81,7 @@ Output: [8,9,9,9,0,0,0,1]
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * Direct simulation of addition ensures correctness.
 * Dummy node simplifies result handling.
 * Carry ensures multi-digit sums work correctly.
@@ -95,17 +89,15 @@ Output: [8,9,9,9,0,0,0,1]
 
 ---
 
-## **Complexity**
-
-| Aspect | Complexity                     |
+## Complexity
+| Aspect | Complexity |
 | ------ | ------------------------------ |
-| Time   | **O(max(n, m))**               |
-| Space  | **O(max(n, m))** (result list) |
+| Time | **O(max(n, m))** |
+| Space | **O(max(n, m))** (result list) |
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How to simulate multi-digit addition using linked lists.
 * Handling different list lengths carefully.
 * Using a dummy node to simplify pointer handling.

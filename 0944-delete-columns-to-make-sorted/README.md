@@ -1,13 +1,11 @@
-# **LeetCode 944 – Delete Columns to Make Sorted**
-
+# LeetCode 944 – Delete Columns to Make Sorted
 **Difficulty:** Easy
 **Tags:** Array, String
 **Link:** [https://leetcode.com/problems/delete-columns-to-make-sorted/](https://leetcode.com/problems/delete-columns-to-make-sorted/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an array of strings `strs`, where:
 
 * All strings have the **same length**
@@ -25,8 +23,7 @@ Return the **number of columns** that need to be deleted.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 The problem is **column-oriented**, not row-oriented.
 
 For each column, we only need to check whether the characters:
@@ -47,26 +44,24 @@ then the column is **not sorted** and must be deleted.
 
 ---
 
-## **Approach**
-
+## Approach
 1. Let:
 
-   * `rows = len(strs)`
-   * `cols = len(strs[0])`
+ * `rows = len(strs)`
+ * `cols = len(strs[0])`
 2. For each column `c` from `0` to `cols - 1`:
 
-   * Compare characters row by row
-   * If any character is smaller than the one above it:
+ * Compare characters row by row
+ * If any character is smaller than the one above it:
 
-     * Mark this column as invalid
-     * Increase the deletion count
-     * Stop checking this column
+ * Mark this column as invalid
+ * Increase the deletion count
+ * Stop checking this column
 3. Return the total number of invalid columns.
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -83,9 +78,9 @@ g h i
 
 Explanation:
 
-* Column 0: `c → d → g` ✅ sorted
-* Column 1: `b → a` ❌ not sorted
-* Column 2: `a → f → i` ✅ sorted
+* Column 0: `c → d → g` sorted
+* Column 1: `b → a` not sorted
+* Column 2: `a → f → i` sorted
 
 Result:
 
@@ -117,8 +112,7 @@ All columns are decreasing → all must be deleted.
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * Each column is **independent** of the others.
 * We only need a **single top-down scan** per column.
 * Early stopping (`break`) avoids unnecessary checks.
@@ -128,12 +122,11 @@ This leads to a clean and efficient solution.
 
 ---
 
-## **Complexity**
-
-| Aspect | Complexity   |
+## Complexity
+| Aspect | Complexity |
 | ------ | ------------ |
-| Time   | **O(n × m)** |
-| Space  | **O(1)**     |
+| Time | **O(n × m)** |
+| Space | **O(1)** |
 
 Where:
 
@@ -142,28 +135,11 @@ Where:
 
 ---
 
-## **Code**
-
-```python
-class Solution:
-    def minDeletionSize(self, strs: List[str]) -> int:
-        rows = len(strs)
-        cols = len(strs[0])
-        deletions = 0
-
-        for c in range(cols):
-            for r in range(1, rows):
-                if strs[r][c] < strs[r - 1][c]:
-                    deletions += 1
-                    break
-
-        return deletions
-```
+## Code
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How to shift perspective from **rows to columns**
 * How early termination simplifies logic and improves efficiency
 * That many string problems reduce to simple **ordering checks**

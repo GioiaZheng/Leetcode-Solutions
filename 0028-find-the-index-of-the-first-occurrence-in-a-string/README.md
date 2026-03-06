@@ -1,13 +1,11 @@
-# **LeetCode 28 – Find the Index of the First Occurrence in a String**
-
-**Difficulty:** Easy  
-**Tags:** String, Two Pointers, Pattern Matching  
+# LeetCode 28 – Find the Index of the First Occurrence in a String
+**Difficulty:** Easy 
+**Tags:** String, Two Pointers, Pattern Matching 
 **Link:** [https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/](https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 Given two strings `haystack` and `needle`, determine the index of the first occurrence of `needle` in `haystack`.
 
 If `needle` does not occur in `haystack`, return `-1`.
@@ -16,8 +14,7 @@ This task is equivalent to substring searching, a fundamental string-processing 
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 A match begins at position `i` in `haystack` if:
 
 ```
@@ -34,22 +31,20 @@ While advanced algorithms such as KMP improve worst-case performance, a direct s
 
 ---
 
-## **Approach**
-
+## Approach
 1. Let `m = len(haystack)` and `n = len(needle)`.
 2. If `n > m`, return `-1` immediately.
 3. Iterate through all valid starting positions `i` from `0` to `m - n`:
 
-   * Compare the substring of length `n` starting at `i` with `needle`.
-   * If they match, return `i`.
+ * Compare the substring of length `n` starting at `i` with `needle`.
+ * If they match, return `i`.
 4. If no match is found, return `-1`.
 
 This approach ensures correctness in linear-time substring scanning.
 
 ---
 
-## **Example**
-
+## Example
 **Input**
 
 ```
@@ -70,8 +65,7 @@ needle = "sad"
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 A substring of length `n` can only begin at positions where there are enough characters remaining.
 By checking each such position exactly once, we avoid unnecessary work.
 
@@ -79,16 +73,14 @@ Pattern matching reduces to comparing fixed-length slices, making the algorithm 
 
 ---
 
-## **Complexity**
-
+## Complexity
 * **Time:** `O(m * n)` in the worst case
-  (can be improved to `O(m + n)` with KMP, though not required)
+ (can be improved to `O(m + n)` with KMP, though not required)
 * **Space:** `O(1)`
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How basic substring searching works through sequential comparison.
 * Why boundary checks (`m - n`) are essential for avoiding invalid indexing.
 * How more advanced algorithms improve theoretical performance, even if not needed for this problem.

@@ -1,22 +1,20 @@
-# **LeetCode 3573 – Best Time to Buy and Sell Stock V**
-
-**Difficulty:** Medium  
-**Tags:** Dynamic Programming, Stock Trading, State Machine  
+# LeetCode 3573 – Best Time to Buy and Sell Stock V
+**Difficulty:** Medium 
+**Tags:** Dynamic Programming, Stock Trading, State Machine 
 **Link:** [https://leetcode.com/problems/best-time-to-buy-and-sell-stock-v/](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-v/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an integer array `prices`, where `prices[i]` represents the stock price on day `i`,
 and an integer `k` representing the **maximum number of transactions** allowed.
 
 Each transaction can be one of the following:
 
 * **Normal transaction:** buy on day `i`, sell on day `j` (`i < j`)
-  Profit: `prices[j] - prices[i]`
+ Profit: `prices[j] - prices[i]`
 * **Short selling transaction:** sell on day `i`, buy back on day `j` (`i < j`)
-  Profit: `prices[i] - prices[j]`
+ Profit: `prices[i] - prices[j]`
 
 Constraints:
 
@@ -28,8 +26,7 @@ Return the **maximum total profit** achievable.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 This problem is an extension of the classic *Best Time to Buy and Sell Stock IV*,
 with an important twist:
 
@@ -39,20 +36,19 @@ The key observation:
 
 * A transaction is **complete only after both actions**:
 
-  * buy → sell (normal)
-  * sell → buy back (short)
+ * buy → sell (normal)
+ * sell → buy back (short)
 * At any time, the trader can be in **exactly one of three states**:
 
-  1. **Free** (no position)
-  2. **Holding a long position**
-  3. **Holding a short position**
+ 1. **Free** (no position)
+ 2. **Holding a long position**
+ 3. **Holding a short position**
 
 Thus, the problem naturally maps to a **state-machine dynamic programming** solution.
 
 ---
 
-## **DP State Definition**
-
+## DP State Definition
 Let:
 
 ```
@@ -75,37 +71,35 @@ All other states are initialized to negative infinity.
 
 ---
 
-## **State Transitions**
-
+## State Transitions
 For each day with price `p`:
 
 ### From FREE
 
 * Buy → hold long
-  `dp[t][1] = max(dp[t][1], dp[t][0] - p)`
+ `dp[t][1] = max(dp[t][1], dp[t][0] - p)`
 * Sell → hold short
-  `dp[t][2] = max(dp[t][2], dp[t][0] + p)`
+ `dp[t][2] = max(dp[t][2], dp[t][0] + p)`
 
 ### From HOLD LONG
 
 * Sell → complete one transaction
-  `dp[t+1][0] = max(dp[t+1][0], dp[t][1] + p)`
+ `dp[t+1][0] = max(dp[t+1][0], dp[t][1] + p)`
 
 ### From HOLD SHORT
 
 * Buy back → complete one transaction
-  `dp[t+1][0] = max(dp[t+1][0], dp[t][2] - p)`
+ `dp[t+1][0] = max(dp[t+1][0], dp[t][2] - p)`
 
 Only completed transactions increase the transaction count.
 
 ---
 
-## **Approach**
-
+## Approach
 1. Use a 2D DP array tracking:
 
-   * number of completed transactions
-   * current holding state
+ * number of completed transactions
+ * current holding state
 2. Iterate through prices day by day
 3. Update all valid state transitions
 4. Use space optimization by rolling DP arrays
@@ -113,8 +107,7 @@ Only completed transactions increase the transaction count.
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -146,8 +139,7 @@ Transactions:
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * The state-machine DP cleanly models all valid actions
 * Normal and short transactions are treated symmetrically
 * The transaction limit is strictly enforced
@@ -156,19 +148,17 @@ Transactions:
 
 ---
 
-## **Complexity**
-
-| Aspect | Complexity   |
+## Complexity
+| Aspect | Complexity |
 | ------ | ------------ |
-| Time   | **O(n · k)** |
-| Space  | **O(k)**     |
+| Time | **O(n · k)** |
+| Space | **O(k)** |
 
 Where `n` is the number of days.
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How to model stock trading problems using **state-machine DP**
 * How to extend classic stock DP problems with **short selling**
 * Why counting only **completed transactions** is crucial

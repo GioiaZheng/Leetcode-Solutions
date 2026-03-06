@@ -1,13 +1,11 @@
-# **LeetCode 2147 – Number of Ways to Divide a Long Corridor**
-
-**Difficulty:** Hard  
-**Tags:** Greedy, Combinatorics, Counting  
+# LeetCode 2147 – Number of Ways to Divide a Long Corridor
+**Difficulty:** Hard 
+**Tags:** Greedy, Combinatorics, Counting 
 **Link:** [https://leetcode.com/problems/number-of-ways-to-divide-a-long-corridor/](https://leetcode.com/problems/number-of-ways-to-divide-a-long-corridor/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given a string `corridor` representing a long corridor, where:
 
 * `'S'` represents a **seat**
@@ -32,28 +30,26 @@ If it is impossible, return `0`.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 The problem looks complex, but it simplifies once we observe that:
 
 1. **Seats determine validity**
 
-   * Each section must contain exactly **two seats**
-   * The total number of seats must be **even**
+ * Each section must contain exactly **two seats**
+ * The total number of seats must be **even**
 2. **Plants only create flexibility**
 
-   * Plants do not affect whether a section is valid
-   * They only affect **how many choices** we have for placing dividers
+ * Plants do not affect whether a section is valid
+ * They only affect **how many choices** we have for placing dividers
 3. The corridor can be seen as a sequence of **seat pairs**
 
-   * The number of ways depends on how many plants lie **between consecutive seat pairs**
+ * The number of ways depends on how many plants lie **between consecutive seat pairs**
 
 This turns the problem into a **combinatorics counting problem**, not a partitioning or DP problem.
 
 ---
 
-## **Approach**
-
+## Approach
 ### 1. Count Total Seats
 
 Let `totalSeats` be the number of `'S'` characters in the corridor.
@@ -98,8 +94,7 @@ The final answer is the **product of all such choices**, modulo `10^9 + 7`.
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 **Input**
@@ -169,8 +164,7 @@ Only one seat exists, so it is impossible to form a valid section.
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 The solution works because:
 
 * Seats fully define the **structure** of the corridor
@@ -182,21 +176,19 @@ By separating **structural constraints** (seats) from **combinatorial freedom** 
 
 ---
 
-## **Complexity**
-
+## Complexity
 * **Time Complexity:** `O(n)`
 
-  * Single pass through the corridor
+ * Single pass through the corridor
 * **Space Complexity:** `O(1)`
 
-  * Only constant extra variables are used
+ * Only constant extra variables are used
 
 This easily satisfies the constraint `n ≤ 10^5`.
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How to reduce a seemingly complex partitioning problem to a counting problem
 * Why identifying **invariant elements** (seats) is crucial in greedy solutions
 * That many Hard problems hide simple math behind long descriptions

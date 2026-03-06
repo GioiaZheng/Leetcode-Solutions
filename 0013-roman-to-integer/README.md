@@ -1,26 +1,24 @@
-# **LeetCode 13 – Roman to Integer**
-
-**Difficulty:** Easy  
-**Tags:** Hash Table, Math, String  
+# LeetCode 13 – Roman to Integer
+**Difficulty:** Easy 
+**Tags:** Hash Table, Math, String 
 **Link:** [https://leetcode.com/problems/roman-to-integer/](https://leetcode.com/problems/roman-to-integer/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given a Roman numeral string `s`, representing an integer in the range `[1, 3999]`.
 
 Roman numerals are composed of the following symbols:
 
 | Symbol | Value |
 | ------ | ----- |
-| I      | 1     |
-| V      | 5     |
-| X      | 10    |
-| L      | 50    |
-| C      | 100   |
-| D      | 500   |
-| M      | 1000  |
+| I | 1 |
+| V | 5 |
+| X | 10 |
+| L | 50 |
+| C | 100 |
+| D | 500 |
+| M | 1000 |
 
 Your task is to **convert the Roman numeral into its corresponding integer value**.
 
@@ -28,14 +26,13 @@ The input is guaranteed to be a **valid Roman numeral**.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 * Roman numerals are usually written from **largest to smallest**, left to right.
 * However, in **subtractive cases**, a smaller value appears before a larger one:
 
-  * IV (4), IX (9)
-  * XL (40), XC (90)
-  * CD (400), CM (900)
+ * IV (4), IX (9)
+ * XL (40), XC (90)
+ * CD (400), CM (900)
 
 The key rule:
 
@@ -44,20 +41,18 @@ The key rule:
 
 ---
 
-## **Approach**
-
+## Approach
 1. Create a mapping from Roman symbols to integer values.
 2. Traverse the string from left to right.
 3. For each character:
 
-   * If the next character exists and has a **larger value**, subtract the current value.
-   * Otherwise, add the current value.
+ * If the next character exists and has a **larger value**, subtract the current value.
+ * Otherwise, add the current value.
 4. Accumulate the total and return it.
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -98,21 +93,20 @@ Output: 1994
 Explanation:
 
 ```
-M  = +1000
-C  = -100   (before M)
-M  = +1000
-X  = -10    (before C)
-C  = +100
-I  = -1     (before V)
-V  = +5
+M = +1000
+C = -100 (before M)
+M = +1000
+X = -10 (before C)
+C = +100
+I = -1 (before V)
+V = +5
 ----------------
 Total = 1994
 ```
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * Roman numerals follow a strict local comparison rule.
 * Each symbol’s contribution depends only on its **immediate neighbor**.
 * A single linear scan is sufficient.
@@ -120,19 +114,17 @@ Total = 1994
 
 ---
 
-## **Complexity**
-
+## Complexity
 | Aspect | Complexity |
 | ------ | ---------- |
-| Time   | **O(n)**   |
-| Space  | **O(1)**   |
+| Time | **O(n)** |
+| Space | **O(1)** |
 
 Where `n` is the length of the Roman numeral string.
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How to handle subtractive notation cleanly.
 * Why local comparisons can simplify parsing problems.
 * How to translate a rule-based numeral system into linear logic.
@@ -140,7 +132,7 @@ Where `n` is the length of the Roman numeral string.
 
 ---
 
-###  Notes
+### Notes
 
 This problem pairs naturally with:
 
@@ -150,6 +142,5 @@ Together, they form a complete **bidirectional conversion** example.
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “Scan left to right; subtract a symbol if it’s smaller than the next one, otherwise add it.”

@@ -1,13 +1,11 @@
-# **LeetCode 1411 – Number of Ways to Paint N × 3 Grid**
-
-**Difficulty:** Hard  
-**Tags:** Dynamic Programming, Combinatorics  
+# LeetCode 1411 – Number of Ways to Paint N × 3 Grid
+**Difficulty:** Hard 
+**Tags:** Dynamic Programming, Combinatorics 
 **Link:** [https://leetcode.com/problems/number-of-ways-to-paint-n-3-grid/](https://leetcode.com/problems/number-of-ways-to-paint-n-3-grid/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given a grid of size `n × 3`.
 
 You want to paint each cell using **exactly one** of three colors:
@@ -24,11 +22,10 @@ Rules:
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 Although the grid has `n` rows, each row has **only two valid color patterns**:
 
-### 1️. ABA pattern (two colors)
+### 1. ABA pattern (two colors)
 
 ```
 A B A
@@ -63,8 +60,7 @@ These are the **only** valid row configurations.
 
 ---
 
-## **DP State Definition**
-
+## DP State Definition
 Let:
 
 * `aba` = number of ways where the current row has an **ABA** pattern
@@ -74,8 +70,7 @@ We only need these **two states**.
 
 ---
 
-## **DP Transition**
-
+## DP Transition
 When adding a new row:
 
 ```
@@ -91,8 +86,7 @@ Explanation:
 
 ---
 
-## **Initialization**
-
+## Initialization
 For `n = 1`:
 
 ```
@@ -102,8 +96,7 @@ abc = 6
 
 ---
 
-## **Final Answer**
-
+## Final Answer
 After processing all `n` rows:
 
 ```
@@ -112,8 +105,7 @@ answer = aba + abc
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -144,8 +136,7 @@ Efficient DP with O(n) time handles large n
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * The problem has **huge input size (n ≤ 5000)**.
 * Direct grid DP would be too slow.
 * Observing that each row reduces to **only two pattern types** drastically simplifies the state space.
@@ -153,17 +144,15 @@ Efficient DP with O(n) time handles large n
 
 ---
 
-## **Complexity**
-
+## Complexity
 | Aspect | Complexity |
 | ------ | ---------- |
-| Time   | **O(n)**   |
-| Space  | **O(1)**   |
+| Time | **O(n)** |
+| Space | **O(1)** |
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How to reduce a complex grid problem to a small number of states.
 * The power of **pattern classification** in DP.
 * How combinatorics and DP work together.
@@ -171,7 +160,7 @@ Efficient DP with O(n) time handles large n
 
 ---
 
-###  Notes
+### Notes
 
 This is a **classic Hard DP problem** that often appears in discussions of:
 
@@ -183,6 +172,5 @@ Understanding this problem greatly improves DP modeling skills.
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “Each row has only two valid color patterns (ABA and ABC), so we use constant-state DP with fixed transitions.”

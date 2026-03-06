@@ -1,13 +1,11 @@
-# **LeetCode 2054 – Two Best Non-Overlapping Events**
-
-**Difficulty:** Medium  
-**Tags:** Array, Sorting, Binary Search, Greedy  
+# LeetCode 2054 – Two Best Non-Overlapping Events
+**Difficulty:** Medium 
+**Tags:** Array, Sorting, Binary Search, Greedy 
 **Link:** [https://leetcode.com/problems/two-best-non-overlapping-events/](https://leetcode.com/problems/two-best-non-overlapping-events/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given a list of events, where:
 
 ```
@@ -31,43 +29,40 @@ Return the **maximum total value** you can obtain.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 * You can choose **at most two** events.
 * For each event, the best choice is:
 
-  * take it alone
-  * or combine it with the **best possible non-overlapping event after it**
+ * take it alone
+ * or combine it with the **best possible non-overlapping event after it**
 * This can be solved efficiently by:
 
-  * sorting events by start time
-  * using binary search to find the next valid event
-  * using a suffix maximum array to get the best future value
+ * sorting events by start time
+ * using binary search to find the next valid event
+ * using a suffix maximum array to get the best future value
 
 ---
 
-## **Approach**
-
+## Approach
 1. Sort all events by `startTime`.
 2. Build a `starts` array containing all start times.
 3. Build a `suffix_max` array:
 
-   * `suffix_max[i]` = maximum event value among events `i ... n-1`
+ * `suffix_max[i]` = maximum event value among events `i ... n-1`
 4. For each event `i`:
 
-   * Consider taking only this event.
-   * Use binary search to find the first event with:
+ * Consider taking only this event.
+ * Use binary search to find the first event with:
 
-     ```
-     startTime >= endTime + 1
-     ```
-   * Combine current value with the best future value.
+ ```
+ startTime >= endTime + 1
+ ```
+ * Combine current value with the best future value.
 5. Return the maximum result found.
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -113,8 +108,7 @@ Choose events [1,5,3] and [6,6,5] → total = 8
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * Sorting ensures events are processed in time order.
 * Binary search efficiently finds the next non-overlapping event.
 * The suffix maximum array guarantees the best possible second choice.
@@ -122,19 +116,17 @@ Choose events [1,5,3] and [6,6,5] → total = 8
 
 ---
 
-## **Complexity**
-
-| Aspect | Complexity     |
+## Complexity
+| Aspect | Complexity |
 | ------ | -------------- |
-| Time   | **O(n log n)** |
-| Space  | **O(n)**       |
+| Time | **O(n log n)** |
+| Space | **O(n)** |
 
 Where `n = len(events)`.
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How to optimize interval scheduling with a fixed number of selections.
 * How binary search and suffix optimization work together.
 * Why inclusive time boundaries matter in scheduling problems.

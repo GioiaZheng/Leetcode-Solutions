@@ -1,13 +1,11 @@
-# **LeetCode 692 – Top K Frequent Words**
-
+# LeetCode 692 – Top K Frequent Words
 **Difficulty:** Medium
 **Tags:** String, Hash Table, Heap, Sorting
 **Link:** [https://leetcode.com/problems/top-k-frequent-words/](https://leetcode.com/problems/top-k-frequent-words/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an array of strings `words` and an integer `k`.
 Your task is to return the **k most frequent words**.
 
@@ -20,8 +18,7 @@ The result should contain exactly `k` words.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 This is a frequency-ranking problem with a **tie-breaker**:
 
 * Primary key: frequency (descending)
@@ -34,26 +31,24 @@ The presence of lexicographical comparison means numeric sorting tricks (such as
 
 ---
 
-## **Approach**
-
+## Approach
 1. Build a frequency map:
 
-   ```
-   word → count
-   ```
+ ```
+ word → count
+ ```
 2. Extract all unique words.
 3. Sort them using the following ordering:
 
-   * By descending frequency
-   * If frequencies match, by lexicographical order (ascending)
+ * By descending frequency
+ * If frequencies match, by lexicographical order (ascending)
 4. Return the first `k` words of this sorted list.
 
 This ensures all ordering constraints are satisfied.
 
 ---
 
-## **Example**
-
+## Example
 **Input**
 
 ```
@@ -65,10 +60,10 @@ k = 2
 
 * Frequencies:
 
-  * `"i"` → 2
-  * `"love"` → 2
-  * `"leetcode"` → 1
-  * `"coding"` → 1
+ * `"i"` → 2
+ * `"love"` → 2
+ * `"leetcode"` → 1
+ * `"coding"` → 1
 * `"i"` and `"love"` both have the highest frequency.
 * `"i"` appears before `"love"` lexicographically.
 
@@ -80,8 +75,7 @@ k = 2
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 Word frequency ranking is enabled by hashing.
 The lexicographical tiebreaker ensures deterministic ordering for words with equal counts.
 
@@ -97,15 +91,13 @@ This transforms the problem into a straightforward sorting task once the frequen
 
 ---
 
-## **Complexity**
-
+## Complexity
 * **Time:** `O(n log n)` due to sorting
 * **Space:** `O(n)` for storing distinct words and their frequencies
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How lexical ordering interacts with frequency-based ranking.
 * How to construct composite sort keys to enforce multiple ordering constraints.
 * Why hash maps paired with sorting provide a flexible toolkit for frequency-analysis problems.

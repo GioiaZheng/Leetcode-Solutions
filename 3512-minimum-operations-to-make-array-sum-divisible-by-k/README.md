@@ -1,13 +1,11 @@
-# **LeetCode 3512 – Minimum Operations to Make Array Sum Divisible by K**
-
-**Difficulty:** Easy  
-**Tags:** Math, Greedy, Modular Arithmetic  
+# LeetCode 3512 – Minimum Operations to Make Array Sum Divisible by K
+**Difficulty:** Easy 
+**Tags:** Math, Greedy, Modular Arithmetic 
 **Link:** https://leetcode.com/problems/minimum-operations-to-make-array-sum-divisible-by-k/
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given:
 - An integer array `nums`
 - An integer `k`
@@ -20,8 +18,7 @@ Your goal is to find the **minimum number of operations** needed to make the **s
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 Each operation:
 - Decreases the **total sum by exactly 1**
 
@@ -31,8 +28,7 @@ So the problem reduces to:
 
 ---
 
-## **Mathematical Reformulation**
-
+## Mathematical Reformulation
 Let:
 ```
 
@@ -46,7 +42,7 @@ If:
 S % k == 0
 
 ```
-👉 Already divisible → **answer = 0**
+ Already divisible → **answer = 0**
 
 Otherwise:
 ```
@@ -66,8 +62,7 @@ minimum operations = r
 
 ---
 
-## **Why This Always Works**
-
+## Why This Always Works
 - You are allowed to apply operations to **any element**
 - You can distribute decrements across elements arbitrarily
 - In the worst case, you can reduce all numbers to zero
@@ -77,8 +72,7 @@ So the minimum number of operations is purely determined by **modulo arithmetic*
 
 ---
 
-## **Approach**
-
+## Approach
 ### Step 1: Compute Total Sum
 ```
 
@@ -103,8 +97,7 @@ r = S % k
 
 ---
 
-## **Example Walkthrough**
-
+## Example Walkthrough
 ### Example 1
 ```
 
@@ -114,7 +107,7 @@ sum = 19
 
 ```
 
-Subtract 4 → new sum = 15 → divisible  
+Subtract 4 → new sum = 15 → divisible 
  Answer = `4`
 
 ---
@@ -128,7 +121,7 @@ sum = 8
 
 ```
 
-Already divisible  
+Already divisible 
  Answer = `0`
 
 ---
@@ -142,24 +135,22 @@ sum = 5
 
 ````
 
-Subtract 5 → new sum = 0 → divisible  
+Subtract 5 → new sum = 0 → divisible 
  Answer = `5`
 
 ---
 
-## **Complexity Analysis**
-
+## Complexity Analysis
 Let `n = len(nums)`.
 
 | Aspect | Complexity |
 | ------ | ---------- |
-| Time   | **O(n)**   |
-| Space  | **O(1)**   |
+| Time | **O(n)** |
+| Space | **O(1)** |
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * Sometimes array problems reduce to **pure math**
 * Understanding what each operation does globally is key
 * Modular arithmetic can greatly simplify “minimum operations” problems
@@ -167,14 +158,12 @@ Let `n = len(nums)`.
 
 ---
 
-## **Related Problems**
-
+## Related Problems
 * 1590. Make Sum Divisible by P
 * 523. Continuous Subarray Sum
 * 974. Subarray Sums Divisible by K
 
 ---
 
-## **One-Line Interview Summary**
-
+## One-Line Interview Summary
 > “Each operation reduces the total sum by one, so the minimum operations needed is simply `sum(nums) % k`.”

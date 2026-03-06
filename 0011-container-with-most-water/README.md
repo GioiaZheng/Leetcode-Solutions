@@ -1,13 +1,11 @@
-# **LeetCode 11 – Container With Most Water**
-
-**Difficulty:** Medium  
-**Tags:** Array, Two Pointers  
+# LeetCode 11 – Container With Most Water
+**Difficulty:** Medium 
+**Tags:** Array, Two Pointers 
 **Link:** [https://leetcode.com/problems/container-with-most-water/](https://leetcode.com/problems/container-with-most-water/)
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 You are given an integer array `height` of length `n`.
 
 Each element represents a vertical line drawn at position `i` with height `height[i]`.
@@ -19,12 +17,11 @@ You may **not slant** the container.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 * The amount of water is determined by:
 
-  * the **distance** between two lines
-  * the **shorter height** of the two lines
+ * the **distance** between two lines
+ * the **shorter height** of the two lines
 * The area formula is:
 
 ```text
@@ -33,18 +30,17 @@ area = (right - left) * min(height[left], height[right])
 
 * To maximize the area efficiently:
 
-  * Start with the **widest container**
-  * Gradually shrink the width
-  * Always move the pointer at the **shorter line**
+ * Start with the **widest container**
+ * Gradually shrink the width
+ * Always move the pointer at the **shorter line**
 
 ---
 
-## **Approach**
-
+## Approach
 1. Initialize two pointers:
 
-   * `left` at the beginning
-   * `right` at the end
+ * `left` at the beginning
+ * `right` at the end
 2. Compute the area formed by the two pointers.
 3. Update the maximum area.
 4. Move the pointer with the **smaller height** inward.
@@ -54,8 +50,7 @@ This guarantees that all potential maximum containers are considered.
 
 ---
 
-## **Example**
-
+## Example
 ### Example 1
 
 ```
@@ -74,8 +69,7 @@ Output: 1
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 * The width decreases at every step.
 * The height is always limited by the **shorter line**.
 * Moving the taller line cannot increase the area.
@@ -85,17 +79,15 @@ This leads to a linear-time solution.
 
 ---
 
-## **Complexity**
-
+## Complexity
 | Aspect | Complexity |
 | ------ | ---------- |
-| Time   | **O(n)**   |
-| Space  | **O(1)**   |
+| Time | **O(n)** |
+| Space | **O(1)** |
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How to optimize brute-force problems using two pointers.
 * Why greedy pointer movement works in this scenario.
 * A classic example of reducing `O(n²)` to `O(n)`.
@@ -103,7 +95,7 @@ This leads to a linear-time solution.
 
 ---
 
-###  Notes
+### Notes
 
 This problem is a cornerstone of the **Two Pointers** technique.
 

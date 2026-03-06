@@ -1,21 +1,18 @@
-# **LeetCode 242 – Valid Anagram**
-
-**Difficulty:** Easy  
-**Tags:** Hash Table, String, Sorting  
+# LeetCode 242 – Valid Anagram
+**Difficulty:** Easy 
+**Tags:** Hash Table, String, Sorting 
 **Link:** https://leetcode.com/problems/valid-anagram/
 
 ---
 
-## **Problem Summary**
-
+## Problem Summary
 Given two strings `s` and `t`, determine whether `t` is an **anagram** of `s`.
 
 Two strings are anagrams if they contain exactly the same characters with the same frequencies, but possibly in a different order.
 
 ---
 
-## **Key Insight**
-
+## Key Insight
 Two strings are anagrams if and only if:
 
 1. They have the **same length**, and
@@ -28,8 +25,7 @@ This can be checked using:
 
 ---
 
-## **Approach**
-
+## Approach
 1. If the lengths of `s` and `t` differ, they cannot be anagrams.
 2. Count the frequency of each character in both strings.
 3. Compare the two frequency maps.
@@ -41,8 +37,7 @@ Sorting-based comparison is also valid:
 
 ---
 
-## **Example**
-
+## Example
 **Input**
 
 ```
@@ -61,8 +56,7 @@ true
 
 ---
 
-## **Why This Works**
-
+## Why This Works
 An anagram must preserve both:
 
 * Total number of characters, and
@@ -74,8 +68,7 @@ This makes frequency comparison both necessary and sufficient.
 
 ---
 
-## **Complexity**
-
+## Complexity
 Using hash maps:
 
 * **Time:** `O(n)`
@@ -88,8 +81,7 @@ Using sorting:
 
 ---
 
-## **What I Learned**
-
+## What I Learned
 * How to characterize anagrams using frequency equality.
 * How sorting provides a simple but less efficient alternative.
 * How hash maps allow linear-time comparison of character distributions.

@@ -1,13 +1,11 @@
-# **LeetCode 3531 — Count Covered Buildings**
-
-**Difficulty:** Medium  
-**Tags:** Hashing, Geometry, Grid, Prefix Min/Max  
+# LeetCode 3531 — Count Covered Buildings
+**Difficulty:** Medium 
+**Tags:** Hashing, Geometry, Grid, Prefix Min/Max 
 **Link:** [https://leetcode.com/problems/count-covered-buildings/](https://leetcode.com/problems/count-covered-buildings/)
 
 ---
 
-##  **Problem Summary**
-
+## Problem Summary
 You are given an `n × n` city grid and a list of building coordinates.
 Each building is located at **unique** `(x, y)` coordinates.
 
@@ -22,18 +20,17 @@ A building `(x, y)` is considered **covered** if:
 
 ---
 
-##  **Key Insight**
-
+## Key Insight
 For a building `(x, y)` to be covered, we need:
 
-###  Row constraints
+### Row constraints
 
 In row `x`:
 
 * A smaller `y` exists → left
 * A larger `y` exists → right
 
-###  Column constraints
+### Column constraints
 
 In column `y`:
 
@@ -48,7 +45,7 @@ No sorting, no adjacency lists required.
 
 ---
 
-##  Efficient Strategy (O(n))
+## Efficient Strategy (O(n))
 
 Let:
 
@@ -60,18 +57,17 @@ Let:
 For building `(x, y)`:
 
 ```
-left   exists if row_min[x] < y
-right  exists if row_max[x] > y
-above  exists if col_min[y] < x
-below  exists if col_max[y] > x
+left exists if row_min[x] < y
+right exists if row_max[x] > y
+above exists if col_min[y] < x
+below exists if col_max[y] > x
 ```
 
 If all four are true → the building is covered.
 
 ---
 
-##  **Example**
-
+## Example
 ### Input
 
 ```
@@ -96,12 +92,12 @@ The only covered building is `(2,2)`, because it has:
 
 ## ⏱ Complexity Analysis
 
-| Operation                       | Complexity |
+| Operation | Complexity |
 | ------------------------------- | ---------- |
-| Scan to compute min/max         | O(n)       |
-| Scan to count covered buildings | O(n)       |
-| **Total**                       | **O(n)**   |
-| Space                           | O(n)       |
+| Scan to compute min/max | O(n) |
+| Scan to count covered buildings | O(n) |
+| **Total** | **O(n)** |
+| Space | O(n) |
 
 Works within all constraints (`10⁵` buildings).
 
