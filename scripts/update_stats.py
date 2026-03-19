@@ -4,6 +4,9 @@ import re
 ROOT = Path(__file__).resolve().parent.parent
 README = ROOT / "README.md"
 
+START = "<!-- SOLVED_COUNT_START -->"
+END = "<!-- SOLVED_COUNT_END -->"
+
 def count_solved_problems():
     count = 0
     for item in ROOT.iterdir():
@@ -14,15 +17,15 @@ def count_solved_problems():
 def update_readme(count):
     content = README.read_text(encoding="utf-8")
 
-    updated = re.sub(
-        r"(<!-- SOLVED_COUNT_START -->)(.*?)(<!-- SOLVED_COUNT_END -->)",
-        rf"\g<1>{count}\g<3>",
-        content,
-        flags=re.DOTALL,
-    )
+    pattern = re.escape(START) + r".*?" + re.escape(END)
+    replacement = f"{START}{count}{END}"
 
-    if content == updated:
-        raise ValueError("Placeholder not found in README.")
+    updated = re.sub(pattern, replacement, content, flags=re.DOTALL)
+
+    if updated == content:
+        raise ValueError(
+            f"Placeholder not found in README. Expected: {START}...{END}"
+        )
 
     README.write_text(updated, encoding="utf-8")
 
