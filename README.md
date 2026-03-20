@@ -5,37 +5,49 @@
 ![Problems](https://img.shields.io/badge/problems-96-green)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
-A collection of **Python 3 implementations for LeetCode problems**, organized with consistent structure and concise explanations.
-The repository is intended as both a **solution reference** and a **structured review resource** for algorithm practice and interview preparation.
+A structured collection of **Python implementations for LeetCode problems**, designed for algorithm practice, interview preparation, and reusable problem-solving patterns.
+
+This repository serves as both a **solution archive** and a **long-term algorithm reference**.
+
+---
+
+# Highlights
+
+- <!-- SOLVED_COUNT_START -->96<!-- SOLVED_COUNT_END --> solved problems
+- Topic-tagged catalog for fast lookup
+- Reusable notes for common algorithm patterns
+- Consistent directory structure for maintainability
+- Runnable Python solutions with explanations
 
 ---
 
 # Repository Overview
 
-* **96 solved problems**, each stored in a dedicated directory.
-* A **topic-tagged index** available in [`CATALOG.md`](CATALOG.md).
-* **Algorithm study notes** located in [`0000-notes/`](0000-notes/), with both English and Chinese versions.
+Each problem is stored in an individual directory with:
 
-Each problem directory contains:
+- `README.md` – explanation, key insight, and complexity analysis  
+- `solution.py` – clean and runnable implementation  
 
-* `README.md` – problem summary, key insight, and complexity analysis
-* `solution.py` – a runnable Python implementation
+Additional resources:
+
+- `CATALOG.md` – full index of solved problems with topic tags  
+- `0000-notes/` – reusable algorithm notes and patterns  
 
 ---
 
 # Repository Structure
 
 ```
+
 ####-problem-name/
 0000-notes/
 CATALOG.md
 LICENSE
+
 ```
 
-Description of key components:
-
 | Path                 | Description                                           |
-| -------------------- | ----------------------------------------------------- |
+|----------------------|-------------------------------------------------------|
 | `####-problem-name/` | One directory per LeetCode problem                    |
 | `0000-notes/`        | Algorithm notes and reusable problem-solving patterns |
 | `CATALOG.md`         | Full list of solved problems with topic tags          |
@@ -45,71 +57,61 @@ Description of key components:
 
 # Directory Naming Convention
 
-All problem directories follow the format:
+All problem directories follow:
 
 ```
+
 ####-problem-name
+
 ```
 
 Where:
 
-* `####` – four-digit LeetCode problem ID
-* `problem-name` – lowercase title written in **kebab-case**
+- `####` – four-digit LeetCode problem ID  
+- `problem-name` – lowercase kebab-case  
 
 Examples:
 
 ```
+
 0001-two-sum
 1458-max-dot-product-of-two-subsequences
 3453-separate-squares-i
-```
 
-This convention keeps the repository predictable and allows quick navigation by problem ID.
+````
 
 ---
 
 # Problem Catalog
 
-The complete list of solved problems is maintained in:
-
-```
-CATALOG.md
-```
-
-Open the catalog:
+Full list:
 
 [View the problem catalog](CATALOG.md)
 
-The catalog includes:
+Includes:
 
-* Problem ID
-* Title
-* Directory link
-* Topic tags
+- Problem ID  
+- Title  
+- Directory link  
+- Topic tags  
 
 ---
 
 # Quick Start
 
-Clone the repository and run any solution directly.
-
 ```bash
-git clone https://github.com/<username>/<repo-name>.git
-cd <repo-name>
+git clone https://github.com/GioiaZheng/Leetcode-Solutions.git
+cd Leetcode-Solutions
 
 cd 0001-two-sum
 python solution.py
-```
-
-Most solutions include small test snippets or example usage that can be executed directly.
+````
 
 ---
 
 # Notes Library
 
-The repository includes algorithm notes covering common problem-solving patterns.
-
-Main topics include:
+Topics covered:
 
 * Arrays
 * Hash tables
@@ -120,15 +122,25 @@ Main topics include:
 * Greedy algorithms
 * Dynamic programming
 * Graph algorithms
-* Recursion and backtracking
+* Recursion & backtracking
 
-Full index:
+See:
 
 ```
 0000-notes/README.md
 ```
 
-These notes are designed as quick references for revisiting common interview techniques.
+---
+
+# Why This Repository
+
+Algorithm practice is most effective when solutions are easy to revisit and generalize.
+
+This repository is designed to support:
+
+* fast review before interviews
+* pattern recognition across problems
+* reusable knowledge for common techniques
 
 ---
 
@@ -136,21 +148,18 @@ These notes are designed as quick references for revisiting common interview tec
 
 Contributions are welcome.
 
-Please follow the existing repository conventions:
+Guidelines:
 
-* Use the directory format `####-problem-name`
-* Keep implementations clear and self-contained
-* Include both:
+* Use directory format `####-problem-name`
+* Keep solutions clear and self-contained
+* Include both explanation and implementation
 
-  * explanation (`README.md`)
-  * implementation (`solution.py`)
-
-After adding or removing problems, update the repository statistics using:
+After adding problems, update statistics:
 
 ```bash
-python scripts/update_readme_stats.py
+python scripts/update_stats.py
 ```
 
 ---
 
-If you find this repository useful for practice or interview preparation, consider starring the project.
+If you find this repository useful, consider starring ⭐ the project.
