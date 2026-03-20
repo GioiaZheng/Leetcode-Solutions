@@ -13,7 +13,7 @@ This repository serves as both a **solution archive** and a **long-term algorith
 
 # Highlights
 
-- <!-- SOLVED_COUNT_START -->96<!-- SOLVED_COUNT_END --> solved problems
+- <!-- SOLVED_COUNT_START -->99<!-- SOLVED_COUNT_END --> solved problems
 - Topic-tagged catalog for fast lookup
 - Reusable notes for common algorithm patterns
 - Consistent directory structure for maintainability
