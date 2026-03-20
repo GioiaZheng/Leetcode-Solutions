@@ -2,12 +2,25 @@
 
 ![Python](https://img.shields.io/badge/language-python-blue)
 ![LeetCode](https://img.shields.io/badge/leetcode-solutions-orange)
-![Problems](https://img.shields.io/badge/problems-96-green)
+![Problems](https://img.shields.io/badge/problems-99-green)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 A structured collection of **Python implementations for LeetCode problems**, designed for algorithm practice, interview preparation, and reusable problem-solving patterns.
 
 This repository serves as both a **solution archive** and a **long-term algorithm reference**.
+
+---
+
+# What This Repository Demonstrates
+
+This repository demonstrates:
+
+- Consistent problem-solving patterns across algorithm categories  
+- Clean and reusable Python implementations  
+- Systematic organization for long-term knowledge retention  
+- Automated repository maintenance using GitHub Actions  
+
+It reflects a structured approach to algorithm learning and engineering discipline.
 
 ---
 
