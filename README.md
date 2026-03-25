@@ -26,7 +26,7 @@ It reflects a structured approach to algorithm learning and engineering discipli
 
 # Highlights
 
-- <!-- SOLVED_COUNT_START -->99<!-- SOLVED_COUNT_END --> solved problems
+- <!-- SOLVED_COUNT_START -->98<!-- SOLVED_COUNT_END --> solved problems
 - Topic-tagged catalog for fast lookup
 - Reusable notes for common algorithm patterns
 - Consistent directory structure for maintainability
