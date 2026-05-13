@@ -84,3 +84,9 @@ Pattern matching reduces to comparing fixed-length slices, making the algorithm 
 * How basic substring searching works through sequential comparison.
 * Why boundary checks (`m - n`) are essential for avoiding invalid indexing.
 * How more advanced algorithms improve theoretical performance, even if not needed for this problem.
+
+---
+
+## Solution Files
+- `solution.py` is the recommended manual sliding-window implementation because it shows the substring-search logic directly.
+- `approaches/solution_builtin_find.py` preserves the concise Python `str.find` approach as an alternative.

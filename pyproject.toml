@@ -1,0 +1,17 @@
+[project]
+name = "leetcode-solutions"
+version = "0.1.0"
+description = "Python solutions and notes for LeetCode problems."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-q"

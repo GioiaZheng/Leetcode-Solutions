@@ -3,34 +3,79 @@ import re
 
 ROOT = Path(__file__).resolve().parent.parent
 README = ROOT / "README.md"
+CATALOG = ROOT / "CATALOG.md"
 
-START = "<!-- SOLVED_COUNT_START -->"
-END = "<!-- SOLVED_COUNT_END -->"
+PROBLEM_DIR_RE = re.compile(r"^(\d{4,})-.+")
+CATALOG_ENTRY_RE = re.compile(r"^\|\s*\d{4}\s*\|")
 
-def count_solved_problems():
-    count = 0
-    for item in ROOT.iterdir():
-        if item.is_dir():
-            m = re.match(r"^(\d{4,})-", item.name)
-            if m and int(m.group(1)) > 0:
-                count += 1
-    return count
+METRIC_MARKERS = {
+    "problem_directories": ("<!-- PROBLEM_DIRS_START -->", "<!-- PROBLEM_DIRS_END -->"),
+    "standard_solutions": (
+        "<!-- STANDARD_SOLUTIONS_START -->",
+        "<!-- STANDARD_SOLUTIONS_END -->",
+    ),
+    "catalog_entries": ("<!-- CATALOG_ENTRIES_START -->", "<!-- CATALOG_ENTRIES_END -->"),
+}
 
-def update_readme(count):
+
+def problem_directories():
+    return sorted(
+        item
+        for item in ROOT.iterdir()
+        if item.is_dir()
+        and (match := PROBLEM_DIR_RE.match(item.name))
+        and int(match.group(1)) > 0
+    )
+
+
+def count_problem_directories():
+    return len(problem_directories())
+
+
+def count_standard_solutions():
+    return sum(
+        1 for directory in problem_directories() if (directory / "solution.py").is_file()
+    )
+
+
+def count_catalog_entries():
+    if not CATALOG.is_file():
+        return 0
+
+    return sum(
+        1
+        for line in CATALOG.read_text(encoding="utf-8").splitlines()
+        if CATALOG_ENTRY_RE.match(line)
+    )
+
+
+def collect_metrics():
+    return {
+        "problem_directories": count_problem_directories(),
+        "standard_solutions": count_standard_solutions(),
+        "catalog_entries": count_catalog_entries(),
+    }
+
+
+def update_readme(metrics):
     content = README.read_text(encoding="utf-8")
 
-    pattern = re.escape(START) + r".*?" + re.escape(END)
-    if not re.search(pattern, content, flags=re.DOTALL):
-        raise ValueError(
-            f"Placeholder not found in README. Expected: {START}...{END}"
-        )
+    for name, count in metrics.items():
+        start, end = METRIC_MARKERS[name]
+        pattern = re.escape(start) + r".*?" + re.escape(end)
+        if not re.search(pattern, content, flags=re.DOTALL):
+            raise ValueError(
+                f"Placeholder not found in README. Expected: {start}...{end}"
+            )
+        replacement = f"{start}{count}{end}"
+        content = re.sub(pattern, replacement, content, flags=re.DOTALL)
 
-    replacement = f"{START}{count}{END}"
-    updated = re.sub(pattern, replacement, content, flags=re.DOTALL)
+    README.write_text(content, encoding="utf-8")
 
-    README.write_text(updated, encoding="utf-8")
 
 if __name__ == "__main__":
-    solved = count_solved_problems()
-    update_readme(solved)
-    print(f"Updated solved problems: {solved}")
+    metrics = collect_metrics()
+    update_readme(metrics)
+    print("Updated README metrics:")
+    for name, count in metrics.items():
+        print(f"- {name}: {count}")

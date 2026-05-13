@@ -85,3 +85,9 @@ Using sorting:
 * How to characterize anagrams using frequency equality.
 * How sorting provides a simple but less efficient alternative.
 * How hash maps allow linear-time comparison of character distributions.
+
+---
+
+## Solution Files
+- `solution.py` is the recommended `Counter` implementation because it compares character frequencies directly in linear time.
+- `approaches/solution_sort.py` preserves the sorting-based approach as a simpler but less efficient alternative.

@@ -1,3 +1,5 @@
+from typing import List
+
 class Solution:
     def minimumPairRemoval(self, nums: List[int]) -> int:
         def is_sorted(arr):
