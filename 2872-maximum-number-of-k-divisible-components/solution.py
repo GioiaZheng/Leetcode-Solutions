@@ -1,3 +1,5 @@
+from typing import List
+
 class Solution:
     def maxKDivisibleComponents(self, n: int, edges: List[List[int]], values: List[int], k: int) -> int:
         graph = [[] for _ in range(n)]

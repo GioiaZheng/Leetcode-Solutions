@@ -1,3 +1,5 @@
+from typing import List
+
 class Solution:
     def maxSideLength(self, mat: List[List[int]], threshold: int) -> int:
         m, n = len(mat), len(mat[0])

@@ -1,3 +1,5 @@
+from typing import List
+
 class Solution:
     def numSpecial(self, mat: List[List[int]]) -> int:
         # Get matrix dimensions

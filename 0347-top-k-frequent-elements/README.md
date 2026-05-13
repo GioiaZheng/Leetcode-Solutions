@@ -86,3 +86,9 @@ Using a hash map plus sorting provides clarity and efficiency.
 * How separating value and frequency simplifies ranking problems.
 * Why hash maps are essential for counting occurrences efficiently.
 * How different data structures (heap, bucket, sort) impact performance trade-offs.
+
+---
+
+## Solution Files
+- `solution.py` is the recommended `Counter.most_common` implementation because it is concise and idiomatic for Python.
+- `approaches/solution_sorting.py` and `approaches/solution_bucket_sort.py` preserve sorting and bucket-sort alternatives for comparison.

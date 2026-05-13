@@ -157,3 +157,9 @@ This is one of the most elegant applications of binary search in algorithm desig
 * How to use conceptual “virtual merge” instead of explicitly building arrays.
 * The importance of always binary-searching the shorter array to avoid invalid partitions.
 * How to represent out-of-bounds values with `±∞` to simplify logic.
+
+---
+
+## Solution Files
+- `solution.py` is the recommended binary-search partition solution because it meets the required `O(log(min(m, n)))` time complexity.
+- `approaches/solution_sorting.py` keeps the simpler sorting-based approach for comparison, but it does not meet the optimal time bound.

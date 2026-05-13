@@ -2,7 +2,6 @@
 
 ![Python](https://img.shields.io/badge/language-python-blue)
 ![LeetCode](https://img.shields.io/badge/leetcode-solutions-orange)
-![Problems](https://img.shields.io/badge/problems-99-green)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 A structured collection of **Python implementations for LeetCode problems**, designed for algorithm practice, interview preparation, and reusable problem-solving patterns.
@@ -15,10 +14,10 @@ This repository serves as both a **solution archive** and a **long-term algorith
 
 This repository demonstrates:
 
-- Consistent problem-solving patterns across algorithm categories  
-- Clean and reusable Python implementations  
-- Systematic organization for long-term knowledge retention  
-- Automated repository maintenance using GitHub Actions  
+- Consistent problem-solving patterns across algorithm categories
+- Clean and reusable Python implementations
+- Systematic organization for long-term knowledge retention
+- Automated repository maintenance using GitHub Actions
 
 It reflects a structured approach to algorithm learning and engineering discipline.
 
@@ -26,25 +25,25 @@ It reflects a structured approach to algorithm learning and engineering discipli
 
 # Highlights
 
-- <!-- SOLVED_COUNT_START -->98<!-- SOLVED_COUNT_END --> solved problems
+- Problem directories: <!-- PROBLEM_DIRS_START -->98<!-- PROBLEM_DIRS_END -->
+- Standard `solution.py` files: <!-- STANDARD_SOLUTIONS_START -->98<!-- STANDARD_SOLUTIONS_END -->
+- Catalog entries: <!-- CATALOG_ENTRIES_START -->98<!-- CATALOG_ENTRIES_END -->
 - Topic-tagged catalog for fast lookup
 - Reusable notes for common algorithm patterns
-- Consistent directory structure for maintainability
-- Runnable Python solutions with explanations
 
 ---
 
 # Repository Overview
 
-Each problem is stored in an individual directory with:
+Problem directories generally include:
 
-- `README.md` – explanation, key insight, and complexity analysis  
-- `solution.py` – clean and runnable implementation  
+- `README.md` – explanation, key insight, and complexity analysis
+- `solution.py` – standard solution file when available
 
 Additional resources:
 
-- `CATALOG.md` – full index of solved problems with topic tags  
-- `0000-notes/` – reusable algorithm notes and patterns  
+- `CATALOG.md` – generated problem catalog with topic tags
+- `0000-notes/` – reusable algorithm notes and patterns
 
 ---
 
@@ -63,7 +62,7 @@ LICENSE
 |----------------------|-------------------------------------------------------|
 | `####-problem-name/` | One directory per LeetCode problem                    |
 | `0000-notes/`        | Algorithm notes and reusable problem-solving patterns |
-| `CATALOG.md`         | Full list of solved problems with topic tags          |
+| `CATALOG.md`         | Generated problem catalog with topic tags             |
 | `LICENSE`            | License information                                   |
 
 ---
@@ -80,8 +79,8 @@ All problem directories follow:
 
 Where:
 
-- `####` – four-digit LeetCode problem ID  
-- `problem-name` – lowercase kebab-case  
+- `####` – four-digit LeetCode problem ID
+- `problem-name` – lowercase kebab-case
 
 Examples:
 
@@ -91,22 +90,22 @@ Examples:
 1458-max-dot-product-of-two-subsequences
 3453-separate-squares-i
 
-````
+```
 
 ---
 
 # Problem Catalog
 
-Full list:
+Generated full list:
 
 [View the problem catalog](CATALOG.md)
 
 Includes:
 
-- Problem ID  
-- Title  
-- Directory link  
-- Topic tags  
+- Problem ID
+- Title
+- Directory link
+- Topic tags
 
 ---
 
@@ -116,9 +115,12 @@ Includes:
 git clone https://github.com/GioiaZheng/Leetcode-Solutions.git
 cd Leetcode-Solutions
 
-cd 0001-two-sum
-python solution.py
-````
+python scripts/validate_repo.py
+python -m compileall -q .
+pytest
+```
+
+Individual LeetCode files are primarily solution modules for reference and submission. Run them directly only when a file includes its own test harness or an accompanying test exists.
 
 ---
 
@@ -165,11 +167,13 @@ Guidelines:
 
 * Use directory format `####-problem-name`
 * Keep solutions clear and self-contained
-* Include both explanation and implementation
+* Include an explanation and implementation
+* Add tests or an example main block when marking a solution as tested
 
-After adding problems, update statistics:
+After adding problems, regenerate the catalog and update statistics:
 
 ```bash
+python scripts/generate_catalog.py
 python scripts/update_stats.py
 ```
 
