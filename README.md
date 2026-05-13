@@ -26,7 +26,7 @@ It reflects a structured approach to algorithm learning and engineering discipli
 # Highlights
 
 - Problem directories: <!-- PROBLEM_DIRS_START -->98<!-- PROBLEM_DIRS_END -->
-- Standard `solution.py` files: <!-- STANDARD_SOLUTIONS_START -->96<!-- STANDARD_SOLUTIONS_END -->
+- Standard `solution.py` files: <!-- STANDARD_SOLUTIONS_START -->98<!-- STANDARD_SOLUTIONS_END -->
 - Catalog entries: <!-- CATALOG_ENTRIES_START -->98<!-- CATALOG_ENTRIES_END -->
 - Topic-tagged catalog for fast lookup
 - Reusable notes for common algorithm patterns
