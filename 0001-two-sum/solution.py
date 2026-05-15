@@ -1,19 +1,15 @@
 from typing import List
 
+
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        seen = {}  # value to index mapping
+        seen: dict[int, int] = {}  # value -> index
 
-        # Iterate once and check whether the needed complement was seen before.
         for i, num in enumerate(nums):
-            diff = target - num
-
-            # If the complement is already in the map, solution found
-            if diff in seen:
-                return [seen[diff], i]
-
-            # Otherwise, store this number with its index
+            complement = target - num
+            if complement in seen:
+                return [seen[complement], i]
             seen[num] = i
 
-        # Not needed because problem guarantees one solution
-        return []
+        # The problem guarantees exactly one solution; this branch is unreachable.
+        raise ValueError("no two-sum pair found")

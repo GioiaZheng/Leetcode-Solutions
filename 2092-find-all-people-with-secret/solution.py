@@ -1,24 +1,21 @@
+from collections import defaultdict, deque
 from typing import List
-from collections import defaultdict
+
 
 class Solution:
-    def findAllPeople(self, n: int, meetings: List[List[int]], firstPerson: int) -> List[int]:
-        # People who know the secret
-        know = set([0, firstPerson])
+    def findAllPeople(
+        self, n: int, meetings: List[List[int]], firstPerson: int
+    ) -> List[int]:
+        know = {0, firstPerson}
+        meetings.sort(key=lambda meeting: meeting[2])
 
-        # Sort meetings by time
-        meetings.sort(key=lambda x: x[2])
-
-        i = 0
-        m = len(meetings)
-
+        i, m = 0, len(meetings)
         while i < m:
             time = meetings[i][2]
 
-            # Collect all meetings at the same time
-            graph = defaultdict(list)
-            people = set()
-
+            # Build the meeting graph for this single timestamp.
+            graph: dict[int, list[int]] = defaultdict(list)
+            people: set[int] = set()
             while i < m and meetings[i][2] == time:
                 x, y, _ = meetings[i]
                 graph[x].append(y)
@@ -27,24 +24,14 @@ class Solution:
                 people.add(y)
                 i += 1
 
-            # BFS inside this time block
-            queue = []
-
-            for p in people:
-                if p in know:
-                    queue.append(p)
-
-            visited = set(queue)
-
+            # BFS from every already-knowing person in this block. Anyone
+            # reachable through same-time meetings learns the secret too.
+            queue = deque(p for p in people if p in know)
             while queue:
-                cur = queue.pop()
+                cur = queue.popleft()
                 for nei in graph[cur]:
-                    if nei not in visited:
-                        visited.add(nei)
+                    if nei not in know:
+                        know.add(nei)
                         queue.append(nei)
-
-            # Everyone reached in this block learns the secret
-            for p in visited:
-                know.add(p)
 
         return list(know)
