@@ -1,6 +1,20 @@
 # Notes Index
 
-Reusable study notes for common algorithm patterns. Many notes include bilingual versions (English + 中文).
+Concise, interview-oriented notes for reusable algorithm patterns. Start with the quick pattern guide below, then use the detailed topic files for deeper review.
+
+## Quick Pattern Guide
+
+| Pattern | Use When | Core Files | Solved Examples |
+|---|---|---|---|
+| Sliding window | Contiguous subarray/substring with a moving constraint | [fixed](04-sliding-window/sliding-window-fixed.md), [variable](04-sliding-window/sliding-window-variable.md) | [`0003`](../0003-longest-substring-without-repeating-characters/), [`1888`](../1888-minimum-number-of-flips-to-make-the-binary-string-alternating/), [`3578`](../3578-count-partitions-with-max-min-difference-at-most-k/) |
+| Two pointers | Ordered arrays/strings, pair checks, in-place filtering | [two pointers basics](03-two-pointers/two-pointers-basics.md) | [`0015`](../0015-3sum/), [`0026`](../0026-remove-duplicates-from-sorted-array/), [`0011`](../0011-container-with-most-water/) |
+| Binary search on answer | Numeric answer + monotonic feasibility check | [binary search on answer](05-binary-search/binary-search-on-answer.md) | [`2141`](../2141-maximum-running-time-of-n-computers/), [`3453`](../3453-separate-squares-i/), [`1292`](../1292-maximum-side-length-of-a-square-with-sum-at-most-threshold/) |
+| Prefix sum | Repeated range sums/counts or prefix-difference logic | [prefix sum](06-prefix-sum/prefix-sum.md) | [`1590`](../1590-make-sum-divisible-by-p/), [`2435`](../2435-paths-in-matrix-divisible-by-k/), [`3381`](../3381-maximum-subarray-sum-with-length-divisible-by-k/) |
+| Dynamic programming | Overlapping subproblems with choices affecting future states | [DP summary](08-dynamic-programming/summary.md) | [`1458`](../1458-max-dot-product-of-two-subsequences/), [`0712`](../0712-minimum-ascii-delete-sum-for-two-strings/), [`2435`](../2435-paths-in-matrix-divisible-by-k/) |
+| Graph BFS/DFS | Reachability, components, level order, unweighted shortest paths | [BFS](09-graph/bfs.md), [DFS](09-graph/dfs.md), [graph basics](09-graph/graph-basics.md) | [`2092`](../2092-find-all-people-with-secret/), [`0756`](../0756-pyramid-transition-matrix/), [`1161`](../1161-maximum-level-of-a-binary-tree/) |
+| Heap / priority queue | Repeatedly need min/max, top-k, scheduling, delayed processing | [heap / priority queue](13-heap/heap-priority-queue.md) | [`2402`](../2402-meeting-rooms-iii/), [`0692`](../0692-top-k-frequent-words/), [`2343`](../2343-query-kth-smallest-trimmed-number/) |
+
+---
 
 ## 00-how-to-think
 - [common mistakes](00-how-to-think/common-mistakes.md)（[中文](00-how-to-think/common-mistakes-zh.md)）
@@ -43,6 +57,7 @@ Reusable study notes for common algorithm patterns. Many notes include bilingual
 
 ## 09-graph
 - [bfs](09-graph/bfs.md)（[中文](09-graph/bfs-zh.md)）
+- [dfs](09-graph/dfs.md)
 - [graph basics](09-graph/graph-basics.md)（[中文](09-graph/graph-basics-zh.md)）
 - [shortest path dijkstra](09-graph/shortest-path-dijkstra.md)（[中文](09-graph/shortest-path-dijkstra-zh.md)）
 - [topological sort](09-graph/topological-sort.md)（[中文](09-graph/topological-sort-zh.md)）
@@ -57,3 +72,6 @@ Reusable study notes for common algorithm patterns. Many notes include bilingual
 ## 12-recursion-backtracking
 - [backtracking template](12-recursion-backtracking/backtracking-template.md)（[中文](12-recursion-backtracking/backtracking-template-zh.md)）
 - [recursion basics](12-recursion-backtracking/recursion-basics.md)（[中文](12-recursion-backtracking/recursion-basics-zh.md)）
+
+## 13-heap
+- [heap / priority queue](13-heap/heap-priority-queue.md)

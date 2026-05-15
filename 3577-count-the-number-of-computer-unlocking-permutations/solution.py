@@ -1,37 +1,26 @@
+import bisect
 from typing import List
+
 MOD = 10**9 + 7
 
 class Solution:
     def countPermutations(self, complexity: List[int]) -> int:
         n = len(complexity)
 
-        # Keep placeholder DP state used by this implementation path.
-        dp = [0] * (n+1)
-        dp[1] = 1  # only {0}
-
-        # `active` is kept for compatibility with the current structure.
-        active = 0
-
-        # Maintain a sorted list of unlocked complexities.
-        import bisect
-        sortedc = []
-
-        # Seed with node 0 complexity.
-        sortedc.append(complexity[0])
+        # Maintain a sorted list of unlocked complexities, seeded with node 0.
+        sortedc = [complexity[0]]
 
         for i in range(1, n):
-            # Count unlocked nodes that can unlock node i: complexity[j] < complexity[i].
+            # Node i can be unlocked iff at least one already-unlocked node has
+            # smaller complexity.
             cnt = bisect.bisect_left(sortedc, complexity[i])
             if cnt == 0:
-                return 0  # no one can unlock i
+                return 0
 
-            # Insert current complexity into the sorted structure.
             bisect.insort(sortedc, complexity[i])
 
-        # If all nodes pass feasibility, valid permutations are factorial(n - 1):
-        # node 0 must be first, and the remaining nodes can be ordered arbitrarily.
-
-        # Compute factorial(n - 1) modulo MOD.
+        # All nodes pass feasibility → node 0 must be first, the remaining n-1
+        # can be ordered arbitrarily, giving (n-1)! permutations modulo MOD.
         ans = 1
         for i in range(1, n):
             ans = ans * i % MOD

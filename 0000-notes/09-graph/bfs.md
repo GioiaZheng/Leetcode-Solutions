@@ -217,3 +217,45 @@ It is about:
 
 Once you see BFS as “distance first”,
 you’ll recognize it immediately in problems.
+
+---
+
+## Interview quick reference
+
+### Pattern description
+BFS explores nodes in increasing distance from the start. Use a queue and mark nodes visited when they are enqueued.
+
+### When to use it
+- Unweighted shortest path.
+- Minimum moves/steps.
+- Level-order traversal.
+- Spread processes by time block.
+
+### Template code
+
+```python
+from collections import deque
+
+queue = deque([start])
+visited = {start}
+dist = {start: 0}
+
+while queue:
+    node = queue.popleft()
+    for nei in graph[node]:
+        if nei not in visited:
+            visited.add(nei)
+            dist[nei] = dist[node] + 1
+            queue.append(nei)
+```
+
+### Common pitfalls
+- Marking visited only after popping, causing duplicates.
+- Using BFS on weighted shortest paths instead of Dijkstra.
+- Forgetting to process all nodes in the same layer/time together.
+- Using `list.pop(0)` instead of `deque.popleft()`.
+
+### Linked solved problems
+- [`2092-find-all-people-with-secret`](../../2092-find-all-people-with-secret/)
+- [`1161-maximum-level-of-a-binary-tree`](../../1161-maximum-level-of-a-binary-tree/)
+- [`1970-last-day-where-you-can-still-cross`](../../1970-last-day-where-you-can-still-cross/)

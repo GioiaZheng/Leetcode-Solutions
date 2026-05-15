@@ -9,14 +9,19 @@ jobs:
   quality:
     runs-on: ubuntu-latest
 
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Setup Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: ${{ matrix.python-version }}
           cache: pip
 
       - name: Install dev dependencies
@@ -26,6 +31,15 @@ jobs:
 
       - name: Validate repository structure
         run: python scripts/validate_repo.py
+
+      - name: Catalog and README metrics are in sync
+        run: |
+          python scripts/generate_catalog.py
+          python scripts/update_stats.py
+          git diff --exit-code -- CATALOG.md README.md || {
+            echo "::error::CATALOG.md or README.md is out of sync. Run scripts/generate_catalog.py and scripts/update_stats.py and commit the result." >&2
+            exit 1
+          }
 
       - name: Compile all Python files
         run: python -m compileall -q .

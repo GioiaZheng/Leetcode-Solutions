@@ -1,8 +1,8 @@
 from typing import List
 
+
 class Solution:
     def smallestTrimmedNumbers(self, nums: List[str], queries: List[List[int]]) -> List[int]:
-        n = len(nums)
         L = len(nums[0])
 
         # Cache results for each trim length

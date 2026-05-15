@@ -232,3 +232,51 @@ Two pointers are not about being clever.
 They are about **seeing two sides of the same data at once**.
 
 Once this clicks, many problems suddenly feel easier.
+
+---
+
+## Interview quick reference
+
+### Pattern description
+Use two indices to avoid checking every pair or every rewritten position. The pointers usually either move toward each other (`left`, `right`) or move together with different roles (`slow`, `fast`).
+
+### When to use it
+- Sorted array pair/triplet problems.
+- Palindrome or container-style left/right comparisons.
+- In-place filtering, compaction, or duplicate removal.
+- Problems where each element should be visited at most a constant number of times.
+
+### Template code
+
+```python
+# Opposite directions on sorted input
+left, right = 0, len(nums) - 1
+while left < right:
+    total = nums[left] + nums[right]
+    if total == target:
+        return [left, right]
+    if total < target:
+        left += 1
+    else:
+        right -= 1
+
+# Same direction / write pointer
+write = 0
+for read, value in enumerate(nums):
+    if keep(value):
+        nums[write] = value
+        write += 1
+return write
+```
+
+### Common pitfalls
+- Moving both pointers without a proof.
+- Forgetting to skip duplicates in `3sum`-style problems.
+- Using two pointers before sorting when the movement logic requires sorted order.
+- Losing the meaning of `slow` / `write` in in-place problems.
+
+### Linked solved problems
+- [`0015-3sum`](../../0015-3sum/)
+- [`0011-container-with-most-water`](../../0011-container-with-most-water/)
+- [`0026-remove-duplicates-from-sorted-array`](../../0026-remove-duplicates-from-sorted-array/)
+- [`1877-minimize-maximum-pair-sum-in-array`](../../1877-minimize-maximum-pair-sum-in-array/)

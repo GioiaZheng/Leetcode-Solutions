@@ -230,3 +230,47 @@ It is just:
 
 Once you master this,
 many “hard-looking” problems become systematic.
+
+---
+
+## Interview quick reference
+
+### Pattern description
+Binary search the answer value, not an index. A helper `can(x)` decides whether candidate answer `x` is feasible. The key requirement is monotonicity.
+
+### When to use it
+- “Maximize minimum” or “minimize maximum”.
+- Minimum time/capacity/speed questions.
+- Geometry or allocation problems with a yes/no feasibility check.
+- The answer is numeric and bounded.
+
+### Template code
+
+```python
+def can(x):
+    # Return True if x is feasible.
+    return feasible
+
+left, right = low, high
+while left < right:
+    mid = (left + right + 1) // 2  # upper mid for max feasible
+    if can(mid):
+        left = mid
+    else:
+        right = mid - 1
+return left
+```
+
+For minimum feasible, use lower mid and move `right = mid` when feasible.
+
+### Common pitfalls
+- No monotonic feasibility relationship.
+- Off-by-one errors from using the wrong mid bias.
+- Making `can(x)` compute the answer instead of yes/no.
+- Bounds that exclude the real answer.
+
+### Linked solved problems
+- [`2141-maximum-running-time-of-n-computers`](../../2141-maximum-running-time-of-n-computers/)
+- [`3453-separate-squares-i`](../../3453-separate-squares-i/)
+- [`1292-maximum-side-length-of-a-square-with-sum-at-most-threshold`](../../1292-maximum-side-length-of-a-square-with-sum-at-most-threshold/)
+- [`1970-last-day-where-you-can-still-cross`](../../1970-last-day-where-you-can-still-cross/)
