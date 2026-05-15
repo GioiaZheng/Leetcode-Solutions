@@ -9,9 +9,29 @@ dependencies = []
 [project.optional-dependencies]
 dev = [
     "pytest>=8.0",
+    "ruff>=0.5",
 ]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
 addopts = "-q"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+extend-exclude = ["build", "dist"]
+
+[tool.ruff.lint]
+# Conservative defaults: pyflakes (F), pycodestyle errors (E), import sort (I).
+# Style/complexity rules are intentionally NOT enabled.
+select = ["E", "F", "I"]
+ignore = [
+    "E501",  # line too long
+]
+
+[tool.ruff.lint.per-file-ignores]
+# LeetCode solution files use the judge runtime's TreeNode / ListNode without
+# importing them, and routinely use single-letter variable names (l, r, i, j,
+# k, n) that ruff's E741 flags as ambiguous. These are idiomatic here.
+"[0-9]*/solution.py" = ["F821", "E741"]
