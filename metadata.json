@@ -1,0 +1,1060 @@
+{
+  "problems": [
+    {
+      "id": "0001",
+      "title": "Two Sum",
+      "difficulty": "Easy",
+      "topics": [
+        "Array",
+        "Hash Table"
+      ],
+      "status": "tested"
+    },
+    {
+      "id": "0002",
+      "title": "Add Two Numbers",
+      "difficulty": "Medium",
+      "topics": [
+        "Linked List",
+        "Math"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0003",
+      "title": "Longest Substring Without Repeating Characters",
+      "difficulty": "Medium",
+      "topics": [
+        "Sliding Window",
+        "Hash Map",
+        "Two Pointers"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0004",
+      "title": "Median Of Two Sorted Arrays",
+      "difficulty": "Hard",
+      "topics": [
+        "Binary Search",
+        "Divide and Conquer",
+        "Partitioning"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0005",
+      "title": "Longest Palindromic Substring",
+      "difficulty": "Medium",
+      "topics": [
+        "String",
+        "Two Pointers",
+        "Expand Around Center"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0006",
+      "title": "Zigzag Conversion",
+      "difficulty": "Medium",
+      "topics": [
+        "String",
+        "Simulation"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0007",
+      "title": "Reverse Integer",
+      "difficulty": "Medium",
+      "topics": [
+        "Math"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0008",
+      "title": "String To Integer Atoi",
+      "difficulty": "Medium",
+      "topics": [
+        "String",
+        "Parsing"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0009",
+      "title": "Palindrome Number",
+      "difficulty": "Easy",
+      "topics": [
+        "Math"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0010",
+      "title": "Regular Expression Matching",
+      "difficulty": "Hard",
+      "topics": [
+        "String",
+        "Dynamic Programming"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0011",
+      "title": "Container With Most Water",
+      "difficulty": "Medium",
+      "topics": [
+        "Array",
+        "Two Pointers"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0012",
+      "title": "Integer To Roman",
+      "difficulty": "Medium",
+      "topics": [
+        "Math",
+        "String",
+        "Greedy"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0013",
+      "title": "Roman To Integer",
+      "difficulty": "Easy",
+      "topics": [
+        "Hash Table",
+        "Math",
+        "String"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0014",
+      "title": "Longest Common Prefix",
+      "difficulty": "Easy",
+      "topics": [
+        "String"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0015",
+      "title": "3sum",
+      "difficulty": "Medium",
+      "topics": [
+        "Array",
+        "Two Pointers",
+        "Sorting"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0026",
+      "title": "Remove Duplicates From Sorted Array",
+      "difficulty": "Easy",
+      "topics": [
+        "Array",
+        "Two Pointers"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0027",
+      "title": "Remove Element",
+      "difficulty": "Easy",
+      "topics": [
+        "Array",
+        "Two Pointers"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0028",
+      "title": "Find The Index Of The First Occurrence In A String",
+      "difficulty": "Easy",
+      "topics": [
+        "String",
+        "Two Pointers",
+        "Pattern Matching"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0049",
+      "title": "Group Anagrams",
+      "difficulty": "Medium",
+      "topics": [
+        "Array",
+        "Hash Table",
+        "String"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0066",
+      "title": "Plus One",
+      "difficulty": "Easy",
+      "topics": [
+        "Array",
+        "Math"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0085",
+      "title": "Maximal Rectangle",
+      "difficulty": "Hard",
+      "topics": [
+        "Dynamic Programming",
+        "Stack",
+        "Monotonic Stack"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0121",
+      "title": "Best Time To Buy And Sell Stock",
+      "difficulty": "Easy",
+      "topics": [
+        "Array",
+        "Greedy"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0164",
+      "title": "Maximum Gap",
+      "difficulty": "Medium",
+      "topics": [
+        "Bucket Sort",
+        "Pigeonhole Principle",
+        "Sorting"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0220",
+      "title": "Contains Duplicate Iii",
+      "difficulty": "Hard",
+      "topics": [
+        "Sliding Window",
+        "Bucket Sort",
+        "Hash Map"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0242",
+      "title": "Valid Anagram",
+      "difficulty": "Easy",
+      "topics": [
+        "Hash Table",
+        "String",
+        "Sorting"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0347",
+      "title": "Top K Frequent Elements",
+      "difficulty": "Medium",
+      "topics": [
+        "Array",
+        "Hash Table",
+        "Heap",
+        "Sorting"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0451",
+      "title": "Sort Characters By Frequency",
+      "difficulty": "Medium",
+      "topics": [
+        "Hash Table",
+        "String",
+        "Sorting",
+        "Heap"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0679",
+      "title": "24 Game",
+      "difficulty": "Hard",
+      "topics": [
+        "Backtracking",
+        "DFS",
+        "Math"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0692",
+      "title": "Top K Frequent Words",
+      "difficulty": "Medium",
+      "topics": [
+        "String",
+        "Hash Table",
+        "Heap",
+        "Sorting"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0712",
+      "title": "Minimum Ascii Delete Sum For Two Strings",
+      "difficulty": "Medium",
+      "topics": [
+        "Dynamic Programming",
+        "String"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0756",
+      "title": "Pyramid Transition Matrix",
+      "difficulty": "Medium",
+      "topics": [
+        "DFS",
+        "Backtracking",
+        "Memoization",
+        "Hash Table"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0840",
+      "title": "Magic Squares In Grid",
+      "difficulty": "Medium",
+      "topics": [
+        "Array",
+        "Matrix",
+        "Brute Force"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0865",
+      "title": "Smallest Subtree With All The Deepest Nodes",
+      "difficulty": "Medium",
+      "topics": [
+        "Tree",
+        "Depth-First Search",
+        "Binary Tree",
+        "Lowest Common Ancestor"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0912",
+      "title": "Sort An Array",
+      "difficulty": "Medium",
+      "topics": [
+        "Sorting",
+        "Divide and Conquer"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0944",
+      "title": "Delete Columns To Make Sorted",
+      "difficulty": "Easy",
+      "topics": [
+        "Array",
+        "String"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0955",
+      "title": "Delete Columns To Make Sorted Ii",
+      "difficulty": "Medium",
+      "topics": [
+        "Array",
+        "String",
+        "Greedy"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0960",
+      "title": "Delete Columns To Make Sorted Iii",
+      "difficulty": "Hard",
+      "topics": [
+        "Array",
+        "String",
+        "Dynamic Programming"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "0961",
+      "title": "N Repeated Element In Size 2n Array",
+      "difficulty": "Easy",
+      "topics": [
+        "Array",
+        "Hash Table"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "1015",
+      "title": "Smallest Integer Divisible By K",
+      "difficulty": "Medium",
+      "topics": [
+        "Math",
+        "Modulo",
+        "BFS / Simulation"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "1161",
+      "title": "Maximum Level Of A Binary Tree",
+      "difficulty": "Medium",
+      "topics": [
+        "Tree",
+        "Breadth-First Search",
+        "Binary Tree"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "1200",
+      "title": "Minimum Absolute Difference",
+      "difficulty": "Easy",
+      "topics": [
+        "Sorting",
+        "Greedy"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "1266",
+      "title": "Minimum Time Visiting All Points",
+      "difficulty": "Easy",
+      "topics": [
+        "Geometry",
+        "Greedy",
+        "Math"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "1292",
+      "title": "Maximum Side Length Of A Square With Sum Less Than Or Equal To Threshold",
+      "difficulty": "Medium",
+      "topics": [
+        "Prefix Sum",
+        "Binary Search",
+        "Matrix"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "1339",
+      "title": "Maximum Product Of Splitted Binary Tree",
+      "difficulty": "Medium",
+      "topics": [
+        "Tree",
+        "Depth-First Search",
+        "Binary Tree",
+        "Math"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "1351",
+      "title": "Count Negative Numbers In A Sorted Matrix",
+      "difficulty": "Easy",
+      "topics": [
+        "Array",
+        "Matrix",
+        "Two Pointers"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "1390",
+      "title": "Four Divisors",
+      "difficulty": "Medium",
+      "topics": [
+        "Math",
+        "Number Theory",
+        "Enumeration"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "1411",
+      "title": "Number Of Ways To Paint Nx3 Grid",
+      "difficulty": "Hard",
+      "topics": [
+        "Dynamic Programming",
+        "Combinatorics"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "1458",
+      "title": "Max Dot Product Of Two Subsequences",
+      "difficulty": "Hard",
+      "topics": [
+        "Dynamic Programming",
+        "Array",
+        "Subsequence"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "1523",
+      "title": "Count Odd Numbers In An Interval Range",
+      "difficulty": "Easy",
+      "topics": [
+        "Math"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "1582",
+      "title": "Special Position In Binary Matrix",
+      "difficulty": "Easy",
+      "topics": [
+        "Array",
+        "Matrix"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "1590",
+      "title": "Make Sum Divisible By P",
+      "difficulty": "Medium",
+      "topics": [
+        "Prefix Sum",
+        "Hash Map",
+        "Modular Arithmetic"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "1758",
+      "title": "Minimum Changes To Make Alternating Binary String",
+      "difficulty": "Easy",
+      "topics": [
+        "String",
+        "Greedy"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "1784",
+      "title": "Check If Binary String Has At Most One Segment Of Ones",
+      "difficulty": "Easy",
+      "topics": [
+        "String",
+        "Greedy"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "1877",
+      "title": "Minimize Maximum Pair Sum In Array",
+      "difficulty": "Medium",
+      "topics": [
+        "Greedy",
+        "Sorting",
+        "Two Pointers"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "1888",
+      "title": "Minimum Number Of Flips To Make The Binary String Alternating",
+      "difficulty": "Medium",
+      "topics": [
+        "Sliding Window",
+        "String",
+        "Greedy"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "1895",
+      "title": "Largest Magic Square",
+      "difficulty": "Medium",
+      "topics": [
+        "Prefix Sum",
+        "Matrix",
+        "Enumeration"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "1925",
+      "title": "Count Square Sum Triples",
+      "difficulty": "Easy",
+      "topics": [
+        "Math",
+        "Number Theory"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "1970",
+      "title": "Last Day Where You Can Still Cross",
+      "difficulty": "Hard",
+      "topics": [
+        "Binary Search",
+        "BFS",
+        "Graph",
+        "Matrix"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "1975",
+      "title": "Maximum Matrix Sum",
+      "difficulty": "Medium",
+      "topics": [
+        "Matrix",
+        "Greedy",
+        "Math"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "2047",
+      "title": "Find The Largest Area Of Square Inside Two Rectangles",
+      "difficulty": "Medium",
+      "topics": [
+        "Geometry",
+        "Brute Force",
+        "Enumeration"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "2054",
+      "title": "Two Best Non Overlapping Events",
+      "difficulty": "Medium",
+      "topics": [
+        "Array",
+        "Sorting",
+        "Binary Search",
+        "Greedy"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "2092",
+      "title": "Find All People With Secret",
+      "difficulty": "Hard",
+      "topics": [
+        "Graph",
+        "BFS",
+        "Sorting"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "2110",
+      "title": "Number Of Smooth Descent Periods Of A Stock",
+      "difficulty": "Medium",
+      "topics": [
+        "Array",
+        "Sliding Window",
+        "Consecutive Segment Counting"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "2141",
+      "title": "Maximum Running Time Of N Computers",
+      "difficulty": "Hard",
+      "topics": [
+        "Binary Search",
+        "Greedy",
+        "Math"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "2147",
+      "title": "Number Of Ways To Divide A Long Corridor",
+      "difficulty": "Hard",
+      "topics": [
+        "Greedy",
+        "Combinatorics",
+        "Counting"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "2211",
+      "title": "Count Collisions On A Road",
+      "difficulty": "Medium",
+      "topics": [
+        "String",
+        "Simulation"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "2273",
+      "title": "Find Resultant Array After Removing Anagrams",
+      "difficulty": "Easy",
+      "topics": [
+        "Array",
+        "String",
+        "Hashing"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "2343",
+      "title": "Query Kth Smallest Trimmed Number",
+      "difficulty": "Medium",
+      "topics": [
+        "Array",
+        "String",
+        "Sorting",
+        "Caching"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "2402",
+      "title": "Meeting Rooms Iii",
+      "difficulty": "Hard",
+      "topics": [
+        "Heap (Priority Queue)",
+        "Simulation",
+        "Sorting"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "2435",
+      "title": "Paths In Matrix Divisible By K",
+      "difficulty": "Hard",
+      "topics": [
+        "Dynamic Programming",
+        "Matrix",
+        "Prefix Sum"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "2483",
+      "title": "Minimum Penalty For Shop",
+      "difficulty": "Medium",
+      "topics": [
+        "String",
+        "Greedy",
+        "Prefix Sum"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "2872",
+      "title": "Maximum Number Of K Divisible Components",
+      "difficulty": "Hard",
+      "topics": [
+        "Tree",
+        "DFS",
+        "Greedy",
+        "Graph"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "2943",
+      "title": "Maximize Area Of Square Hole In Grid",
+      "difficulty": "Medium",
+      "topics": [
+        "Greedy",
+        "Geometry",
+        "Sorting"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "2975",
+      "title": "Maximum Square Area By Removing Fences From A Field",
+      "difficulty": "Medium",
+      "topics": [
+        "Geometry",
+        "Hash Set",
+        "Greedy"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "3074",
+      "title": "Apple Redistribution Into Boxes",
+      "difficulty": "Easy",
+      "topics": [
+        "Array",
+        "Greedy"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "3075",
+      "title": "Maximize Happiness Of Children",
+      "difficulty": "Medium",
+      "topics": [
+        "Array",
+        "Greedy",
+        "Sorting"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "3314",
+      "title": "Construct The Minimum Bitwise Array I",
+      "difficulty": "Easy",
+      "topics": [
+        "Bit Manipulation",
+        "Greedy"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "3315",
+      "title": "Construct The Minimum Bitwise Array Ii",
+      "difficulty": "Medium",
+      "topics": [
+        "Bit Manipulation",
+        "Greedy"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "3379",
+      "title": "Transformed Array",
+      "difficulty": "Easy",
+      "topics": [
+        "Array",
+        "Simulation",
+        "Modulo"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "3381",
+      "title": "Maximum Subarray Sum With Length Divisible By K",
+      "difficulty": "Medium",
+      "topics": [
+        "Array",
+        "Prefix Sum",
+        "Hash Map"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "3432",
+      "title": "Count Partitions With Even Sum Difference",
+      "difficulty": "Easy",
+      "topics": [
+        "Prefix Sum",
+        "Math",
+        "Parity"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "3433",
+      "title": "Count Mentions Per User",
+      "difficulty": "Medium",
+      "topics": [
+        "Simulation",
+        "Hashing",
+        "Timeline Processing"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "3453",
+      "title": "Separate Squares I",
+      "difficulty": "Medium",
+      "topics": [
+        "Binary Search",
+        "Geometry",
+        "Prefix Area"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "3454",
+      "title": "Separate Squares Ii",
+      "difficulty": "Hard",
+      "topics": [
+        "Sweep Line",
+        "Segment Tree",
+        "Geometry",
+        "Binary Search"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "3507",
+      "title": "Minimum Pair Removal To Sort Array I",
+      "difficulty": "Easy",
+      "topics": [
+        "Simulation",
+        "Greedy",
+        "Array"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "3510",
+      "title": "Minimum Pair Removal To Sort Array Ii",
+      "difficulty": "Hard",
+      "topics": [
+        "Greedy",
+        "Heap",
+        "Linked List",
+        "Simulation"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "3512",
+      "title": "Minimum Operations To Make Array Sum Divisible By K",
+      "difficulty": "Easy",
+      "topics": [
+        "Math",
+        "Greedy",
+        "Modular Arithmetic"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "3531",
+      "title": "Count Covered Buildings",
+      "difficulty": "Medium",
+      "topics": [
+        "Hashing",
+        "Geometry",
+        "Grid",
+        "Prefix Min/Max"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "3562",
+      "title": "Maximum Profit From Trading Stocks With Discounts",
+      "difficulty": "Hard",
+      "topics": [
+        "Tree DP",
+        "Knapsack",
+        "Dynamic Programming",
+        "DFS"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "3573",
+      "title": "Best Time To Buy And Sell Stock V",
+      "difficulty": "Medium",
+      "topics": [
+        "Dynamic Programming",
+        "Stock Trading",
+        "State Machine"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "3577",
+      "title": "Count The Number Of Computer Unlocking Permutations",
+      "difficulty": "Medium",
+      "topics": [
+        "Sorting",
+        "Feasibility Check",
+        "Combinatorics"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "3578",
+      "title": "Count Partitions With Max Min Difference At Most K",
+      "difficulty": "Medium",
+      "topics": [],
+      "status": "solved"
+    },
+    {
+      "id": "3583",
+      "title": "Count Special Triplets",
+      "difficulty": "Medium",
+      "topics": [
+        "Hash Map",
+        "Prefix/Suffix Frequency",
+        "Combinatorics"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "3606",
+      "title": "Coupon Code Validator",
+      "difficulty": "Easy",
+      "topics": [
+        "String Validation",
+        "Sorting",
+        "Simulation"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "3623",
+      "title": "Count Number Of Trapezoids I",
+      "difficulty": "Medium",
+      "topics": [
+        "Array",
+        "Geometry",
+        "Combinatorics"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "3625",
+      "title": "Count Number Of Trapezoids Ii",
+      "difficulty": "Medium",
+      "topics": [
+        "Array",
+        "Geometry",
+        "Combinatorics"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "3652",
+      "title": "Best Time To Buy And Sell Stock Using Strategy",
+      "difficulty": "Medium",
+      "topics": [
+        "Prefix Sum",
+        "Sliding Window",
+        "Greedy"
+      ],
+      "status": "solved"
+    },
+    {
+      "id": "3779",
+      "title": "Minimum Number Of Operations To Have Distinct Elements",
+      "difficulty": "Medium",
+      "topics": [
+        "Hash Table",
+        "Greedy",
+        "Simulation"
+      ],
+      "status": "solved"
+    }
+  ]
+}

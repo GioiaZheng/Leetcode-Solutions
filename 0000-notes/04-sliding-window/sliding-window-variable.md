@@ -242,3 +242,49 @@ It is just:
 > **expand → break → shrink → restore**
 
 Once this loop is clear, many Medium problems become manageable.
+
+---
+
+## Interview quick reference
+
+### Pattern description
+Maintain a contiguous window `[left, right]`. Expand with `right`, update window state, then shrink with `left` until the invariant is valid again.
+
+### When to use it
+- Longest/shortest substring or subarray.
+- Constraints like “at most K”, “without repeating”, “max-min <= k”.
+- Counting valid contiguous windows.
+- Cases where all values needed for validity can be updated incrementally.
+
+### Template code
+
+```python
+from collections import defaultdict
+
+left = 0
+freq = defaultdict(int)
+answer = 0
+
+for right, value in enumerate(nums):
+    freq[value] += 1
+
+    while not valid(freq):
+        freq[nums[left]] -= 1
+        if freq[nums[left]] == 0:
+            del freq[nums[left]]
+        left += 1
+
+    answer = max(answer, right - left + 1)
+```
+
+### Common pitfalls
+- Using `if invalid` when you need `while invalid`.
+- Updating the answer before restoring the invariant.
+- Forgetting to remove zero-count keys.
+- Applying sliding window when the condition is not monotonic as `left` moves.
+
+### Linked solved problems
+- [`0003-longest-substring-without-repeating-characters`](../../0003-longest-substring-without-repeating-characters/)
+- [`1888-minimum-number-of-flips-to-make-the-binary-string-alternating`](../../1888-minimum-number-of-flips-to-make-the-binary-string-alternating/)
+- [`2110-number-of-smooth-descent-periods-of-a-stock`](../../2110-number-of-smooth-descent-periods-of-a-stock/)
+- [`3578-count-partitions-with-max-min-difference-at-most-k`](../../3578-count-partitions-with-max-min-difference-at-most-k/)

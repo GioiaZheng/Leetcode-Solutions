@@ -33,5 +33,7 @@ ignore = [
 [tool.ruff.lint.per-file-ignores]
 # LeetCode solution files use the judge runtime's TreeNode / ListNode without
 # importing them, and routinely use single-letter variable names (l, r, i, j,
-# k, n) that ruff's E741 flags as ambiguous. These are idiomatic here.
-"[0-9]*/solution.py" = ["F821", "E741"]
+# k, n) that ruff's E741 flags as ambiguous. Import-sort (I001) is also waived
+# because solution files are short, hand-curated for problem clarity, and not
+# meant to be installed as a package. These are idiomatic for this repo.
+"[0-9]*/**/solution*.py" = ["F821", "E741", "I001"]

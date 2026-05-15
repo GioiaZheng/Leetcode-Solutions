@@ -232,3 +232,49 @@ It is something you **design**.
 
 Once you learn to design DP states calmly,
 DP becomes a powerful and reliable tool.
+
+---
+
+## Interview quick reference
+
+### Pattern description
+DP stores answers to overlapping subproblems. Define the state, transition, and base cases before writing code.
+
+### When to use it
+- Choices affect future possibilities.
+- Brute force branches into repeated states.
+- The prompt asks for maximum/minimum/number of ways/longest.
+- Greedy has no safe local-choice proof.
+
+### Template code
+
+```python
+# 1D DP
+n = len(nums)
+dp = [0] * (n + 1)
+dp[0] = base
+for i in range(1, n + 1):
+    dp[i] = transition(dp, i)
+return dp[n]
+```
+
+```python
+# 2D DP over two sequences
+m, n = len(a), len(b)
+dp = [[0] * (n + 1) for _ in range(m + 1)]
+for i in range(1, m + 1):
+    for j in range(1, n + 1):
+        dp[i][j] = transition(dp, i, j)
+```
+
+### Common pitfalls
+- Coding before defining what `dp[i]` means.
+- Incorrect base cases.
+- Accidentally using updated values from the same row/iteration.
+- Optimizing space before the transition is correct.
+
+### Linked solved problems
+- [`1458-max-dot-product-of-two-subsequences`](../../1458-max-dot-product-of-two-subsequences/)
+- [`0712-minimum-ascii-delete-sum-for-two-strings`](../../0712-minimum-ascii-delete-sum-for-two-strings/)
+- [`2435-paths-in-matrix-divisible-by-k`](../../2435-paths-in-matrix-divisible-by-k/)
+- [`1411-number-of-ways-to-paint-nx3-grid`](../../1411-number-of-ways-to-paint-nx3-grid/)

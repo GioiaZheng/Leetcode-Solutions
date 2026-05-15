@@ -232,3 +232,54 @@ It is a mindset:
 
 Once this clicks,
 many counting problems become straightforward.
+
+---
+
+## Interview quick reference
+
+### Pattern description
+Precompute cumulative values so a range query becomes subtraction. Combine with a hash map when you need to count subarrays by prefix differences.
+
+### When to use it
+- Many range sum/count queries.
+- Subarray sum modulo or divisibility problems.
+- “Split array by prefix/suffix” checks.
+- 2D matrix sums where repeated rectangle queries appear.
+
+### Template code
+
+```python
+prefix = [0]
+for x in nums:
+    prefix.append(prefix[-1] + x)
+
+# sum nums[l:r+1]
+range_sum = prefix[r + 1] - prefix[l]
+```
+
+Prefix + hash map:
+
+```python
+from collections import defaultdict
+
+seen = defaultdict(int)
+seen[0] = 1
+cur = 0
+answer = 0
+for x in nums:
+    cur += x
+    answer += seen[cur - target]
+    seen[cur] += 1
+```
+
+### Common pitfalls
+- Forgetting the initial zero prefix.
+- Mixing inclusive and exclusive indices.
+- Using sliding window when negative numbers make it invalid.
+- Taking modulo at inconsistent points.
+
+### Linked solved problems
+- [`1590-make-sum-divisible-by-p`](../../1590-make-sum-divisible-by-p/)
+- [`2435-paths-in-matrix-divisible-by-k`](../../2435-paths-in-matrix-divisible-by-k/)
+- [`3381-maximum-subarray-sum-with-length-divisible-by-k`](../../3381-maximum-subarray-sum-with-length-divisible-by-k/)
+- [`3432-count-partitions-with-even-sum-difference`](../../3432-count-partitions-with-even-sum-difference/)

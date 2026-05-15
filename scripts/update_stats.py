@@ -1,9 +1,11 @@
-from pathlib import Path
+import json
 import re
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 README = ROOT / "README.md"
 CATALOG = ROOT / "CATALOG.md"
+METADATA = ROOT / "metadata.json"
 
 PROBLEM_DIR_RE = re.compile(r"^(\d{4,})-.+")
 CATALOG_ENTRY_RE = re.compile(r"^\|\s*\d{4}\s*\|")
@@ -15,6 +17,9 @@ METRIC_MARKERS = {
         "<!-- STANDARD_SOLUTIONS_END -->",
     ),
     "catalog_entries": ("<!-- CATALOG_ENTRIES_START -->", "<!-- CATALOG_ENTRIES_END -->"),
+    "easy_count": ("<!-- EASY_COUNT_START -->", "<!-- EASY_COUNT_END -->"),
+    "medium_count": ("<!-- MEDIUM_COUNT_START -->", "<!-- MEDIUM_COUNT_END -->"),
+    "hard_count": ("<!-- HARD_COUNT_START -->", "<!-- HARD_COUNT_END -->"),
 }
 
 
@@ -49,11 +54,29 @@ def count_catalog_entries():
     )
 
 
+def difficulty_counts():
+    counts = {"Easy": 0, "Medium": 0, "Hard": 0}
+    if not METADATA.is_file():
+        return counts
+
+    data = json.loads(METADATA.read_text(encoding="utf-8"))
+    for problem in data.get("problems", []):
+        difficulty = problem.get("difficulty")
+        if difficulty in counts:
+            counts[difficulty] += 1
+
+    return counts
+
+
 def collect_metrics():
+    difficulties = difficulty_counts()
     return {
         "problem_directories": count_problem_directories(),
         "standard_solutions": count_standard_solutions(),
         "catalog_entries": count_catalog_entries(),
+        "easy_count": difficulties["Easy"],
+        "medium_count": difficulties["Medium"],
+        "hard_count": difficulties["Hard"],
     }
 
 

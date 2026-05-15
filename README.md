@@ -2,6 +2,7 @@
 
 ![Python](https://img.shields.io/badge/language-python-blue)
 ![LeetCode](https://img.shields.io/badge/leetcode-solutions-orange)
+![CI](https://github.com/GioiaZheng/Leetcode-Solutions/actions/workflows/quality.yml/badge.svg)
 ![License](https://img.shields.io/badge/license-MIT-lightgrey)
 
 A personal collection of Python solutions to LeetCode problems, plus topic notes I write while studying.
@@ -15,8 +16,9 @@ This is a study repo, not a library. Solutions are organized one per directory a
 - Problem directories: <!-- PROBLEM_DIRS_START -->98<!-- PROBLEM_DIRS_END -->
 - Standard `solution.py` files: <!-- STANDARD_SOLUTIONS_START -->98<!-- STANDARD_SOLUTIONS_END -->
 - Catalog entries: <!-- CATALOG_ENTRIES_START -->98<!-- CATALOG_ENTRIES_END -->
-- Topic-tagged catalog ([`CATALOG.md`](CATALOG.md)) regenerated from each problem's `README.md`
-- Topic notes under [`0000-notes/`](0000-notes/) (English with partial 中文 translations)
+- Difficulty mix: Easy <!-- EASY_COUNT_START -->28<!-- EASY_COUNT_END --> / Medium <!-- MEDIUM_COUNT_START -->52<!-- MEDIUM_COUNT_END --> / Hard <!-- HARD_COUNT_START -->18<!-- HARD_COUNT_END --> (regenerated from `metadata.json`)
+- Topic-tagged catalog ([`CATALOG.md`](CATALOG.md)) regenerated from `metadata.json` + problem directories
+- Topic notes under [`0000-notes/`](0000-notes/) (English with partial 中文 translations); see the [Quick Pattern Guide](0000-notes/README.md) for cross-references between patterns and solved problems
 
 ---
 
@@ -29,10 +31,12 @@ Each problem directory generally contains:
 
 Top-level files:
 
-- `CATALOG.md` – generated index, one row per problem
-- `0000-notes/` – topic notes (arrays, DP, graphs, …)
-- `scripts/` – maintenance scripts (catalog, stats, structure validation)
-- `tests/` – pytest cases for solutions that have them
+- `CATALOG.md` – generated index, one row per problem (id / title / difficulty / status / topics)
+- `metadata.json` – source of truth for problem titles, difficulty, topics, and review status; `CATALOG.md` and the README difficulty counts are derived from it
+- `templates/problem_README.md` – starter template for new problem READMEs
+- `0000-notes/` – topic notes (arrays, DP, graphs, …) with a Quick Pattern Guide that cross-references solved problems
+- `scripts/` – maintenance scripts (catalog generation, stats, structural + schema validation)
+- `tests/` – pytest cases (per-problem and validator self-tests)
 
 ---
 
@@ -94,6 +98,7 @@ Topics:
 - 10 how-to-choose-algorithm
 - 11 pattern library
 - 12 recursion & backtracking
+- 13 heap / priority queue
 
 ---
 
@@ -108,7 +113,7 @@ What this repo is **not**:
 
 - A benchmark or comparative study of algorithms.
 - A reusable Python library — there is no shared package, every solution is standalone by design.
-- A complete test suite — most problems do not yet have automated tests.
+- A complete test suite — only a curated subset of problems has automated tests today (see `tests/test_selected_solutions.py`).
 
 ---
 
