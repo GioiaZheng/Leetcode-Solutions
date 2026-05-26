@@ -52,6 +52,21 @@ def write_catalog(root, directories):
     (root / "CATALOG.md").write_text("\n".join(rows) + "\n", encoding="utf-8")
 
 
+def write_topics(root, directories):
+    rows = [
+        "# Topic Index",
+        "",
+        "## Array",
+        "",
+        "| ID | Problem | Directory |",
+        "|---:|---|---|",
+    ]
+    for directory in directories:
+        problem_id = directory.split("-", 1)[0]
+        rows.append(f"| {problem_id} | Example | [`problems/{directory}/`](problems/{directory}/) |")
+    (root / "TOPICS.md").write_text("\n".join(rows) + "\n", encoding="utf-8")
+
+
 def write_metadata(root, directories):
     problems = []
     for directory in directories:
@@ -80,6 +95,7 @@ def test_validate_accepts_well_formed_repository(tmp_path):
         solution="class Solution:\n    pass\n",
     )
     write_catalog(tmp_path, [directory])
+    write_topics(tmp_path, [directory])
     write_metadata(tmp_path, [directory])
 
     directories, errors = validate_repo.validate(tmp_path)
@@ -92,12 +108,32 @@ def test_validate_reports_missing_required_files(tmp_path):
     directory = "0001-two-sum"
     (tmp_path / "problems" / directory).mkdir(parents=True)
     write_catalog(tmp_path, [directory])
+    write_topics(tmp_path, [directory])
     write_metadata(tmp_path, [directory])
 
     _, errors = validate_repo.validate(tmp_path)
 
     assert f"problems/{directory} is missing README.md." in errors
     assert f"problems/{directory} is missing solution.py." in errors
+
+
+def test_validate_reports_problem_directories_at_repository_root(tmp_path):
+    directory = "0001-two-sum"
+    misplaced = "0002-add-two-numbers"
+    write_problem(
+        tmp_path,
+        directory,
+        readme=standard_readme(),
+        solution="class Solution:\n    pass\n",
+    )
+    (tmp_path / misplaced).mkdir()
+    write_catalog(tmp_path, [directory])
+    write_topics(tmp_path, [directory])
+    write_metadata(tmp_path, [directory])
+
+    _, errors = validate_repo.validate(tmp_path)
+
+    assert f"{misplaced} should be moved under problems/{misplaced}." in errors
 
 
 def test_validate_reports_solution_parse_and_class_errors(tmp_path):
@@ -107,6 +143,7 @@ def test_validate_reports_solution_parse_and_class_errors(tmp_path):
     write_problem(tmp_path, bad_syntax, readme=readme, solution="class Solution(:\n")
     write_problem(tmp_path, missing_class, readme=readme, solution="class NotSolution:\n    pass\n")
     write_catalog(tmp_path, [bad_syntax, missing_class])
+    write_topics(tmp_path, [bad_syntax, missing_class])
     write_metadata(tmp_path, [bad_syntax, missing_class])
 
     _, errors = validate_repo.validate(tmp_path)
@@ -138,6 +175,7 @@ def test_validate_reports_readme_directory_and_catalog_errors(tmp_path):
         solution="class Solution:\n    pass\n",
     )
     write_catalog(tmp_path, [bad_name, bad_name, extra])
+    write_topics(tmp_path, [bad_name, missing_from_catalog])
     write_metadata(tmp_path, [bad_name, missing_from_catalog])
 
     _, errors = validate_repo.validate(tmp_path)
@@ -147,6 +185,25 @@ def test_validate_reports_readme_directory_and_catalog_errors(tmp_path):
     assert f"CATALOG.md is missing an entry for problems/{missing_from_catalog}." in errors
     assert f"CATALOG.md contains duplicate entries for problems/{bad_name}." in errors
     assert f"CATALOG.md contains an entry for unknown directory problems/{extra}." in errors
+
+
+def test_validate_reports_topics_errors(tmp_path):
+    directory = "0001-two-sum"
+    extra = "9999-extra-problem"
+    write_problem(
+        tmp_path,
+        directory,
+        readme=standard_readme(),
+        solution="class Solution:\n    pass\n",
+    )
+    write_catalog(tmp_path, [directory])
+    write_topics(tmp_path, [extra])
+    write_metadata(tmp_path, [directory])
+
+    _, errors = validate_repo.validate(tmp_path)
+
+    assert f"TOPICS.md is missing an entry for problems/{directory}." in errors
+    assert f"TOPICS.md contains an entry for unknown directory problems/{extra}." in errors
 
 
 def test_validate_reports_metadata_errors(tmp_path):
@@ -159,6 +216,7 @@ def test_validate_reports_metadata_errors(tmp_path):
         solution="class Solution:\n    pass\n",
     )
     write_catalog(tmp_path, [directory])
+    write_topics(tmp_path, [directory])
     (tmp_path / "metadata.json").write_text(
         json.dumps(
             {
@@ -198,6 +256,7 @@ def test_validate_reports_suspicious_filenames(tmp_path):
     )
     (problem / "soution.py").write_text("class Solution:\n    pass\n", encoding="utf-8")
     write_catalog(tmp_path, [directory])
+    write_topics(tmp_path, [directory])
     write_metadata(tmp_path, [directory])
 
     _, errors = validate_repo.validate(tmp_path)

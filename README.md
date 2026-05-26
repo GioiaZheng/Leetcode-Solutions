@@ -32,7 +32,7 @@ Each problem directory under `problems/` generally contains:
 
 Top-level files:
 
-- `problems/` - solved problem directories, one per LeetCode problem
+- [`problems/`](problems/) - solved problem directories, one per LeetCode problem
 - `CATALOG.md` - generated index, one row per problem (id / title / difficulty / status / topics)
 - `TOPICS.md` - generated topic index for browsing by major algorithm pattern
 - `metadata.json` - source of truth for problem titles, difficulty, topics, and review status; `CATALOG.md` and the README difficulty counts are derived from it
@@ -131,9 +131,7 @@ This is primarily a personal study repo. If you do want to contribute:
 - After adding problems, regenerate the catalog and stats locally:
 
   ```bash
-  python scripts/generate_catalog.py
-  python scripts/generate_topics.py
-  python scripts/update_stats.py
+  python scripts/update_indexes.py
   ```
 
   Commit the regenerated `CATALOG.md`, `TOPICS.md`, and `README.md` along with your change.

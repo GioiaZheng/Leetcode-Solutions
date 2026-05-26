@@ -5,6 +5,9 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   quality:
     runs-on: ubuntu-latest
@@ -32,13 +35,14 @@ jobs:
       - name: Validate repository structure
         run: python scripts/validate_repo.py
 
+      - name: Security scan
+        run: python scripts/security_scan.py
+
       - name: Generated indexes and README metrics are in sync
         run: |
-          python scripts/generate_catalog.py
-          python scripts/generate_topics.py
-          python scripts/update_stats.py
+          python scripts/update_indexes.py
           git diff --exit-code -- CATALOG.md TOPICS.md README.md || {
-            echo "::error::Generated docs are out of sync. Run scripts/generate_catalog.py, scripts/generate_topics.py, and scripts/update_stats.py, then commit the result." >&2
+            echo "::error::Generated docs are out of sync. Run scripts/update_indexes.py, then commit the result." >&2
             exit 1
           }
 

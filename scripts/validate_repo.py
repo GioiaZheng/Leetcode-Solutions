@@ -58,6 +58,18 @@ def problem_directories(root=ROOT):
     )
 
 
+def root_problem_directories(root=ROOT):
+    """Return problem-like directories that should live under problems/."""
+    return sorted(
+        path
+        for path in root.iterdir()
+        if path.is_dir()
+        and path.name != "0000-notes"
+        and (match := PROBLEM_DIR_RE.match(path.name))
+        and int(match.group(1)) > 0
+    )
+
+
 def relative(path, root=ROOT):
     return path.relative_to(root).as_posix()
 
@@ -237,9 +249,34 @@ def validate_catalog(problem_dirs, root=ROOT):
     return errors
 
 
+def validate_topics(problem_dirs, root=ROOT):
+    errors = []
+    topics = root / "TOPICS.md"
+
+    if not topics.is_file():
+        return ["TOPICS.md is missing from the repository root."]
+
+    expected = {relative(directory, root) for directory in problem_dirs}
+    entries = set(catalog_directories(topics))
+    missing = sorted(expected - entries)
+    extra = sorted(entries - expected)
+
+    for directory in missing:
+        errors.append(f"TOPICS.md is missing an entry for {directory}.")
+    for directory in extra:
+        errors.append(f"TOPICS.md contains an entry for unknown directory {directory}.")
+
+    return errors
+
+
 def validate(root=ROOT):
     errors = []
     directories = problem_directories(root)
+
+    for directory in root_problem_directories(root):
+        errors.append(
+            f"{relative(directory, root)} should be moved under problems/{directory.name}."
+        )
 
     for directory in directories:
         if not STRICT_PROBLEM_DIR_RE.match(directory.name):
@@ -262,6 +299,7 @@ def validate(root=ROOT):
             errors.extend(validate_solution(solution, root))
 
     errors.extend(validate_catalog(directories, root))
+    errors.extend(validate_topics(directories, root))
     errors.extend(validate_metadata(directories, root))
 
     for path, expected_name in suspicious_files(root):
