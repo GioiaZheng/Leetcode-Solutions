@@ -67,13 +67,19 @@ def scan_file(path):
     return findings
 
 
-def main():
+def scan_repository(root=ROOT):
     findings = []
 
-    for path in tracked_files():
+    for path in tracked_files(root):
         if is_sensitive_filename(path):
             findings.append(("sensitive filename", path, 0))
         findings.extend(scan_file(path))
+
+    return findings
+
+
+def main():
+    findings = scan_repository()
 
     if findings:
         print("Security scan failed:")

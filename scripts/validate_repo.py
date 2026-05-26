@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parent.parent
 PROBLEM_DIR_RE = re.compile(r"^(\d{4,})-.+")
 STRICT_PROBLEM_DIR_RE = re.compile(r"^\d{4,}-[a-z0-9]+(?:-[a-z0-9]+)*$")
 CATALOG_DIRECTORY_RE = re.compile(r"\[`([^`]+/?)`\]\(([^)]+)\)")
+MARKDOWN_LINK_RE = re.compile(r"(?<!!)\[[^\]]+\]\(([^)]+)\)")
 README_REQUIREMENTS = {
     "Problem": ("problem",),
     "Intuition": (
@@ -41,6 +42,14 @@ SUSPICIOUS_FILENAMES = {
 }
 VALID_DIFFICULTIES = {"Easy", "Medium", "Hard"}
 VALID_STATUSES = {"solved", "tested", "review-needed"}
+MOJIBAKE_MARKERS = ("ï", "Â", "Ã", "â€", "â†", "ä¸", "æ–")
+MOJIBAKE_CHECKED_FILES = (
+    "README.md",
+    "CATALOG.md",
+    "TOPICS.md",
+    "0000-notes/README.md",
+    "problems/README.md",
+)
 
 
 def problem_directories(root=ROOT):
@@ -83,6 +92,69 @@ def suspicious_files(root=ROOT):
         if expected_name:
             matches.append((path, expected_name))
     return sorted(matches)
+
+
+def nested_notes_directories(root=ROOT):
+    notes_root = root / "0000-notes"
+    if not notes_root.is_dir():
+        return []
+
+    return sorted(path for path in notes_root.rglob("0000-notes") if path.is_dir())
+
+
+def validate_entrypoint_encoding(root=ROOT):
+    errors = []
+
+    for relative_path in MOJIBAKE_CHECKED_FILES:
+        path = root / relative_path
+        if not path.is_file():
+            continue
+
+        for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+            if any(marker in line for marker in MOJIBAKE_MARKERS):
+                errors.append(
+                    f"{relative_path}:{line_number} contains mojibake; "
+                    "check the file encoding."
+                )
+
+    return errors
+
+
+def validate_entrypoint_links(root=ROOT):
+    errors = []
+
+    for relative_path in MOJIBAKE_CHECKED_FILES:
+        path = root / relative_path
+        if not path.is_file():
+            continue
+
+        for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+            for match in MARKDOWN_LINK_RE.finditer(line):
+                target = match.group(1).strip()
+                if (
+                    not target
+                    or target.startswith("#")
+                    or re.match(r"^[a-z][a-z0-9+.-]*:", target)
+                ):
+                    continue
+
+                target_path = target.split("#", 1)[0]
+                if not target_path:
+                    continue
+
+                resolved = (path.parent / target_path).resolve()
+                try:
+                    resolved.relative_to(root.resolve())
+                except ValueError:
+                    errors.append(
+                        f"{relative_path}:{line_number} links outside the repository: {target}."
+                    )
+                    continue
+
+                if not resolved.exists():
+                    errors.append(f"{relative_path}:{line_number} has a broken link: {target}.")
+
+    return errors
 
 
 def readme_has_requirement(content, keywords):
@@ -301,11 +373,16 @@ def validate(root=ROOT):
     errors.extend(validate_catalog(directories, root))
     errors.extend(validate_topics(directories, root))
     errors.extend(validate_metadata(directories, root))
+    errors.extend(validate_entrypoint_encoding(root))
+    errors.extend(validate_entrypoint_links(root))
 
     for path, expected_name in suspicious_files(root):
         errors.append(
             f"Suspicious filename {relative(path, root)} found; did you mean {expected_name}?"
         )
+
+    for path in nested_notes_directories(root):
+        errors.append(f"Nested notes directory {relative(path, root)} should be removed.")
 
     return directories, errors
 

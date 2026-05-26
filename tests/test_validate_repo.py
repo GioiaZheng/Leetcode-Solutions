@@ -265,3 +265,61 @@ def test_validate_reports_suspicious_filenames(tmp_path):
         f"Suspicious filename problems/{directory}/soution.py found; did you mean solution.py?"
         in errors
     )
+
+
+def test_validate_reports_nested_notes_directories(tmp_path):
+    directory = "0001-two-sum"
+    write_problem(
+        tmp_path,
+        directory,
+        readme=standard_readme(),
+        solution="class Solution:\n    pass\n",
+    )
+    (tmp_path / "0000-notes" / "09-graph" / "0000-notes").mkdir(parents=True)
+    write_catalog(tmp_path, [directory])
+    write_topics(tmp_path, [directory])
+    write_metadata(tmp_path, [directory])
+
+    _, errors = validate_repo.validate(tmp_path)
+
+    assert "Nested notes directory 0000-notes/09-graph/0000-notes should be removed." in errors
+
+
+def test_validate_reports_mojibake_in_entrypoint_docs(tmp_path):
+    directory = "0001-two-sum"
+    write_problem(
+        tmp_path,
+        directory,
+        readme=standard_readme(),
+        solution="class Solution:\n    pass\n",
+    )
+    write_catalog(tmp_path, [directory])
+    write_topics(tmp_path, [directory])
+    write_metadata(tmp_path, [directory])
+    (tmp_path / "README.md").write_text("Broken ä¸­æ–‡ marker\n", encoding="utf-8")
+
+    _, errors = validate_repo.validate(tmp_path)
+
+    assert "README.md:1 contains mojibake; check the file encoding." in errors
+
+
+def test_validate_reports_broken_entrypoint_links(tmp_path):
+    directory = "0001-two-sum"
+    write_problem(
+        tmp_path,
+        directory,
+        readme=standard_readme(),
+        solution="class Solution:\n    pass\n",
+    )
+    write_catalog(tmp_path, [directory])
+    write_topics(tmp_path, [directory])
+    write_metadata(tmp_path, [directory])
+    (tmp_path / "README.md").write_text(
+        "[missing](docs/missing.md)\n[outside](../outside.md)\n",
+        encoding="utf-8",
+    )
+
+    _, errors = validate_repo.validate(tmp_path)
+
+    assert "README.md:1 has a broken link: docs/missing.md." in errors
+    assert "README.md:2 links outside the repository: ../outside.md." in errors

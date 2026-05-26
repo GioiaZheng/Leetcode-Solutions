@@ -40,6 +40,7 @@ Top-level files:
 - `0000-notes/` - topic notes (arrays, DP, graphs, etc.) with a Quick Pattern Guide that cross-references solved problems
 - `scripts/` - maintenance scripts (catalog generation, stats, structural + schema validation)
 - `tests/` - pytest cases (per-problem and validator self-tests)
+- `CONTRIBUTING.md` - rules for adding problems, updating metadata, and running local checks
 
 ---
 
@@ -68,13 +69,13 @@ problems/3453-separate-squares-i
 git clone https://github.com/GioiaZheng/Leetcode-Solutions.git
 cd Leetcode-Solutions
 
-pip install "pytest>=8.0" "ruff>=0.5"
+pip install -e ".[dev]"
 
-# Structural checks
+# Local quality checks
 python scripts/validate_repo.py
+python scripts/security_scan.py
 python -m compileall -q .
-
-# Tests (only the problems that ship with cases are covered today)
+ruff check .
 pytest
 ```
 
@@ -122,16 +123,5 @@ What this repo is **not**:
 
 # Contributing
 
-This is primarily a personal study repo. If you do want to contribute:
-
-- Use the directory format `####-problem-name`.
-- Keep solutions in a single `class Solution` with standard LeetCode method signatures.
-- Add a `README.md` with problem summary, approach, and complexity.
-- If you add tests, put them under `tests/` (see `tests/test_two_sum.py` for the loading pattern).
-- After adding problems, regenerate the catalog and stats locally:
-
-  ```bash
-  python scripts/update_indexes.py
-  ```
-
-  Commit the regenerated `CATALOG.md`, `TOPICS.md`, and `README.md` along with your change.
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for problem layout rules, metadata
+updates, and local checks to run before committing.
