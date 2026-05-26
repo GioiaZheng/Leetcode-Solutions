@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def load_solution(relative_path, injected=None):
     """Load a LeetCode solution module directly from its file path."""
-    solution_path = ROOT / relative_path
+    solution_path = ROOT / "problems" / relative_path
     module_name = "solution_" + "_".join(solution_path.parts[-2:]).replace(".", "_")
     spec = spec_from_file_location(module_name, solution_path)
     module = module_from_spec(spec)
@@ -96,6 +96,21 @@ def normalize_anagram_groups(groups):
             "maxRunTime",
             (2, [3, 3, 3]),
             4,
+            None,
+        ),
+        # Geometry representative: count trapezoids once, including parallelograms.
+        (
+            "3625-count-number-of-trapezoids-ii/solution.py",
+            "countTrapezoids",
+            ([[0, 0], [2, 0], [1, 1], [3, 1]],),
+            1,
+            None,
+        ),
+        (
+            "3625-count-number-of-trapezoids-ii/solution.py",
+            "countTrapezoids",
+            ([[0, 0], [1, 0], [0, 1], [1, 1]],),
+            1,
             None,
         ),
     ],

@@ -1,10 +1,10 @@
-# Two Pointers Basics  
+﻿# Two Pointers Basics
 
 This note is written for beginners who think:
 
-- “I know how to use a loop, why do I need two pointers?”
-- “Two pointers feels like a trick, not a real method”
-- “I always get confused about left and right movement”
+- â€œI know how to use a loop, why do I need two pointers?â€
+- â€œTwo pointers feels like a trick, not a real methodâ€
+- â€œI always get confused about left and right movementâ€
 
 If this sounds familiar, this note is for you.
 
@@ -14,7 +14,7 @@ If this sounds familiar, this note is for you.
 
 The idea is simple:
 
-> Instead of looking at the array from one position,  
+> Instead of looking at the array from one position,
 > **look at it from two positions at the same time.**
 
 These two positions (pointers) give you **more information** with the same time complexity.
@@ -39,12 +39,12 @@ Typical goals:
 
 ## 3. Two main types of two pointers
 
-### Type 1 — Opposite direction pointers
+### Type 1 â€” Opposite direction pointers
 
 One pointer starts at the left, one at the right.
 
 ```text
-L → → → ← ← ← R
+L â†’ â†’ â†’ â† â† â† R
 ````
 
 Common use cases:
@@ -56,13 +56,13 @@ Common use cases:
 
 ---
 
-### Type 2 — Same direction pointers
+### Type 2 â€” Same direction pointers
 
 Both pointers move from left to right, but at different speeds or roles.
 
 ```text
-slow → → →  
-fast → → → → →
+slow â†’ â†’ â†’
+fast â†’ â†’ â†’ â†’ â†’
 ```
 
 Common use cases:
@@ -83,7 +83,7 @@ for i in range(n):
         ...
 ```
 
-This is often **O(n²)**.
+This is often **O(nÂ²)**.
 
 Two pointers often allow:
 
@@ -92,7 +92,7 @@ Two pointers often allow:
 
 Total time: **O(n)**
 
-This is not magic — it works because pointers never move backward unnecessarily.
+This is not magic â€” it works because pointers never move backward unnecessarily.
 
 ---
 
@@ -100,14 +100,14 @@ This is not magic — it works because pointers never move backward unnecessaril
 
 When using left/right pointers, always ask:
 
-> “Which side should move, and why?”
+> â€œWhich side should move, and why?â€
 
 Movement is based on **what information you gain** by moving a pointer.
 
 Example logic:
 
-* If current sum is too large → move right pointer
-* If current sum is too small → move left pointer
+* If current sum is too large â†’ move right pointer
+* If current sum is too small â†’ move left pointer
 
 Movement must be **justified**, not guessed.
 
@@ -183,9 +183,9 @@ Always explain **why** a pointer moves.
 
 If you forget what `slow` represents, logic breaks.
 
-### Mistake 3: Using two pointers when order doesn’t matter
+### Mistake 3: Using two pointers when order doesnâ€™t matter
 
-If order doesn’t matter, hashing or sorting may be simpler.
+If order doesnâ€™t matter, hashing or sorting may be simpler.
 
 ---
 
@@ -276,7 +276,7 @@ return write
 - Losing the meaning of `slow` / `write` in in-place problems.
 
 ### Linked solved problems
-- [`0015-3sum`](../../0015-3sum/)
-- [`0011-container-with-most-water`](../../0011-container-with-most-water/)
-- [`0026-remove-duplicates-from-sorted-array`](../../0026-remove-duplicates-from-sorted-array/)
-- [`1877-minimize-maximum-pair-sum-in-array`](../../1877-minimize-maximum-pair-sum-in-array/)
+- [`0015-3sum`](../../problems/0015-3sum/)
+- [`0011-container-with-most-water`](../../problems/0011-container-with-most-water/)
+- [`0026-remove-duplicates-from-sorted-array`](../../problems/0026-remove-duplicates-from-sorted-array/)
+- [`1877-minimize-maximum-pair-sum-in-array`](../../problems/1877-minimize-maximum-pair-sum-in-array/)

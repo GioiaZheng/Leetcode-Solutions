@@ -1,10 +1,10 @@
-# Depth-First Search (DFS)  
+﻿# Depth-First Search (DFS)
 
 This note is written for beginners who feel:
 
-- “I don’t know when to use DFS instead of BFS”
-- “Recursion in DFS scares me”
-- “DFS sometimes works, sometimes gives wrong answers”
+- â€œI donâ€™t know when to use DFS instead of BFSâ€
+- â€œRecursion in DFS scares meâ€
+- â€œDFS sometimes works, sometimes gives wrong answersâ€
 
 If this sounds familiar, this note is for you.
 
@@ -22,7 +22,7 @@ Typical questions DFS answers:
 - Is there a cycle?
 - Enumerate all paths / regions
 
-If the problem is about **exploration**, not distance → DFS.
+If the problem is about **exploration**, not distance â†’ DFS.
 
 ---
 
@@ -95,8 +95,8 @@ This avoids recursion depth limits.
 
 Recursion naturally handles:
 
-* “go deeper”
-* “come back”
+* â€œgo deeperâ€
+* â€œcome backâ€
 
 Each function call:
 
@@ -146,12 +146,12 @@ This pattern appears in:
 
 DFS is perfect for this question:
 
-> “How many disconnected groups exist?”
+> â€œHow many disconnected groups exist?â€
 
 Algorithm:
 
 * loop through all nodes
-* if a node is unvisited → start DFS
+* if a node is unvisited â†’ start DFS
 * each DFS marks one component
 
 ---
@@ -204,7 +204,7 @@ Before using DFS, ask:
 * Is distance irrelevant?
 * Is recursion depth manageable?
 
-If yes → DFS is a good fit.
+If yes â†’ DFS is a good fit.
 
 ---
 
@@ -277,7 +277,7 @@ while stack:
 - Mutating shared path state without backtracking.
 
 ### Linked solved problems
-- [`0756-pyramid-transition-matrix`](../../0756-pyramid-transition-matrix/)
-- [`2872-maximum-number-of-k-divisible-components`](../../2872-maximum-number-of-k-divisible-components/)
-- [`0865-smallest-subtree-with-all-the-deepest-nodes`](../../0865-smallest-subtree-with-all-the-deepest-nodes/)
-- [`1339-maximum-product-of-splitted-binary-tree`](../../1339-maximum-product-of-splitted-binary-tree/)
+- [`0756-pyramid-transition-matrix`](../../problems/0756-pyramid-transition-matrix/)
+- [`2872-maximum-number-of-k-divisible-components`](../../problems/2872-maximum-number-of-k-divisible-components/)
+- [`0865-smallest-subtree-with-all-the-deepest-nodes`](../../problems/0865-smallest-subtree-with-all-the-deepest-nodes/)
+- [`1339-maximum-product-of-splitted-binary-tree`](../../problems/1339-maximum-product-of-splitted-binary-tree/)

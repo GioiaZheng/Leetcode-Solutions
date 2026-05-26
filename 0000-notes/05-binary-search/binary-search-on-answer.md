@@ -1,10 +1,10 @@
-# Binary Search on Answer  
+﻿# Binary Search on Answer
 
 This note is written for beginners who feel:
 
-- “The array is not sorted, so why can we use binary search?”
-- “What does ‘binary search on answer’ even mean?”
-- “These problems feel like magic solutions”
+- â€œThe array is not sorted, so why can we use binary search?â€
+- â€œWhat does â€˜binary search on answerâ€™ even mean?â€
+- â€œThese problems feel like magic solutionsâ€
 
 If this sounds familiar, this note is for you.
 
@@ -14,7 +14,7 @@ If this sounds familiar, this note is for you.
 
 Binary search on answer solves problems like:
 
-> **“Find the maximum / minimum value that is still possible.”**
+> **â€œFind the maximum / minimum value that is still possible.â€**
 
 Key difference:
 - You are **not searching for an element**
@@ -32,7 +32,7 @@ That means:
 - If a value `x` is possible,
 - then all values **on one side** of `x` are also possible.
 
-This creates a **yes → yes → yes → no → no** pattern  
+This creates a **yes â†’ yes â†’ yes â†’ no â†’ no** pattern
 (or the reverse).
 
 Without this property, binary search does not apply.
@@ -43,7 +43,7 @@ Without this property, binary search does not apply.
 
 Imagine this question:
 
-> “How many hours can all computers run simultaneously?”
+> â€œHow many hours can all computers run simultaneously?â€
 
 If:
 - running for 3 hours is possible
@@ -53,7 +53,7 @@ If:
 Then:
 - possible hours form a continuous range
 
-That’s exactly what binary search needs.
+Thatâ€™s exactly what binary search needs.
 
 ---
 
@@ -62,7 +62,7 @@ That’s exactly what binary search needs.
 > **Binary search on answer = binary search on feasibility**
 
 You are repeatedly asking:
-> “Is this value feasible?”
+> â€œIs this value feasible?â€
 
 And narrowing the range based on yes/no.
 
@@ -81,25 +81,25 @@ If you cannot clearly define step 2, stop.
 
 ---
 
-## 6. Step 1 — Define the answer range
+## 6. Step 1 â€” Define the answer range
 
 The answer range is usually:
 - minimum possible value
 - maximum possible value
 
 Example:
-- time → `[0, max_time]`
-- capacity → `[max_item, sum_items]`
+- time â†’ `[0, max_time]`
+- capacity â†’ `[max_item, sum_items]`
 
 The range does not need to be tight, just correct.
 
 ---
 
-## 7. Step 2 — Feasibility check (the hardest part)
+## 7. Step 2 â€” Feasibility check (the hardest part)
 
 A feasibility function answers:
 
-> “Given value `x`, can we do it?”
+> â€œGiven value `x`, can we do it?â€
 
 Important rules:
 - must be deterministic
@@ -118,7 +118,7 @@ This function is the **heart of the solution**.
 
 ---
 
-## 8. Step 3 — Binary search template (Python)
+## 8. Step 3 â€” Binary search template (Python)
 
 ```python
 l = low
@@ -162,7 +162,7 @@ If feasibility is not monotonic, binary search is invalid.
 
 ### Mistake 2: Feasibility too slow
 
-If `can(x)` is O(n²), total complexity explodes.
+If `can(x)` is O(nÂ²), total complexity explodes.
 
 ### Mistake 3: Confusing simulation with optimization
 
@@ -205,7 +205,7 @@ Before using binary search on answer, ask:
 * Can I check feasibility for a given value?
 * Is feasibility monotonic?
 
-If yes → binary search on answer applies.
+If yes â†’ binary search on answer applies.
 
 ---
 
@@ -229,7 +229,7 @@ It is just:
 > **asking the right yes/no question repeatedly**
 
 Once you master this,
-many “hard-looking” problems become systematic.
+many â€œhard-lookingâ€ problems become systematic.
 
 ---
 
@@ -239,7 +239,7 @@ many “hard-looking” problems become systematic.
 Binary search the answer value, not an index. A helper `can(x)` decides whether candidate answer `x` is feasible. The key requirement is monotonicity.
 
 ### When to use it
-- “Maximize minimum” or “minimize maximum”.
+- â€œMaximize minimumâ€ or â€œminimize maximumâ€.
 - Minimum time/capacity/speed questions.
 - Geometry or allocation problems with a yes/no feasibility check.
 - The answer is numeric and bounded.
@@ -270,7 +270,7 @@ For minimum feasible, use lower mid and move `right = mid` when feasible.
 - Bounds that exclude the real answer.
 
 ### Linked solved problems
-- [`2141-maximum-running-time-of-n-computers`](../../2141-maximum-running-time-of-n-computers/)
-- [`3453-separate-squares-i`](../../3453-separate-squares-i/)
-- [`1292-maximum-side-length-of-a-square-with-sum-at-most-threshold`](../../1292-maximum-side-length-of-a-square-with-sum-at-most-threshold/)
-- [`1970-last-day-where-you-can-still-cross`](../../1970-last-day-where-you-can-still-cross/)
+- [`2141-maximum-running-time-of-n-computers`](../../problems/2141-maximum-running-time-of-n-computers/)
+- [`3453-separate-squares-i`](../../problems/3453-separate-squares-i/)
+- [`1292-maximum-side-length-of-a-square-with-sum-at-most-threshold`](../../problems/1292-maximum-side-length-of-a-square-with-sum-at-most-threshold/)
+- [`1970-last-day-where-you-can-still-cross`](../../problems/1970-last-day-where-you-can-still-cross/)

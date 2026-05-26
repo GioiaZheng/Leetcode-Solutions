@@ -1,10 +1,10 @@
-# Breadth-First Search (BFS)  
+﻿# Breadth-First Search (BFS)
 
 This note is written for beginners who feel:
 
-- “I know BFS uses a queue, but I don’t really get why”
-- “When should I use BFS instead of DFS?”
-- “Why BFS gives shortest path without weights?”
+- â€œI know BFS uses a queue, but I donâ€™t really get whyâ€
+- â€œWhen should I use BFS instead of DFS?â€
+- â€œWhy BFS gives shortest path without weights?â€
 
 If this sounds familiar, this note is for you.
 
@@ -21,8 +21,8 @@ Typical questions BFS answers:
 - What nodes are closest to the start?
 - Can I reach the target in the fewest moves?
 
-If the problem says **“minimum steps / moves / distance”**  
-and edges are unweighted → BFS is your first choice.
+If the problem says **â€œminimum steps / moves / distanceâ€**
+and edges are unweighted â†’ BFS is your first choice.
 
 ---
 
@@ -49,7 +49,7 @@ This is exactly what a **queue (FIFO)** does.
 - push newly discovered nodes to the back
 - process nodes from the front
 
-Stack would break this order — queue preserves layers.
+Stack would break this order â€” queue preserves layers.
 
 ---
 
@@ -94,7 +94,7 @@ Often you want distance.
 
 Two common methods:
 
-### Method 1 — Distance map
+### Method 1 â€” Distance map
 
 ```python
 dist = {start: 0}
@@ -108,7 +108,7 @@ dist[nei] = dist[node] + 1
 
 ---
 
-### Method 2 — Layer-by-layer BFS
+### Method 2 â€” Layer-by-layer BFS
 
 ```python
 steps = 0
@@ -127,9 +127,9 @@ Both are valid. Use what feels clearer.
 
 Do NOT use BFS when:
 
-* edges have different weights → use Dijkstra
-* you need to explore all possibilities deeply → DFS
-* recursion depth matters → DFS
+* edges have different weights â†’ use Dijkstra
+* you need to explore all possibilities deeply â†’ DFS
+* recursion depth matters â†’ DFS
 
 BFS is about **distance**, not exhaustive search.
 
@@ -190,7 +190,7 @@ Before using BFS, ask:
 * Do I need minimum steps?
 * Can I model this as nodes + edges?
 
-If yes → BFS is likely correct.
+If yes â†’ BFS is likely correct.
 
 ---
 
@@ -215,8 +215,8 @@ It is about:
 
 > **respecting distance order**
 
-Once you see BFS as “distance first”,
-you’ll recognize it immediately in problems.
+Once you see BFS as â€œdistance firstâ€,
+youâ€™ll recognize it immediately in problems.
 
 ---
 
@@ -256,6 +256,6 @@ while queue:
 - Using `list.pop(0)` instead of `deque.popleft()`.
 
 ### Linked solved problems
-- [`2092-find-all-people-with-secret`](../../2092-find-all-people-with-secret/)
-- [`1161-maximum-level-of-a-binary-tree`](../../1161-maximum-level-of-a-binary-tree/)
-- [`1970-last-day-where-you-can-still-cross`](../../1970-last-day-where-you-can-still-cross/)
+- [`2092-find-all-people-with-secret`](../../problems/2092-find-all-people-with-secret/)
+- [`1161-maximum-level-of-a-binary-tree`](../../problems/1161-maximum-level-of-a-binary-tree/)
+- [`1970-last-day-where-you-can-still-cross`](../../problems/1970-last-day-where-you-can-still-cross/)

@@ -3,6 +3,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+PROBLEMS_ROOT = ROOT / "problems"
 README = ROOT / "README.md"
 CATALOG = ROOT / "CATALOG.md"
 METADATA = ROOT / "metadata.json"
@@ -26,7 +27,7 @@ METRIC_MARKERS = {
 def problem_directories():
     return sorted(
         item
-        for item in ROOT.iterdir()
+        for item in PROBLEMS_ROOT.iterdir()
         if item.is_dir()
         and (match := PROBLEM_DIR_RE.match(item.name))
         and int(match.group(1)) > 0

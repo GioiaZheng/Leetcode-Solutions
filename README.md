@@ -7,54 +7,57 @@
 
 A personal collection of Python solutions to LeetCode problems, plus topic notes I write while studying.
 
-This is a study repo, not a library. Solutions are organized one per directory and kept self-contained so I can grep / revisit them quickly before interviews.
+This is a study repo, not a library. Solutions live under `problems/`, one directory per problem, and are kept self-contained so I can grep / revisit them quickly before interviews.
 
 ---
 
 # Highlights
 
-- Problem directories: <!-- PROBLEM_DIRS_START -->98<!-- PROBLEM_DIRS_END -->
+- Problem directories under `problems/`: <!-- PROBLEM_DIRS_START -->98<!-- PROBLEM_DIRS_END -->
 - Standard `solution.py` files: <!-- STANDARD_SOLUTIONS_START -->98<!-- STANDARD_SOLUTIONS_END -->
 - Catalog entries: <!-- CATALOG_ENTRIES_START -->98<!-- CATALOG_ENTRIES_END -->
 - Difficulty mix: Easy <!-- EASY_COUNT_START -->28<!-- EASY_COUNT_END --> / Medium <!-- MEDIUM_COUNT_START -->52<!-- MEDIUM_COUNT_END --> / Hard <!-- HARD_COUNT_START -->18<!-- HARD_COUNT_END --> (regenerated from `metadata.json`)
-- Topic-tagged catalog ([`CATALOG.md`](CATALOG.md)) regenerated from `metadata.json` + problem directories
-- Topic notes under [`0000-notes/`](0000-notes/) (English with partial 中文 translations); see the [Quick Pattern Guide](0000-notes/README.md) for cross-references between patterns and solved problems
+- Topic index ([`TOPICS.md`](TOPICS.md)) groups problems by major algorithm pattern
+- Full catalog ([`CATALOG.md`](CATALOG.md)) regenerated from `metadata.json` + problem directories
+- Topic notes under [`0000-notes/`](0000-notes/) (English with partial Chinese translations); see the [Quick Pattern Guide](0000-notes/README.md) for cross-references between patterns and solved problems
 
 ---
 
 # Repository Overview
 
-Each problem directory generally contains:
+Each problem directory under `problems/` generally contains:
 
-- `README.md` – problem summary, key insight, complexity analysis
-- `solution.py` – my reference solution
+- `README.md` - problem summary, key insight, complexity analysis
+- `solution.py` - my reference solution
 
 Top-level files:
 
-- `CATALOG.md` – generated index, one row per problem (id / title / difficulty / status / topics)
-- `metadata.json` – source of truth for problem titles, difficulty, topics, and review status; `CATALOG.md` and the README difficulty counts are derived from it
-- `templates/problem_README.md` – starter template for new problem READMEs
-- `0000-notes/` – topic notes (arrays, DP, graphs, …) with a Quick Pattern Guide that cross-references solved problems
-- `scripts/` – maintenance scripts (catalog generation, stats, structural + schema validation)
-- `tests/` – pytest cases (per-problem and validator self-tests)
+- `problems/` - solved problem directories, one per LeetCode problem
+- `CATALOG.md` - generated index, one row per problem (id / title / difficulty / status / topics)
+- `TOPICS.md` - generated topic index for browsing by major algorithm pattern
+- `metadata.json` - source of truth for problem titles, difficulty, topics, and review status; `CATALOG.md` and the README difficulty counts are derived from it
+- `templates/problem_README.md` - starter template for new problem READMEs
+- `0000-notes/` - topic notes (arrays, DP, graphs, etc.) with a Quick Pattern Guide that cross-references solved problems
+- `scripts/` - maintenance scripts (catalog generation, stats, structural + schema validation)
+- `tests/` - pytest cases (per-problem and validator self-tests)
 
 ---
 
 # Directory Naming Convention
 
 ```
-####-problem-name
+problems/####-problem-name
 ```
 
-- `####` – four-digit LeetCode problem ID
-- `problem-name` – lowercase kebab-case (ASCII only, no `<`, `=`, `>` or other shell-unfriendly characters)
+- `####` - four-digit LeetCode problem ID
+- `problem-name` - lowercase kebab-case (ASCII only, no `<`, `=`, `>` or other shell-unfriendly characters)
 
 Examples:
 
 ```
-0001-two-sum
-1458-max-dot-product-of-two-subsequences
-3453-separate-squares-i
+problems/0001-two-sum
+problems/1458-max-dot-product-of-two-subsequences
+problems/3453-separate-squares-i
 ```
 
 ---
@@ -75,13 +78,13 @@ python -m compileall -q .
 pytest
 ```
 
-Individual `solution.py` files are LeetCode-style modules — a single `class Solution`. They are not meant to be run directly.
+Individual `solution.py` files are LeetCode-style modules - a single `class Solution`. They are not meant to be run directly.
 
 ---
 
 # Notes Library
 
-Topic indices live under [`0000-notes/`](0000-notes/README.md). Most notes have an English version and a shorter 中文 version.
+Topic indices live under [`0000-notes/`](0000-notes/README.md). Most notes have an English version and a shorter Chinese version.
 
 Topics:
 
@@ -112,8 +115,8 @@ What this repo is:
 What this repo is **not**:
 
 - A benchmark or comparative study of algorithms.
-- A reusable Python library — there is no shared package, every solution is standalone by design.
-- A complete test suite — only a curated subset of problems has automated tests today (see `tests/test_selected_solutions.py`).
+- A reusable Python library - there is no shared package, every solution is standalone by design.
+- A complete test suite - only a curated subset of problems has automated tests today (see `tests/test_selected_solutions.py`).
 
 ---
 
@@ -129,7 +132,8 @@ This is primarily a personal study repo. If you do want to contribute:
 
   ```bash
   python scripts/generate_catalog.py
+  python scripts/generate_topics.py
   python scripts/update_stats.py
   ```
 
-  Commit the regenerated `CATALOG.md` and `README.md` along with your change.
+  Commit the regenerated `CATALOG.md`, `TOPICS.md`, and `README.md` along with your change.

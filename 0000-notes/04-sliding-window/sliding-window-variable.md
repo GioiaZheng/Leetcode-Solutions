@@ -1,10 +1,10 @@
-# Sliding Window — Variable Size  
+﻿# Sliding Window â€” Variable Size
 
 This note is written for beginners who feel:
 
-- “Fixed window is fine, but variable window confuses me”
-- “I don’t know when to use `while` instead of `if`”
-- “I get lost when the window needs to shrink”
+- â€œFixed window is fine, but variable window confuses meâ€
+- â€œI donâ€™t know when to use `while` instead of `if`â€
+- â€œI get lost when the window needs to shrinkâ€
 
 If this sounds familiar, this note is for you.
 
@@ -54,7 +54,7 @@ You should consider variable window when:
   - shortest
   - number of valid windows
 
-If the constraint depends on window content → variable window.
+If the constraint depends on window content â†’ variable window.
 
 ---
 
@@ -66,7 +66,7 @@ This is the rule everything follows.
 
 Process:
 1. Expand the window (move right)
-2. If invalid → shrink from left
+2. If invalid â†’ shrink from left
 3. Shrink until valid again
 4. Only then update the answer
 
@@ -78,10 +78,10 @@ If you violate this invariant, bugs appear.
 
 Imagine reading the array from left to right.
 
-- “Let me include this new element”
-- “Oops, now the window is invalid”
-- “I must remove elements from the left”
-- “Okay, it’s valid again”
+- â€œLet me include this new elementâ€
+- â€œOops, now the window is invalidâ€
+- â€œI must remove elements from the leftâ€
+- â€œOkay, itâ€™s valid againâ€
 
 This is exactly what the code does.
 
@@ -145,7 +145,7 @@ Because:
 
 ## 8. Three common problem types
 
-### Type 1 — Longest valid window
+### Type 1 â€” Longest valid window
 
 Example:
 
@@ -155,7 +155,7 @@ Update answer **after shrinking**.
 
 ---
 
-### Type 2 — Shortest valid window
+### Type 2 â€” Shortest valid window
 
 Example:
 
@@ -165,7 +165,7 @@ Update answer **before shrinking further**.
 
 ---
 
-### Type 3 — Count valid windows
+### Type 3 â€” Count valid windows
 
 Key trick:
 
@@ -180,16 +180,16 @@ ans += right - left + 1
 
 ---
 
-## 9. “At most K” vs “Exactly K”
+## 9. â€œAt most Kâ€ vs â€œExactly Kâ€
 
 Very important transformation:
 
-> **Exactly K = At most K − At most (K − 1)**
+> **Exactly K = At most K âˆ’ At most (K âˆ’ 1)**
 
 Why this works:
 
-* sliding window handles “at most” naturally
-* “exactly” is hard directly
+* sliding window handles â€œat mostâ€ naturally
+* â€œexactlyâ€ is hard directly
 
 This trick appears often in Medium problems.
 
@@ -239,7 +239,7 @@ Variable sliding window is not hard.
 
 It is just:
 
-> **expand → break → shrink → restore**
+> **expand â†’ break â†’ shrink â†’ restore**
 
 Once this loop is clear, many Medium problems become manageable.
 
@@ -252,7 +252,7 @@ Maintain a contiguous window `[left, right]`. Expand with `right`, update window
 
 ### When to use it
 - Longest/shortest substring or subarray.
-- Constraints like “at most K”, “without repeating”, “max-min <= k”.
+- Constraints like â€œat most Kâ€, â€œwithout repeatingâ€, â€œmax-min <= kâ€.
 - Counting valid contiguous windows.
 - Cases where all values needed for validity can be updated incrementally.
 
@@ -284,7 +284,7 @@ for right, value in enumerate(nums):
 - Applying sliding window when the condition is not monotonic as `left` moves.
 
 ### Linked solved problems
-- [`0003-longest-substring-without-repeating-characters`](../../0003-longest-substring-without-repeating-characters/)
-- [`1888-minimum-number-of-flips-to-make-the-binary-string-alternating`](../../1888-minimum-number-of-flips-to-make-the-binary-string-alternating/)
-- [`2110-number-of-smooth-descent-periods-of-a-stock`](../../2110-number-of-smooth-descent-periods-of-a-stock/)
-- [`3578-count-partitions-with-max-min-difference-at-most-k`](../../3578-count-partitions-with-max-min-difference-at-most-k/)
+- [`0003-longest-substring-without-repeating-characters`](../../problems/0003-longest-substring-without-repeating-characters/)
+- [`1888-minimum-number-of-flips-to-make-the-binary-string-alternating`](../../problems/1888-minimum-number-of-flips-to-make-the-binary-string-alternating/)
+- [`2110-number-of-smooth-descent-periods-of-a-stock`](../../problems/2110-number-of-smooth-descent-periods-of-a-stock/)
+- [`3578-count-partitions-with-max-min-difference-at-most-k`](../../problems/3578-count-partitions-with-max-min-difference-at-most-k/)

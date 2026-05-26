@@ -45,9 +45,13 @@ VALID_STATUSES = {"solved", "tested", "review-needed"}
 
 def problem_directories(root=ROOT):
     """Return LeetCode problem directories, excluding the reserved notes folder."""
+    problems_root = root / "problems"
+    if not problems_root.is_dir():
+        return []
+
     return sorted(
         path
-        for path in root.iterdir()
+        for path in problems_root.iterdir()
         if path.is_dir()
         and (match := PROBLEM_DIR_RE.match(path.name))
         and int(match.group(1)) > 0
@@ -210,7 +214,7 @@ def validate_catalog(problem_dirs, root=ROOT):
     if not catalog.is_file():
         return ["CATALOG.md is missing from the repository root."]
 
-    expected = {directory.name for directory in problem_dirs}
+    expected = {relative(directory, root) for directory in problem_dirs}
     entries = catalog_directories(catalog)
     seen = set()
     duplicates = set()

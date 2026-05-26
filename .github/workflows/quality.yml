@@ -32,12 +32,13 @@ jobs:
       - name: Validate repository structure
         run: python scripts/validate_repo.py
 
-      - name: Catalog and README metrics are in sync
+      - name: Generated indexes and README metrics are in sync
         run: |
           python scripts/generate_catalog.py
+          python scripts/generate_topics.py
           python scripts/update_stats.py
-          git diff --exit-code -- CATALOG.md README.md || {
-            echo "::error::CATALOG.md or README.md is out of sync. Run scripts/generate_catalog.py and scripts/update_stats.py and commit the result." >&2
+          git diff --exit-code -- CATALOG.md TOPICS.md README.md || {
+            echo "::error::Generated docs are out of sync. Run scripts/generate_catalog.py, scripts/generate_topics.py, and scripts/update_stats.py, then commit the result." >&2
             exit 1
           }
 

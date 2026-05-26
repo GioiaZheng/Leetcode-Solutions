@@ -36,4 +36,4 @@ ignore = [
 # k, n) that ruff's E741 flags as ambiguous. Import-sort (I001) is also waived
 # because solution files are short, hand-curated for problem clarity, and not
 # meant to be installed as a package. These are idiomatic for this repo.
-"[0-9]*/**/solution*.py" = ["F821", "E741", "I001"]
+"problems/[0-9]*/**/solution*.py" = ["F821", "E741", "I001"]

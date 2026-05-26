@@ -1,10 +1,10 @@
-# Prefix Sum  
+﻿# Prefix Sum
 
 This note is written for beginners who feel:
 
-- “I’ve seen prefix sum formulas, but they feel abstract”
-- “I don’t know when prefix sum is useful”
-- “I confuse prefix sum with sliding window”
+- â€œIâ€™ve seen prefix sum formulas, but they feel abstractâ€
+- â€œI donâ€™t know when prefix sum is usefulâ€
+- â€œI confuse prefix sum with sliding windowâ€
 
 If this sounds familiar, this note is for you.
 
@@ -32,15 +32,15 @@ Money:  2  3  1  4  2
 
 If someone asks:
 
-* “How much did I spend from day 2 to day 4?”
+* â€œHow much did I spend from day 2 to day 4?â€
 
 You could:
 
-* add 3 + 1 + 4 every time ❌
+* add 3 + 1 + 4 every time âŒ
 
 Or:
 
-* keep a running total once ✅
+* keep a running total once âœ…
 
 Prefix sum is just **running total stored in an array**.
 
@@ -70,9 +70,9 @@ With prefix sum:
 
 This turns:
 
-* nested loops ❌
+* nested loops âŒ
   into:
-* simple subtraction ✅
+* simple subtraction âœ…
 
 ---
 
@@ -146,7 +146,7 @@ Idea:
 
 Common pattern:
 
-> “How many times have I seen this prefix sum before?”
+> â€œHow many times have I seen this prefix sum before?â€
 
 This unlocks many Medium problems.
 
@@ -158,7 +158,7 @@ Key transformation:
 
 ```text
 prefix[j] - prefix[i] = K
-→ prefix[i] = prefix[j] - K
+â†’ prefix[i] = prefix[j] - K
 ```
 
 So for each prefix sum:
@@ -194,7 +194,7 @@ Prefix sum can store:
 * parity (odd/even)
 * frequency
 
-It’s a general **accumulation technique**.
+Itâ€™s a general **accumulation technique**.
 
 ---
 
@@ -206,7 +206,7 @@ Before using prefix sum, ask:
 * Can I precompute something once?
 * Are ranges static?
 
-If yes → prefix sum is a strong candidate.
+If yes â†’ prefix sum is a strong candidate.
 
 ---
 
@@ -243,7 +243,7 @@ Precompute cumulative values so a range query becomes subtraction. Combine with 
 ### When to use it
 - Many range sum/count queries.
 - Subarray sum modulo or divisibility problems.
-- “Split array by prefix/suffix” checks.
+- â€œSplit array by prefix/suffixâ€ checks.
 - 2D matrix sums where repeated rectangle queries appear.
 
 ### Template code
@@ -279,7 +279,7 @@ for x in nums:
 - Taking modulo at inconsistent points.
 
 ### Linked solved problems
-- [`1590-make-sum-divisible-by-p`](../../1590-make-sum-divisible-by-p/)
-- [`2435-paths-in-matrix-divisible-by-k`](../../2435-paths-in-matrix-divisible-by-k/)
-- [`3381-maximum-subarray-sum-with-length-divisible-by-k`](../../3381-maximum-subarray-sum-with-length-divisible-by-k/)
-- [`3432-count-partitions-with-even-sum-difference`](../../3432-count-partitions-with-even-sum-difference/)
+- [`1590-make-sum-divisible-by-p`](../../problems/1590-make-sum-divisible-by-p/)
+- [`2435-paths-in-matrix-divisible-by-k`](../../problems/2435-paths-in-matrix-divisible-by-k/)
+- [`3381-maximum-subarray-sum-with-length-divisible-by-k`](../../problems/3381-maximum-subarray-sum-with-length-divisible-by-k/)
+- [`3432-count-partitions-with-even-sum-difference`](../../problems/3432-count-partitions-with-even-sum-difference/)

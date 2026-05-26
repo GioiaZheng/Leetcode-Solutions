@@ -1,4 +1,4 @@
-# Heap / Priority Queue
+﻿# Heap / Priority Queue
 
 ## Pattern description
 
@@ -68,7 +68,7 @@ for start, end in meetings:
 
 ## Linked solved problems
 
-- [`2402-meeting-rooms-iii`](../../2402-meeting-rooms-iii/) — two heaps for available and busy rooms.
-- [`0692-top-k-frequent-words`](../../0692-top-k-frequent-words/) — frequency ranking / top-k thinking.
-- [`2343-query-kth-smallest-trimmed-number`](../../2343-query-kth-smallest-trimmed-number/) — repeated ordering queries.
-- [`0347-top-k-frequent-elements`](../../0347-top-k-frequent-elements/) — compare heap, sorting, bucket, and counter approaches.
+- [`2402-meeting-rooms-iii`](../../problems/2402-meeting-rooms-iii/) â€” two heaps for available and busy rooms.
+- [`0692-top-k-frequent-words`](../../problems/0692-top-k-frequent-words/) â€” frequency ranking / top-k thinking.
+- [`2343-query-kth-smallest-trimmed-number`](../../problems/2343-query-kth-smallest-trimmed-number/) â€” repeated ordering queries.
+- [`0347-top-k-frequent-elements`](../../problems/0347-top-k-frequent-elements/) â€” compare heap, sorting, bucket, and counter approaches.

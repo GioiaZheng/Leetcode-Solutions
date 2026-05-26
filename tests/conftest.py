@@ -12,7 +12,7 @@ def load_solution(problem_dir: str):
     Problem directories start with a digit, so they can't be imported as a
     regular Python package. We load the module from its path instead.
     """
-    path = ROOT / problem_dir / "solution.py"
+    path = ROOT / "problems" / problem_dir / "solution.py"
     spec = spec_from_file_location(f"_lc_{problem_dir}", path)
     module = module_from_spec(spec)
     spec.loader.exec_module(module)

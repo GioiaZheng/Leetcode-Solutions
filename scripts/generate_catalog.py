@@ -3,6 +3,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+PROBLEMS_ROOT = ROOT / "problems"
 CATALOG = ROOT / "CATALOG.md"
 METADATA = ROOT / "metadata.json"
 
@@ -14,7 +15,7 @@ VALID_STATUSES = {"solved", "tested", "review-needed"}
 def problem_directories():
     return sorted(
         path
-        for path in ROOT.iterdir()
+        for path in PROBLEMS_ROOT.iterdir()
         if path.is_dir()
         and (match := PROBLEM_DIR_RE.match(path.name))
         and int(match.group(1)) > 0
@@ -92,7 +93,7 @@ def catalog_rows():
                 "title": problem["title"],
                 "difficulty": problem["difficulty"],
                 "status": problem["status"],
-                "directory": directory.name,
+                "directory": f"problems/{directory.name}",
                 "topics": "; ".join(problem["topics"]),
             }
         )

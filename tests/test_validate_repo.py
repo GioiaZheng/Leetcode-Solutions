@@ -28,8 +28,8 @@ def standard_readme():
 
 
 def write_problem(root, name, readme=None, solution=None):
-    directory = root / name
-    directory.mkdir()
+    directory = root / "problems" / name
+    directory.mkdir(parents=True)
     if readme is not None:
         (directory / "README.md").write_text(readme, encoding="utf-8")
     if solution is not None:
@@ -46,7 +46,9 @@ def write_catalog(root, directories):
     ]
     for directory in directories:
         problem_id = directory.split("-", 1)[0]
-        rows.append(f"| {problem_id} | Example | [`{directory}/`]({directory}/) |  |")
+        rows.append(
+            f"| {problem_id} | Example | [`problems/{directory}/`](problems/{directory}/) |  |"
+        )
     (root / "CATALOG.md").write_text("\n".join(rows) + "\n", encoding="utf-8")
 
 
@@ -88,14 +90,14 @@ def test_validate_accepts_well_formed_repository(tmp_path):
 
 def test_validate_reports_missing_required_files(tmp_path):
     directory = "0001-two-sum"
-    (tmp_path / directory).mkdir()
+    (tmp_path / "problems" / directory).mkdir(parents=True)
     write_catalog(tmp_path, [directory])
     write_metadata(tmp_path, [directory])
 
     _, errors = validate_repo.validate(tmp_path)
 
-    assert f"{directory} is missing README.md." in errors
-    assert f"{directory} is missing solution.py." in errors
+    assert f"problems/{directory} is missing README.md." in errors
+    assert f"problems/{directory} is missing solution.py." in errors
 
 
 def test_validate_reports_solution_parse_and_class_errors(tmp_path):
@@ -109,8 +111,11 @@ def test_validate_reports_solution_parse_and_class_errors(tmp_path):
 
     _, errors = validate_repo.validate(tmp_path)
 
-    assert any(f"{bad_syntax}/solution.py has invalid Python syntax" in error for error in errors)
-    assert f"{missing_class}/solution.py must define class Solution." in errors
+    assert any(
+        f"problems/{bad_syntax}/solution.py has invalid Python syntax" in error
+        for error in errors
+    )
+    assert f"problems/{missing_class}/solution.py must define class Solution." in errors
 
 
 def test_validate_reports_readme_directory_and_catalog_errors(tmp_path):
@@ -137,11 +142,11 @@ def test_validate_reports_readme_directory_and_catalog_errors(tmp_path):
 
     _, errors = validate_repo.validate(tmp_path)
 
-    assert any("0001-Two_Sum must use ####-lowercase-kebab-case" in error for error in errors)
-    assert any("0001-Two_Sum/README.md must describe Approach" in error for error in errors)
-    assert f"CATALOG.md is missing an entry for {missing_from_catalog}." in errors
-    assert f"CATALOG.md contains duplicate entries for {bad_name}." in errors
-    assert f"CATALOG.md contains an entry for unknown directory {extra}." in errors
+    assert any("problems/0001-Two_Sum must use ####-lowercase-kebab-case" in error for error in errors)
+    assert any("problems/0001-Two_Sum/README.md must describe Approach" in error for error in errors)
+    assert f"CATALOG.md is missing an entry for problems/{missing_from_catalog}." in errors
+    assert f"CATALOG.md contains duplicate entries for problems/{bad_name}." in errors
+    assert f"CATALOG.md contains an entry for unknown directory problems/{extra}." in errors
 
 
 def test_validate_reports_metadata_errors(tmp_path):
@@ -197,4 +202,7 @@ def test_validate_reports_suspicious_filenames(tmp_path):
 
     _, errors = validate_repo.validate(tmp_path)
 
-    assert f"Suspicious filename {directory}/soution.py found; did you mean solution.py?" in errors
+    assert (
+        f"Suspicious filename problems/{directory}/soution.py found; did you mean solution.py?"
+        in errors
+    )

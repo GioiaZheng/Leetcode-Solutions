@@ -3,7 +3,7 @@ from pathlib import Path
 from typing import List
 
 ROOT = Path(__file__).resolve().parents[1]
-SOLUTION_PATH = ROOT / "0001-two-sum" / "solution.py"
+SOLUTION_PATH = ROOT / "problems" / "0001-two-sum" / "solution.py"
 
 
 def load_solution_class():
