@@ -55,7 +55,7 @@ def problem_directories(root=ROOT):
 
 
 def relative(path, root=ROOT):
-    return path.relative_to(root)
+    return path.relative_to(root).as_posix()
 
 
 def suspicious_files(root=ROOT):

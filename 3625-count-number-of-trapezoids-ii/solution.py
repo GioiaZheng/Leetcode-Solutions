@@ -40,9 +40,9 @@ class Solution:
                 # Line constant: sx*y - sy*x
                 const = sx * y1 - sy * x1
 
-                # Encode slope and direction
-                slope_key = (sx << 16) | (sy + 10000)
-                dir_key   = (dx << 16) | (dy + 10000)
+                # Keep keys as tuples to avoid hidden coordinate-range assumptions.
+                slope_key = (sx, sy)
+                dir_key = (dx, dy)
 
                 # Update maps
                 t[slope_key][const] += 1
