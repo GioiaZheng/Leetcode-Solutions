@@ -44,6 +44,13 @@ VALID_DIFFICULTIES = {"Easy", "Medium", "Hard"}
 VALID_STATUSES = {"solved", "tested", "review-needed"}
 VALID_PATH_MEMBERSHIPS = {"blind75", "neetcode150"}
 VALID_AI_CARD_STATUSES = {"draft", "reviewed", "interview-ready"}
+
+# Reliable signal that a problem README has been migrated to the AI-card
+# template (templates/problem_README.md). "Brute-force baseline" is unique
+# to the optional AI-card extension --- it never appears as an alias for
+# any of the six required core sections in README_REQUIREMENTS, so its
+# presence implies the author opted into the AI-card workflow.
+AI_CARD_MARKER_HEADING = "## Brute-force baseline"
 MOJIBAKE_MARKERS = ("ï", "Â", "Ã", "â€", "â†", "ä¸", "æ–")
 MOJIBAKE_CHECKED_FILES = (
     "README.md",
@@ -349,6 +356,54 @@ def validate_catalog(problem_dirs, root=ROOT):
     return errors
 
 
+def readme_has_ai_card_sections(content):
+    return AI_CARD_MARKER_HEADING in content
+
+
+def validate_ai_card_consistency(problem_dirs, root=ROOT):
+    """Per-problem README + metadata.json must agree about AI-card status.
+
+    A problem README that ships AI-card sections (detected via the
+    `## Brute-force baseline` heading) must carry an ai_card_status entry
+    in metadata.json, and vice versa: a metadata entry that sets
+    ai_card_status must point at a README that actually has the sections.
+    """
+    metadata_by_id, _ = load_metadata(root)
+    if metadata_by_id is None:
+        # load_metadata's own errors surface in validate_metadata; do not
+        # double-report them here.
+        return []
+
+    errors = []
+    for directory in problem_dirs:
+        problem_id = PROBLEM_DIR_RE.match(directory.name).group(1)
+        readme = directory / "README.md"
+        if not readme.is_file():
+            continue
+
+        content = readme.read_text(encoding="utf-8")
+        has_card = readme_has_ai_card_sections(content)
+        ai_card_status = metadata_by_id.get(problem_id, {}).get("ai_card_status")
+
+        if has_card and ai_card_status is None:
+            errors.append(
+                f"{relative(readme, root)} contains AI-card sections "
+                f"but metadata.json has no ai_card_status for entry "
+                f"{problem_id} (set it to one of "
+                f"{sorted(VALID_AI_CARD_STATUSES)})."
+            )
+        elif ai_card_status is not None and not has_card:
+            errors.append(
+                f"metadata.json entry {problem_id} sets "
+                f"ai_card_status={ai_card_status!r} but "
+                f"{relative(readme, root)} contains no AI-card sections "
+                f"(the template marker heading "
+                f"{AI_CARD_MARKER_HEADING!r} is missing)."
+            )
+
+    return errors
+
+
 def validate_topics(problem_dirs, root=ROOT):
     errors = []
     topics = root / "TOPICS.md"
@@ -401,6 +456,7 @@ def validate(root=ROOT):
     errors.extend(validate_catalog(directories, root))
     errors.extend(validate_topics(directories, root))
     errors.extend(validate_metadata(directories, root))
+    errors.extend(validate_ai_card_consistency(directories, root))
     errors.extend(validate_entrypoint_encoding(root))
     errors.extend(validate_entrypoint_links(root))
 

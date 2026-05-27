@@ -251,7 +251,9 @@ def test_validate_accepts_optional_path_membership_and_ai_card_status(tmp_path):
     write_problem(
         tmp_path,
         directory,
-        readme=standard_readme(),
+        # ai_card_status=reviewed in metadata requires the README to
+        # actually carry the AI-card sections (validate_ai_card_consistency).
+        readme=standard_readme_with_ai_card(),
         solution="class Solution:\n    pass\n",
     )
     write_catalog(tmp_path, [directory])
@@ -347,6 +349,113 @@ def test_validate_rejects_non_list_path_membership(tmp_path):
 
     assert any(
         "metadata.json entry 0001 has invalid path_membership" in error for error in errors
+    )
+
+
+def standard_readme_with_ai_card():
+    return standard_readme() + (
+        "\n"
+        "## Brute-force baseline\n\n"
+        "Naive O(n^2) approach.\n\n"
+        "## Common mistakes\n\n"
+        "- Off-by-one bug.\n\n"
+        "## Failure cases\n\n"
+        "1. Input X: ...\n"
+        "2. Input Y: ...\n\n"
+        "## Interview follow-ups\n\n"
+        "- Generalisation.\n\n"
+        "## Bilingual summary\n\n"
+        "English. Chinese.\n"
+    )
+
+
+def test_validate_accepts_ai_card_readme_with_matching_metadata(tmp_path):
+    directory = "0001-two-sum"
+    write_problem(
+        tmp_path,
+        directory,
+        readme=standard_readme_with_ai_card(),
+        solution="class Solution:\n    pass\n",
+    )
+    write_catalog(tmp_path, [directory])
+    write_topics(tmp_path, [directory])
+    (tmp_path / "metadata.json").write_text(
+        json.dumps(
+            {
+                "problems": [
+                    {
+                        "id": "0001",
+                        "title": "Two Sum",
+                        "difficulty": "Easy",
+                        "topics": ["Array"],
+                        "status": "tested",
+                        "ai_card_status": "reviewed",
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    _, errors = validate_repo.validate(tmp_path)
+
+    assert errors == []
+
+
+def test_validate_reports_ai_card_readme_without_metadata_status(tmp_path):
+    directory = "0001-two-sum"
+    write_problem(
+        tmp_path,
+        directory,
+        readme=standard_readme_with_ai_card(),
+        solution="class Solution:\n    pass\n",
+    )
+    write_catalog(tmp_path, [directory])
+    write_topics(tmp_path, [directory])
+    write_metadata(tmp_path, [directory])  # no ai_card_status
+
+    _, errors = validate_repo.validate(tmp_path)
+
+    assert any(
+        "contains AI-card sections" in error and "has no ai_card_status" in error
+        for error in errors
+    )
+
+
+def test_validate_reports_metadata_status_without_ai_card_readme(tmp_path):
+    directory = "0001-two-sum"
+    write_problem(
+        tmp_path,
+        directory,
+        readme=standard_readme(),  # core sections only, no AI-card heading
+        solution="class Solution:\n    pass\n",
+    )
+    write_catalog(tmp_path, [directory])
+    write_topics(tmp_path, [directory])
+    (tmp_path / "metadata.json").write_text(
+        json.dumps(
+            {
+                "problems": [
+                    {
+                        "id": "0001",
+                        "title": "Two Sum",
+                        "difficulty": "Easy",
+                        "topics": ["Array"],
+                        "status": "solved",
+                        "ai_card_status": "reviewed",
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    _, errors = validate_repo.validate(tmp_path)
+
+    assert any(
+        "ai_card_status='reviewed'" in error
+        and "contains no AI-card sections" in error
+        for error in errors
     )
 
 

@@ -3,7 +3,7 @@
 Generated from problem directories and `metadata.json` by `python scripts/generate_catalog.py`.
 Directory naming follows `problem-id-kebab-case-title` (all lowercase).
 
-**Total problems:** 98
+**Total problems:** 99
 
 | ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Topics |
 |---:|---|---|---|---|---|---|---|
@@ -25,9 +25,10 @@ Directory naming follows `problem-id-kebab-case-title` (all lowercase).
 | 0026 | Remove Duplicates From Sorted Array | Easy | solved |  |  | [`problems/0026-remove-duplicates-from-sorted-array/`](problems/0026-remove-duplicates-from-sorted-array/) | Array; Two Pointers |
 | 0027 | Remove Element | Easy | solved |  |  | [`problems/0027-remove-element/`](problems/0027-remove-element/) | Array; Two Pointers |
 | 0028 | Find The Index Of The First Occurrence In A String | Easy | solved |  |  | [`problems/0028-find-the-index-of-the-first-occurrence-in-a-string/`](problems/0028-find-the-index-of-the-first-occurrence-in-a-string/) | String; Two Pointers; Pattern Matching |
+| 0042 | Trapping Rain Water | Hard | solved | blind75 | reviewed | [`problems/0042-trapping-rain-water/`](problems/0042-trapping-rain-water/) | Array; Two Pointers; Dynamic Programming; Stack |
 | 0049 | Group Anagrams | Medium | solved | blind75 | reviewed | [`problems/0049-group-anagrams/`](problems/0049-group-anagrams/) | Array; Hash Table; String |
 | 0066 | Plus One | Easy | solved |  |  | [`problems/0066-plus-one/`](problems/0066-plus-one/) | Array; Math |
-| 0085 | Maximal Rectangle | Hard | solved |  |  | [`problems/0085-maximal-rectangle/`](problems/0085-maximal-rectangle/) | Dynamic Programming; Stack; Monotonic Stack |
+| 0085 | Maximal Rectangle | Hard | solved |  | reviewed | [`problems/0085-maximal-rectangle/`](problems/0085-maximal-rectangle/) | Dynamic Programming; Stack; Monotonic Stack |
 | 0121 | Best Time To Buy And Sell Stock | Easy | solved | blind75 | reviewed | [`problems/0121-best-time-to-buy-and-sell-stock/`](problems/0121-best-time-to-buy-and-sell-stock/) | Array; Greedy |
 | 0164 | Maximum Gap | Medium | solved |  |  | [`problems/0164-maximum-gap/`](problems/0164-maximum-gap/) | Bucket Sort; Pigeonhole Principle; Sorting |
 | 0220 | Contains Duplicate Iii | Hard | solved |  |  | [`problems/0220-contains-duplicate-iii/`](problems/0220-contains-duplicate-iii/) | Sliding Window; Bucket Sort; Hash Map |

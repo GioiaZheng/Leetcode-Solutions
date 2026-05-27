@@ -13,14 +13,14 @@ This is a study repo, not a library. Solutions live under `problems/`, one direc
 
 # Highlights
 
-- Problem directories under `problems/`: <!-- PROBLEM_DIRS_START -->98<!-- PROBLEM_DIRS_END -->
-- Standard `solution.py` files: <!-- STANDARD_SOLUTIONS_START -->98<!-- STANDARD_SOLUTIONS_END -->
-- Catalog entries: <!-- CATALOG_ENTRIES_START -->98<!-- CATALOG_ENTRIES_END -->
-- Difficulty mix: Easy <!-- EASY_COUNT_START -->28<!-- EASY_COUNT_END --> / Medium <!-- MEDIUM_COUNT_START -->52<!-- MEDIUM_COUNT_END --> / Hard <!-- HARD_COUNT_START -->18<!-- HARD_COUNT_END --> (regenerated from `metadata.json`)
+- Problem directories under `problems/`: <!-- PROBLEM_DIRS_START -->99<!-- PROBLEM_DIRS_END -->
+- Standard `solution.py` files: <!-- STANDARD_SOLUTIONS_START -->99<!-- STANDARD_SOLUTIONS_END -->
+- Catalog entries: <!-- CATALOG_ENTRIES_START -->99<!-- CATALOG_ENTRIES_END -->
+- Difficulty mix: Easy <!-- EASY_COUNT_START -->28<!-- EASY_COUNT_END --> / Medium <!-- MEDIUM_COUNT_START -->52<!-- MEDIUM_COUNT_END --> / Hard <!-- HARD_COUNT_START -->19<!-- HARD_COUNT_END --> (regenerated from `metadata.json`)
 - Topic index ([`TOPICS.md`](TOPICS.md)) groups problems by major algorithm pattern
 - Full catalog ([`CATALOG.md`](CATALOG.md)) regenerated from `metadata.json` + problem directories
 - Topic notes under [`0000-notes/`](0000-notes/) (English with partial Chinese translations); see the [Quick Pattern Guide](0000-notes/README.md) for cross-references between patterns and solved problems
-- Curated learning paths under [`paths/`](paths/); **Blind 75** path live (<!-- BLIND75_COUNT_START -->9<!-- BLIND75_COUNT_END -->/75 problems tagged, <!-- REVIEWED_AI_CARDS_START -->9<!-- REVIEWED_AI_CARDS_END --> with reviewed AI cards)
+- Curated learning paths under [`paths/`](paths/); **Blind 75** path live (<!-- BLIND75_COUNT_START -->10<!-- BLIND75_COUNT_END -->/75 problems tagged, <!-- REVIEWED_AI_CARDS_START -->11<!-- REVIEWED_AI_CARDS_END --> with reviewed AI cards)
 
 ---
 
@@ -43,6 +43,30 @@ Top-level files:
 - `scripts/` - maintenance scripts (catalog generation, stats, structural + schema validation)
 - `tests/` - pytest cases (per-problem and validator self-tests)
 - `CONTRIBUTING.md` - rules for adding problems, updating metadata, and running local checks
+
+---
+
+# Where to start
+
+The reviewed AI-card showcases below are the recommended entry points. Each problem README carries a brute-force baseline, common mistakes, failure cases, interview follow-ups, and a bilingual English + Chinese summary on top of the standard six core sections (Problem / Intuition / Approach / Complexity / Edge Cases / Code).
+
+<!-- FEATURED_LIST_START -->
+| # | ID | Problem | Difficulty | Primary topic |
+|---:|---:|---|---|---|
+| 1 | 0001 | [Two Sum](problems/0001-two-sum/) | Easy | Hashing |
+| 2 | 0003 | [Longest Substring Without Repeating Characters](problems/0003-longest-substring-without-repeating-characters/) | Medium | Two Pointers & Sliding Window |
+| 3 | 0005 | [Longest Palindromic Substring](problems/0005-longest-palindromic-substring/) | Medium | Two Pointers & Sliding Window |
+| 4 | 0011 | [Container With Most Water](problems/0011-container-with-most-water/) | Medium | Two Pointers & Sliding Window |
+| 5 | 0015 | [3sum](problems/0015-3sum/) | Medium | Two Pointers & Sliding Window |
+| 6 | 0042 | [Trapping Rain Water](problems/0042-trapping-rain-water/) | Hard | Dynamic Programming |
+| 7 | 0049 | [Group Anagrams](problems/0049-group-anagrams/) | Medium | Hashing |
+| 8 | 0085 | [Maximal Rectangle](problems/0085-maximal-rectangle/) | Hard | Dynamic Programming |
+| 9 | 0121 | [Best Time To Buy And Sell Stock](problems/0121-best-time-to-buy-and-sell-stock/) | Easy | Greedy |
+| 10 | 0242 | [Valid Anagram](problems/0242-valid-anagram/) | Easy | Sorting & Heap |
+| 11 | 0347 | [Top K Frequent Elements](problems/0347-top-k-frequent-elements/) | Medium | Sorting & Heap |
+<!-- FEATURED_LIST_END -->
+
+Regenerated from `ai_card_status: reviewed` entries in `metadata.json` by `python scripts/update_indexes.py`. Primary topic is derived from the first entry in each problem's `topics` list mapped to the canonical categories defined in `scripts/generate_topics.py`.
 
 ---
 
@@ -114,7 +138,7 @@ Curated study paths live under [`paths/`](paths/). Each path has a hand-written 
 
 Live paths:
 
-- [**Blind 75**](paths/blind75/README.md) - <!-- BLIND75_COUNT_START -->9<!-- BLIND75_COUNT_END -->/75 problems tagged so far; <!-- REVIEWED_AI_CARDS_START -->9<!-- REVIEWED_AI_CARDS_END --> of those carry a `reviewed` AI card with brute-force baseline, common mistakes, failure cases, interview follow-ups, and a bilingual English + Chinese summary (see [`CONTRIBUTING.md`](CONTRIBUTING.md) section "Optional Problem README Sections (AI Card)").
+- [**Blind 75**](paths/blind75/README.md) - <!-- BLIND75_COUNT_START -->10<!-- BLIND75_COUNT_END -->/75 problems tagged so far; <!-- REVIEWED_AI_CARDS_START -->11<!-- REVIEWED_AI_CARDS_END --> of those carry a `reviewed` AI card with brute-force baseline, common mistakes, failure cases, interview follow-ups, and a bilingual English + Chinese summary (see [`CONTRIBUTING.md`](CONTRIBUTING.md) section "Optional Problem README Sections (AI Card)").
 
 `paths/<name>/README.md` files are regenerated by `python scripts/update_indexes.py`. Problem membership is declared in `metadata.json`, not by moving directories.
 
