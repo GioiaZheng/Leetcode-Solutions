@@ -11,7 +11,7 @@ Directory naming follows `problem-id-kebab-case-title` (all lowercase).
 | 0002 | Add Two Numbers | Medium | solved |  |  | [`problems/0002-add-two-numbers/`](problems/0002-add-two-numbers/) | Linked List; Math |
 | 0003 | Longest Substring Without Repeating Characters | Medium | solved | blind75 | reviewed | [`problems/0003-longest-substring-without-repeating-characters/`](problems/0003-longest-substring-without-repeating-characters/) | Sliding Window; Hash Map; Two Pointers |
 | 0004 | Median Of Two Sorted Arrays | Hard | solved |  |  | [`problems/0004-median-of-two-sorted-arrays/`](problems/0004-median-of-two-sorted-arrays/) | Binary Search; Divide and Conquer; Partitioning |
-| 0005 | Longest Palindromic Substring | Medium | solved | blind75 |  | [`problems/0005-longest-palindromic-substring/`](problems/0005-longest-palindromic-substring/) | String; Two Pointers; Expand Around Center |
+| 0005 | Longest Palindromic Substring | Medium | solved | blind75 | reviewed | [`problems/0005-longest-palindromic-substring/`](problems/0005-longest-palindromic-substring/) | String; Two Pointers; Expand Around Center |
 | 0006 | Zigzag Conversion | Medium | solved |  |  | [`problems/0006-zigzag-conversion/`](problems/0006-zigzag-conversion/) | String; Simulation |
 | 0007 | Reverse Integer | Medium | solved |  |  | [`problems/0007-reverse-integer/`](problems/0007-reverse-integer/) | Math |
 | 0008 | String To Integer Atoi | Medium | solved |  |  | [`problems/0008-string-to-integer-atoi/`](problems/0008-string-to-integer-atoi/) | String; Parsing |
