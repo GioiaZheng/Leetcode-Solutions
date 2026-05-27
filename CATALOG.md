@@ -32,7 +32,7 @@ Directory naming follows `problem-id-kebab-case-title` (all lowercase).
 | 0164 | Maximum Gap | Medium | solved |  |  | [`problems/0164-maximum-gap/`](problems/0164-maximum-gap/) | Bucket Sort; Pigeonhole Principle; Sorting |
 | 0220 | Contains Duplicate Iii | Hard | solved |  |  | [`problems/0220-contains-duplicate-iii/`](problems/0220-contains-duplicate-iii/) | Sliding Window; Bucket Sort; Hash Map |
 | 0242 | Valid Anagram | Easy | solved | blind75 | reviewed | [`problems/0242-valid-anagram/`](problems/0242-valid-anagram/) | Hash Table; String; Sorting |
-| 0347 | Top K Frequent Elements | Medium | solved | blind75 |  | [`problems/0347-top-k-frequent-elements/`](problems/0347-top-k-frequent-elements/) | Array; Hash Table; Heap; Sorting |
+| 0347 | Top K Frequent Elements | Medium | solved | blind75 | reviewed | [`problems/0347-top-k-frequent-elements/`](problems/0347-top-k-frequent-elements/) | Array; Hash Table; Heap; Sorting |
 | 0451 | Sort Characters By Frequency | Medium | solved |  |  | [`problems/0451-sort-characters-by-frequency/`](problems/0451-sort-characters-by-frequency/) | Hash Table; String; Sorting; Heap |
 | 0679 | 24 Game | Hard | solved |  |  | [`problems/0679-24-game/`](problems/0679-24-game/) | Backtracking; DFS; Math |
 | 0692 | Top K Frequent Words | Medium | solved |  |  | [`problems/0692-top-k-frequent-words/`](problems/0692-top-k-frequent-words/) | String; Hash Table; Heap; Sorting |
