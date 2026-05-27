@@ -65,8 +65,8 @@ def render_problem_list(members, path_id, directories):
         return EMPTY_LIST_BODY.format(path_id=path_id)
 
     lines = [
-        "| # | ID | Problem | Difficulty | Directory |",
-        "|---:|---:|---|---|---|",
+        "| # | ID | Problem | Difficulty | AI Card | Directory |",
+        "|---:|---:|---|---|---|---|",
     ]
     for index, problem in enumerate(members, start=1):
         problem_id = problem["id"]
@@ -78,8 +78,10 @@ def render_problem_list(members, path_id, directories):
             )
         title = str(problem.get("title", "")).replace("|", r"\|")
         difficulty = str(problem.get("difficulty", "")).replace("|", r"\|")
+        ai_card = str(problem.get("ai_card_status") or "").replace("|", r"\|")
         lines.append(
             f"| {index} | {problem_id} | {title} | {difficulty} | "
+            f"{ai_card} | "
             f"[`problems/{directory}/`](../../problems/{directory}/) |"
         )
     return "\n".join(lines)

@@ -26,17 +26,17 @@ A milestone is "done" when every problem in it has `ai_card_status: reviewed` or
 ## Problem List
 
 <!-- PATH_LIST_START -->
-| # | ID | Problem | Difficulty | Directory |
-|---:|---:|---|---|---|
-| 1 | 0001 | Two Sum | Easy | [`problems/0001-two-sum/`](../../problems/0001-two-sum/) |
-| 2 | 0003 | Longest Substring Without Repeating Characters | Medium | [`problems/0003-longest-substring-without-repeating-characters/`](../../problems/0003-longest-substring-without-repeating-characters/) |
-| 3 | 0005 | Longest Palindromic Substring | Medium | [`problems/0005-longest-palindromic-substring/`](../../problems/0005-longest-palindromic-substring/) |
-| 4 | 0011 | Container With Most Water | Medium | [`problems/0011-container-with-most-water/`](../../problems/0011-container-with-most-water/) |
-| 5 | 0015 | 3sum | Medium | [`problems/0015-3sum/`](../../problems/0015-3sum/) |
-| 6 | 0049 | Group Anagrams | Medium | [`problems/0049-group-anagrams/`](../../problems/0049-group-anagrams/) |
-| 7 | 0121 | Best Time To Buy And Sell Stock | Easy | [`problems/0121-best-time-to-buy-and-sell-stock/`](../../problems/0121-best-time-to-buy-and-sell-stock/) |
-| 8 | 0242 | Valid Anagram | Easy | [`problems/0242-valid-anagram/`](../../problems/0242-valid-anagram/) |
-| 9 | 0347 | Top K Frequent Elements | Medium | [`problems/0347-top-k-frequent-elements/`](../../problems/0347-top-k-frequent-elements/) |
+| # | ID | Problem | Difficulty | AI Card | Directory |
+|---:|---:|---|---|---|---|
+| 1 | 0001 | Two Sum | Easy | reviewed | [`problems/0001-two-sum/`](../../problems/0001-two-sum/) |
+| 2 | 0003 | Longest Substring Without Repeating Characters | Medium | reviewed | [`problems/0003-longest-substring-without-repeating-characters/`](../../problems/0003-longest-substring-without-repeating-characters/) |
+| 3 | 0005 | Longest Palindromic Substring | Medium | reviewed | [`problems/0005-longest-palindromic-substring/`](../../problems/0005-longest-palindromic-substring/) |
+| 4 | 0011 | Container With Most Water | Medium | reviewed | [`problems/0011-container-with-most-water/`](../../problems/0011-container-with-most-water/) |
+| 5 | 0015 | 3sum | Medium | reviewed | [`problems/0015-3sum/`](../../problems/0015-3sum/) |
+| 6 | 0049 | Group Anagrams | Medium | reviewed | [`problems/0049-group-anagrams/`](../../problems/0049-group-anagrams/) |
+| 7 | 0121 | Best Time To Buy And Sell Stock | Easy | reviewed | [`problems/0121-best-time-to-buy-and-sell-stock/`](../../problems/0121-best-time-to-buy-and-sell-stock/) |
+| 8 | 0242 | Valid Anagram | Easy | reviewed | [`problems/0242-valid-anagram/`](../../problems/0242-valid-anagram/) |
+| 9 | 0347 | Top K Frequent Elements | Medium | reviewed | [`problems/0347-top-k-frequent-elements/`](../../problems/0347-top-k-frequent-elements/) |
 <!-- PATH_LIST_END -->
 
 Regenerate with `python scripts/generate_path.py` (or `python scripts/update_indexes.py` to rebuild all derived indexes).
