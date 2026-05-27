@@ -93,6 +93,8 @@ def catalog_rows():
                 "title": problem["title"],
                 "difficulty": problem["difficulty"],
                 "status": problem["status"],
+                "paths": ", ".join(sorted(problem.get("path_membership") or [])),
+                "ai_card": problem.get("ai_card_status") or "",
                 "directory": f"problems/{directory.name}",
                 "topics": "; ".join(problem["topics"]),
             }
@@ -120,8 +122,8 @@ def render_catalog(rows):
         "",
         f"**Total problems:** {len(rows)}",
         "",
-        "| ID | Problem | Difficulty | Status | Directory | Topics |",
-        "|---:|---|---|---|---|---|",
+        "| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Topics |",
+        "|---:|---|---|---|---|---|---|---|",
     ]
 
     for row in rows:
@@ -129,12 +131,15 @@ def render_catalog(rows):
         lines.append(
             (
                 "| {id} | {title} | {difficulty} | {status} | "
+                "{paths} | {ai_card} | "
                 "[`{directory}/`]({directory}/) | {topics} |"
             ).format(
                 id=row["id"],
                 title=escape_table_cell(row["title"]),
                 difficulty=escape_table_cell(row["difficulty"]),
                 status=escape_table_cell(row["status"]),
+                paths=escape_table_cell(row["paths"]),
+                ai_card=escape_table_cell(row["ai_card"]),
                 directory=directory,
                 topics=escape_table_cell(row["topics"]),
             )
