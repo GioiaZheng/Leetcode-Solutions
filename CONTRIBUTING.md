@@ -129,14 +129,26 @@ Allowed path identifiers (used both in the directory name under
 
 ## Local Checks
 
-Run these before committing:
+The easy path:
 
 ```bash
-python scripts/validate_repo.py
-python scripts/security_scan.py
-python -m compileall -q .
-ruff check .
-pytest
+make check
+```
+
+This runs every check CI runs (`validate_repo.py`, the regenerated-doc
+diff check, ruff, compileall, pytest, `security_scan.py`). Override the
+interpreter via `PYTHON=python3 make check` on systems where `python`
+is not Python 3.
+
+The individual commands behind `make check`:
+
+```bash
+python scripts/validate_repo.py     # structure + schema validation
+python scripts/update_indexes.py    # regenerate CATALOG / TOPICS / paths / README
+python scripts/security_scan.py     # token / credential scan
+python -m compileall -q .           # syntax sanity
+ruff check .                        # lint
+pytest                              # tests
 ```
 
 The security scan is intentionally conservative. It should catch accidental
