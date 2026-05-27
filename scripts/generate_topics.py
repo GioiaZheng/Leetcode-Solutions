@@ -148,8 +148,8 @@ def render_topics(groups):
                 "",
                 f"## {topic}",
                 "",
-                "| ID | Problem | Difficulty | Status | Directory | Original Topics |",
-                "|---:|---|---|---|---|---|",
+                "| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |",
+                "|---:|---|---|---|---|---|---|---|",
             ]
         )
         for row in rows:
@@ -157,12 +157,15 @@ def render_topics(groups):
             lines.append(
                 (
                     "| {id} | {title} | {difficulty} | {status} | "
+                    "{paths} | {ai_card} | "
                     "[`{directory}/`]({directory}/) | {topics} |"
                 ).format(
                     id=row["id"],
                     title=escape_table_cell(row["title"]),
                     difficulty=escape_table_cell(row["difficulty"]),
                     status=escape_table_cell(row["status"]),
+                    paths=escape_table_cell(row["paths"]),
+                    ai_card=escape_table_cell(row["ai_card"]),
                     directory=directory,
                     topics=escape_table_cell(row["topics"] or "Untagged"),
                 )
