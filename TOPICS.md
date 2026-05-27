@@ -210,7 +210,7 @@ Problems can appear in multiple sections when their metadata has multiple topics
 |---:|---|---|---|---|---|---|---|
 | 0010 | Regular Expression Matching | Hard | solved |  |  | [`problems/0010-regular-expression-matching/`](problems/0010-regular-expression-matching/) | String; Dynamic Programming |
 | 0042 | Trapping Rain Water | Hard | solved | blind75 | reviewed | [`problems/0042-trapping-rain-water/`](problems/0042-trapping-rain-water/) | Array; Two Pointers; Dynamic Programming; Stack |
-| 0085 | Maximal Rectangle | Hard | solved |  |  | [`problems/0085-maximal-rectangle/`](problems/0085-maximal-rectangle/) | Dynamic Programming; Stack; Monotonic Stack |
+| 0085 | Maximal Rectangle | Hard | solved |  | reviewed | [`problems/0085-maximal-rectangle/`](problems/0085-maximal-rectangle/) | Dynamic Programming; Stack; Monotonic Stack |
 | 0712 | Minimum Ascii Delete Sum For Two Strings | Medium | solved |  |  | [`problems/0712-minimum-ascii-delete-sum-for-two-strings/`](problems/0712-minimum-ascii-delete-sum-for-two-strings/) | Dynamic Programming; String |
 | 0756 | Pyramid Transition Matrix | Medium | solved |  |  | [`problems/0756-pyramid-transition-matrix/`](problems/0756-pyramid-transition-matrix/) | DFS; Backtracking; Memoization; Hash Table |
 | 0960 | Delete Columns To Make Sorted Iii | Hard | solved |  |  | [`problems/0960-delete-columns-to-make-sorted-iii/`](problems/0960-delete-columns-to-make-sorted-iii/) | Array; String; Dynamic Programming |
@@ -310,7 +310,7 @@ Problems can appear in multiple sections when their metadata has multiple topics
 | ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
 | 0042 | Trapping Rain Water | Hard | solved | blind75 | reviewed | [`problems/0042-trapping-rain-water/`](problems/0042-trapping-rain-water/) | Array; Two Pointers; Dynamic Programming; Stack |
-| 0085 | Maximal Rectangle | Hard | solved |  |  | [`problems/0085-maximal-rectangle/`](problems/0085-maximal-rectangle/) | Dynamic Programming; Stack; Monotonic Stack |
+| 0085 | Maximal Rectangle | Hard | solved |  | reviewed | [`problems/0085-maximal-rectangle/`](problems/0085-maximal-rectangle/) | Dynamic Programming; Stack; Monotonic Stack |
 
 ## Prefix & Difference Techniques
 

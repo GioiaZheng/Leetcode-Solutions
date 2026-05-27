@@ -79,6 +79,23 @@ documenting it.
   `ai_card_status: "reviewed"` in `metadata.json`. Blind 75 path now
   10/75 (all 10 reviewed); Hard difficulty count moves from 18 to 19.
 
+- **`feat(showcase): migrate 0085 Maximal Rectangle to AI-card`**.
+  Append-only AI-card migration of the existing 0085 README (the
+  original write-up survives verbatim). Five sections added: O(R^3 C^3)
+  brute-force baseline + O(R^2 C) compress-rows alternative; common
+  mistakes specific to the histogram + monotonic stack pattern
+  (sentinel-0 flush, character-vs-int comparison, off-by-one on popped
+  width); three failure cases including the canonical example;
+  interview follow-ups pointing at LC 84 (Largest Rectangle in
+  Histogram, the inner subroutine) and LC 221 (Maximal Square, the
+  cousin DP).
+
+  Deliberately NOT tagged with `path_membership` --- 0085 is not on
+  the canonical Blind 75 or NeetCode 150 lists. It surfaces in the
+  README "Where to start" featured list (`ai_card_status` filter) and
+  in CATALOG / TOPICS columns, but it does not appear in any
+  `paths/<p>/README.md`. Reviewed AI card count moves from 10 to 11.
+
 ---
 
 ## 2026-05-27 — Standards foundation v2 (merged as `b61e63d`)

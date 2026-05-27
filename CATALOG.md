@@ -28,7 +28,7 @@ Directory naming follows `problem-id-kebab-case-title` (all lowercase).
 | 0042 | Trapping Rain Water | Hard | solved | blind75 | reviewed | [`problems/0042-trapping-rain-water/`](problems/0042-trapping-rain-water/) | Array; Two Pointers; Dynamic Programming; Stack |
 | 0049 | Group Anagrams | Medium | solved | blind75 | reviewed | [`problems/0049-group-anagrams/`](problems/0049-group-anagrams/) | Array; Hash Table; String |
 | 0066 | Plus One | Easy | solved |  |  | [`problems/0066-plus-one/`](problems/0066-plus-one/) | Array; Math |
-| 0085 | Maximal Rectangle | Hard | solved |  |  | [`problems/0085-maximal-rectangle/`](problems/0085-maximal-rectangle/) | Dynamic Programming; Stack; Monotonic Stack |
+| 0085 | Maximal Rectangle | Hard | solved |  | reviewed | [`problems/0085-maximal-rectangle/`](problems/0085-maximal-rectangle/) | Dynamic Programming; Stack; Monotonic Stack |
 | 0121 | Best Time To Buy And Sell Stock | Easy | solved | blind75 | reviewed | [`problems/0121-best-time-to-buy-and-sell-stock/`](problems/0121-best-time-to-buy-and-sell-stock/) | Array; Greedy |
 | 0164 | Maximum Gap | Medium | solved |  |  | [`problems/0164-maximum-gap/`](problems/0164-maximum-gap/) | Bucket Sort; Pigeonhole Principle; Sorting |
 | 0220 | Contains Duplicate Iii | Hard | solved |  |  | [`problems/0220-contains-duplicate-iii/`](problems/0220-contains-duplicate-iii/) | Sliding Window; Bucket Sort; Hash Map |

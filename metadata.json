@@ -254,7 +254,8 @@
         "Stack",
         "Monotonic Stack"
       ],
-      "status": "solved"
+      "status": "solved",
+      "ai_card_status": "reviewed"
     },
     {
       "id": "0121",
