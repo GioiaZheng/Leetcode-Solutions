@@ -109,3 +109,52 @@ This is the classic optimal solution for Two Sum.
 * How hashing helps reduce a quadratic problem to linear time.
 * The concept of computing a **complement** for target sum problems.
 * Why storing value → index is enough to retrieve the correct pair.
+
+<!--
+Sections below are the optional "AI card" extension. The problem
+carries `"ai_card_status": "reviewed"` in metadata.json. See
+CONTRIBUTING.md section "Optional Problem README Sections (AI Card)".
+-->
+
+---
+
+## Brute-force baseline
+
+Two nested loops over all index pairs `(i, j)` with `j > i`, checking `nums[i] + nums[j] == target`.
+
+- **Time:** `O(n^2)` — `n(n-1)/2` pair checks in the worst case.
+- **Space:** `O(1)` — only loop counters.
+
+The hash-map solution above trades `O(n)` extra space for `O(n)` time.
+
+---
+
+## Common mistakes
+
+- Returning the **values** `[nums[i], nums[j]]` instead of the **indices** `[i, j]`. The problem asks for indices.
+- Seeding the map with the current element **before** the lookup. With `target = 2 * nums[i]` (e.g. `[3, 3]`), inserting `nums[i]` first would return `[i, i]`, which the problem forbids ("two different elements").
+- Sorting the array as a preprocessing step. Sorting destroys the original indices, which are the required answer.
+
+---
+
+## Failure cases
+
+1. **`nums = [3, 3]`, `target = 6`** — a "store first, look up later" variant returns `[0, 0]` (same index twice). The canonical solution avoids this by checking the complement against the map **before** inserting the current element.
+2. **`nums = [3, 2, 4]`, `target = 6`** — a two-pointer approach borrowed from "Two Sum II (sorted)" requires sorting, which destroys the original indices. Hashing is the only `O(n)` option on the unsorted variant.
+
+---
+
+## Interview follow-ups
+
+- *"What if the array is sorted?"* — switch to two pointers from both ends: `O(n)` time, `O(1)` space.
+- *"What if there are multiple valid pairs?"* — collect all pairs instead of returning early; watch for duplicate index pairs when values repeat.
+- *"Generalise to k-sum."* — sort, then recursively reduce to (k-1)-sum, or fix two pointers per recursion level: `O(n^{k-1})` worst case.
+- *"What if the array does not fit in memory?"* — stream the input twice (first pass builds a hash sketch, second pass finds complements), or shard by hash of value and process shards independently.
+
+---
+
+## Bilingual summary
+
+**English.** Single-pass hash map keyed by value → first-seen index. For each element, check whether `target - value` is already in the map; the first complement hit returns both indices. `O(n)` time, `O(n)` space.
+
+**中文。** 一次遍历的哈希表，键是数值、值是首次出现的索引。对每个元素检查 `target − 当前值` 是否已在表中；命中即返回这对索引。时间 `O(n)`，空间 `O(n)`。

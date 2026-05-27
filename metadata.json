@@ -8,7 +8,11 @@
         "Array",
         "Hash Table"
       ],
-      "status": "tested"
+      "status": "tested",
+      "path_membership": [
+        "blind75"
+      ],
+      "ai_card_status": "reviewed"
     },
     {
       "id": "0002",

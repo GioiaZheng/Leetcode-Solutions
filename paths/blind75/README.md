@@ -26,7 +26,9 @@ A milestone is "done" when every problem in it has `ai_card_status: reviewed` or
 ## Problem List
 
 <!-- PATH_LIST_START -->
-_No problems tagged yet. Add `path_membership: ["blind75"]` entries in `metadata.json` to populate this list._
+| # | ID | Problem | Difficulty | Directory |
+|---:|---:|---|---|---|
+| 1 | 0001 | Two Sum | Easy | [`problems/0001-two-sum/`](../../problems/0001-two-sum/) |
 <!-- PATH_LIST_END -->
 
 Regenerate with `python scripts/generate_path.py` (or `python scripts/update_indexes.py` to rebuild all derived indexes).
