@@ -21,6 +21,11 @@ METRIC_MARKERS = {
     "easy_count": ("<!-- EASY_COUNT_START -->", "<!-- EASY_COUNT_END -->"),
     "medium_count": ("<!-- MEDIUM_COUNT_START -->", "<!-- MEDIUM_COUNT_END -->"),
     "hard_count": ("<!-- HARD_COUNT_START -->", "<!-- HARD_COUNT_END -->"),
+    "blind75_count": ("<!-- BLIND75_COUNT_START -->", "<!-- BLIND75_COUNT_END -->"),
+    "reviewed_ai_card_count": (
+        "<!-- REVIEWED_AI_CARDS_START -->",
+        "<!-- REVIEWED_AI_CARDS_END -->",
+    ),
 }
 
 
@@ -69,6 +74,28 @@ def difficulty_counts():
     return counts
 
 
+def blind75_count():
+    if not METADATA.is_file():
+        return 0
+    data = json.loads(METADATA.read_text(encoding="utf-8"))
+    return sum(
+        1
+        for problem in data.get("problems", [])
+        if "blind75" in (problem.get("path_membership") or [])
+    )
+
+
+def reviewed_ai_card_count():
+    if not METADATA.is_file():
+        return 0
+    data = json.loads(METADATA.read_text(encoding="utf-8"))
+    return sum(
+        1
+        for problem in data.get("problems", [])
+        if problem.get("ai_card_status") == "reviewed"
+    )
+
+
 def collect_metrics():
     difficulties = difficulty_counts()
     return {
@@ -78,6 +105,8 @@ def collect_metrics():
         "easy_count": difficulties["Easy"],
         "medium_count": difficulties["Medium"],
         "hard_count": difficulties["Hard"],
+        "blind75_count": blind75_count(),
+        "reviewed_ai_card_count": reviewed_ai_card_count(),
     }
 
 

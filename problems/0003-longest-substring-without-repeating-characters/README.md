@@ -108,3 +108,53 @@ The longest valid substring is `"wke"` with length **3**.
 * Why moving `left` only forward (never backward) ensures linear time.
 * How to maintain window validity with a single data structure (`last_seen`).
 * How substring problems differ fundamentally from subsequence problems.
+
+<!--
+Sections below are the optional "AI card" extension. The problem
+carries `"ai_card_status": "reviewed"` in metadata.json. See
+CONTRIBUTING.md section "Optional Problem README Sections (AI Card)".
+-->
+
+---
+
+## Brute-force baseline
+
+For every starting index `i`, extend a substring forward while characters stay unique (e.g. with a `set`); record the maximum length.
+
+- **Time:** `O(n^2)` worst case — pathological inputs like `"abcabcabc..."` re-scan most prefixes.
+- **Space:** `O(σ)` for the running uniqueness set, where `σ` is the alphabet size.
+
+The sliding-window solution above amortises to `O(n)` total work by never moving `left` backward.
+
+---
+
+## Common mistakes
+
+- Setting `left = last_seen[c] + 1` unconditionally on a duplicate, instead of `left = max(left, last_seen[c] + 1)`. The unguarded form can move `left` **backward** when the previous occurrence is already outside the current window, breaking the "never go back" invariant.
+- Updating `last_seen[c] = right` **before** computing the window length. The length must be measured against the current `left`, then the map is updated for the next iteration.
+- Off-by-one on the window length: it is `right - left + 1`, not `right - left`.
+- Using `set` plus an inner loop that shrinks the window character-by-character until the duplicate is evicted. Functionally correct but `O(n)` per shrink in the worst case (degrades to `O(n^2)` total); the index-map jump-to-past-the-last-seen pattern is `O(n)` amortised.
+
+---
+
+## Failure cases
+
+1. **`s = "abba"`** — at `right = 3` (the second `'a'`), the unguarded update `left = last_seen['a'] + 1 = 1` would move `left` backward past the second `'b'`, producing a window `"bba"` with a duplicate. The `max(left, ...)` guard keeps `left = 2` and the answer stays correct.
+2. **`s = "tmmzuxt"`** — at `right = 6` (the second `'t'`), the unguarded update sets `left = 1`, re-admitting an `'m'` that is already past the current `left = 3`. Same `max(...)` guard fixes it; expected answer `5` (`"mzuxt"`).
+
+---
+
+## Interview follow-ups
+
+- *"Longest substring with at most K distinct characters."* → LeetCode 340. Same sliding-window skeleton, but shrink from the left when the **distinct count** exceeds `K` instead of when a single character repeats.
+- *"Longest substring with exactly K distinct characters."* → LeetCode 992 / inclusion-exclusion. Compute "at most K" minus "at most K-1".
+- *"What if the alphabet is Unicode rather than ASCII?"* — `dict` already handles it; the `[128]` array trick (if you used it) breaks. Space stays `O(σ)`.
+- *"Stream input?"* — sliding window is naturally streamable; emit the running `max_len` after each character.
+
+---
+
+## Bilingual summary
+
+**English.** Sliding window with a `char -> last-seen index` map. Right pointer scans forward; on a duplicate, jump `left = max(left, last_seen[c] + 1)` so it never moves backward. Track `right - left + 1` at each step. Each index visited at most twice, giving `O(n)` time; space `O(σ)` for the alphabet size.
+
+**中文。** 滑动窗口 + 哈希表（字符 → 最近出现的索引）。右指针向前推进；遇到重复字符时让 `left = max(left, last_seen[c] + 1)`，保证它永不回退。每步更新 `right - left + 1` 取最大值。每个下标至多被两个指针扫过，时间 `O(n)`；空间 `O(σ)`，σ 为字符集大小。

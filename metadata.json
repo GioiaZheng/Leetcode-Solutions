@@ -8,7 +8,11 @@
         "Array",
         "Hash Table"
       ],
-      "status": "tested"
+      "status": "tested",
+      "path_membership": [
+        "blind75"
+      ],
+      "ai_card_status": "reviewed"
     },
     {
       "id": "0002",
@@ -29,7 +33,11 @@
         "Hash Map",
         "Two Pointers"
       ],
-      "status": "solved"
+      "status": "solved",
+      "path_membership": [
+        "blind75"
+      ],
+      "ai_card_status": "reviewed"
     },
     {
       "id": "0004",
@@ -51,7 +59,11 @@
         "Two Pointers",
         "Expand Around Center"
       ],
-      "status": "solved"
+      "status": "solved",
+      "path_membership": [
+        "blind75"
+      ],
+      "ai_card_status": "reviewed"
     },
     {
       "id": "0006",
@@ -109,7 +121,11 @@
         "Array",
         "Two Pointers"
       ],
-      "status": "solved"
+      "status": "solved",
+      "path_membership": [
+        "blind75"
+      ],
+      "ai_card_status": "reviewed"
     },
     {
       "id": "0012",
@@ -151,7 +167,11 @@
         "Two Pointers",
         "Sorting"
       ],
-      "status": "solved"
+      "status": "solved",
+      "path_membership": [
+        "blind75"
+      ],
+      "ai_card_status": "reviewed"
     },
     {
       "id": "0026",
@@ -193,7 +213,11 @@
         "Hash Table",
         "String"
       ],
-      "status": "solved"
+      "status": "solved",
+      "path_membership": [
+        "blind75"
+      ],
+      "ai_card_status": "reviewed"
     },
     {
       "id": "0066",
@@ -224,7 +248,11 @@
         "Array",
         "Greedy"
       ],
-      "status": "solved"
+      "status": "solved",
+      "path_membership": [
+        "blind75"
+      ],
+      "ai_card_status": "reviewed"
     },
     {
       "id": "0164",
@@ -257,7 +285,11 @@
         "String",
         "Sorting"
       ],
-      "status": "solved"
+      "status": "solved",
+      "path_membership": [
+        "blind75"
+      ],
+      "ai_card_status": "reviewed"
     },
     {
       "id": "0347",
@@ -269,7 +301,11 @@
         "Heap",
         "Sorting"
       ],
-      "status": "solved"
+      "status": "solved",
+      "path_membership": [
+        "blind75"
+      ],
+      "ai_card_status": "reviewed"
     },
     {
       "id": "0451",
