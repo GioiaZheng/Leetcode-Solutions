@@ -118,6 +118,22 @@ documenting it.
   neetcode150}`, set since `2c9efcb`) already accepts the
   identifier, so no script change is needed.
 
+- **`feat(metadata): populate NeetCode 150 with 12 problems`**. Tag
+  every Blind 75 problem in `metadata.json` with both `"blind75"` and
+  `"neetcode150"` (NeetCode 150 is a strict superset, so the
+  membership extension is structurally honest), plus add two
+  NeetCode-only problems already in the repo: `0004` Median of Two
+  Sorted Arrays (Binary Search milestone) and `0010` Regular
+  Expression Matching (2-D DP milestone). The other 87 repo
+  problems are mostly weekly-contest entries that do not appear on
+  either canonical list.
+
+  `paths/neetcode150/README.md` auto-populates with 12/150
+  problems: the 10 from Blind 75 (all `ai_card_status: reviewed`)
+  plus `0004` and `0010` (untagged AI Card column for both).
+  `paths/blind75/README.md` is unchanged --- still 10/75 problems,
+  membership intersection is honored.
+
 ---
 
 ## 2026-05-27 — Standards foundation v2 (merged as `b61e63d`)

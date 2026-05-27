@@ -10,7 +10,8 @@
       ],
       "status": "tested",
       "path_membership": [
-        "blind75"
+        "blind75",
+        "neetcode150"
       ],
       "ai_card_status": "reviewed"
     },
@@ -35,7 +36,8 @@
       ],
       "status": "solved",
       "path_membership": [
-        "blind75"
+        "blind75",
+        "neetcode150"
       ],
       "ai_card_status": "reviewed"
     },
@@ -48,7 +50,10 @@
         "Divide and Conquer",
         "Partitioning"
       ],
-      "status": "solved"
+      "status": "solved",
+      "path_membership": [
+        "neetcode150"
+      ]
     },
     {
       "id": "0005",
@@ -61,7 +66,8 @@
       ],
       "status": "solved",
       "path_membership": [
-        "blind75"
+        "blind75",
+        "neetcode150"
       ],
       "ai_card_status": "reviewed"
     },
@@ -111,7 +117,10 @@
         "String",
         "Dynamic Programming"
       ],
-      "status": "solved"
+      "status": "solved",
+      "path_membership": [
+        "neetcode150"
+      ]
     },
     {
       "id": "0011",
@@ -123,7 +132,8 @@
       ],
       "status": "solved",
       "path_membership": [
-        "blind75"
+        "blind75",
+        "neetcode150"
       ],
       "ai_card_status": "reviewed"
     },
@@ -169,7 +179,8 @@
       ],
       "status": "solved",
       "path_membership": [
-        "blind75"
+        "blind75",
+        "neetcode150"
       ],
       "ai_card_status": "reviewed"
     },
@@ -185,7 +196,8 @@
       ],
       "status": "solved",
       "path_membership": [
-        "blind75"
+        "blind75",
+        "neetcode150"
       ],
       "ai_card_status": "reviewed"
     },
@@ -231,7 +243,8 @@
       ],
       "status": "solved",
       "path_membership": [
-        "blind75"
+        "blind75",
+        "neetcode150"
       ],
       "ai_card_status": "reviewed"
     },
@@ -267,7 +280,8 @@
       ],
       "status": "solved",
       "path_membership": [
-        "blind75"
+        "blind75",
+        "neetcode150"
       ],
       "ai_card_status": "reviewed"
     },
@@ -304,7 +318,8 @@
       ],
       "status": "solved",
       "path_membership": [
-        "blind75"
+        "blind75",
+        "neetcode150"
       ],
       "ai_card_status": "reviewed"
     },
@@ -320,7 +335,8 @@
       ],
       "status": "solved",
       "path_membership": [
-        "blind75"
+        "blind75",
+        "neetcode150"
       ],
       "ai_card_status": "reviewed"
     },

@@ -7,33 +7,33 @@ Directory naming follows `problem-id-kebab-case-title` (all lowercase).
 
 | ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Topics |
 |---:|---|---|---|---|---|---|---|
-| 0001 | Two Sum | Easy | tested | blind75 | reviewed | [`problems/0001-two-sum/`](problems/0001-two-sum/) | Array; Hash Table |
+| 0001 | Two Sum | Easy | tested | blind75, neetcode150 | reviewed | [`problems/0001-two-sum/`](problems/0001-two-sum/) | Array; Hash Table |
 | 0002 | Add Two Numbers | Medium | solved |  |  | [`problems/0002-add-two-numbers/`](problems/0002-add-two-numbers/) | Linked List; Math |
-| 0003 | Longest Substring Without Repeating Characters | Medium | solved | blind75 | reviewed | [`problems/0003-longest-substring-without-repeating-characters/`](problems/0003-longest-substring-without-repeating-characters/) | Sliding Window; Hash Map; Two Pointers |
-| 0004 | Median Of Two Sorted Arrays | Hard | solved |  |  | [`problems/0004-median-of-two-sorted-arrays/`](problems/0004-median-of-two-sorted-arrays/) | Binary Search; Divide and Conquer; Partitioning |
-| 0005 | Longest Palindromic Substring | Medium | solved | blind75 | reviewed | [`problems/0005-longest-palindromic-substring/`](problems/0005-longest-palindromic-substring/) | String; Two Pointers; Expand Around Center |
+| 0003 | Longest Substring Without Repeating Characters | Medium | solved | blind75, neetcode150 | reviewed | [`problems/0003-longest-substring-without-repeating-characters/`](problems/0003-longest-substring-without-repeating-characters/) | Sliding Window; Hash Map; Two Pointers |
+| 0004 | Median Of Two Sorted Arrays | Hard | solved | neetcode150 |  | [`problems/0004-median-of-two-sorted-arrays/`](problems/0004-median-of-two-sorted-arrays/) | Binary Search; Divide and Conquer; Partitioning |
+| 0005 | Longest Palindromic Substring | Medium | solved | blind75, neetcode150 | reviewed | [`problems/0005-longest-palindromic-substring/`](problems/0005-longest-palindromic-substring/) | String; Two Pointers; Expand Around Center |
 | 0006 | Zigzag Conversion | Medium | solved |  |  | [`problems/0006-zigzag-conversion/`](problems/0006-zigzag-conversion/) | String; Simulation |
 | 0007 | Reverse Integer | Medium | solved |  |  | [`problems/0007-reverse-integer/`](problems/0007-reverse-integer/) | Math |
 | 0008 | String To Integer Atoi | Medium | solved |  |  | [`problems/0008-string-to-integer-atoi/`](problems/0008-string-to-integer-atoi/) | String; Parsing |
 | 0009 | Palindrome Number | Easy | solved |  |  | [`problems/0009-palindrome-number/`](problems/0009-palindrome-number/) | Math |
-| 0010 | Regular Expression Matching | Hard | solved |  |  | [`problems/0010-regular-expression-matching/`](problems/0010-regular-expression-matching/) | String; Dynamic Programming |
-| 0011 | Container With Most Water | Medium | solved | blind75 | reviewed | [`problems/0011-container-with-most-water/`](problems/0011-container-with-most-water/) | Array; Two Pointers |
+| 0010 | Regular Expression Matching | Hard | solved | neetcode150 |  | [`problems/0010-regular-expression-matching/`](problems/0010-regular-expression-matching/) | String; Dynamic Programming |
+| 0011 | Container With Most Water | Medium | solved | blind75, neetcode150 | reviewed | [`problems/0011-container-with-most-water/`](problems/0011-container-with-most-water/) | Array; Two Pointers |
 | 0012 | Integer To Roman | Medium | solved |  |  | [`problems/0012-integer-to-roman/`](problems/0012-integer-to-roman/) | Math; String; Greedy |
 | 0013 | Roman To Integer | Easy | solved |  |  | [`problems/0013-roman-to-integer/`](problems/0013-roman-to-integer/) | Hash Table; Math; String |
 | 0014 | Longest Common Prefix | Easy | solved |  |  | [`problems/0014-longest-common-prefix/`](problems/0014-longest-common-prefix/) | String |
-| 0015 | 3sum | Medium | solved | blind75 | reviewed | [`problems/0015-3sum/`](problems/0015-3sum/) | Array; Two Pointers; Sorting |
+| 0015 | 3sum | Medium | solved | blind75, neetcode150 | reviewed | [`problems/0015-3sum/`](problems/0015-3sum/) | Array; Two Pointers; Sorting |
 | 0026 | Remove Duplicates From Sorted Array | Easy | solved |  |  | [`problems/0026-remove-duplicates-from-sorted-array/`](problems/0026-remove-duplicates-from-sorted-array/) | Array; Two Pointers |
 | 0027 | Remove Element | Easy | solved |  |  | [`problems/0027-remove-element/`](problems/0027-remove-element/) | Array; Two Pointers |
 | 0028 | Find The Index Of The First Occurrence In A String | Easy | solved |  |  | [`problems/0028-find-the-index-of-the-first-occurrence-in-a-string/`](problems/0028-find-the-index-of-the-first-occurrence-in-a-string/) | String; Two Pointers; Pattern Matching |
-| 0042 | Trapping Rain Water | Hard | solved | blind75 | reviewed | [`problems/0042-trapping-rain-water/`](problems/0042-trapping-rain-water/) | Array; Two Pointers; Dynamic Programming; Stack |
-| 0049 | Group Anagrams | Medium | solved | blind75 | reviewed | [`problems/0049-group-anagrams/`](problems/0049-group-anagrams/) | Array; Hash Table; String |
+| 0042 | Trapping Rain Water | Hard | solved | blind75, neetcode150 | reviewed | [`problems/0042-trapping-rain-water/`](problems/0042-trapping-rain-water/) | Array; Two Pointers; Dynamic Programming; Stack |
+| 0049 | Group Anagrams | Medium | solved | blind75, neetcode150 | reviewed | [`problems/0049-group-anagrams/`](problems/0049-group-anagrams/) | Array; Hash Table; String |
 | 0066 | Plus One | Easy | solved |  |  | [`problems/0066-plus-one/`](problems/0066-plus-one/) | Array; Math |
 | 0085 | Maximal Rectangle | Hard | solved |  | reviewed | [`problems/0085-maximal-rectangle/`](problems/0085-maximal-rectangle/) | Dynamic Programming; Stack; Monotonic Stack |
-| 0121 | Best Time To Buy And Sell Stock | Easy | solved | blind75 | reviewed | [`problems/0121-best-time-to-buy-and-sell-stock/`](problems/0121-best-time-to-buy-and-sell-stock/) | Array; Greedy |
+| 0121 | Best Time To Buy And Sell Stock | Easy | solved | blind75, neetcode150 | reviewed | [`problems/0121-best-time-to-buy-and-sell-stock/`](problems/0121-best-time-to-buy-and-sell-stock/) | Array; Greedy |
 | 0164 | Maximum Gap | Medium | solved |  |  | [`problems/0164-maximum-gap/`](problems/0164-maximum-gap/) | Bucket Sort; Pigeonhole Principle; Sorting |
 | 0220 | Contains Duplicate Iii | Hard | solved |  |  | [`problems/0220-contains-duplicate-iii/`](problems/0220-contains-duplicate-iii/) | Sliding Window; Bucket Sort; Hash Map |
-| 0242 | Valid Anagram | Easy | solved | blind75 | reviewed | [`problems/0242-valid-anagram/`](problems/0242-valid-anagram/) | Hash Table; String; Sorting |
-| 0347 | Top K Frequent Elements | Medium | solved | blind75 | reviewed | [`problems/0347-top-k-frequent-elements/`](problems/0347-top-k-frequent-elements/) | Array; Hash Table; Heap; Sorting |
+| 0242 | Valid Anagram | Easy | solved | blind75, neetcode150 | reviewed | [`problems/0242-valid-anagram/`](problems/0242-valid-anagram/) | Hash Table; String; Sorting |
+| 0347 | Top K Frequent Elements | Medium | solved | blind75, neetcode150 | reviewed | [`problems/0347-top-k-frequent-elements/`](problems/0347-top-k-frequent-elements/) | Array; Hash Table; Heap; Sorting |
 | 0451 | Sort Characters By Frequency | Medium | solved |  |  | [`problems/0451-sort-characters-by-frequency/`](problems/0451-sort-characters-by-frequency/) | Hash Table; String; Sorting; Heap |
 | 0679 | 24 Game | Hard | solved |  |  | [`problems/0679-24-game/`](problems/0679-24-game/) | Backtracking; DFS; Math |
 | 0692 | Top K Frequent Words | Medium | solved |  |  | [`problems/0692-top-k-frequent-words/`](problems/0692-top-k-frequent-words/) | String; Hash Table; Heap; Sorting |
