@@ -246,6 +246,110 @@ def test_validate_reports_metadata_errors(tmp_path):
     assert any("invalid status 'done'" in error for error in errors)
 
 
+def test_validate_accepts_optional_path_membership_and_ai_card_status(tmp_path):
+    directory = "0001-two-sum"
+    write_problem(
+        tmp_path,
+        directory,
+        readme=standard_readme(),
+        solution="class Solution:\n    pass\n",
+    )
+    write_catalog(tmp_path, [directory])
+    write_topics(tmp_path, [directory])
+    (tmp_path / "metadata.json").write_text(
+        json.dumps(
+            {
+                "problems": [
+                    {
+                        "id": "0001",
+                        "title": "Two Sum",
+                        "difficulty": "Easy",
+                        "topics": ["Array", "Hash Table"],
+                        "status": "tested",
+                        "path_membership": ["blind75"],
+                        "ai_card_status": "reviewed",
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    _, errors = validate_repo.validate(tmp_path)
+
+    assert errors == []
+
+
+def test_validate_reports_unknown_path_and_invalid_ai_card_status(tmp_path):
+    directory = "0001-two-sum"
+    write_problem(
+        tmp_path,
+        directory,
+        readme=standard_readme(),
+        solution="class Solution:\n    pass\n",
+    )
+    write_catalog(tmp_path, [directory])
+    write_topics(tmp_path, [directory])
+    (tmp_path / "metadata.json").write_text(
+        json.dumps(
+            {
+                "problems": [
+                    {
+                        "id": "0001",
+                        "title": "Two Sum",
+                        "difficulty": "Easy",
+                        "topics": ["Array"],
+                        "status": "solved",
+                        "path_membership": ["blind75", "leet200"],
+                        "ai_card_status": "almost-ready",
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    _, errors = validate_repo.validate(tmp_path)
+
+    assert any("unknown path_membership values ['leet200']" in error for error in errors)
+    assert any("invalid ai_card_status 'almost-ready'" in error for error in errors)
+
+
+def test_validate_rejects_non_list_path_membership(tmp_path):
+    directory = "0001-two-sum"
+    write_problem(
+        tmp_path,
+        directory,
+        readme=standard_readme(),
+        solution="class Solution:\n    pass\n",
+    )
+    write_catalog(tmp_path, [directory])
+    write_topics(tmp_path, [directory])
+    (tmp_path / "metadata.json").write_text(
+        json.dumps(
+            {
+                "problems": [
+                    {
+                        "id": "0001",
+                        "title": "Two Sum",
+                        "difficulty": "Easy",
+                        "topics": ["Array"],
+                        "status": "solved",
+                        "path_membership": "blind75",
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    _, errors = validate_repo.validate(tmp_path)
+
+    assert any(
+        "metadata.json entry 0001 has invalid path_membership" in error for error in errors
+    )
+
+
 def test_validate_reports_suspicious_filenames(tmp_path):
     directory = "0001-two-sum"
     problem = write_problem(

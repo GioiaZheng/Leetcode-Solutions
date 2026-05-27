@@ -42,6 +42,8 @@ SUSPICIOUS_FILENAMES = {
 }
 VALID_DIFFICULTIES = {"Easy", "Medium", "Hard"}
 VALID_STATUSES = {"solved", "tested", "review-needed"}
+VALID_PATH_MEMBERSHIPS = {"blind75", "neetcode150"}
+VALID_AI_CARD_STATUSES = {"draft", "reviewed", "interview-ready"}
 MOJIBAKE_MARKERS = ("ï", "Â", "Ã", "â€", "â†", "ä¸", "æ–")
 MOJIBAKE_CHECKED_FILES = (
     "README.md",
@@ -249,6 +251,32 @@ def load_metadata(root=ROOT):
             errors.append(
                 f"metadata.json entry {problem_id} has invalid status {status!r}; "
                 f"expected one of {sorted(VALID_STATUSES)}."
+            )
+
+        path_membership = problem.get("path_membership")
+        if path_membership is not None:
+            if not isinstance(path_membership, list) or not all(
+                isinstance(p, str) for p in path_membership
+            ):
+                errors.append(
+                    f"metadata.json entry {problem_id} has invalid path_membership; "
+                    f"expected a list of strings or omitted."
+                )
+            else:
+                unknown = sorted(set(path_membership) - VALID_PATH_MEMBERSHIPS)
+                if unknown:
+                    errors.append(
+                        f"metadata.json entry {problem_id} has unknown path_membership "
+                        f"values {unknown}; expected subset of "
+                        f"{sorted(VALID_PATH_MEMBERSHIPS)}."
+                    )
+
+        ai_card_status = problem.get("ai_card_status")
+        if ai_card_status is not None and ai_card_status not in VALID_AI_CARD_STATUSES:
+            errors.append(
+                f"metadata.json entry {problem_id} has invalid ai_card_status "
+                f"{ai_card_status!r}; expected one of "
+                f"{sorted(VALID_AI_CARD_STATUSES)}."
             )
 
         by_id[problem_id] = problem
