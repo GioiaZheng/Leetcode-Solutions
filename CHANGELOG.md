@@ -56,10 +56,28 @@ Five commits on top of `b61e63d` (the v2 merge commit on `main`):
   with the individual commands preserved beneath it for explicit-control
   readers.
 
-Result: **9 reviewed AI cards are surfaced in four places** (README
+Result: **reviewed AI cards are surfaced in four places** (README
 "Where to start" table, CATALOG.md `AI Card` column, TOPICS.md `AI
 Card` column, paths/blind75/README.md `AI Card` column), all kept in
 sync by `make sync` / `make sync-check` and enforced by CI.
+
+### High-frequency showcases (same branch)
+
+Additional showcase work on top of the navigation-polish infrastructure.
+These commits exercise the new flow (CHANGELOG entry per commit,
+auto-injected counts, AI-card consistency validator) rather than just
+documenting it.
+
+- **`feat(showcase): create 0042 Trapping Rain Water from scratch`**.
+  The problem did not exist in `problems/` before --- this is the
+  first new-problem-from-scratch entry on the branch, not a migration
+  of an existing README. Adds the `problems/0042-trapping-rain-water/`
+  directory with a two-pointer O(n) / O(1) solution, the standard six
+  required README sections, and all five AI-card sections (brute-force
+  baseline, common mistakes, failure cases, interview follow-ups,
+  bilingual summary). Tagged `path_membership: ["blind75"]` and
+  `ai_card_status: "reviewed"` in `metadata.json`. Blind 75 path now
+  10/75 (all 10 reviewed); Hard difficulty count moves from 18 to 19.
 
 ---
 

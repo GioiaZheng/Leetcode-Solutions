@@ -5,20 +5,20 @@ Problems can appear in multiple sections when their metadata has multiple topics
 
 ## Major Topics
 
-- [Arrays & Matrices](#arrays-matrices) (34)
+- [Arrays & Matrices](#arrays-matrices) (35)
 - [Strings](#strings) (24)
 - [Hashing](#hashing) (19)
-- [Two Pointers & Sliding Window](#two-pointers-sliding-window) (13)
+- [Two Pointers & Sliding Window](#two-pointers-sliding-window) (14)
 - [Binary Search](#binary-search) (8)
 - [Sorting & Heap](#sorting-heap) (19)
 - [Greedy](#greedy) (26)
-- [Dynamic Programming](#dynamic-programming) (10)
+- [Dynamic Programming](#dynamic-programming) (11)
 - [Graph & Tree](#graph-tree) (10)
 - [Math & Counting](#math-counting) (26)
 - [Geometry](#geometry) (9)
 - [Backtracking & Search](#backtracking-search) (6)
 - [Simulation](#simulation) (9)
-- [Stack & Monotonic Structures](#stack-monotonic-structures) (1)
+- [Stack & Monotonic Structures](#stack-monotonic-structures) (2)
 - [Prefix & Difference Techniques](#prefix-difference-techniques) (11)
 - [Linked Lists](#linked-lists) (2)
 - [Advanced Data Structures](#advanced-data-structures) (1)
@@ -33,6 +33,7 @@ Problems can appear in multiple sections when their metadata has multiple topics
 | 0015 | 3sum | Medium | solved | blind75 | reviewed | [`problems/0015-3sum/`](problems/0015-3sum/) | Array; Two Pointers; Sorting |
 | 0026 | Remove Duplicates From Sorted Array | Easy | solved |  |  | [`problems/0026-remove-duplicates-from-sorted-array/`](problems/0026-remove-duplicates-from-sorted-array/) | Array; Two Pointers |
 | 0027 | Remove Element | Easy | solved |  |  | [`problems/0027-remove-element/`](problems/0027-remove-element/) | Array; Two Pointers |
+| 0042 | Trapping Rain Water | Hard | solved | blind75 | reviewed | [`problems/0042-trapping-rain-water/`](problems/0042-trapping-rain-water/) | Array; Two Pointers; Dynamic Programming; Stack |
 | 0049 | Group Anagrams | Medium | solved | blind75 | reviewed | [`problems/0049-group-anagrams/`](problems/0049-group-anagrams/) | Array; Hash Table; String |
 | 0066 | Plus One | Easy | solved |  |  | [`problems/0066-plus-one/`](problems/0066-plus-one/) | Array; Math |
 | 0121 | Best Time To Buy And Sell Stock | Easy | solved | blind75 | reviewed | [`problems/0121-best-time-to-buy-and-sell-stock/`](problems/0121-best-time-to-buy-and-sell-stock/) | Array; Greedy |
@@ -127,6 +128,7 @@ Problems can appear in multiple sections when their metadata has multiple topics
 | 0026 | Remove Duplicates From Sorted Array | Easy | solved |  |  | [`problems/0026-remove-duplicates-from-sorted-array/`](problems/0026-remove-duplicates-from-sorted-array/) | Array; Two Pointers |
 | 0027 | Remove Element | Easy | solved |  |  | [`problems/0027-remove-element/`](problems/0027-remove-element/) | Array; Two Pointers |
 | 0028 | Find The Index Of The First Occurrence In A String | Easy | solved |  |  | [`problems/0028-find-the-index-of-the-first-occurrence-in-a-string/`](problems/0028-find-the-index-of-the-first-occurrence-in-a-string/) | String; Two Pointers; Pattern Matching |
+| 0042 | Trapping Rain Water | Hard | solved | blind75 | reviewed | [`problems/0042-trapping-rain-water/`](problems/0042-trapping-rain-water/) | Array; Two Pointers; Dynamic Programming; Stack |
 | 0220 | Contains Duplicate Iii | Hard | solved |  |  | [`problems/0220-contains-duplicate-iii/`](problems/0220-contains-duplicate-iii/) | Sliding Window; Bucket Sort; Hash Map |
 | 1351 | Count Negative Numbers In A Sorted Matrix | Easy | solved |  |  | [`problems/1351-count-negative-numbers-in-a-sorted-matrix/`](problems/1351-count-negative-numbers-in-a-sorted-matrix/) | Array; Matrix; Two Pointers |
 | 1877 | Minimize Maximum Pair Sum In Array | Medium | solved |  |  | [`problems/1877-minimize-maximum-pair-sum-in-array/`](problems/1877-minimize-maximum-pair-sum-in-array/) | Greedy; Sorting; Two Pointers |
@@ -207,6 +209,7 @@ Problems can appear in multiple sections when their metadata has multiple topics
 | ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
 | 0010 | Regular Expression Matching | Hard | solved |  |  | [`problems/0010-regular-expression-matching/`](problems/0010-regular-expression-matching/) | String; Dynamic Programming |
+| 0042 | Trapping Rain Water | Hard | solved | blind75 | reviewed | [`problems/0042-trapping-rain-water/`](problems/0042-trapping-rain-water/) | Array; Two Pointers; Dynamic Programming; Stack |
 | 0085 | Maximal Rectangle | Hard | solved |  |  | [`problems/0085-maximal-rectangle/`](problems/0085-maximal-rectangle/) | Dynamic Programming; Stack; Monotonic Stack |
 | 0712 | Minimum Ascii Delete Sum For Two Strings | Medium | solved |  |  | [`problems/0712-minimum-ascii-delete-sum-for-two-strings/`](problems/0712-minimum-ascii-delete-sum-for-two-strings/) | Dynamic Programming; String |
 | 0756 | Pyramid Transition Matrix | Medium | solved |  |  | [`problems/0756-pyramid-transition-matrix/`](problems/0756-pyramid-transition-matrix/) | DFS; Backtracking; Memoization; Hash Table |
@@ -306,6 +309,7 @@ Problems can appear in multiple sections when their metadata has multiple topics
 
 | ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
+| 0042 | Trapping Rain Water | Hard | solved | blind75 | reviewed | [`problems/0042-trapping-rain-water/`](problems/0042-trapping-rain-water/) | Array; Two Pointers; Dynamic Programming; Stack |
 | 0085 | Maximal Rectangle | Hard | solved |  |  | [`problems/0085-maximal-rectangle/`](problems/0085-maximal-rectangle/) | Dynamic Programming; Stack; Monotonic Stack |
 
 ## Prefix & Difference Techniques
