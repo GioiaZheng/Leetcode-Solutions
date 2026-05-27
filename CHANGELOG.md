@@ -96,6 +96,28 @@ documenting it.
   in CATALOG / TOPICS columns, but it does not appear in any
   `paths/<p>/README.md`. Reviewed AI card count moves from 10 to 11.
 
+### Second curated path
+
+- **`feat(paths): scaffold NeetCode 150 path`**. Creates
+  `paths/neetcode150/README.md` mirroring the structure of
+  `paths/blind75/README.md` --- seven hand-written sections
+  (Overview, Prerequisites, Milestones, Pattern Notes,
+  Mock-Interview Tips, Weekly Plan) plus the auto-regenerated
+  Problem List between sentinels. The eighteen NeetCode milestones
+  (Arrays & Hashing, Two Pointers, Sliding Window, Stack, Binary
+  Search, Linked List, Trees, Tries, Heap, Backtracking, Graphs,
+  Advanced Graphs, 1-D DP, 2-D DP, Greedy, Intervals, Math &
+  Geometry, Bit Manipulation) are documented up front with
+  problem-count targets per milestone, plus a 12-week study plan
+  pacing 12--14 problems per week.
+
+  No problems are tagged with `"neetcode150"` yet, so the auto-
+  generated Problem List shows the empty-state placeholder. As
+  problems gain the tag in metadata.json, the list auto-populates
+  on `make sync`. The validator (`VALID_PATH_MEMBERSHIPS = {blind75,
+  neetcode150}`, set since `2c9efcb`) already accepts the
+  identifier, so no script change is needed.
+
 ---
 
 ## 2026-05-27 — Standards foundation v2 (merged as `b61e63d`)
