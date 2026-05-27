@@ -21,7 +21,7 @@ Directory naming follows `problem-id-kebab-case-title` (all lowercase).
 | 0012 | Integer To Roman | Medium | solved |  |  | [`problems/0012-integer-to-roman/`](problems/0012-integer-to-roman/) | Math; String; Greedy |
 | 0013 | Roman To Integer | Easy | solved |  |  | [`problems/0013-roman-to-integer/`](problems/0013-roman-to-integer/) | Hash Table; Math; String |
 | 0014 | Longest Common Prefix | Easy | solved |  |  | [`problems/0014-longest-common-prefix/`](problems/0014-longest-common-prefix/) | String |
-| 0015 | 3sum | Medium | solved | blind75 |  | [`problems/0015-3sum/`](problems/0015-3sum/) | Array; Two Pointers; Sorting |
+| 0015 | 3sum | Medium | solved | blind75 | reviewed | [`problems/0015-3sum/`](problems/0015-3sum/) | Array; Two Pointers; Sorting |
 | 0026 | Remove Duplicates From Sorted Array | Easy | solved |  |  | [`problems/0026-remove-duplicates-from-sorted-array/`](problems/0026-remove-duplicates-from-sorted-array/) | Array; Two Pointers |
 | 0027 | Remove Element | Easy | solved |  |  | [`problems/0027-remove-element/`](problems/0027-remove-element/) | Array; Two Pointers |
 | 0028 | Find The Index Of The First Occurrence In A String | Easy | solved |  |  | [`problems/0028-find-the-index-of-the-first-occurrence-in-a-string/`](problems/0028-find-the-index-of-the-first-occurrence-in-a-string/) | String; Two Pointers; Pattern Matching |
