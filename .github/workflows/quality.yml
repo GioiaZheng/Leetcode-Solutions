@@ -41,7 +41,7 @@ jobs:
       - name: Generated indexes and README metrics are in sync
         run: |
           python scripts/update_indexes.py
-          git diff --exit-code -- CATALOG.md TOPICS.md README.md || {
+          git diff --exit-code -- CATALOG.md TOPICS.md README.md 'paths/*/README.md' || {
             echo "::error::Generated docs are out of sync. Run scripts/update_indexes.py, then commit the result." >&2
             exit 1
           }

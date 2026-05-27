@@ -1,10 +1,12 @@
 import generate_catalog
+import generate_path
 import generate_topics
 import update_stats
 
 
 def main():
     generate_catalog.main()
+    generate_path.main()
     generate_topics.main()
     metrics = update_stats.collect_metrics()
     update_stats.update_readme(metrics)
