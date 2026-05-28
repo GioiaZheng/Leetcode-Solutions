@@ -352,6 +352,114 @@ def test_validate_rejects_non_list_path_membership(tmp_path):
     )
 
 
+def test_validate_accepts_milestones_dict(tmp_path):
+    directory = "0001-two-sum"
+    write_problem(
+        tmp_path,
+        directory,
+        readme=standard_readme(),
+        solution="class Solution:\n    pass\n",
+    )
+    write_catalog(tmp_path, [directory])
+    write_topics(tmp_path, [directory])
+    (tmp_path / "metadata.json").write_text(
+        json.dumps(
+            {
+                "problems": [
+                    {
+                        "id": "0001",
+                        "title": "Two Sum",
+                        "difficulty": "Easy",
+                        "topics": ["Array"],
+                        "status": "solved",
+                        "path_membership": ["blind75", "neetcode150"],
+                        "milestones": {"blind75": "M1", "neetcode150": "M1"},
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    _, errors = validate_repo.validate(tmp_path)
+
+    assert errors == []
+
+
+def test_validate_rejects_milestones_with_unknown_id(tmp_path):
+    directory = "0001-two-sum"
+    write_problem(
+        tmp_path,
+        directory,
+        readme=standard_readme(),
+        solution="class Solution:\n    pass\n",
+    )
+    write_catalog(tmp_path, [directory])
+    write_topics(tmp_path, [directory])
+    (tmp_path / "metadata.json").write_text(
+        json.dumps(
+            {
+                "problems": [
+                    {
+                        "id": "0001",
+                        "title": "Two Sum",
+                        "difficulty": "Easy",
+                        "topics": ["Array"],
+                        "status": "solved",
+                        "path_membership": ["blind75"],
+                        "milestones": {"blind75": "M99"},
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    _, errors = validate_repo.validate(tmp_path)
+
+    assert any(
+        "milestones['blind75'] has invalid id 'M99'" in error for error in errors
+    )
+
+
+def test_validate_rejects_milestones_for_path_not_in_membership(tmp_path):
+    directory = "0001-two-sum"
+    write_problem(
+        tmp_path,
+        directory,
+        readme=standard_readme(),
+        solution="class Solution:\n    pass\n",
+    )
+    write_catalog(tmp_path, [directory])
+    write_topics(tmp_path, [directory])
+    (tmp_path / "metadata.json").write_text(
+        json.dumps(
+            {
+                "problems": [
+                    {
+                        "id": "0001",
+                        "title": "Two Sum",
+                        "difficulty": "Easy",
+                        "topics": ["Array"],
+                        "status": "solved",
+                        "path_membership": ["blind75"],
+                        "milestones": {"neetcode150": "M1"},
+                    }
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    _, errors = validate_repo.validate(tmp_path)
+
+    assert any(
+        "milestones references path 'neetcode150'" in error
+        and "not in path_membership" in error
+        for error in errors
+    )
+
+
 def standard_readme_with_ai_card():
     return standard_readme() + (
         "\n"

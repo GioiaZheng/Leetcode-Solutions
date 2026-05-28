@@ -45,6 +45,17 @@ VALID_STATUSES = {"solved", "tested", "review-needed"}
 VALID_PATH_MEMBERSHIPS = {"blind75", "neetcode150"}
 VALID_AI_CARD_STATUSES = {"draft", "reviewed", "interview-ready"}
 
+# Per-path valid milestone identifiers. Used to validate the optional
+# `milestones` field on each problem entry. The number of milestones is the
+# canonical count from each path's source list (Blind 75 = 6 pattern groups,
+# NeetCode 150 = 18). Definitions of WHAT each milestone covers live in
+# scripts/generate_path.py (PATH_MILESTONE_DEFS) so the generator can emit a
+# table; the validator only checks that the ids are well-formed.
+VALID_MILESTONE_IDS_PER_PATH = {
+    "blind75": frozenset(f"M{i}" for i in range(1, 7)),
+    "neetcode150": frozenset(f"M{i}" for i in range(1, 19)),
+}
+
 # Reliable signal that a problem README has been migrated to the AI-card
 # template (templates/problem_README.md). "Brute-force baseline" is unique
 # to the optional AI-card extension --- it never appears as an alias for
@@ -285,6 +296,44 @@ def load_metadata(root=ROOT):
                 f"{ai_card_status!r}; expected one of "
                 f"{sorted(VALID_AI_CARD_STATUSES)}."
             )
+
+        milestones = problem.get("milestones")
+        if milestones is not None:
+            if not isinstance(milestones, dict):
+                errors.append(
+                    f"metadata.json entry {problem_id} has invalid milestones; "
+                    f"expected a dict mapping path id to milestone id, or omitted."
+                )
+            else:
+                membership = set(problem.get("path_membership") or [])
+                for path_id, milestone_id in milestones.items():
+                    if not isinstance(path_id, str) or not isinstance(milestone_id, str):
+                        errors.append(
+                            f"metadata.json entry {problem_id} milestones has a "
+                            f"non-string key or value."
+                        )
+                        continue
+                    if path_id not in membership:
+                        errors.append(
+                            f"metadata.json entry {problem_id} milestones references "
+                            f"path {path_id!r} but that path is not in path_membership "
+                            f"{sorted(membership)}."
+                        )
+                        continue
+                    valid_ids = VALID_MILESTONE_IDS_PER_PATH.get(path_id)
+                    if valid_ids is None:
+                        errors.append(
+                            f"metadata.json entry {problem_id} milestones references "
+                            f"unknown path {path_id!r}; expected subset of "
+                            f"{sorted(VALID_MILESTONE_IDS_PER_PATH)}."
+                        )
+                        continue
+                    if milestone_id not in valid_ids:
+                        errors.append(
+                            f"metadata.json entry {problem_id} milestones[{path_id!r}] "
+                            f"has invalid id {milestone_id!r}; expected one of "
+                            f"{sorted(valid_ids)}."
+                        )
 
         by_id[problem_id] = problem
 
