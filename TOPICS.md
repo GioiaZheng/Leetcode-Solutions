@@ -71,7 +71,7 @@ Problems can appear in multiple sections when their metadata has multiple topics
 | 0005 | Longest Palindromic Substring | Medium | solved | blind75, neetcode150 | [reviewed](problems/0005-longest-palindromic-substring/README.md#brute-force-baseline) | [`problems/0005-longest-palindromic-substring/`](problems/0005-longest-palindromic-substring/) | String; Two Pointers; Expand Around Center |
 | 0006 | Zigzag Conversion | Medium | solved |  |  | [`problems/0006-zigzag-conversion/`](problems/0006-zigzag-conversion/) | String; Simulation |
 | 0008 | String To Integer Atoi | Medium | solved |  |  | [`problems/0008-string-to-integer-atoi/`](problems/0008-string-to-integer-atoi/) | String; Parsing |
-| 0010 | Regular Expression Matching | Hard | solved | neetcode150 |  | [`problems/0010-regular-expression-matching/`](problems/0010-regular-expression-matching/) | String; Dynamic Programming |
+| 0010 | Regular Expression Matching | Hard | solved | neetcode150 | [reviewed](problems/0010-regular-expression-matching/README.md#brute-force-baseline) | [`problems/0010-regular-expression-matching/`](problems/0010-regular-expression-matching/) | String; Dynamic Programming |
 | 0012 | Integer To Roman | Medium | solved |  |  | [`problems/0012-integer-to-roman/`](problems/0012-integer-to-roman/) | Math; String; Greedy |
 | 0013 | Roman To Integer | Easy | solved |  |  | [`problems/0013-roman-to-integer/`](problems/0013-roman-to-integer/) | Hash Table; Math; String |
 | 0014 | Longest Common Prefix | Easy | solved |  |  | [`problems/0014-longest-common-prefix/`](problems/0014-longest-common-prefix/) | String |
@@ -208,7 +208,7 @@ Problems can appear in multiple sections when their metadata has multiple topics
 
 | ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
-| 0010 | Regular Expression Matching | Hard | solved | neetcode150 |  | [`problems/0010-regular-expression-matching/`](problems/0010-regular-expression-matching/) | String; Dynamic Programming |
+| 0010 | Regular Expression Matching | Hard | solved | neetcode150 | [reviewed](problems/0010-regular-expression-matching/README.md#brute-force-baseline) | [`problems/0010-regular-expression-matching/`](problems/0010-regular-expression-matching/) | String; Dynamic Programming |
 | 0042 | Trapping Rain Water | Hard | solved | blind75, neetcode150 | [reviewed](problems/0042-trapping-rain-water/README.md#brute-force-baseline) | [`problems/0042-trapping-rain-water/`](problems/0042-trapping-rain-water/) | Array; Two Pointers; Dynamic Programming; Stack |
 | 0085 | Maximal Rectangle | Hard | solved |  | [reviewed](problems/0085-maximal-rectangle/README.md#brute-force-baseline) | [`problems/0085-maximal-rectangle/`](problems/0085-maximal-rectangle/) | Dynamic Programming; Stack; Monotonic Stack |
 | 0712 | Minimum Ascii Delete Sum For Two Strings | Medium | solved |  |  | [`problems/0712-minimum-ascii-delete-sum-for-two-strings/`](problems/0712-minimum-ascii-delete-sum-for-two-strings/) | Dynamic Programming; String |

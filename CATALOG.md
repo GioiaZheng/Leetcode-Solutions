@@ -16,7 +16,7 @@ Directory naming follows `problem-id-kebab-case-title` (all lowercase).
 | 0007 | Reverse Integer | Medium | solved |  |  | [`problems/0007-reverse-integer/`](problems/0007-reverse-integer/) | Math |
 | 0008 | String To Integer Atoi | Medium | solved |  |  | [`problems/0008-string-to-integer-atoi/`](problems/0008-string-to-integer-atoi/) | String; Parsing |
 | 0009 | Palindrome Number | Easy | solved |  |  | [`problems/0009-palindrome-number/`](problems/0009-palindrome-number/) | Math |
-| 0010 | Regular Expression Matching | Hard | solved | neetcode150 |  | [`problems/0010-regular-expression-matching/`](problems/0010-regular-expression-matching/) | String; Dynamic Programming |
+| 0010 | Regular Expression Matching | Hard | solved | neetcode150 | [reviewed](problems/0010-regular-expression-matching/README.md#brute-force-baseline) | [`problems/0010-regular-expression-matching/`](problems/0010-regular-expression-matching/) | String; Dynamic Programming |
 | 0011 | Container With Most Water | Medium | solved | blind75, neetcode150 | [reviewed](problems/0011-container-with-most-water/README.md#brute-force-baseline) | [`problems/0011-container-with-most-water/`](problems/0011-container-with-most-water/) | Array; Two Pointers |
 | 0012 | Integer To Roman | Medium | solved |  |  | [`problems/0012-integer-to-roman/`](problems/0012-integer-to-roman/) | Math; String; Greedy |
 | 0013 | Roman To Integer | Easy | solved |  |  | [`problems/0013-roman-to-integer/`](problems/0013-roman-to-integer/) | Hash Table; Math; String |
