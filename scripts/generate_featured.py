@@ -97,8 +97,8 @@ def render_featured(problems, directories):
         return EMPTY_BODY
 
     lines = [
-        "| # | ID | Problem | Difficulty | Primary topic |",
-        "|---:|---:|---|---|---|",
+        "| # | ID | Problem | Difficulty | Paths | Primary topic |",
+        "|---:|---:|---|---|---|---|",
     ]
     for index, problem in enumerate(members, start=1):
         problem_id = problem["id"]
@@ -110,11 +110,12 @@ def render_featured(problems, directories):
             )
         title = str(problem.get("title", "")).replace("|", r"\|")
         difficulty = str(problem.get("difficulty", "")).replace("|", r"\|")
+        paths = ", ".join(sorted(problem.get("path_membership") or [])).replace("|", r"\|")
         topic = primary_category(problem).replace("|", r"\|")
         lines.append(
             f"| {index} | {problem_id} | "
             f"[{title}](problems/{directory}/) | "
-            f"{difficulty} | {topic} |"
+            f"{difficulty} | {paths} | {topic} |"
         )
     return "\n".join(lines)
 

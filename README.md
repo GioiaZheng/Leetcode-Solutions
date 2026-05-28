@@ -51,21 +51,21 @@ Top-level files:
 The reviewed AI-card showcases below are the recommended entry points. Each problem README carries a brute-force baseline, common mistakes, failure cases, interview follow-ups, and a bilingual English + Chinese summary on top of the standard six core sections (Problem / Intuition / Approach / Complexity / Edge Cases / Code).
 
 <!-- FEATURED_LIST_START -->
-| # | ID | Problem | Difficulty | Primary topic |
-|---:|---:|---|---|---|
-| 1 | 0001 | [Two Sum](problems/0001-two-sum/) | Easy | Hashing |
-| 2 | 0003 | [Longest Substring Without Repeating Characters](problems/0003-longest-substring-without-repeating-characters/) | Medium | Two Pointers & Sliding Window |
-| 3 | 0004 | [Median Of Two Sorted Arrays](problems/0004-median-of-two-sorted-arrays/) | Hard | Binary Search |
-| 4 | 0005 | [Longest Palindromic Substring](problems/0005-longest-palindromic-substring/) | Medium | Two Pointers & Sliding Window |
-| 5 | 0010 | [Regular Expression Matching](problems/0010-regular-expression-matching/) | Hard | Dynamic Programming |
-| 6 | 0011 | [Container With Most Water](problems/0011-container-with-most-water/) | Medium | Two Pointers & Sliding Window |
-| 7 | 0015 | [3sum](problems/0015-3sum/) | Medium | Two Pointers & Sliding Window |
-| 8 | 0042 | [Trapping Rain Water](problems/0042-trapping-rain-water/) | Hard | Dynamic Programming |
-| 9 | 0049 | [Group Anagrams](problems/0049-group-anagrams/) | Medium | Hashing |
-| 10 | 0085 | [Maximal Rectangle](problems/0085-maximal-rectangle/) | Hard | Dynamic Programming |
-| 11 | 0121 | [Best Time To Buy And Sell Stock](problems/0121-best-time-to-buy-and-sell-stock/) | Easy | Greedy |
-| 12 | 0242 | [Valid Anagram](problems/0242-valid-anagram/) | Easy | Sorting & Heap |
-| 13 | 0347 | [Top K Frequent Elements](problems/0347-top-k-frequent-elements/) | Medium | Sorting & Heap |
+| # | ID | Problem | Difficulty | Paths | Primary topic |
+|---:|---:|---|---|---|---|
+| 1 | 0001 | [Two Sum](problems/0001-two-sum/) | Easy | blind75, neetcode150 | Hashing |
+| 2 | 0003 | [Longest Substring Without Repeating Characters](problems/0003-longest-substring-without-repeating-characters/) | Medium | blind75, neetcode150 | Two Pointers & Sliding Window |
+| 3 | 0004 | [Median Of Two Sorted Arrays](problems/0004-median-of-two-sorted-arrays/) | Hard | neetcode150 | Binary Search |
+| 4 | 0005 | [Longest Palindromic Substring](problems/0005-longest-palindromic-substring/) | Medium | blind75, neetcode150 | Two Pointers & Sliding Window |
+| 5 | 0010 | [Regular Expression Matching](problems/0010-regular-expression-matching/) | Hard | neetcode150 | Dynamic Programming |
+| 6 | 0011 | [Container With Most Water](problems/0011-container-with-most-water/) | Medium | blind75, neetcode150 | Two Pointers & Sliding Window |
+| 7 | 0015 | [3sum](problems/0015-3sum/) | Medium | blind75, neetcode150 | Two Pointers & Sliding Window |
+| 8 | 0042 | [Trapping Rain Water](problems/0042-trapping-rain-water/) | Hard | blind75, neetcode150 | Dynamic Programming |
+| 9 | 0049 | [Group Anagrams](problems/0049-group-anagrams/) | Medium | blind75, neetcode150 | Hashing |
+| 10 | 0085 | [Maximal Rectangle](problems/0085-maximal-rectangle/) | Hard |  | Dynamic Programming |
+| 11 | 0121 | [Best Time To Buy And Sell Stock](problems/0121-best-time-to-buy-and-sell-stock/) | Easy | blind75, neetcode150 | Greedy |
+| 12 | 0242 | [Valid Anagram](problems/0242-valid-anagram/) | Easy | blind75, neetcode150 | Sorting & Heap |
+| 13 | 0347 | [Top K Frequent Elements](problems/0347-top-k-frequent-elements/) | Medium | blind75, neetcode150 | Sorting & Heap |
 <!-- FEATURED_LIST_END -->
 
 Regenerated from `ai_card_status: reviewed` entries in `metadata.json` by `python scripts/update_indexes.py`. Primary topic is derived from the first entry in each problem's `topics` list mapped to the canonical categories defined in `scripts/generate_topics.py`.

@@ -44,7 +44,7 @@ repo easy to browse, regenerate, and validate.
 ## Metadata
 
 Each entry in `metadata.json` is an object with five required fields
-and two optional ones (validated by `scripts/validate_repo.py`):
+and three optional ones (validated by `scripts/validate_repo.py`):
 
 **Required:**
 
@@ -62,6 +62,14 @@ and two optional ones (validated by `scripts/validate_repo.py`):
 - `ai_card_status` — one of `draft`, `reviewed`, or
   `interview-ready`. **Mandatory** when the problem's README ships
   any of the optional "AI card" sections (see below).
+- `milestones` — dict mapping each path id (from `path_membership`)
+  to a milestone id within that path. Blind 75 milestones run
+  `M1`..`M6`; NeetCode 150 milestones run `M1`..`M18` (the
+  canonical 18 pattern groupings). Drives the Milestones table at
+  the top of each path README. Every key must also appear in
+  `path_membership`; values are checked against the per-path
+  milestone set defined in
+  `VALID_MILESTONE_IDS_PER_PATH`.
 
 ## Optional Problem README Sections (AI Card)
 
@@ -90,6 +98,16 @@ When any of these sections is present, set `ai_card_status` in
 This gates AI-assisted content from landing in the repo without a
 manual review pass.
 
+**`ai_card_status` is independent of `path_membership`.** A problem
+can carry a reviewed AI card without belonging to any curated path
+(e.g. a high-frequency interview problem that is not on the
+canonical Blind 75 or NeetCode 150 lists). Such a problem surfaces
+in the README "Where to start" featured table and in the `AI Card`
+column of `CATALOG.md` / `TOPICS.md`, but does NOT appear in any
+`paths/<p>/README.md`. The reverse is also true: a tagged problem
+can omit `ai_card_status` (just appears in the path Problem List
+with a blank AI Card column).
+
 ## Learning Paths (`paths/`)
 
 Each curated learning path has its own directory under `paths/`
@@ -111,10 +129,22 @@ Path README structure:
 ## Weekly Plan
 ```
 
-Only the **Problem List** section is auto-regenerated, between
-`<!-- PATH_LIST_START -->` / `<!-- PATH_LIST_END -->` sentinels.
-The other sections are hand-written narrative and survive
-regeneration.
+Two sections are auto-regenerated:
+
+- **Problem List** between `<!-- PATH_LIST_START -->` /
+  `<!-- PATH_LIST_END -->` sentinels: one row per tagged
+  problem (sorted by id), reading
+  `path_membership` from `metadata.json`.
+- **Milestones** between `<!-- MILESTONES_START -->` /
+  `<!-- MILESTONES_END -->` sentinels: a table grouped by
+  milestone (`M1`..`Mn`) showing canonical / in-repo / reviewed
+  counts. Reads the optional `milestones[<path_id>]` field on
+  each problem (see the §Metadata section above; `M1`..`M6` for
+  Blind 75, `M1`..`M18` for NeetCode 150).
+
+The other sections (Overview, Prerequisites, Pattern Notes,
+Mock-Interview Tips, Weekly Plan) are hand-written narrative and
+survive regeneration.
 
 Regenerate with:
 
@@ -124,8 +154,11 @@ python scripts/generate_path.py
 
 Allowed path identifiers (used both in the directory name under
 `paths/` and in the `path_membership` field): `blind75`,
-`neetcode150`. Add new ones by extending both this section and the
-`VALID_PATH_MEMBERSHIPS` set in `scripts/validate_repo.py`.
+`neetcode150`. Adding a new path requires updating four places:
+this section, `VALID_PATH_MEMBERSHIPS` in
+`scripts/validate_repo.py`, `VALID_MILESTONE_IDS_PER_PATH` in the
+same file, and `PATH_MILESTONE_DEFS` in
+`scripts/generate_path.py`.
 
 ## Local Checks
 

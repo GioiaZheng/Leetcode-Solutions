@@ -9,6 +9,74 @@ Newest first. Each round cites its constituent commits by short SHA.
 
 ---
 
+## Unreleased — Post-merge polish on `main`
+
+Direct-on-`main` follow-up work after the navigation-polish round
+merged as `5e6b02f`. Roughly three threads, in order:
+
+**Visibility & cross-linking**
+- `9d237aa` `feat(metadata): populate NeetCode 150 with 12 problems` ---
+  extend `path_membership` of all 10 Blind 75 entries to include
+  `"neetcode150"`, then add `0004` Median of Two Sorted Arrays and
+  `0010` Regular Expression Matching as NeetCode-only entries.
+- `0bb2d49` `feat(indexes): turn AI Card cells into clickable links to
+  the brute-force section` --- wrap every non-empty `AI Card` cell in
+  `CATALOG.md`, `TOPICS.md`, and `paths/<p>/README.md` with a markdown
+  link pointing at `<problem>/README.md#brute-force-baseline`, so
+  readers reach the extended write-up in one jump.
+
+**High-frequency hard showcases**
+- `146d7fc` `feat(showcase): create 0042 Trapping Rain Water from
+  scratch` --- the first new-problem-from-scratch entry on `main`
+  (Blind 75 had a gap). Two-pointer O(n)/O(1) solution + full AI
+  card.
+- `b4acdbb` `feat(showcase): migrate 0085 Maximal Rectangle to AI-card
+  template` --- the only reviewed AI card without `path_membership`.
+  Documented as an intentional "orphan" pattern, not a schema gap: a
+  problem can carry `ai_card_status` without belonging to any
+  curated path (e.g. a high-frequency interview hard that is not on
+  Blind 75 or NeetCode 150). Surfaces in the README "Where to
+  start" featured table and in CATALOG / TOPICS `AI Card` columns,
+  but does NOT appear in any `paths/<p>/README.md`.
+- `98dbc48` `feat(showcase): migrate 0004 median-of-two-sorted-arrays
+  to AI-card`.
+- `58482bf` `feat(showcase): migrate 0010 regular-expression-matching
+  to AI-card`.
+
+**Path framework deepening**
+- `3bd64ed` `feat(validate): accept optional milestones field per
+  problem` --- new optional metadata field
+  `milestones: {path_id: milestone_id}`, validated per path. Adds
+  three pytest cases. Suite grows 33 -> 36.
+- `4580141` `feat(paths): auto-generate Milestones tables from
+  metadata` --- replace hand-written milestone bullet lists with
+  `<!-- MILESTONES_START -->` / `<!-- MILESTONES_END -->` sentinel
+  blocks; `render_milestones()` in `generate_path.py` emits a
+  5-column table (id / name / canonical / in-repo / reviewed) with
+  bold Total row. Per-path milestone definitions (
+  `PATH_MILESTONE_DEFS`) hardcoded in the generator: 6 milestones
+  for Blind 75, 18 for NeetCode 150. Tag the 12 path-tagged
+  showcase problems with their milestone classifications.
+
+**This commit** (no SHA yet, see `git log -1` after landing)
+- Featured table gains a Paths column between Difficulty and
+  Primary topic, so a reader sees membership inline without
+  scrolling down to CATALOG. 0085 is visible as the only row with
+  an empty Paths cell --- the orphan-showcase pattern made
+  visually explicit.
+- `CONTRIBUTING.md` updated: documents the new `milestones`
+  optional field; documents the path/AI-card independence
+  invariant (an `ai_card_status: reviewed` entry can omit
+  `path_membership` --- the 0085 pattern); documents that adding a
+  new curated path requires updates in four places
+  (CONTRIBUTING.md, `VALID_PATH_MEMBERSHIPS`,
+  `VALID_MILESTONE_IDS_PER_PATH`, `PATH_MILESTONE_DEFS`).
+- Path README structure description updated: now lists both the
+  Problem List and Milestones sentinels and which fields drive
+  each.
+
+---
+
 ## Unreleased — Navigation polish (`infra/navigation-polish` branch)
 
 Goal: take the AI-card + paths machinery shipped in the standards-foundation
