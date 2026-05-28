@@ -76,15 +76,19 @@ def test_topic_groups_assigns_each_problem_to_every_canonical_category_it_touche
     assert any(r["id"] == "0001" for r in groups["Hashing"])
 
 
-def test_topic_groups_emits_untagged_for_rows_without_topics():
+def test_topic_groups_routes_empty_topics_to_other_techniques():
+    # An empty topics string is replaced with a single "Untagged" placeholder
+    # topic inside topic_groups(); category_for("Untagged") falls through
+    # the alias table (there is no entry for it) and returns the default
+    # "Other Techniques". CATEGORY_ORDER does list "Untagged" defensively,
+    # but the current alias map never produces that key.
     rows = [{"id": "9999", "title": "Mystery", "topics": ""}]
 
     groups = generate_topics.topic_groups(rows)
 
-    # An empty topics string falls through to "Untagged" via the
-    # category_for("Untagged") path.
-    assert "Untagged" in groups
-    assert any(r["id"] == "9999" for r in groups["Untagged"])
+    assert "Untagged" not in groups
+    assert "Other Techniques" in groups
+    assert any(r["id"] == "9999" for r in groups["Other Techniques"])
 
 
 def test_topic_groups_orders_rows_by_numeric_id_within_a_topic():
