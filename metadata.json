@@ -13,7 +13,11 @@
         "blind75",
         "neetcode150"
       ],
-      "ai_card_status": "reviewed"
+      "ai_card_status": "reviewed",
+      "milestones": {
+        "blind75": "M1",
+        "neetcode150": "M1"
+      }
     },
     {
       "id": "0002",
@@ -39,7 +43,11 @@
         "blind75",
         "neetcode150"
       ],
-      "ai_card_status": "reviewed"
+      "ai_card_status": "reviewed",
+      "milestones": {
+        "blind75": "M2",
+        "neetcode150": "M3"
+      }
     },
     {
       "id": "0004",
@@ -54,7 +62,10 @@
       "path_membership": [
         "neetcode150"
       ],
-      "ai_card_status": "reviewed"
+      "ai_card_status": "reviewed",
+      "milestones": {
+        "neetcode150": "M5"
+      }
     },
     {
       "id": "0005",
@@ -70,7 +81,11 @@
         "blind75",
         "neetcode150"
       ],
-      "ai_card_status": "reviewed"
+      "ai_card_status": "reviewed",
+      "milestones": {
+        "blind75": "M6",
+        "neetcode150": "M13"
+      }
     },
     {
       "id": "0006",
@@ -122,7 +137,10 @@
       "path_membership": [
         "neetcode150"
       ],
-      "ai_card_status": "reviewed"
+      "ai_card_status": "reviewed",
+      "milestones": {
+        "neetcode150": "M14"
+      }
     },
     {
       "id": "0011",
@@ -137,7 +155,11 @@
         "blind75",
         "neetcode150"
       ],
-      "ai_card_status": "reviewed"
+      "ai_card_status": "reviewed",
+      "milestones": {
+        "blind75": "M2",
+        "neetcode150": "M2"
+      }
     },
     {
       "id": "0012",
@@ -184,7 +206,11 @@
         "blind75",
         "neetcode150"
       ],
-      "ai_card_status": "reviewed"
+      "ai_card_status": "reviewed",
+      "milestones": {
+        "blind75": "M2",
+        "neetcode150": "M2"
+      }
     },
     {
       "id": "0042",
@@ -201,7 +227,11 @@
         "blind75",
         "neetcode150"
       ],
-      "ai_card_status": "reviewed"
+      "ai_card_status": "reviewed",
+      "milestones": {
+        "blind75": "M2",
+        "neetcode150": "M2"
+      }
     },
     {
       "id": "0026",
@@ -248,7 +278,11 @@
         "blind75",
         "neetcode150"
       ],
-      "ai_card_status": "reviewed"
+      "ai_card_status": "reviewed",
+      "milestones": {
+        "blind75": "M1",
+        "neetcode150": "M1"
+      }
     },
     {
       "id": "0066",
@@ -285,7 +319,11 @@
         "blind75",
         "neetcode150"
       ],
-      "ai_card_status": "reviewed"
+      "ai_card_status": "reviewed",
+      "milestones": {
+        "blind75": "M2",
+        "neetcode150": "M3"
+      }
     },
     {
       "id": "0164",
@@ -323,7 +361,11 @@
         "blind75",
         "neetcode150"
       ],
-      "ai_card_status": "reviewed"
+      "ai_card_status": "reviewed",
+      "milestones": {
+        "blind75": "M1",
+        "neetcode150": "M1"
+      }
     },
     {
       "id": "0347",
@@ -340,7 +382,11 @@
         "blind75",
         "neetcode150"
       ],
-      "ai_card_status": "reviewed"
+      "ai_card_status": "reviewed",
+      "milestones": {
+        "blind75": "M5",
+        "neetcode150": "M9"
+      }
     },
     {
       "id": "0451",

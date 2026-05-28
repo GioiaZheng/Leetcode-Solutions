@@ -17,26 +17,31 @@ Problems tagged with `"blind75"` will typically also be tagged with `"neetcode15
 
 ## Milestones
 
-NeetCode 150's canonical 18 pattern groupings:
+NeetCode 150 splits its 150 problems into 18 pattern milestones (a strict refinement of Blind 75's 6). The table below is auto-regenerated from `milestones["neetcode150"]` entries in `metadata.json`; **Canonical** = problems per milestone on the source list, **In repo** = problems already living under `problems/` and tagged into this milestone, **Reviewed** = subset of those that also carry an AI-card extension (`ai_card_status: "reviewed"`).
 
-- **M1 --- Arrays & Hashing** (9 problems)
-- **M2 --- Two Pointers** (5)
-- **M3 --- Sliding Window** (6)
-- **M4 --- Stack** (7)
-- **M5 --- Binary Search** (7)
-- **M6 --- Linked List** (11)
-- **M7 --- Trees** (15)
-- **M8 --- Tries** (3)
-- **M9 --- Heap / Priority Queue** (7)
-- **M10 --- Backtracking** (9)
-- **M11 --- Graphs** (13)
-- **M12 --- Advanced Graphs** (6)
-- **M13 --- 1-D DP** (12)
-- **M14 --- 2-D DP** (11)
-- **M15 --- Greedy** (8)
-- **M16 --- Intervals** (6)
-- **M17 --- Math & Geometry** (8)
-- **M18 --- Bit Manipulation** (7)
+<!-- MILESTONES_START -->
+| # | Milestone | Canonical | In repo | Reviewed |
+|---|---|---:|---:|---:|
+| M1 | Arrays & Hashing | 9 | 3 | 3 |
+| M2 | Two Pointers | 5 | 3 | 3 |
+| M3 | Sliding Window | 6 | 2 | 2 |
+| M4 | Stack | 7 | 0 | 0 |
+| M5 | Binary Search | 7 | 1 | 1 |
+| M6 | Linked List | 11 | 0 | 0 |
+| M7 | Trees | 15 | 0 | 0 |
+| M8 | Tries | 3 | 0 | 0 |
+| M9 | Heap / Priority Queue | 7 | 1 | 1 |
+| M10 | Backtracking | 9 | 0 | 0 |
+| M11 | Graphs | 13 | 0 | 0 |
+| M12 | Advanced Graphs | 6 | 0 | 0 |
+| M13 | 1-D DP | 12 | 1 | 1 |
+| M14 | 2-D DP | 11 | 1 | 1 |
+| M15 | Greedy | 8 | 0 | 0 |
+| M16 | Intervals | 6 | 0 | 0 |
+| M17 | Math & Geometry | 8 | 0 | 0 |
+| M18 | Bit Manipulation | 7 | 0 | 0 |
+| **Total** | | **150** | **12** | **12** |
+<!-- MILESTONES_END -->
 
 A milestone is "done" when every problem in it has `ai_card_status: reviewed` or better.
 

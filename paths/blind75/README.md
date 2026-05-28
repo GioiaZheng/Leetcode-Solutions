@@ -14,12 +14,19 @@ The Blind 75 is the canonical short list for filling pattern gaps before a codin
 
 ## Milestones
 
-- **M1 — Arrays & Hashing** (10 problems) — pattern-recognition warmup.
-- **M2 — Two Pointers & Sliding Window** (12 problems) — pointer arithmetic and window invariants.
-- **M3 — Stack, Queues & Binary Search** (10 problems) — classic data-structure mechanics.
-- **M4 — Linked Lists & Trees** (15 problems) — recursion versus iteration on linear and branched structures.
-- **M5 — Tries, Heaps & Graphs** (15 problems) — non-trivial data structures and BFS / DFS.
-- **M6 — Dynamic Programming & Greedy** (13 problems) — state definition and transition design.
+The Blind 75 path groups its 75 problems into six pattern milestones. The table below is auto-regenerated from `milestones["blind75"]` entries in `metadata.json`; **Canonical** = problems per milestone on the source list, **In repo** = problems already living under `problems/` and tagged into this milestone, **Reviewed** = subset of those that also carry an AI-card extension (`ai_card_status: "reviewed"`).
+
+<!-- MILESTONES_START -->
+| # | Milestone | Canonical | In repo | Reviewed |
+|---|---|---:|---:|---:|
+| M1 | Arrays & Hashing | 10 | 3 | 3 |
+| M2 | Two Pointers & Sliding Window | 12 | 5 | 5 |
+| M3 | Stack, Queues & Binary Search | 10 | 0 | 0 |
+| M4 | Linked Lists & Trees | 15 | 0 | 0 |
+| M5 | Tries, Heaps & Graphs | 15 | 1 | 1 |
+| M6 | Dynamic Programming & Greedy | 13 | 1 | 1 |
+| **Total** | | **75** | **10** | **10** |
+<!-- MILESTONES_END -->
 
 A milestone is "done" when every problem in it has `ai_card_status: reviewed` or better.
 
