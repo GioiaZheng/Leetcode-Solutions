@@ -47,7 +47,7 @@ A milestone is "done" when every problem in it has `ai_card_status: reviewed` or
 |---:|---:|---|---|---|---|
 | 1 | 0001 | Two Sum | Easy | [reviewed](../../problems/0001-two-sum/README.md#brute-force-baseline) | [`problems/0001-two-sum/`](../../problems/0001-two-sum/) |
 | 2 | 0003 | Longest Substring Without Repeating Characters | Medium | [reviewed](../../problems/0003-longest-substring-without-repeating-characters/README.md#brute-force-baseline) | [`problems/0003-longest-substring-without-repeating-characters/`](../../problems/0003-longest-substring-without-repeating-characters/) |
-| 3 | 0004 | Median Of Two Sorted Arrays | Hard |  | [`problems/0004-median-of-two-sorted-arrays/`](../../problems/0004-median-of-two-sorted-arrays/) |
+| 3 | 0004 | Median Of Two Sorted Arrays | Hard | [reviewed](../../problems/0004-median-of-two-sorted-arrays/README.md#brute-force-baseline) | [`problems/0004-median-of-two-sorted-arrays/`](../../problems/0004-median-of-two-sorted-arrays/) |
 | 4 | 0005 | Longest Palindromic Substring | Medium | [reviewed](../../problems/0005-longest-palindromic-substring/README.md#brute-force-baseline) | [`problems/0005-longest-palindromic-substring/`](../../problems/0005-longest-palindromic-substring/) |
 | 5 | 0010 | Regular Expression Matching | Hard |  | [`problems/0010-regular-expression-matching/`](../../problems/0010-regular-expression-matching/) |
 | 6 | 0011 | Container With Most Water | Medium | [reviewed](../../problems/0011-container-with-most-water/README.md#brute-force-baseline) | [`problems/0011-container-with-most-water/`](../../problems/0011-container-with-most-water/) |

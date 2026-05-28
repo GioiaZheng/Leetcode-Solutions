@@ -140,7 +140,7 @@ Problems can appear in multiple sections when their metadata has multiple topics
 
 | ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
-| 0004 | Median Of Two Sorted Arrays | Hard | solved | neetcode150 |  | [`problems/0004-median-of-two-sorted-arrays/`](problems/0004-median-of-two-sorted-arrays/) | Binary Search; Divide and Conquer; Partitioning |
+| 0004 | Median Of Two Sorted Arrays | Hard | solved | neetcode150 | [reviewed](problems/0004-median-of-two-sorted-arrays/README.md#brute-force-baseline) | [`problems/0004-median-of-two-sorted-arrays/`](problems/0004-median-of-two-sorted-arrays/) | Binary Search; Divide and Conquer; Partitioning |
 | 1292 | Maximum Side Length Of A Square With Sum Less Than Or Equal To Threshold | Medium | solved |  |  | [`problems/1292-maximum-side-length-of-a-square-with-sum-at-most-threshold/`](problems/1292-maximum-side-length-of-a-square-with-sum-at-most-threshold/) | Prefix Sum; Binary Search; Matrix |
 | 1970 | Last Day Where You Can Still Cross | Hard | solved |  |  | [`problems/1970-last-day-where-you-can-still-cross/`](problems/1970-last-day-where-you-can-still-cross/) | Binary Search; BFS; Graph; Matrix |
 | 2054 | Two Best Non Overlapping Events | Medium | solved |  |  | [`problems/2054-two-best-non-overlapping-events/`](problems/2054-two-best-non-overlapping-events/) | Array; Sorting; Binary Search; Greedy |
@@ -345,7 +345,7 @@ Problems can appear in multiple sections when their metadata has multiple topics
 
 | ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
-| 0004 | Median Of Two Sorted Arrays | Hard | solved | neetcode150 |  | [`problems/0004-median-of-two-sorted-arrays/`](problems/0004-median-of-two-sorted-arrays/) | Binary Search; Divide and Conquer; Partitioning |
+| 0004 | Median Of Two Sorted Arrays | Hard | solved | neetcode150 | [reviewed](problems/0004-median-of-two-sorted-arrays/README.md#brute-force-baseline) | [`problems/0004-median-of-two-sorted-arrays/`](problems/0004-median-of-two-sorted-arrays/) | Binary Search; Divide and Conquer; Partitioning |
 | 0005 | Longest Palindromic Substring | Medium | solved | blind75, neetcode150 | [reviewed](problems/0005-longest-palindromic-substring/README.md#brute-force-baseline) | [`problems/0005-longest-palindromic-substring/`](problems/0005-longest-palindromic-substring/) | String; Two Pointers; Expand Around Center |
 | 0912 | Sort An Array | Medium | solved |  |  | [`problems/0912-sort-an-array/`](problems/0912-sort-an-array/) | Sorting; Divide and Conquer |
 | 2343 | Query Kth Smallest Trimmed Number | Medium | solved |  |  | [`problems/2343-query-kth-smallest-trimmed-number/`](problems/2343-query-kth-smallest-trimmed-number/) | Array; String; Sorting; Caching |
