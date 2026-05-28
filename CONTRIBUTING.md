@@ -186,3 +186,120 @@ pytest                              # tests
 
 The security scan is intentionally conservative. It should catch accidental
 tokens, `.env` files, and private key material before they are committed.
+
+## Walkthroughs
+
+Concrete end-to-end recipes that exercise the rules above. Two
+common operations live here; the rest are one-off enough to compose
+out of the same primitives.
+
+### A. Add a new problem
+
+1. **Create the directory** under `problems/`, naming it
+   `####-lowercase-kebab-case-slug`:
+
+   ```bash
+   mkdir -p problems/0070-climbing-stairs
+   ```
+
+2. **Write `solution.py`** with a single `class Solution`:
+
+   ```python
+   from typing import List
+
+
+   class Solution:
+       def climbStairs(self, n: int) -> int:
+           # ...
+   ```
+
+3. **Write `README.md`** by copying `templates/problem_README.md`
+   and filling in the six required core sections (Problem /
+   Intuition / Approach / Complexity / Edge Cases / Code). If the
+   problem warrants an AI-card extension, keep the five optional
+   sections at the bottom; otherwise delete them.
+
+4. **Append a metadata entry** to `metadata.json`, keeping numeric
+   id order:
+
+   ```json
+       {
+         "id": "0070",
+         "title": "Climbing Stairs",
+         "difficulty": "Easy",
+         "topics": ["Dynamic Programming"],
+         "status": "solved"
+       }
+   ```
+
+   If the problem is on a curated path, add `path_membership`. If
+   the README has AI-card sections, add `ai_card_status` (mandatory
+   when sections are present; `validate_repo.py` cross-checks).
+   If the problem is in a path with milestones defined, add a
+   `milestones` entry too.
+
+5. **Regenerate the derived indexes:**
+
+   ```bash
+   make sync
+   ```
+
+   `CATALOG.md`, `TOPICS.md`, `README.md` metrics, and any
+   `paths/<p>/README.md` that the new problem touches all update
+   in one pass.
+
+6. **Run the full check:**
+
+   ```bash
+   make check
+   ```
+
+   Validate + sync-check + lint + compile + pytest + security. All
+   must be green.
+
+7. **Commit** the problem directory, the metadata change, and the
+   regenerated indexes in a single commit:
+
+   ```bash
+   git add problems/0070-climbing-stairs metadata.json \
+       CATALOG.md TOPICS.md README.md 'paths/*/README.md'
+   git commit -m "feat(problem): add 0070 climbing-stairs"
+   ```
+
+### B. Migrate an existing problem to the AI-card extension
+
+1. **Open** `problems/####-slug/README.md`. Confirm the six
+   required core sections are present.
+
+2. **Append the AI-card block** at the bottom (after whatever
+   "Solution Files" / "Notes" / "What I Learned" trailing sections
+   the existing README already has). Use the trailing block of
+   `templates/problem_README.md` verbatim --- comment marker
+   followed by `## Brute-force baseline`, `## Common mistakes`,
+   `## Failure cases`, `## Interview follow-ups`, `## Bilingual
+   summary`. Fill each section with content specific to this
+   problem.
+
+3. **Update the metadata entry**: add
+   `"ai_card_status": "reviewed"` (or `"draft"` if not yet
+   self-reviewed). If the problem is on a path with milestones
+   defined, add a `milestones` entry too.
+
+4. **Run `make sync` then `make check`.** The
+   `validate_ai_card_consistency` check enforces that the
+   `## Brute-force baseline` heading in the README and the
+   `ai_card_status` field in `metadata.json` agree.
+
+5. **Commit** the problem README, metadata, and regenerated
+   indexes:
+
+   ```bash
+   git add problems/####-slug/README.md metadata.json \
+       CATALOG.md TOPICS.md README.md 'paths/*/README.md'
+   git commit -m "feat(showcase): migrate ####-slug to AI-card template"
+   ```
+
+In both walkthroughs, `make sync` is the single command that keeps
+every derived artefact consistent --- there is no scenario where you
+should edit `CATALOG.md` / `TOPICS.md` / any `paths/<p>/README.md`
+between sentinels by hand.
