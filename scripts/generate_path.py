@@ -78,10 +78,15 @@ def render_problem_list(members, path_id, directories):
             )
         title = str(problem.get("title", "")).replace("|", r"\|")
         difficulty = str(problem.get("difficulty", "")).replace("|", r"\|")
-        ai_card = str(problem.get("ai_card_status") or "").replace("|", r"\|")
+        ai_card_raw = str(problem.get("ai_card_status") or "")
+        ai_card_cell = (
+            f"[{ai_card_raw}](../../problems/{directory}/README.md#brute-force-baseline)"
+            if ai_card_raw
+            else ""
+        )
         lines.append(
             f"| {index} | {problem_id} | {title} | {difficulty} | "
-            f"{ai_card} | "
+            f"{ai_card_cell} | "
             f"[`problems/{directory}/`](../../problems/{directory}/) |"
         )
     return "\n".join(lines)

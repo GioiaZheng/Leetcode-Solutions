@@ -45,18 +45,18 @@ A milestone is "done" when every problem in it has `ai_card_status: reviewed` or
 <!-- PATH_LIST_START -->
 | # | ID | Problem | Difficulty | AI Card | Directory |
 |---:|---:|---|---|---|---|
-| 1 | 0001 | Two Sum | Easy | reviewed | [`problems/0001-two-sum/`](../../problems/0001-two-sum/) |
-| 2 | 0003 | Longest Substring Without Repeating Characters | Medium | reviewed | [`problems/0003-longest-substring-without-repeating-characters/`](../../problems/0003-longest-substring-without-repeating-characters/) |
+| 1 | 0001 | Two Sum | Easy | [reviewed](../../problems/0001-two-sum/README.md#brute-force-baseline) | [`problems/0001-two-sum/`](../../problems/0001-two-sum/) |
+| 2 | 0003 | Longest Substring Without Repeating Characters | Medium | [reviewed](../../problems/0003-longest-substring-without-repeating-characters/README.md#brute-force-baseline) | [`problems/0003-longest-substring-without-repeating-characters/`](../../problems/0003-longest-substring-without-repeating-characters/) |
 | 3 | 0004 | Median Of Two Sorted Arrays | Hard |  | [`problems/0004-median-of-two-sorted-arrays/`](../../problems/0004-median-of-two-sorted-arrays/) |
-| 4 | 0005 | Longest Palindromic Substring | Medium | reviewed | [`problems/0005-longest-palindromic-substring/`](../../problems/0005-longest-palindromic-substring/) |
+| 4 | 0005 | Longest Palindromic Substring | Medium | [reviewed](../../problems/0005-longest-palindromic-substring/README.md#brute-force-baseline) | [`problems/0005-longest-palindromic-substring/`](../../problems/0005-longest-palindromic-substring/) |
 | 5 | 0010 | Regular Expression Matching | Hard |  | [`problems/0010-regular-expression-matching/`](../../problems/0010-regular-expression-matching/) |
-| 6 | 0011 | Container With Most Water | Medium | reviewed | [`problems/0011-container-with-most-water/`](../../problems/0011-container-with-most-water/) |
-| 7 | 0015 | 3sum | Medium | reviewed | [`problems/0015-3sum/`](../../problems/0015-3sum/) |
-| 8 | 0042 | Trapping Rain Water | Hard | reviewed | [`problems/0042-trapping-rain-water/`](../../problems/0042-trapping-rain-water/) |
-| 9 | 0049 | Group Anagrams | Medium | reviewed | [`problems/0049-group-anagrams/`](../../problems/0049-group-anagrams/) |
-| 10 | 0121 | Best Time To Buy And Sell Stock | Easy | reviewed | [`problems/0121-best-time-to-buy-and-sell-stock/`](../../problems/0121-best-time-to-buy-and-sell-stock/) |
-| 11 | 0242 | Valid Anagram | Easy | reviewed | [`problems/0242-valid-anagram/`](../../problems/0242-valid-anagram/) |
-| 12 | 0347 | Top K Frequent Elements | Medium | reviewed | [`problems/0347-top-k-frequent-elements/`](../../problems/0347-top-k-frequent-elements/) |
+| 6 | 0011 | Container With Most Water | Medium | [reviewed](../../problems/0011-container-with-most-water/README.md#brute-force-baseline) | [`problems/0011-container-with-most-water/`](../../problems/0011-container-with-most-water/) |
+| 7 | 0015 | 3sum | Medium | [reviewed](../../problems/0015-3sum/README.md#brute-force-baseline) | [`problems/0015-3sum/`](../../problems/0015-3sum/) |
+| 8 | 0042 | Trapping Rain Water | Hard | [reviewed](../../problems/0042-trapping-rain-water/README.md#brute-force-baseline) | [`problems/0042-trapping-rain-water/`](../../problems/0042-trapping-rain-water/) |
+| 9 | 0049 | Group Anagrams | Medium | [reviewed](../../problems/0049-group-anagrams/README.md#brute-force-baseline) | [`problems/0049-group-anagrams/`](../../problems/0049-group-anagrams/) |
+| 10 | 0121 | Best Time To Buy And Sell Stock | Easy | [reviewed](../../problems/0121-best-time-to-buy-and-sell-stock/README.md#brute-force-baseline) | [`problems/0121-best-time-to-buy-and-sell-stock/`](../../problems/0121-best-time-to-buy-and-sell-stock/) |
+| 11 | 0242 | Valid Anagram | Easy | [reviewed](../../problems/0242-valid-anagram/README.md#brute-force-baseline) | [`problems/0242-valid-anagram/`](../../problems/0242-valid-anagram/) |
+| 12 | 0347 | Top K Frequent Elements | Medium | [reviewed](../../problems/0347-top-k-frequent-elements/README.md#brute-force-baseline) | [`problems/0347-top-k-frequent-elements/`](../../problems/0347-top-k-frequent-elements/) |
 <!-- PATH_LIST_END -->
 
 Regenerate with `python scripts/generate_path.py` (or `python scripts/update_indexes.py` to rebuild all derived indexes).

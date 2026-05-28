@@ -128,6 +128,11 @@ def render_catalog(rows):
 
     for row in rows:
         directory = row["directory"]
+        ai_card_cell = (
+            f"[{row['ai_card']}]({directory}/README.md#brute-force-baseline)"
+            if row["ai_card"]
+            else ""
+        )
         lines.append(
             (
                 "| {id} | {title} | {difficulty} | {status} | "
@@ -139,7 +144,7 @@ def render_catalog(rows):
                 difficulty=escape_table_cell(row["difficulty"]),
                 status=escape_table_cell(row["status"]),
                 paths=escape_table_cell(row["paths"]),
-                ai_card=escape_table_cell(row["ai_card"]),
+                ai_card=ai_card_cell,
                 directory=directory,
                 topics=escape_table_cell(row["topics"]),
             )
