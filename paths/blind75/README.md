@@ -14,7 +14,7 @@ The Blind 75 is the canonical short list for filling pattern gaps before a codin
 
 ## Milestones
 
-The Blind 75 path groups its 75 problems into six pattern milestones. The table below is auto-regenerated from `milestones["blind75"]` entries in `metadata.json`; **Canonical** = problems per milestone on the source list, **In repo** = problems already living under `problems/` and tagged into this milestone, **Reviewed** = subset of those that also carry an AI-card extension (`ai_card_status: "reviewed"`).
+The Blind 75 path groups its 75 problems into six pattern milestones. The table below is auto-regenerated from `milestones["blind75"]` entries in `metadata.json`; **Canonical** = problems per milestone on the source list, **In repo** = problems already living under `problems/` and tagged into this milestone, **Reviewed** = subset of those that also carry an Study Card extension (`study_card_status: "reviewed"`).
 
 <!-- MILESTONES_START -->
 | # | Milestone | Canonical | In repo | Reviewed |
@@ -28,12 +28,12 @@ The Blind 75 path groups its 75 problems into six pattern milestones. The table 
 | **Total** | | **75** | **10** | **10** |
 <!-- MILESTONES_END -->
 
-A milestone is "done" when every problem in it has `ai_card_status: reviewed` or better.
+A milestone is "done" when every problem in it has `study_card_status: reviewed` or better.
 
 ## Problem List
 
 <!-- PATH_LIST_START -->
-| # | ID | Problem | Difficulty | AI Card | Directory |
+| # | ID | Problem | Difficulty | Study Card | Directory |
 |---:|---:|---|---|---|---|
 | 1 | 0001 | Two Sum | Easy | [reviewed](../../problems/0001-two-sum/README.md#brute-force-baseline) | [`problems/0001-two-sum/`](../../problems/0001-two-sum/) |
 | 2 | 0003 | Longest Substring Without Repeating Characters | Medium | [reviewed](../../problems/0003-longest-substring-without-repeating-characters/README.md#brute-force-baseline) | [`problems/0003-longest-substring-without-repeating-characters/`](../../problems/0003-longest-substring-without-repeating-characters/) |
@@ -63,11 +63,11 @@ Each milestone has a corresponding topic note in [`0000-notes/`](../../0000-note
 
 | Week | Focus | Target |
 |---|---|---|
-| 1 | M1 Arrays & Hashing | 10 problems, all `ai_card_status: draft` minimum |
+| 1 | M1 Arrays & Hashing | 10 problems, all `study_card_status: draft` minimum |
 | 2 | M2 Two Pointers & Sliding Window | 12 problems |
 | 3 | M3 Stack, Queues & Binary Search | 10 problems |
 | 4 | M4 Linked Lists & Trees | 15 problems |
 | 5 | M5 Tries, Heaps & Graphs | 15 problems |
 | 6 | M6 DP & Greedy | 13 problems |
-| 7 | Review pass | Every problem to `ai_card_status: reviewed` |
+| 7 | Review pass | Every problem to `study_card_status: reviewed` |
 | 8 | Mock interviews | Top-up gaps; tag `interview-ready` |

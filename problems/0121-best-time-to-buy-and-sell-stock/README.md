@@ -112,9 +112,9 @@ This problem is the foundation for more advanced stock problems:
 Mastering this solution makes all of them easier.
 
 <!--
-Sections below are the optional "AI card" extension. The problem
-carries `"ai_card_status": "reviewed"` in metadata.json. See
-CONTRIBUTING.md section "Optional Problem README Sections (AI Card)".
+Sections below are the optional "study card" extension. The problem
+carries `"study_card_status": "reviewed"` in metadata.json. See
+CONTRIBUTING.md section "Optional Problem README Sections (Study Card)".
 -->
 
 ---

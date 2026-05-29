@@ -59,9 +59,9 @@ and three optional ones (validated by `scripts/validate_repo.py`):
 - `path_membership` — list of strings; subset of
   `{"blind75", "neetcode150"}`. Drives `paths/<name>/README.md`
   auto-generation.
-- `ai_card_status` — one of `draft`, `reviewed`, or
+- `study_card_status` — one of `draft`, `reviewed`, or
   `interview-ready`. **Mandatory** when the problem's README ships
-  any of the optional "AI card" sections (see below).
+  any of the optional "study card" sections (see below).
 - `milestones` — dict mapping each path id (from `path_membership`)
   to a milestone id within that path. Blind 75 milestones run
   `M1`..`M6`; NeetCode 150 milestones run `M1`..`M18` (the
@@ -71,7 +71,7 @@ and three optional ones (validated by `scripts/validate_repo.py`):
   milestone set defined in
   `VALID_MILESTONE_IDS_PER_PATH`.
 
-## Optional Problem README Sections (AI Card)
+## Optional Problem README Sections (Study Card)
 
 The six required core sections (Problem / Intuition / Approach /
 Complexity / Edge Cases / Code) are enforced by `validate_repo.py`.
@@ -87,7 +87,7 @@ Beyond those, a problem README may include any subset of:
 - **Bilingual summary** — short English + 中文 summary with
   semantic parity (no machine-translation register).
 
-When any of these sections is present, set `ai_card_status` in
+When any of these sections is present, set `study_card_status` in
 `metadata.json` accordingly:
 
 - `draft` — author wrote it, not yet self-reviewed.
@@ -95,18 +95,18 @@ When any of these sections is present, set `ai_card_status` in
   bilingual parity.
 - `interview-ready` — usable for mock-interview revision.
 
-This gates AI-assisted content from landing in the repo without a
+This gates expanded review notes from landing in the repo without a
 manual review pass.
 
-**`ai_card_status` is independent of `path_membership`.** A problem
-can carry a reviewed AI card without belonging to any curated path
+**`study_card_status` is independent of `path_membership`.** A problem
+can carry a reviewed study card without belonging to any curated path
 (e.g. a high-frequency interview problem that is not on the
 canonical Blind 75 or NeetCode 150 lists). Such a problem surfaces
-in the README "Where to start" featured table and in the `AI Card`
+in the README "Where to start" featured table and in the `Study Card`
 column of `CATALOG.md` / `TOPICS.md`, but does NOT appear in any
 `paths/<p>/README.md`. The reverse is also true: a tagged problem
-can omit `ai_card_status` (just appears in the path Problem List
-with a blank AI Card column).
+can omit `study_card_status` (just appears in the path Problem List
+with a blank Study Card column).
 
 ## Learning Paths (`paths/`)
 
@@ -216,7 +216,7 @@ out of the same primitives.
 3. **Write `README.md`** by copying `templates/problem_README.md`
    and filling in the six required core sections (Problem /
    Intuition / Approach / Complexity / Edge Cases / Code). If the
-   problem warrants an AI-card extension, keep the five optional
+   problem warrants an Study Card extension, keep the five optional
    sections at the bottom; otherwise delete them.
 
 4. **Append a metadata entry** to `metadata.json`, keeping numeric
@@ -233,7 +233,7 @@ out of the same primitives.
    ```
 
    If the problem is on a curated path, add `path_membership`. If
-   the README has AI-card sections, add `ai_card_status` (mandatory
+   the README has Study Card sections, add `study_card_status` (mandatory
    when sections are present; `validate_repo.py` cross-checks).
    If the problem is in a path with milestones defined, add a
    `milestones` entry too.
@@ -266,12 +266,12 @@ out of the same primitives.
    git commit -m "feat(problem): add 0070 climbing-stairs"
    ```
 
-### B. Migrate an existing problem to the AI-card extension
+### B. Migrate an existing problem to the Study Card extension
 
 1. **Open** `problems/####-slug/README.md`. Confirm the six
    required core sections are present.
 
-2. **Append the AI-card block** at the bottom (after whatever
+2. **Append the Study Card block** at the bottom (after whatever
    "Solution Files" / "Notes" / "What I Learned" trailing sections
    the existing README already has). Use the trailing block of
    `templates/problem_README.md` verbatim --- comment marker
@@ -281,14 +281,14 @@ out of the same primitives.
    problem.
 
 3. **Update the metadata entry**: add
-   `"ai_card_status": "reviewed"` (or `"draft"` if not yet
+   `"study_card_status": "reviewed"` (or `"draft"` if not yet
    self-reviewed). If the problem is on a path with milestones
    defined, add a `milestones` entry too.
 
 4. **Run `make sync` then `make check`.** The
-   `validate_ai_card_consistency` check enforces that the
+   `validate_study_card_consistency` check enforces that the
    `## Brute-force baseline` heading in the README and the
-   `ai_card_status` field in `metadata.json` agree.
+   `study_card_status` field in `metadata.json` agree.
 
 5. **Commit** the problem README, metadata, and regenerated
    indexes:
@@ -296,7 +296,7 @@ out of the same primitives.
    ```bash
    git add problems/####-slug/README.md metadata.json \
        CATALOG.md TOPICS.md README.md 'paths/*/README.md'
-   git commit -m "feat(showcase): migrate ####-slug to AI-card template"
+   git commit -m "feat(showcase): migrate ####-slug to Study Card template"
    ```
 
 In both walkthroughs, `make sync` is the single command that keeps

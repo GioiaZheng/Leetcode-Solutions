@@ -45,19 +45,19 @@ def test_render_milestones_counts_tagged_and_reviewed():
             "id": "0001",
             "path_membership": ["blind75"],
             "milestones": {"blind75": "M1"},
-            "ai_card_status": "reviewed",
+            "study_card_status": "reviewed",
         },
         {
             "id": "0049",
             "path_membership": ["blind75"],
             "milestones": {"blind75": "M1"},
-            "ai_card_status": "draft",
+            "study_card_status": "draft",
         },
         {
             "id": "0242",
             "path_membership": ["blind75"],
             "milestones": {"blind75": "M1"},
-            # no ai_card_status --- counted as tagged but not reviewed
+            # no study_card_status --- counted as tagged but not reviewed
         },
     ]
 
@@ -74,13 +74,13 @@ def test_render_milestones_skips_problems_outside_path():
             "id": "0001",
             "path_membership": ["blind75"],
             "milestones": {"blind75": "M1"},
-            "ai_card_status": "reviewed",
+            "study_card_status": "reviewed",
         },
         {
             "id": "0010",
             "path_membership": ["neetcode150"],
             "milestones": {"neetcode150": "M14"},
-            "ai_card_status": "reviewed",
+            "study_card_status": "reviewed",
         },
     ]
 
@@ -104,7 +104,7 @@ def test_render_milestones_skips_problems_without_milestone_field():
         {
             "id": "0001",
             "path_membership": ["blind75"],
-            "ai_card_status": "reviewed",
+            "study_card_status": "reviewed",
             # milestones field absent
         }
     ]
@@ -124,20 +124,20 @@ def test_render_problem_list_empty_state_emits_placeholder():
     assert 'path_membership: ["blind75"]' in body
 
 
-def test_render_problem_list_renders_six_columns_including_ai_card_link():
+def test_render_problem_list_renders_six_columns_including_study_card_link():
     problems = [
         {
             "id": "0001",
             "title": "Two Sum",
             "difficulty": "Easy",
-            "ai_card_status": "reviewed",
+            "study_card_status": "reviewed",
         }
     ]
     directories = {"0001": "0001-two-sum"}
 
     body = generate_path.render_problem_list(problems, "blind75", directories)
 
-    assert "| # | ID | Problem | Difficulty | AI Card | Directory |" in body
+    assert "| # | ID | Problem | Difficulty | Study Card | Directory |" in body
     assert "0001 | Two Sum | Easy" in body
     assert (
         "[reviewed](../../problems/0001-two-sum/README.md#brute-force-baseline)"
@@ -146,20 +146,20 @@ def test_render_problem_list_renders_six_columns_including_ai_card_link():
     assert "[`problems/0001-two-sum/`](../../problems/0001-two-sum/)" in body
 
 
-def test_render_problem_list_empty_ai_card_cell_when_status_absent():
+def test_render_problem_list_empty_study_card_cell_when_status_absent():
     problems = [
         {
             "id": "0004",
             "title": "Median Of Two Sorted Arrays",
             "difficulty": "Hard",
-            # no ai_card_status
+            # no study_card_status
         }
     ]
     directories = {"0004": "0004-median-of-two-sorted-arrays"}
 
     body = generate_path.render_problem_list(problems, "neetcode150", directories)
 
-    # AI Card cell is bare (empty between pipes) when ai_card_status is absent
+    # Study Card cell is bare (empty between pipes) when study_card_status is absent
     # --- no link, no text. The row still renders.
     assert "| 1 | 0004 | Median Of Two Sorted Arrays | Hard |  |" in body
 

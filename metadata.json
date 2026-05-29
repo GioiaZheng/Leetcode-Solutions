@@ -13,7 +13,7 @@
         "blind75",
         "neetcode150"
       ],
-      "ai_card_status": "reviewed",
+      "study_card_status": "reviewed",
       "milestones": {
         "blind75": "M1",
         "neetcode150": "M1"
@@ -43,7 +43,7 @@
         "blind75",
         "neetcode150"
       ],
-      "ai_card_status": "reviewed",
+      "study_card_status": "reviewed",
       "milestones": {
         "blind75": "M2",
         "neetcode150": "M3"
@@ -62,7 +62,7 @@
       "path_membership": [
         "neetcode150"
       ],
-      "ai_card_status": "reviewed",
+      "study_card_status": "reviewed",
       "milestones": {
         "neetcode150": "M5"
       }
@@ -81,7 +81,7 @@
         "blind75",
         "neetcode150"
       ],
-      "ai_card_status": "reviewed",
+      "study_card_status": "reviewed",
       "milestones": {
         "blind75": "M6",
         "neetcode150": "M13"
@@ -137,7 +137,7 @@
       "path_membership": [
         "neetcode150"
       ],
-      "ai_card_status": "reviewed",
+      "study_card_status": "reviewed",
       "milestones": {
         "neetcode150": "M14"
       }
@@ -155,7 +155,7 @@
         "blind75",
         "neetcode150"
       ],
-      "ai_card_status": "reviewed",
+      "study_card_status": "reviewed",
       "milestones": {
         "blind75": "M2",
         "neetcode150": "M2"
@@ -206,7 +206,7 @@
         "blind75",
         "neetcode150"
       ],
-      "ai_card_status": "reviewed",
+      "study_card_status": "reviewed",
       "milestones": {
         "blind75": "M2",
         "neetcode150": "M2"
@@ -227,7 +227,7 @@
         "blind75",
         "neetcode150"
       ],
-      "ai_card_status": "reviewed",
+      "study_card_status": "reviewed",
       "milestones": {
         "blind75": "M2",
         "neetcode150": "M2"
@@ -278,7 +278,7 @@
         "blind75",
         "neetcode150"
       ],
-      "ai_card_status": "reviewed",
+      "study_card_status": "reviewed",
       "milestones": {
         "blind75": "M1",
         "neetcode150": "M1"
@@ -304,7 +304,7 @@
         "Monotonic Stack"
       ],
       "status": "solved",
-      "ai_card_status": "reviewed"
+      "study_card_status": "reviewed"
     },
     {
       "id": "0121",
@@ -319,7 +319,7 @@
         "blind75",
         "neetcode150"
       ],
-      "ai_card_status": "reviewed",
+      "study_card_status": "reviewed",
       "milestones": {
         "blind75": "M2",
         "neetcode150": "M3"
@@ -361,7 +361,7 @@
         "blind75",
         "neetcode150"
       ],
-      "ai_card_status": "reviewed",
+      "study_card_status": "reviewed",
       "milestones": {
         "blind75": "M1",
         "neetcode150": "M1"
@@ -382,7 +382,7 @@
         "blind75",
         "neetcode150"
       ],
-      "ai_card_status": "reviewed",
+      "study_card_status": "reviewed",
       "milestones": {
         "blind75": "M5",
         "neetcode150": "M9"

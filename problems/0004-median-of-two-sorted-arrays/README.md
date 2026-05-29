@@ -165,9 +165,9 @@ This is one of the most elegant applications of binary search in algorithm desig
 - `approaches/solution_sorting.py` keeps the simpler sorting-based approach for comparison, but it does not meet the optimal time bound.
 
 <!--
-Sections below are the optional "AI card" extension. The problem
-carries `"ai_card_status": "reviewed"` in metadata.json. See
-CONTRIBUTING.md section "Optional Problem README Sections (AI Card)".
+Sections below are the optional "study card" extension. The problem
+carries `"study_card_status": "reviewed"` in metadata.json. See
+CONTRIBUTING.md section "Optional Problem README Sections (Study Card)".
 -->
 
 ---

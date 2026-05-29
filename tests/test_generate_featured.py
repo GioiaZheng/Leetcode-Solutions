@@ -67,12 +67,12 @@ def test_primary_category_handles_missing_topics_field():
 
 def test_featured_problems_filters_to_reviewed_and_sorts_by_id():
     problems = [
-        {"id": "0050", "ai_card_status": "draft"},
-        {"id": "0042", "ai_card_status": "reviewed"},
-        {"id": "0001", "ai_card_status": "reviewed"},
-        {"id": "0099", "ai_card_status": None},
-        {"id": "0010", "ai_card_status": "interview-ready"},  # not "reviewed"
-        {"id": "0005", "ai_card_status": "reviewed"},
+        {"id": "0050", "study_card_status": "draft"},
+        {"id": "0042", "study_card_status": "reviewed"},
+        {"id": "0001", "study_card_status": "reviewed"},
+        {"id": "0099", "study_card_status": None},
+        {"id": "0010", "study_card_status": "interview-ready"},  # not "reviewed"
+        {"id": "0005", "study_card_status": "reviewed"},
     ]
 
     ids = [p["id"] for p in generate_featured.featured_problems(problems)]
@@ -83,7 +83,7 @@ def test_featured_problems_filters_to_reviewed_and_sorts_by_id():
 
 def test_featured_problems_empty_when_no_reviewed_cards():
     problems = [
-        {"id": "0001", "ai_card_status": "draft"},
+        {"id": "0001", "study_card_status": "draft"},
         {"id": "0002"},
     ]
     assert generate_featured.featured_problems(problems) == []
@@ -99,7 +99,7 @@ def test_render_featured_emits_six_columns_with_paths_inline():
             "title": "Two Sum",
             "difficulty": "Easy",
             "topics": ["Array", "Hash Table"],
-            "ai_card_status": "reviewed",
+            "study_card_status": "reviewed",
             "path_membership": ["blind75", "neetcode150"],
         }
     ]
@@ -114,7 +114,7 @@ def test_render_featured_emits_six_columns_with_paths_inline():
 
 
 def test_render_featured_orphan_showcase_renders_empty_paths_cell():
-    # 0085-style: reviewed AI card but no path_membership. The Paths
+    # 0085-style: reviewed study card but no path_membership. The Paths
     # column should be blank --- this is the visual signal for an
     # orphan showcase.
     problems = [
@@ -123,7 +123,7 @@ def test_render_featured_orphan_showcase_renders_empty_paths_cell():
             "title": "Maximal Rectangle",
             "difficulty": "Hard",
             "topics": ["Dynamic Programming", "Stack"],
-            "ai_card_status": "reviewed",
+            "study_card_status": "reviewed",
         }
     ]
     directories = {"0085": "0085-maximal-rectangle"}
@@ -139,5 +139,5 @@ def test_render_featured_orphan_showcase_renders_empty_paths_cell():
 def test_render_featured_empty_state_emits_actionable_placeholder():
     body = generate_featured.render_featured([], {})
 
-    assert "ai_card_status: reviewed" in body
+    assert "study_card_status: reviewed" in body
     assert "CONTRIBUTING.md" in body

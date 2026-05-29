@@ -104,9 +104,9 @@ Using character frequency counting instead of sorting improves the canonical com
 * How string anagram relationships reduce to frequency analysis or sorting.
 
 <!--
-Sections below are the optional "AI card" extension. The problem
-carries `"ai_card_status": "reviewed"` in metadata.json. See
-CONTRIBUTING.md section "Optional Problem README Sections (AI Card)".
+Sections below are the optional "study card" extension. The problem
+carries `"study_card_status": "reviewed"` in metadata.json. See
+CONTRIBUTING.md section "Optional Problem README Sections (Study Card)".
 -->
 
 ---

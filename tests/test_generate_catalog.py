@@ -53,7 +53,7 @@ def _sample_row(**overrides):
         "difficulty": "Easy",
         "status": "tested",
         "paths": "blind75, neetcode150",
-        "ai_card": "reviewed",
+        "study_card": "reviewed",
         "directory": "problems/0001-two-sum",
         "topics": "Array; Hash Table",
     }
@@ -69,13 +69,13 @@ def test_render_catalog_emits_eight_column_header_and_total():
     assert "# Problem Catalog" in body
     assert "**Total problems:** 1" in body
     assert (
-        "| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Topics |"
+        "| ID | Problem | Difficulty | Status | Paths | Study Card | Directory | Topics |"
         in body
     )
 
 
-def test_render_catalog_emits_clickable_ai_card_link_when_reviewed():
-    rows = [_sample_row(ai_card="reviewed")]
+def test_render_catalog_emits_clickable_study_card_link_when_reviewed():
+    rows = [_sample_row(study_card="reviewed")]
 
     body = generate_catalog.render_catalog(rows)
 
@@ -85,12 +85,12 @@ def test_render_catalog_emits_clickable_ai_card_link_when_reviewed():
     )
 
 
-def test_render_catalog_empty_ai_card_cell_when_status_absent():
-    rows = [_sample_row(ai_card="")]
+def test_render_catalog_empty_study_card_cell_when_status_absent():
+    rows = [_sample_row(study_card="")]
 
     body = generate_catalog.render_catalog(rows)
 
-    # The AI Card cell is two pipes with nothing between when there is no
+    # The Study Card cell is two pipes with nothing between when there is no
     # status to surface --- and crucially does NOT emit a link with an
     # empty anchor text.
     assert (
@@ -101,7 +101,7 @@ def test_render_catalog_empty_ai_card_cell_when_status_absent():
 
 
 def test_render_catalog_escapes_pipe_in_title():
-    rows = [_sample_row(title="A | B problem", paths="", ai_card="")]
+    rows = [_sample_row(title="A | B problem", paths="", study_card="")]
 
     body = generate_catalog.render_catalog(rows)
 

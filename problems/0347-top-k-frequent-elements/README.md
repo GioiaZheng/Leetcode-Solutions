@@ -94,9 +94,9 @@ Using a hash map plus sorting provides clarity and efficiency.
 - `approaches/solution_sorting.py` and `approaches/solution_bucket_sort.py` preserve sorting and bucket-sort alternatives for comparison.
 
 <!--
-Sections below are the optional "AI card" extension. The problem
-carries `"ai_card_status": "reviewed"` in metadata.json. See
-CONTRIBUTING.md section "Optional Problem README Sections (AI Card)".
+Sections below are the optional "study card" extension. The problem
+carries `"study_card_status": "reviewed"` in metadata.json. See
+CONTRIBUTING.md section "Optional Problem README Sections (Study Card)".
 -->
 
 ---

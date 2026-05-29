@@ -20,9 +20,9 @@ SENTINEL_RE = re.compile(
 PROBLEM_DIR_RE = re.compile(r"^(\d{4,})-(.+)$")
 
 EMPTY_BODY = (
-    "_No problems carry `ai_card_status: reviewed` yet. "
-    "Migrate a problem README to the AI-card template (see CONTRIBUTING.md) "
-    "and set `ai_card_status: reviewed` to populate this list._"
+    "_No problems carry `study_card_status: reviewed` yet. "
+    "Migrate a problem README to the Study Card template (see CONTRIBUTING.md) "
+    "and set `study_card_status: reviewed` to populate this list._"
 )
 
 
@@ -86,7 +86,7 @@ def primary_category(problem):
 
 def featured_problems(problems):
     return sorted(
-        (p for p in problems if p.get("ai_card_status") == "reviewed"),
+        (p for p in problems if p.get("study_card_status") == "reviewed"),
         key=lambda p: int(p.get("id", "0")),
     )
 
@@ -105,7 +105,7 @@ def render_featured(problems, directories):
         directory = directories.get(problem_id)
         if directory is None:
             raise ValueError(
-                f"metadata.json marks problem {problem_id} as ai_card_status: reviewed "
+                f"metadata.json marks problem {problem_id} as study_card_status: reviewed "
                 "but no matching directory exists under problems/."
             )
         title = str(problem.get("title", "")).replace("|", r"\|")

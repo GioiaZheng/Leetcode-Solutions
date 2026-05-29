@@ -5,7 +5,7 @@ Directory naming follows `problem-id-kebab-case-title` (all lowercase).
 
 **Total problems:** 99
 
-| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Topics |
+| ID | Problem | Difficulty | Status | Paths | Study Card | Directory | Topics |
 |---:|---|---|---|---|---|---|---|
 | 0001 | Two Sum | Easy | tested | blind75, neetcode150 | [reviewed](problems/0001-two-sum/README.md#brute-force-baseline) | [`problems/0001-two-sum/`](problems/0001-two-sum/) | Array; Hash Table |
 | 0002 | Add Two Numbers | Medium | solved |  |  | [`problems/0002-add-two-numbers/`](problems/0002-add-two-numbers/) | Linked List; Math |

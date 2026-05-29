@@ -2,7 +2,7 @@
 
 Concise, interview-oriented notes for reusable algorithm patterns. Start with the quick pattern guide below, then use the detailed topic files for deeper review.
 
-> **Looking for annotated showcases?** The repo's [README "Where to start"](../README.md#where-to-start) section curates the problems whose READMEs carry a reviewed AI-card extension — brute-force baseline, common mistakes, failure cases (>=2), interview follow-ups, and a bilingual English + Chinese summary — on top of the standard problem write-up. Several of the **Solved Examples** linked from the table below (e.g. `0003`, `0011`, `0015`) are part of that showcase set.
+> **Looking for annotated showcases?** The repo's [README "Where to start"](../README.md#where-to-start) section curates the problems whose READMEs carry a reviewed Study Card extension — brute-force baseline, common mistakes, failure cases (>=2), interview follow-ups, and a bilingual English + Chinese summary — on top of the standard problem write-up. Several of the **Solved Examples** linked from the table below (e.g. `0003`, `0011`, `0015`) are part of that showcase set.
 
 ## Quick Pattern Guide
 

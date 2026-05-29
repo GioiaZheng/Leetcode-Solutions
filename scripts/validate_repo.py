@@ -43,7 +43,7 @@ SUSPICIOUS_FILENAMES = {
 VALID_DIFFICULTIES = {"Easy", "Medium", "Hard"}
 VALID_STATUSES = {"solved", "tested", "review-needed"}
 VALID_PATH_MEMBERSHIPS = {"blind75", "neetcode150"}
-VALID_AI_CARD_STATUSES = {"draft", "reviewed", "interview-ready"}
+VALID_STUDY_CARD_STATUSES = {"draft", "reviewed", "interview-ready"}
 
 # Per-path valid milestone identifiers. Used to validate the optional
 # `milestones` field on each problem entry. The number of milestones is the
@@ -56,12 +56,12 @@ VALID_MILESTONE_IDS_PER_PATH = {
     "neetcode150": frozenset(f"M{i}" for i in range(1, 19)),
 }
 
-# Reliable signal that a problem README has been migrated to the AI-card
+# Reliable signal that a problem README has been migrated to the Study Card
 # template (templates/problem_README.md). "Brute-force baseline" is unique
-# to the optional AI-card extension --- it never appears as an alias for
+# to the optional Study Card extension --- it never appears as an alias for
 # any of the six required core sections in README_REQUIREMENTS, so its
-# presence implies the author opted into the AI-card workflow.
-AI_CARD_MARKER_HEADING = "## Brute-force baseline"
+# presence implies the author opted into the Study Card workflow.
+STUDY_CARD_MARKER_HEADING = "## Brute-force baseline"
 MOJIBAKE_MARKERS = ("ï", "Â", "Ã", "â€", "â†", "ä¸", "æ–")
 MOJIBAKE_CHECKED_FILES = (
     "README.md",
@@ -289,12 +289,12 @@ def load_metadata(root=ROOT):
                         f"{sorted(VALID_PATH_MEMBERSHIPS)}."
                     )
 
-        ai_card_status = problem.get("ai_card_status")
-        if ai_card_status is not None and ai_card_status not in VALID_AI_CARD_STATUSES:
+        study_card_status = problem.get("study_card_status")
+        if study_card_status is not None and study_card_status not in VALID_STUDY_CARD_STATUSES:
             errors.append(
-                f"metadata.json entry {problem_id} has invalid ai_card_status "
-                f"{ai_card_status!r}; expected one of "
-                f"{sorted(VALID_AI_CARD_STATUSES)}."
+                f"metadata.json entry {problem_id} has invalid study_card_status "
+                f"{study_card_status!r}; expected one of "
+                f"{sorted(VALID_STUDY_CARD_STATUSES)}."
             )
 
         milestones = problem.get("milestones")
@@ -405,17 +405,17 @@ def validate_catalog(problem_dirs, root=ROOT):
     return errors
 
 
-def readme_has_ai_card_sections(content):
-    return AI_CARD_MARKER_HEADING in content
+def readme_has_study_card_sections(content):
+    return STUDY_CARD_MARKER_HEADING in content
 
 
-def validate_ai_card_consistency(problem_dirs, root=ROOT):
-    """Per-problem README + metadata.json must agree about AI-card status.
+def validate_study_card_consistency(problem_dirs, root=ROOT):
+    """Per-problem README + metadata.json must agree about Study Card status.
 
-    A problem README that ships AI-card sections (detected via the
-    `## Brute-force baseline` heading) must carry an ai_card_status entry
+    A problem README that ships Study Card sections (detected via the
+    `## Brute-force baseline` heading) must carry an study_card_status entry
     in metadata.json, and vice versa: a metadata entry that sets
-    ai_card_status must point at a README that actually has the sections.
+    study_card_status must point at a README that actually has the sections.
     """
     metadata_by_id, _ = load_metadata(root)
     if metadata_by_id is None:
@@ -431,23 +431,23 @@ def validate_ai_card_consistency(problem_dirs, root=ROOT):
             continue
 
         content = readme.read_text(encoding="utf-8")
-        has_card = readme_has_ai_card_sections(content)
-        ai_card_status = metadata_by_id.get(problem_id, {}).get("ai_card_status")
+        has_card = readme_has_study_card_sections(content)
+        study_card_status = metadata_by_id.get(problem_id, {}).get("study_card_status")
 
-        if has_card and ai_card_status is None:
+        if has_card and study_card_status is None:
             errors.append(
-                f"{relative(readme, root)} contains AI-card sections "
-                f"but metadata.json has no ai_card_status for entry "
+                f"{relative(readme, root)} contains Study Card sections "
+                f"but metadata.json has no study_card_status for entry "
                 f"{problem_id} (set it to one of "
-                f"{sorted(VALID_AI_CARD_STATUSES)})."
+                f"{sorted(VALID_STUDY_CARD_STATUSES)})."
             )
-        elif ai_card_status is not None and not has_card:
+        elif study_card_status is not None and not has_card:
             errors.append(
                 f"metadata.json entry {problem_id} sets "
-                f"ai_card_status={ai_card_status!r} but "
-                f"{relative(readme, root)} contains no AI-card sections "
+                f"study_card_status={study_card_status!r} but "
+                f"{relative(readme, root)} contains no Study Card sections "
                 f"(the template marker heading "
-                f"{AI_CARD_MARKER_HEADING!r} is missing)."
+                f"{STUDY_CARD_MARKER_HEADING!r} is missing)."
             )
 
     return errors
@@ -505,7 +505,7 @@ def validate(root=ROOT):
     errors.extend(validate_catalog(directories, root))
     errors.extend(validate_topics(directories, root))
     errors.extend(validate_metadata(directories, root))
-    errors.extend(validate_ai_card_consistency(directories, root))
+    errors.extend(validate_study_card_consistency(directories, root))
     errors.extend(validate_entrypoint_encoding(root))
     errors.extend(validate_entrypoint_links(root))
 

@@ -42,10 +42,10 @@ Describe the algorithm step by step. Keep this focused on the recommended `solut
 The canonical implementation is in [`solution.py`](solution.py). Alternative approaches, if any, should be placed under `approaches/` and explained here.
 
 <!--
-Sections below are OPTIONAL ("AI card"). If any are filled in, this
-problem must carry an `ai_card_status` entry in metadata.json
+Sections below are OPTIONAL ("study card"). If any are filled in, this
+problem must carry an `study_card_status` entry in metadata.json
 (draft | reviewed | interview-ready). See CONTRIBUTING.md section
-"Optional Problem README Sections (AI Card)". Delete each unused
+"Optional Problem README Sections (Study Card)". Delete each unused
 subsection entirely rather than leaving the placeholder text in
 place.
 -->

@@ -246,14 +246,14 @@ def test_validate_reports_metadata_errors(tmp_path):
     assert any("invalid status 'done'" in error for error in errors)
 
 
-def test_validate_accepts_optional_path_membership_and_ai_card_status(tmp_path):
+def test_validate_accepts_optional_path_membership_and_study_card_status(tmp_path):
     directory = "0001-two-sum"
     write_problem(
         tmp_path,
         directory,
-        # ai_card_status=reviewed in metadata requires the README to
-        # actually carry the AI-card sections (validate_ai_card_consistency).
-        readme=standard_readme_with_ai_card(),
+        # study_card_status=reviewed in metadata requires the README to
+        # actually carry the Study Card sections (validate_study_card_consistency).
+        readme=standard_readme_with_study_card(),
         solution="class Solution:\n    pass\n",
     )
     write_catalog(tmp_path, [directory])
@@ -269,7 +269,7 @@ def test_validate_accepts_optional_path_membership_and_ai_card_status(tmp_path):
                         "topics": ["Array", "Hash Table"],
                         "status": "tested",
                         "path_membership": ["blind75"],
-                        "ai_card_status": "reviewed",
+                        "study_card_status": "reviewed",
                     }
                 ]
             }
@@ -282,7 +282,7 @@ def test_validate_accepts_optional_path_membership_and_ai_card_status(tmp_path):
     assert errors == []
 
 
-def test_validate_reports_unknown_path_and_invalid_ai_card_status(tmp_path):
+def test_validate_reports_unknown_path_and_invalid_study_card_status(tmp_path):
     directory = "0001-two-sum"
     write_problem(
         tmp_path,
@@ -303,7 +303,7 @@ def test_validate_reports_unknown_path_and_invalid_ai_card_status(tmp_path):
                         "topics": ["Array"],
                         "status": "solved",
                         "path_membership": ["blind75", "leet200"],
-                        "ai_card_status": "almost-ready",
+                        "study_card_status": "almost-ready",
                     }
                 ]
             }
@@ -314,7 +314,7 @@ def test_validate_reports_unknown_path_and_invalid_ai_card_status(tmp_path):
     _, errors = validate_repo.validate(tmp_path)
 
     assert any("unknown path_membership values ['leet200']" in error for error in errors)
-    assert any("invalid ai_card_status 'almost-ready'" in error for error in errors)
+    assert any("invalid study_card_status 'almost-ready'" in error for error in errors)
 
 
 def test_validate_rejects_non_list_path_membership(tmp_path):
@@ -460,7 +460,7 @@ def test_validate_rejects_milestones_for_path_not_in_membership(tmp_path):
     )
 
 
-def standard_readme_with_ai_card():
+def standard_readme_with_study_card():
     return standard_readme() + (
         "\n"
         "## Brute-force baseline\n\n"
@@ -477,12 +477,12 @@ def standard_readme_with_ai_card():
     )
 
 
-def test_validate_accepts_ai_card_readme_with_matching_metadata(tmp_path):
+def test_validate_accepts_study_card_readme_with_matching_metadata(tmp_path):
     directory = "0001-two-sum"
     write_problem(
         tmp_path,
         directory,
-        readme=standard_readme_with_ai_card(),
+        readme=standard_readme_with_study_card(),
         solution="class Solution:\n    pass\n",
     )
     write_catalog(tmp_path, [directory])
@@ -497,7 +497,7 @@ def test_validate_accepts_ai_card_readme_with_matching_metadata(tmp_path):
                         "difficulty": "Easy",
                         "topics": ["Array"],
                         "status": "tested",
-                        "ai_card_status": "reviewed",
+                        "study_card_status": "reviewed",
                     }
                 ]
             }
@@ -510,32 +510,32 @@ def test_validate_accepts_ai_card_readme_with_matching_metadata(tmp_path):
     assert errors == []
 
 
-def test_validate_reports_ai_card_readme_without_metadata_status(tmp_path):
+def test_validate_reports_study_card_readme_without_metadata_status(tmp_path):
     directory = "0001-two-sum"
     write_problem(
         tmp_path,
         directory,
-        readme=standard_readme_with_ai_card(),
+        readme=standard_readme_with_study_card(),
         solution="class Solution:\n    pass\n",
     )
     write_catalog(tmp_path, [directory])
     write_topics(tmp_path, [directory])
-    write_metadata(tmp_path, [directory])  # no ai_card_status
+    write_metadata(tmp_path, [directory])  # no study_card_status
 
     _, errors = validate_repo.validate(tmp_path)
 
     assert any(
-        "contains AI-card sections" in error and "has no ai_card_status" in error
+        "contains Study Card sections" in error and "has no study_card_status" in error
         for error in errors
     )
 
 
-def test_validate_reports_metadata_status_without_ai_card_readme(tmp_path):
+def test_validate_reports_metadata_status_without_study_card_readme(tmp_path):
     directory = "0001-two-sum"
     write_problem(
         tmp_path,
         directory,
-        readme=standard_readme(),  # core sections only, no AI-card heading
+        readme=standard_readme(),  # core sections only, no Study Card heading
         solution="class Solution:\n    pass\n",
     )
     write_catalog(tmp_path, [directory])
@@ -550,7 +550,7 @@ def test_validate_reports_metadata_status_without_ai_card_readme(tmp_path):
                         "difficulty": "Easy",
                         "topics": ["Array"],
                         "status": "solved",
-                        "ai_card_status": "reviewed",
+                        "study_card_status": "reviewed",
                     }
                 ]
             }
@@ -561,8 +561,8 @@ def test_validate_reports_metadata_status_without_ai_card_readme(tmp_path):
     _, errors = validate_repo.validate(tmp_path)
 
     assert any(
-        "ai_card_status='reviewed'" in error
-        and "contains no AI-card sections" in error
+        "study_card_status='reviewed'" in error
+        and "contains no Study Card sections" in error
         for error in errors
     )
 

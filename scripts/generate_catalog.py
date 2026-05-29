@@ -94,7 +94,7 @@ def catalog_rows():
                 "difficulty": problem["difficulty"],
                 "status": problem["status"],
                 "paths": ", ".join(sorted(problem.get("path_membership") or [])),
-                "ai_card": problem.get("ai_card_status") or "",
+                "study_card": problem.get("study_card_status") or "",
                 "directory": f"problems/{directory.name}",
                 "topics": "; ".join(problem["topics"]),
             }
@@ -122,21 +122,21 @@ def render_catalog(rows):
         "",
         f"**Total problems:** {len(rows)}",
         "",
-        "| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Topics |",
+        "| ID | Problem | Difficulty | Status | Paths | Study Card | Directory | Topics |",
         "|---:|---|---|---|---|---|---|---|",
     ]
 
     for row in rows:
         directory = row["directory"]
-        ai_card_cell = (
-            f"[{row['ai_card']}]({directory}/README.md#brute-force-baseline)"
-            if row["ai_card"]
+        study_card_cell = (
+            f"[{row['study_card']}]({directory}/README.md#brute-force-baseline)"
+            if row["study_card"]
             else ""
         )
         lines.append(
             (
                 "| {id} | {title} | {difficulty} | {status} | "
-                "{paths} | {ai_card} | "
+                "{paths} | {study_card} | "
                 "[`{directory}/`]({directory}/) | {topics} |"
             ).format(
                 id=row["id"],
@@ -144,7 +144,7 @@ def render_catalog(rows):
                 difficulty=escape_table_cell(row["difficulty"]),
                 status=escape_table_cell(row["status"]),
                 paths=escape_table_cell(row["paths"]),
-                ai_card=ai_card_cell,
+                study_card=study_card_cell,
                 directory=directory,
                 topics=escape_table_cell(row["topics"]),
             )

@@ -12,12 +12,12 @@ Problems tagged with `"blind75"` will typically also be tagged with `"neetcode15
 
 - Comfortable writing Python `class` methods and using `dict` / `set` / `list` operations.
 - Working knowledge of recursion, asymptotic complexity (`O(n)`, `O(n log n)`, ...), and basic data-structure operations (heap push/pop, queue / deque, hash map insert / lookup).
-- Familiarity with the six required `problems/####-<slug>/README.md` sections. Problems in this path that already carry an AI-card extension can be identified by the `AI Card` column in the auto-regenerated table below.
+- Familiarity with the six required `problems/####-<slug>/README.md` sections. Problems in this path that already carry an Study Card extension can be identified by the `Study Card` column in the auto-regenerated table below.
 - Optional but useful: a clean run through [Blind 75](../blind75/README.md) first, to get the pattern-recognition baseline.
 
 ## Milestones
 
-NeetCode 150 splits its 150 problems into 18 pattern milestones (a strict refinement of Blind 75's 6). The table below is auto-regenerated from `milestones["neetcode150"]` entries in `metadata.json`; **Canonical** = problems per milestone on the source list, **In repo** = problems already living under `problems/` and tagged into this milestone, **Reviewed** = subset of those that also carry an AI-card extension (`ai_card_status: "reviewed"`).
+NeetCode 150 splits its 150 problems into 18 pattern milestones (a strict refinement of Blind 75's 6). The table below is auto-regenerated from `milestones["neetcode150"]` entries in `metadata.json`; **Canonical** = problems per milestone on the source list, **In repo** = problems already living under `problems/` and tagged into this milestone, **Reviewed** = subset of those that also carry an Study Card extension (`study_card_status: "reviewed"`).
 
 <!-- MILESTONES_START -->
 | # | Milestone | Canonical | In repo | Reviewed |
@@ -43,12 +43,12 @@ NeetCode 150 splits its 150 problems into 18 pattern milestones (a strict refine
 | **Total** | | **150** | **12** | **12** |
 <!-- MILESTONES_END -->
 
-A milestone is "done" when every problem in it has `ai_card_status: reviewed` or better.
+A milestone is "done" when every problem in it has `study_card_status: reviewed` or better.
 
 ## Problem List
 
 <!-- PATH_LIST_START -->
-| # | ID | Problem | Difficulty | AI Card | Directory |
+| # | ID | Problem | Difficulty | Study Card | Directory |
 |---:|---:|---|---|---|---|
 | 1 | 0001 | Two Sum | Easy | [reviewed](../../problems/0001-two-sum/README.md#brute-force-baseline) | [`problems/0001-two-sum/`](../../problems/0001-two-sum/) |
 | 2 | 0003 | Longest Substring Without Repeating Characters | Medium | [reviewed](../../problems/0003-longest-substring-without-repeating-characters/README.md#brute-force-baseline) | [`problems/0003-longest-substring-without-repeating-characters/`](../../problems/0003-longest-substring-without-repeating-characters/) |
@@ -73,7 +73,7 @@ Each milestone has a corresponding topic note in [`0000-notes/`](../../0000-note
 ## Mock-Interview Tips
 
 - Time-box at 35--40 minutes per problem on the first pass. The harder NeetCode-150-only problems (intervals, advanced graphs, 2-D DP) genuinely take 30+ minutes the first time; do not be discouraged.
-- Treat the problems flagged with a `reviewed` AI card as starting points within each milestone --- their READMEs already document the common mistakes, failure cases, and follow-up directions you are likely to be asked about.
+- Treat the problems flagged with a `reviewed` study card as starting points within each milestone --- their READMEs already document the common mistakes, failure cases, and follow-up directions you are likely to be asked about.
 - On the second pass, write the solution from scratch without re-reading the README. Diff against `solution.py` to find the part that still does not come from memory.
 
 ## Weekly Plan
@@ -82,7 +82,7 @@ A 12-week plan that front-loads the patterns shared with Blind 75 and uses the b
 
 | Week | Focus | Target |
 |---|---|---|
-| 1 | M1 Arrays & Hashing, M2 Two Pointers | 14 problems, all `ai_card_status: draft` minimum |
+| 1 | M1 Arrays & Hashing, M2 Two Pointers | 14 problems, all `study_card_status: draft` minimum |
 | 2 | M3 Sliding Window, M4 Stack | 13 problems |
 | 3 | M5 Binary Search, M6 Linked List (part 1) | ~13 problems |
 | 4 | M6 Linked List (part 2), M7 Trees (part 1) | ~13 problems |
@@ -93,6 +93,6 @@ A 12-week plan that front-loads the patterns shared with Blind 75 and uses the b
 | 9 | M13 1-D DP (part 2), M14 2-D DP (part 1) | ~12 problems |
 | 10 | M14 2-D DP (part 2), M15 Greedy | ~13 problems |
 | 11 | M16 Intervals, M17 Math & Geometry, M18 Bit Manipulation | 21 problems |
-| 12 | Review pass | Every problem to `ai_card_status: reviewed`, plus mock-interview rotation |
+| 12 | Review pass | Every problem to `study_card_status: reviewed`, plus mock-interview rotation |
 
 Pace is aggressive --- 12--14 problems per week is heavy if you are starting from cold. Consider a 16-week version (~10 problems per week) if interviews are not imminent.

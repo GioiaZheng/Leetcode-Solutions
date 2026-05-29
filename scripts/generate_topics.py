@@ -148,21 +148,21 @@ def render_topics(groups):
                 "",
                 f"## {topic}",
                 "",
-                "| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |",
+                "| ID | Problem | Difficulty | Status | Paths | Study Card | Directory | Original Topics |",
                 "|---:|---|---|---|---|---|---|---|",
             ]
         )
         for row in rows:
             directory = row["directory"]
-            ai_card_cell = (
-                f"[{row['ai_card']}]({directory}/README.md#brute-force-baseline)"
-                if row["ai_card"]
+            study_card_cell = (
+                f"[{row['study_card']}]({directory}/README.md#brute-force-baseline)"
+                if row["study_card"]
                 else ""
             )
             lines.append(
                 (
                     "| {id} | {title} | {difficulty} | {status} | "
-                    "{paths} | {ai_card} | "
+                    "{paths} | {study_card} | "
                     "[`{directory}/`]({directory}/) | {topics} |"
                 ).format(
                     id=row["id"],
@@ -170,7 +170,7 @@ def render_topics(groups):
                     difficulty=escape_table_cell(row["difficulty"]),
                     status=escape_table_cell(row["status"]),
                     paths=escape_table_cell(row["paths"]),
-                    ai_card=ai_card_cell,
+                    study_card=study_card_cell,
                     directory=directory,
                     topics=escape_table_cell(row["topics"] or "Untagged"),
                 )

@@ -111,7 +111,7 @@ def render_problem_list(members, path_id, directories):
         return EMPTY_LIST_BODY.format(path_id=path_id)
 
     lines = [
-        "| # | ID | Problem | Difficulty | AI Card | Directory |",
+        "| # | ID | Problem | Difficulty | Study Card | Directory |",
         "|---:|---:|---|---|---|---|",
     ]
     for index, problem in enumerate(members, start=1):
@@ -124,15 +124,15 @@ def render_problem_list(members, path_id, directories):
             )
         title = str(problem.get("title", "")).replace("|", r"\|")
         difficulty = str(problem.get("difficulty", "")).replace("|", r"\|")
-        ai_card_raw = str(problem.get("ai_card_status") or "")
-        ai_card_cell = (
-            f"[{ai_card_raw}](../../problems/{directory}/README.md#brute-force-baseline)"
-            if ai_card_raw
+        study_card_raw = str(problem.get("study_card_status") or "")
+        study_card_cell = (
+            f"[{study_card_raw}](../../problems/{directory}/README.md#brute-force-baseline)"
+            if study_card_raw
             else ""
         )
         lines.append(
             f"| {index} | {problem_id} | {title} | {difficulty} | "
-            f"{ai_card_cell} | "
+            f"{study_card_cell} | "
             f"[`problems/{directory}/`](../../problems/{directory}/) |"
         )
     return "\n".join(lines)
@@ -163,7 +163,7 @@ def render_milestones(path_id, problems):
         if m_id is None or m_id not in tagged:
             continue
         tagged[m_id] += 1
-        if problem.get("ai_card_status") == "reviewed":
+        if problem.get("study_card_status") == "reviewed":
             reviewed[m_id] += 1
 
     lines = [

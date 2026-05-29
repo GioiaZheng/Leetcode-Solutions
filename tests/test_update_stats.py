@@ -107,32 +107,32 @@ def test_blind75_count_returns_zero_when_metadata_missing(tmp_path, monkeypatch)
     assert update_stats.blind75_count() == 0
 
 
-# ---- reviewed_ai_card_count -------------------------------------------
+# ---- reviewed_study_card_count -------------------------------------------
 
 
-def test_reviewed_ai_card_count_only_counts_status_reviewed(isolated_metadata):
+def test_reviewed_study_card_count_only_counts_status_reviewed(isolated_metadata):
     _write_metadata(
         isolated_metadata,
         [
-            {"id": "0001", "ai_card_status": "reviewed"},
-            {"id": "0002", "ai_card_status": "draft"},
-            {"id": "0003", "ai_card_status": "interview-ready"},
-            {"id": "0004"},  # no ai_card_status
-            {"id": "0005", "ai_card_status": "reviewed"},
+            {"id": "0001", "study_card_status": "reviewed"},
+            {"id": "0002", "study_card_status": "draft"},
+            {"id": "0003", "study_card_status": "interview-ready"},
+            {"id": "0004"},  # no study_card_status
+            {"id": "0005", "study_card_status": "reviewed"},
         ],
     )
 
     # Only "reviewed" counts. "draft" and "interview-ready" are valid
     # states but are NOT surfaced in the README's reviewed-card count
     # (that count gates the "Where to start" curated showcase).
-    assert update_stats.reviewed_ai_card_count() == 2  # 0001 + 0005
+    assert update_stats.reviewed_study_card_count() == 2  # 0001 + 0005
 
 
-def test_reviewed_ai_card_count_returns_zero_when_metadata_missing(
+def test_reviewed_study_card_count_returns_zero_when_metadata_missing(
     tmp_path, monkeypatch
 ):
     monkeypatch.setattr(update_stats, "METADATA", tmp_path / "nope.json")
-    assert update_stats.reviewed_ai_card_count() == 0
+    assert update_stats.reviewed_study_card_count() == 0
 
 
 # ---- update_readme (marker substitution) ------------------------------

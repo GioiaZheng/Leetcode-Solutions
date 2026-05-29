@@ -111,9 +111,9 @@ This is the classic optimal solution for Two Sum.
 * Why storing value → index is enough to retrieve the correct pair.
 
 <!--
-Sections below are the optional "AI card" extension. The problem
-carries `"ai_card_status": "reviewed"` in metadata.json. See
-CONTRIBUTING.md section "Optional Problem README Sections (AI Card)".
+Sections below are the optional "study card" extension. The problem
+carries `"study_card_status": "reviewed"` in metadata.json. See
+CONTRIBUTING.md section "Optional Problem README Sections (Study Card)".
 -->
 
 ---

@@ -115,7 +115,7 @@ def test_render_topics_emits_anchor_list_and_per_topic_tables():
             "difficulty": "Easy",
             "status": "tested",
             "paths": "blind75, neetcode150",
-            "ai_card": "reviewed",
+            "study_card": "reviewed",
             "directory": "problems/0001-two-sum",
             "topics": "Array; Hash Table",
         }
@@ -131,14 +131,14 @@ def test_render_topics_emits_anchor_list_and_per_topic_tables():
     assert "- [Hashing](#hashing) (1)" in body
 
     # Per-topic section header and 8-col table (matches the post-0bb2d49 schema:
-    # ID / Problem / Difficulty / Status / Paths / AI Card / Directory / Original Topics).
+    # ID / Problem / Difficulty / Status / Paths / Study Card / Directory / Original Topics).
     assert "## Arrays & Matrices" in body
     assert (
-        "| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |"
+        "| ID | Problem | Difficulty | Status | Paths | Study Card | Directory | Original Topics |"
         in body
     )
 
-    # AI Card cell is a link with the brute-force-baseline anchor.
+    # Study Card cell is a link with the brute-force-baseline anchor.
     assert (
         "[reviewed](problems/0001-two-sum/README.md#brute-force-baseline)"
         in body

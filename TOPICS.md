@@ -26,7 +26,7 @@ Problems can appear in multiple sections when their metadata has multiple topics
 
 ## Arrays & Matrices
 
-| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
+| ID | Problem | Difficulty | Status | Paths | Study Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
 | 0001 | Two Sum | Easy | tested | blind75, neetcode150 | [reviewed](problems/0001-two-sum/README.md#brute-force-baseline) | [`problems/0001-two-sum/`](problems/0001-two-sum/) | Array; Hash Table |
 | 0011 | Container With Most Water | Medium | solved | blind75, neetcode150 | [reviewed](problems/0011-container-with-most-water/README.md#brute-force-baseline) | [`problems/0011-container-with-most-water/`](problems/0011-container-with-most-water/) | Array; Two Pointers |
@@ -66,7 +66,7 @@ Problems can appear in multiple sections when their metadata has multiple topics
 
 ## Strings
 
-| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
+| ID | Problem | Difficulty | Status | Paths | Study Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
 | 0005 | Longest Palindromic Substring | Medium | solved | blind75, neetcode150 | [reviewed](problems/0005-longest-palindromic-substring/README.md#brute-force-baseline) | [`problems/0005-longest-palindromic-substring/`](problems/0005-longest-palindromic-substring/) | String; Two Pointers; Expand Around Center |
 | 0006 | Zigzag Conversion | Medium | solved |  |  | [`problems/0006-zigzag-conversion/`](problems/0006-zigzag-conversion/) | String; Simulation |
@@ -95,7 +95,7 @@ Problems can appear in multiple sections when their metadata has multiple topics
 
 ## Hashing
 
-| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
+| ID | Problem | Difficulty | Status | Paths | Study Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
 | 0001 | Two Sum | Easy | tested | blind75, neetcode150 | [reviewed](problems/0001-two-sum/README.md#brute-force-baseline) | [`problems/0001-two-sum/`](problems/0001-two-sum/) | Array; Hash Table |
 | 0003 | Longest Substring Without Repeating Characters | Medium | solved | blind75, neetcode150 | [reviewed](problems/0003-longest-substring-without-repeating-characters/README.md#brute-force-baseline) | [`problems/0003-longest-substring-without-repeating-characters/`](problems/0003-longest-substring-without-repeating-characters/) | Sliding Window; Hash Map; Two Pointers |
@@ -119,7 +119,7 @@ Problems can appear in multiple sections when their metadata has multiple topics
 
 ## Two Pointers & Sliding Window
 
-| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
+| ID | Problem | Difficulty | Status | Paths | Study Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
 | 0003 | Longest Substring Without Repeating Characters | Medium | solved | blind75, neetcode150 | [reviewed](problems/0003-longest-substring-without-repeating-characters/README.md#brute-force-baseline) | [`problems/0003-longest-substring-without-repeating-characters/`](problems/0003-longest-substring-without-repeating-characters/) | Sliding Window; Hash Map; Two Pointers |
 | 0005 | Longest Palindromic Substring | Medium | solved | blind75, neetcode150 | [reviewed](problems/0005-longest-palindromic-substring/README.md#brute-force-baseline) | [`problems/0005-longest-palindromic-substring/`](problems/0005-longest-palindromic-substring/) | String; Two Pointers; Expand Around Center |
@@ -138,7 +138,7 @@ Problems can appear in multiple sections when their metadata has multiple topics
 
 ## Binary Search
 
-| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
+| ID | Problem | Difficulty | Status | Paths | Study Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
 | 0004 | Median Of Two Sorted Arrays | Hard | solved | neetcode150 | [reviewed](problems/0004-median-of-two-sorted-arrays/README.md#brute-force-baseline) | [`problems/0004-median-of-two-sorted-arrays/`](problems/0004-median-of-two-sorted-arrays/) | Binary Search; Divide and Conquer; Partitioning |
 | 1292 | Maximum Side Length Of A Square With Sum Less Than Or Equal To Threshold | Medium | solved |  |  | [`problems/1292-maximum-side-length-of-a-square-with-sum-at-most-threshold/`](problems/1292-maximum-side-length-of-a-square-with-sum-at-most-threshold/) | Prefix Sum; Binary Search; Matrix |
@@ -151,7 +151,7 @@ Problems can appear in multiple sections when their metadata has multiple topics
 
 ## Sorting & Heap
 
-| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
+| ID | Problem | Difficulty | Status | Paths | Study Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
 | 0015 | 3sum | Medium | solved | blind75, neetcode150 | [reviewed](problems/0015-3sum/README.md#brute-force-baseline) | [`problems/0015-3sum/`](problems/0015-3sum/) | Array; Two Pointers; Sorting |
 | 0164 | Maximum Gap | Medium | solved |  |  | [`problems/0164-maximum-gap/`](problems/0164-maximum-gap/) | Bucket Sort; Pigeonhole Principle; Sorting |
@@ -175,7 +175,7 @@ Problems can appear in multiple sections when their metadata has multiple topics
 
 ## Greedy
 
-| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
+| ID | Problem | Difficulty | Status | Paths | Study Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
 | 0012 | Integer To Roman | Medium | solved |  |  | [`problems/0012-integer-to-roman/`](problems/0012-integer-to-roman/) | Math; String; Greedy |
 | 0121 | Best Time To Buy And Sell Stock | Easy | solved | blind75, neetcode150 | [reviewed](problems/0121-best-time-to-buy-and-sell-stock/README.md#brute-force-baseline) | [`problems/0121-best-time-to-buy-and-sell-stock/`](problems/0121-best-time-to-buy-and-sell-stock/) | Array; Greedy |
@@ -206,7 +206,7 @@ Problems can appear in multiple sections when their metadata has multiple topics
 
 ## Dynamic Programming
 
-| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
+| ID | Problem | Difficulty | Status | Paths | Study Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
 | 0010 | Regular Expression Matching | Hard | solved | neetcode150 | [reviewed](problems/0010-regular-expression-matching/README.md#brute-force-baseline) | [`problems/0010-regular-expression-matching/`](problems/0010-regular-expression-matching/) | String; Dynamic Programming |
 | 0042 | Trapping Rain Water | Hard | solved | blind75, neetcode150 | [reviewed](problems/0042-trapping-rain-water/README.md#brute-force-baseline) | [`problems/0042-trapping-rain-water/`](problems/0042-trapping-rain-water/) | Array; Two Pointers; Dynamic Programming; Stack |
@@ -222,7 +222,7 @@ Problems can appear in multiple sections when their metadata has multiple topics
 
 ## Graph & Tree
 
-| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
+| ID | Problem | Difficulty | Status | Paths | Study Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
 | 0679 | 24 Game | Hard | solved |  |  | [`problems/0679-24-game/`](problems/0679-24-game/) | Backtracking; DFS; Math |
 | 0756 | Pyramid Transition Matrix | Medium | solved |  |  | [`problems/0756-pyramid-transition-matrix/`](problems/0756-pyramid-transition-matrix/) | DFS; Backtracking; Memoization; Hash Table |
@@ -237,7 +237,7 @@ Problems can appear in multiple sections when their metadata has multiple topics
 
 ## Math & Counting
 
-| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
+| ID | Problem | Difficulty | Status | Paths | Study Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
 | 0002 | Add Two Numbers | Medium | solved |  |  | [`problems/0002-add-two-numbers/`](problems/0002-add-two-numbers/) | Linked List; Math |
 | 0007 | Reverse Integer | Medium | solved |  |  | [`problems/0007-reverse-integer/`](problems/0007-reverse-integer/) | Math |
@@ -268,7 +268,7 @@ Problems can appear in multiple sections when their metadata has multiple topics
 
 ## Geometry
 
-| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
+| ID | Problem | Difficulty | Status | Paths | Study Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
 | 1266 | Minimum Time Visiting All Points | Easy | solved |  |  | [`problems/1266-minimum-time-visiting-all-points/`](problems/1266-minimum-time-visiting-all-points/) | Geometry; Greedy; Math |
 | 2047 | Find The Largest Area Of Square Inside Two Rectangles | Medium | solved |  |  | [`problems/2047-find-the-largest-area-of-square-inside-two-rectangles/`](problems/2047-find-the-largest-area-of-square-inside-two-rectangles/) | Geometry; Brute Force; Enumeration |
@@ -282,7 +282,7 @@ Problems can appear in multiple sections when their metadata has multiple topics
 
 ## Backtracking & Search
 
-| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
+| ID | Problem | Difficulty | Status | Paths | Study Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
 | 0679 | 24 Game | Hard | solved |  |  | [`problems/0679-24-game/`](problems/0679-24-game/) | Backtracking; DFS; Math |
 | 0756 | Pyramid Transition Matrix | Medium | solved |  |  | [`problems/0756-pyramid-transition-matrix/`](problems/0756-pyramid-transition-matrix/) | DFS; Backtracking; Memoization; Hash Table |
@@ -293,7 +293,7 @@ Problems can appear in multiple sections when their metadata has multiple topics
 
 ## Simulation
 
-| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
+| ID | Problem | Difficulty | Status | Paths | Study Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
 | 0006 | Zigzag Conversion | Medium | solved |  |  | [`problems/0006-zigzag-conversion/`](problems/0006-zigzag-conversion/) | String; Simulation |
 | 2211 | Count Collisions On A Road | Medium | solved |  |  | [`problems/2211-count-collisions-on-a-road/`](problems/2211-count-collisions-on-a-road/) | String; Simulation |
@@ -307,14 +307,14 @@ Problems can appear in multiple sections when their metadata has multiple topics
 
 ## Stack & Monotonic Structures
 
-| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
+| ID | Problem | Difficulty | Status | Paths | Study Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
 | 0042 | Trapping Rain Water | Hard | solved | blind75, neetcode150 | [reviewed](problems/0042-trapping-rain-water/README.md#brute-force-baseline) | [`problems/0042-trapping-rain-water/`](problems/0042-trapping-rain-water/) | Array; Two Pointers; Dynamic Programming; Stack |
 | 0085 | Maximal Rectangle | Hard | solved |  | [reviewed](problems/0085-maximal-rectangle/README.md#brute-force-baseline) | [`problems/0085-maximal-rectangle/`](problems/0085-maximal-rectangle/) | Dynamic Programming; Stack; Monotonic Stack |
 
 ## Prefix & Difference Techniques
 
-| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
+| ID | Problem | Difficulty | Status | Paths | Study Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
 | 1292 | Maximum Side Length Of A Square With Sum Less Than Or Equal To Threshold | Medium | solved |  |  | [`problems/1292-maximum-side-length-of-a-square-with-sum-at-most-threshold/`](problems/1292-maximum-side-length-of-a-square-with-sum-at-most-threshold/) | Prefix Sum; Binary Search; Matrix |
 | 1590 | Make Sum Divisible By P | Medium | solved |  |  | [`problems/1590-make-sum-divisible-by-p/`](problems/1590-make-sum-divisible-by-p/) | Prefix Sum; Hash Map; Modular Arithmetic |
@@ -330,20 +330,20 @@ Problems can appear in multiple sections when their metadata has multiple topics
 
 ## Linked Lists
 
-| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
+| ID | Problem | Difficulty | Status | Paths | Study Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
 | 0002 | Add Two Numbers | Medium | solved |  |  | [`problems/0002-add-two-numbers/`](problems/0002-add-two-numbers/) | Linked List; Math |
 | 3510 | Minimum Pair Removal To Sort Array Ii | Hard | solved |  |  | [`problems/3510-minimum-pair-removal-to-sort-array-ii/`](problems/3510-minimum-pair-removal-to-sort-array-ii/) | Greedy; Heap; Linked List; Simulation |
 
 ## Advanced Data Structures
 
-| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
+| ID | Problem | Difficulty | Status | Paths | Study Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
 | 3454 | Separate Squares Ii | Hard | solved |  |  | [`problems/3454-separate-squares-ii/`](problems/3454-separate-squares-ii/) | Sweep Line; Segment Tree; Geometry; Binary Search |
 
 ## Other Techniques
 
-| ID | Problem | Difficulty | Status | Paths | AI Card | Directory | Original Topics |
+| ID | Problem | Difficulty | Status | Paths | Study Card | Directory | Original Topics |
 |---:|---|---|---|---|---|---|---|
 | 0004 | Median Of Two Sorted Arrays | Hard | solved | neetcode150 | [reviewed](problems/0004-median-of-two-sorted-arrays/README.md#brute-force-baseline) | [`problems/0004-median-of-two-sorted-arrays/`](problems/0004-median-of-two-sorted-arrays/) | Binary Search; Divide and Conquer; Partitioning |
 | 0005 | Longest Palindromic Substring | Medium | solved | blind75, neetcode150 | [reviewed](problems/0005-longest-palindromic-substring/README.md#brute-force-baseline) | [`problems/0005-longest-palindromic-substring/`](problems/0005-longest-palindromic-substring/) | String; Two Pointers; Expand Around Center |

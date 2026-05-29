@@ -64,9 +64,9 @@ The dynamic-programming variant with explicit `left_max[]` / `right_max[]` array
 The canonical implementation is in [`solution.py`](solution.py). The two-pointer variant is the recommended one for interviews — it requires explaining the bounding-wall invariant but uses constant extra memory.
 
 <!--
-Sections below are the optional "AI card" extension. The problem
-carries `"ai_card_status": "reviewed"` in metadata.json. See
-CONTRIBUTING.md section "Optional Problem README Sections (AI Card)".
+Sections below are the optional "study card" extension. The problem
+carries `"study_card_status": "reviewed"` in metadata.json. See
+CONTRIBUTING.md section "Optional Problem README Sections (Study Card)".
 -->
 
 ---
