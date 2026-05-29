@@ -28,7 +28,7 @@ merged as `5e6b02f`. Roughly three threads, in order:
 **High-frequency hard showcases**
 - `146d7fc` `feat(showcase): create 0042 Trapping Rain Water from
   scratch` --- the first new-problem-from-scratch entry on `main`
-  (Blind 75 had a gap). Two-pointer O(n)/O(1) solution + full AI
+  (Blind 75 had a gap). Two-pointer O(n)/O(1) solution + full study
   card.
 - `b4acdbb` `feat(showcase): migrate 0085 Maximal Rectangle to Study Card
   template` --- the only reviewed study card without `path_membership`.
@@ -125,7 +125,7 @@ Five commits on top of `b61e63d` (the v2 merge commit on `main`):
   readers.
 
 Result: **reviewed study cards are surfaced in four places** (README
-"Where to start" table, CATALOG.md `Study Card` column, TOPICS.md `AI
+"Where to start" table, CATALOG.md `Study Card` column, TOPICS.md `Study
 Card` column, paths/blind75/README.md `Study Card` column), all kept in
 sync by `make sync` / `make sync-check` and enforced by CI.
 
