@@ -79,7 +79,7 @@ problems/####-problem-name
 ```
 
 - `####` - four-digit LeetCode problem ID
-- `problem-name` - lowercase kebab-case (ASCII only, no `<`, `=`, `>` or other shell-unfriendly characters)
+- `problem-name` - lowercase kebab-case (ASCII only, no `<`, `=`, `>` or other CLI-unfriendly characters)
 
 Examples:
 
@@ -91,7 +91,7 @@ problems/3453-separate-squares-i
 
 ---
 
-# Quick Start
+# Quickstart
 
 ```bash
 git clone https://github.com/GioiaZheng/Leetcode-Solutions.git
@@ -108,6 +108,14 @@ pytest
 ```
 
 Individual `solution.py` files are LeetCode-style modules - a single `class Solution`. They are not meant to be run directly.
+
+Expected output:
+
+```text
+Repository validation passed
+Security scan passed
+pytest: all selected tests passed
+```
 
 ---
 

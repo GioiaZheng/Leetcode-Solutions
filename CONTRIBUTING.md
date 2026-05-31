@@ -27,7 +27,7 @@ repo easy to browse, regenerate, and validate.
 
 - Use a four-digit LeetCode ID prefix.
 - Use lowercase kebab-case for the title slug.
-- Keep names ASCII-only and shell-friendly.
+- Keep names ASCII-only and CLI-friendly.
 - Do not put problem directories at the repository root; all solved problems
   belong under `problems/`.
 - Keep each solution self-contained unless the LeetCode problem itself defines
